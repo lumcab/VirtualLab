@@ -1,80 +1,82 @@
-#!/bin/bash
+<div align="center">
 
-echo "Iniciando la construcción del Laboratorio Virtual - I.E. Paulo VI..."
+# 🔬 Laboratorio Virtual | I.E. Paulo VI
 
-# 1. Crear directorios principales y subdirectorios de periodos
-mkdir -p fisica_10/periodo_{1,2,3,4}
-mkdir -p fisica_11/periodo_{1,2,3,4}
-mkdir -p matematicas_6/periodo_{1,2,3,4}
-mkdir -p geometria_6/periodo_{1,2,3,4}
+![Estado](https://img.shields.io/badge/Estado-Activo_y_Modular-success?style=for-the-badge&logo=statuspage)
+![Versión](https://img.shields.io/badge/Versión-2.0.0-blue?style=for-the-badge&logo=git)
+![Licencia](https://img.shields.io/badge/Licencia-MIT-yellow?style=for-the-badge&logo=open-source-initiative)
+![Tech](https://img.shields.io/badge/Tech-HTML5_|_JS_Puro_|_Bash-38bdf8?style=for-the-badge&logo=javascript)
 
-# 2. Crear archivos index.html principales
-touch index.html
-touch fisica_10/index.html
-touch fisica_11/index.html
-touch matematicas_6/index.html
-touch geometria_6/index.html
+**Plataforma interactiva para la enseñanza de Ciencias Naturales y Matemáticas mediante simulaciones y evaluación en tiempo real.**
 
-# 3. Crear archivos temáticos para Física 10°
-# Periodo 1
-touch fisica_10/periodo_1/1_intro_ciencia.html
-touch fisica_10/periodo_1/2_magnitudes_vectores.html
-touch fisica_10/periodo_1/3_cinematica.html
-# Periodo 2
-touch fisica_10/periodo_2/1_estatica_dinamica.html
-touch fisica_10/periodo_2/2_energia_trabajo.html
-touch fisica_10/periodo_2/3_impulso_gravitacion.html
-# Periodo 3
-touch fisica_10/periodo_3/1_hidrostatica.html
-touch fisica_10/periodo_3/2_hidrodinamica.html
-touch fisica_10/periodo_3/3_bernoulli.html
-# Periodo 4
-touch fisica_10/periodo_4/1_temperatura_calor.html
-touch fisica_10/periodo_4/2_termodinamica.html
+[Ver Demo (GitHub Pages)]() · [Reportar un Bug]() · [Solicitar Función]()
 
-# 4. Crear archivos temáticos para Física 11°
-# Periodo 1
-touch fisica_11/periodo_1/1_mas.html
-touch fisica_11/periodo_1/2_ondas_sonido.html
-# Periodo 2
-touch fisica_11/periodo_2/1_optica_naturaleza.html
-touch fisica_11/periodo_2/2_refraccion_instrumentos.html
-# Periodo 3
-touch fisica_11/periodo_3/1_electrostatica.html
-touch fisica_11/periodo_3/2_electrodinamica.html
-# Periodo 4
-touch fisica_11/periodo_4/1_magnetismo.html
-touch fisica_11/periodo_4/2_electromagnetismo.html
+</div>
 
-# 5. Crear archivos temáticos para Matemáticas 6°
-# Periodo 1
-touch matematicas_6/periodo_1/1_sistemas_numeracion.html
-touch matematicas_6/periodo_1/2_ecuaciones.html
-touch matematicas_6/periodo_1/3_estadistica_intro.html
-# Periodo 2
-touch matematicas_6/periodo_2/1_divisibilidad.html
-touch matematicas_6/periodo_2/2_operaciones_avanzadas.html
-touch matematicas_6/periodo_2/3_tablas_graficos.html
-# Periodo 3
-touch matematicas_6/periodo_3/1_fracciones.html
-touch matematicas_6/periodo_3/2_estadistica_aleatoria.html
-# Periodo 4
-touch matematicas_6/periodo_4/1_decimales.html
-touch matematicas_6/periodo_4/2_razones_porcentajes.html
-touch matematicas_6/periodo_4/3_probabilidad_conjuntos.html
+---
 
-# 6. Crear archivos temáticos para Geometría 6°
-# Periodo 1
-touch geometria_6/periodo_1/1_conceptos_basicos.html
-touch geometria_6/periodo_1/2_construccion_rectas.html
-# Periodo 2
-touch geometria_6/periodo_2/1_angulos_conceptos.html
-touch geometria_6/periodo_2/2_construccion_angulos.html
-# Periodo 3
-touch geometria_6/periodo_3/1_plano_cartesiano.html
-touch geometria_6/periodo_3/2_poligonos.html
-# Periodo 4
-touch geometria_6/periodo_4/1_transformaciones_intro.html
-touch geometria_6/periodo_4/2_transformaciones_lineales.html
+## 📋 Descripción
 
-echo "¡Estructura generada con éxito! Todos los directorios y archivos están listos."
+El **Laboratorio Virtual** es una suite de herramientas educativas web desarrollada para los estudiantes de la **Institución Educativa Paulo VI**. Este proyecto busca modernizar el aprendizaje en el aula mediante la gamificación, la visualización interactiva de conceptos abstractos y la evaluación continua.
+
+En su versión 2.0.0, el sistema ha sido completamente reestructurado en una **arquitectura modular por periodos académicos**, evitando la sobrecarga cognitiva. Es un sistema ligero, estático y no requiere instalación, ideal para funcionar en equipos con recursos limitados o dispositivos móviles.
+
+---
+
+## 🚀 Módulos Académicos (Plan Anual)
+
+El contenido está distribuido a lo largo de los 4 periodos académicos del año escolar para facilitar el aprendizaje progresivo.
+
+### 📐 Matemáticas y Geometría (Grado 6°)
+Fundamentos numéricos, lógicos y espaciales.
+
+| Módulo | Directorio Base | Descripción Temática | Características Clave |
+| :--- | :--- | :--- | :--- |
+| **Matemáticas** | `/matematicas_6/` | Sistemas numéricos, divisibilidad, fracciones, decimales y estadística. | • Juegos de lógica binaria<br>• Calculadoras fraccionarias<br>• Quizzes al final de cada tema |
+| **Geometría** | `/geometria_6/` | Geometría Euclidiana, ángulos, polígonos y transformaciones. | • Renderizado en Canvas API<br>• Herramientas de trazado virtual<br>• Interfaz táctil amigable |
+
+### ⚛️ Ciencias Naturales: Física (Grados 10° y 11°)
+Simuladores para fenómenos físicos, cinemática y electromagnetismo.
+
+| Módulo | Directorio Base | Descripción Temática | Características Clave |
+| :--- | :--- | :--- | :--- |
+| **Física Mecánica (10°)** | `/fisica_10/` | Cinemática, dinámica, mecánica de fluidos y termodinámica. | • Simuladores de movimiento<br>• Diagramas de cuerpo libre<br>• Calculadora de calorimetría |
+| **Ondas y Energía (11°)** | `/fisica_11/` | Movimiento armónico, ondas, óptica y electromagnetismo. | • Visualizador de efecto Doppler<br>• Trazador de rayos (Óptica)<br>• Circuitos virtuales (Ley Ohm) |
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+Este proyecto utiliza un stack **"Vanilla"** (sin frameworks pesados) para garantizar la máxima compatibilidad, velocidad de carga y facilidad de edición en entornos Linux y Windows.
+
+* **Estructura:** HTML5 Semántico.
+* **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (vía CDN) y CSS3 moderno.
+* **Lógica e Interacción:** JavaScript (ES6+) nativo.
+* **Automatización:** Scripts de Bash (`.sh`) para el andamiaje del proyecto.
+* **Iconografía:** [FontAwesome 6](https://fontawesome.com/).
+* **Tipografías:** Google Fonts (*Cinzel, Fredoka, Orbitron, Share Tech Mono*).
+
+---
+
+## 📂 Estructura del Proyecto
+
+El repositorio sigue un modelo estricto de carpetas para mantener el orden por materia y periodo lectivo:
+
+```text
+Laboratorio_Virtual/
+│
+├── index.html               # 🏠 Dashboard principal y menú de navegación global
+├── generador_archivos.sh    # ⚙️ Script para construir la estructura base
+│
+├── fisica_10/               # 📂 Módulos de Física 10°
+│   ├── index.html           # Menú de la materia
+│   ├── periodo_1/           # Páginas temáticas del Periodo 1
+│   ├── periodo_2/           # Páginas temáticas del Periodo 2
+│   └── ...
+│
+├── fisica_11/               # 📂 Módulos de Física 11°
+├── matematicas_6/           # 📂 Módulos de Matemáticas 6°
+├── geometria_6/             # 📂 Módulos de Geometría 6°
+│
+├── LICENSE                  # ⚖️ Archivo de Licencia MIT
+└── README.md                # 📄 Documentación del proyecto
