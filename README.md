@@ -63,20 +63,33 @@ Este proyecto utiliza un stack **"Vanilla"** (sin frameworks pesados) para garan
 El repositorio sigue un modelo estricto de carpetas para mantener el orden por materia y periodo lectivo:
 
 ```text
-Laboratorio_Virtual/
+edu-repo/
+├── index.html                    ← Panel central con 4 materias
+├── styles.css                    ← CSS global con modo oscuro/claro
+├── app.js                        ← JavaScript global (quizzes, utilidades)
 │
-├── index.html               # 🏠 Dashboard principal y menú de navegación global
-├── generador_archivos.sh    # ⚙️ Script para construir la estructura base
+├── matematicas6/
+│   ├── index.html                ← Menú de 4 periodos
+│   └── periodo1-4/               ← 11 páginas temáticas
+│       ├── 1_sistemas_numeracion.html  (✨ Completo con interactivos)
+│       ├── 2_ecuaciones.html           (✨ Completo)
+│       ├── 3_estadistica_intro.html    (✨ Completo)
+│       └── ... (otras 8 páginas)
 │
-├── fisica_10/               # 📂 Módulos de Física 10°
-│   ├── index.html           # Menú de la materia
-│   ├── periodo_1/           # Páginas temáticas del Periodo 1
-│   ├── periodo_2/           # Páginas temáticas del Periodo 2
-│   └── ...
+├── geometria6/
+│   ├── index.html                ← Menú de 4 periodos
+│   └── periodo1-4/               ← 8 páginas temáticas
+│       ├── 1_conceptos_basicos.html    (✨ Con Canvas interactivo)
+│       └── ... (otras 7 páginas)
 │
-├── fisica_11/               # 📂 Módulos de Física 11°
-├── matematicas_6/           # 📂 Módulos de Matemáticas 6°
-├── geometria_6/             # 📂 Módulos de Geometría 6°
+├── fisica10/
+│   ├── index.html                ← Menú de 4 periodos
+│   └── periodo1-4/               ← 11 páginas temáticas
+│       ├── 2_magnitudes_vectores.html  (✨ Simulaciones completas)
+│       └── ... (otras 10 páginas)
 │
-├── LICENSE                  # ⚖️ Archivo de Licencia MIT
-└── README.md                # 📄 Documentación del proyecto
+└── fisica11/
+    ├── index.html                ← Menú de 4 periodos
+    └── periodo1-4/               ← 8 páginas temáticas
+        ├── 2_ondas_sonido.html   (✨ M.A.S., Ondas, Efecto Doppler)
+        └── ... (otras 7 páginas)
