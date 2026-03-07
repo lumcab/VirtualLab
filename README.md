@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔬 Laboratorio Virtual | I.E. Paulo VI
+# 🔬 Laboratorio Virtual | LUMCAB
 
 ![Estado](https://img.shields.io/badge/Estado-Activo_y_Modular-success?style=for-the-badge&logo=statuspage)
 ![Versión](https://img.shields.io/badge/Versión-2.0.0-blue?style=for-the-badge&logo=git)
