@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecuaciones e Inecuaciones | Matemáticas 6°</title>
+    <link rel="icon" href="../../icon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        tech: ['Orbitron', 'sans-serif'],
+                        body: ['Rajdhani', 'sans-serif']
+                    },
+                    colors: {
+                        neon: '#00f3ff',
+                        cyber: '#facc15',
+                        math: '#f59e0b',
+                        geo: '#0ea5e9',
+                        fis10: '#3b82f6',
+                        fis11: '#a855f7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="navbar-content">
+            <a href="../../index.html" class="nav-brand">
+                <i class="fas fa-home-alt mr-2 text-neon"></i>
+                VIRTUAL-LAB
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="../index.html" class="nav-back border-math text-math hover:bg-math/10 hover:border-math">
+                    <i class="fas fa-calculator"></i>
+                    <span>Volver a Matemáticas 6°</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- Título del Tema -->
+        <div class="text-center mb-12">
+            <h1 class="font-tech text-4xl md:text-5xl font-bold text-math">
+                2. Ecuaciones e Inecuaciones
+            </h1>
+            <p class="text-secondary mt-2 text-lg">Descubriendo el equilibrio y las desigualdades en las matemáticas.</p>
+        </div>
+
+        <!-- Contenido Teórico -->
+        <section id="teoria" class="theory-section border-l-math mb-12">
+            <h2 class="text-math"><i class="fas fa-book-open mr-3"></i>Teoría: La Balanza Matemática</h2>
+            <p class="mb-4">
+                Una <strong>ecuación</strong> es una igualdad matemática entre dos expresiones, en las que aparecen valores conocidos y una o más incógnitas (representadas por letras, como 'x'). Piensa en ella como una balanza en perfecto equilibrio. Lo que haces de un lado, debes hacerlo del otro para mantener el balance.
+            </p>
+            <div class="bg-secondary p-4 rounded-lg mb-4">
+                <p class="font-tech text-center text-xl">Ejemplo: <code class="bg-primary p-2 rounded">x + 5 = 12</code></p>
+                <p class="text-center text-sm text-muted mt-2">Para encontrar 'x', restamos 5 en ambos lados: x = 12 - 5, entonces <strong>x = 7</strong>.</p>
+            </div>
+            <p class="mb-4">
+                Una <strong>inecuación</strong>, por otro lado, es una desigualdad. En lugar de un signo de igual (=), usamos símbolos como mayor que (>), menor que (<), mayor o igual que (≥) o menor o igual que (≤). Aquí, la balanza está inclinada.
+            </p>
+            <div class="bg-secondary p-4 rounded-lg">
+                <p class="font-tech text-center text-xl">Ejemplo: <code class="bg-primary p-2 rounded">x + 3 > 8</code></p>
+                <p class="text-center text-sm text-muted mt-2">Restamos 3 en ambos lados: x > 8 - 3, entonces la solución es cualquier número <strong>mayor que 5</strong> (6, 7, 8.5, etc.).</p>
+            </div>
+        </section>
+
+        <!-- Sección Interactiva -->
+        <section id="interactiva" class="interactive-section mb-12">
+            <h2><i class="fas fa-gamepad mr-3"></i>Zona Interactiva: Solucionador de Ecuaciones Lineales</h2>
+            <p class="text-secondary mb-6">Introduce una ecuación lineal simple (ej. x + 3 = 10) y observa cómo se resuelve paso a paso.</p>
+            
+            <div class="flex flex-col md:flex-row gap-4 items-center">
+                <input type="text" id="equationInput" placeholder="Ej: x + 5 = 12" class="w-full md:w-1/2 font-mono text-xl p-3">
+                <button id="solveBtn" class="btn btn-primary bg-cyber text-slate-900">
+                    <i class="fas fa-cogs mr-2"></i>Resolver
+                </button>
+            </div>
+
+            <div id="steps" class="mt-6 bg-secondary p-6 rounded-lg hidden">
+                <h3 class="font-tech text-xl mb-4">Pasos de la Solución:</h3>
+                <div id="steps-container" class="space-y-3 font-mono">
+                    <!-- Los pasos se generarán aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Evaluación -->
+        <section id="evaluacion" class="quiz-section">
+            <h2><i class="fas fa-award mr-3"></i>Evaluación: ¿Puedes equilibrar la balanza?</h2>
+            <p class="text-secondary mb-6">Responde las siguientes preguntas para verificar lo que has aprendido.</p>
+            <div id="quiz-container">
+                <!-- El quiz se generará aquí -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold text-lg">I.E. Paulo VI</p>
+            <p class="text-sm mt-1">Docente: Luis Miguel Cabrera</p>
+            <p class="text-xs mt-4 text-muted">Laboratorio Virtual © 2026 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../../app.js" defer></script>
+    <script src="2_ecuaciones.js" defer></script>
+</body>
+</html>

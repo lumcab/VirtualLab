@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones Avanzadas | Matemáticas 6°</title>
+    <link rel="icon" href="../../icon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        tech: ['Orbitron', 'sans-serif'],
+                        body: ['Rajdhani', 'sans-serif']
+                    },
+                    colors: {
+                        neon: '#00f3ff',
+                        cyber: '#facc15',
+                        math: '#f59e0b',
+                        geo: '#0ea5e9',
+                        fis10: '#3b82f6',
+                        fis11: '#a855f7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="navbar-content">
+            <a href="../../index.html" class="nav-brand">
+                <i class="fas fa-home-alt mr-2 text-neon"></i>
+                VIRTUAL-LAB
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="../index.html" class="nav-back border-math text-math hover:bg-math/10 hover:border-math">
+                    <i class="fas fa-calculator"></i>
+                    <span>Volver a Matemáticas 6°</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- Título del Tema -->
+        <div class="text-center mb-12">
+            <h1 class="font-tech text-4xl md:text-5xl font-bold text-math">
+                2. Operaciones Avanzadas
+            </h1>
+            <p class="text-secondary mt-2 text-lg">Potenciación, Radicación y Logaritmación.</p>
+        </div>
+
+        <!-- Contenido Teórico -->
+        <section id="teoria" class="theory-section border-l-math mb-12">
+            <h2 class="text-math"><i class="fas fa-book-open mr-3"></i>Teoría: Más Allá de Sumar y Restar</h2>
+            <p class="mb-6">
+                Una vez que dominamos la suma, resta, multiplicación y división, podemos explorar tres operaciones relacionadas que nos abren un nuevo mundo de posibilidades matemáticas.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Potenciación -->
+                <div class="bg-secondary p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-superscript"></i>Potenciación</h3>
+                    <p class="text-sm">Es una forma de abreviar una multiplicación repetida. En <code class="p-1 rounded bg-primary">aⁿ</code>, 'a' es la <strong>base</strong> y 'n' es el <strong>exponente</strong>, que nos dice cuántas veces multiplicar la base por sí misma.</p>
+                    <p class="font-tech text-center text-lg bg-primary rounded py-1 mt-2">2³ = 2 x 2 x 2 = 8</p>
+                </div>
+                <!-- Radicación -->
+                <div class="bg-secondary p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-square-root-alt"></i>Radicación</h3>
+                    <p class="text-sm">Es la operación inversa a la potenciación. Nos preguntamos qué número, multiplicado por sí mismo 'n' veces, nos da el número dentro de la raíz. <code class="p-1 rounded bg-primary">√</code> es el símbolo de la raíz.</p>
+                    <p class="font-tech text-center text-lg bg-primary rounded py-1 mt-2">√9 = 3 (porque 3 x 3 = 9)</p>
+                </div>
+                <!-- Logaritmación -->
+                <div class="bg-secondary p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-lightbulb"></i>Logaritmación</h3>
+                    <p class="text-sm">Es otra operación inversa. Aquí, buscamos el <strong>exponente</strong>. <code class="p-1 rounded bg-primary">log₂(8)</code> pregunta: "¿A qué potencia debo elevar 2 para obtener 8?".</p>
+                    <p class="font-tech text-center text-lg bg-primary rounded py-1 mt-2">log₂(8) = 3 (porque 2³ = 8)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Interactiva -->
+        <section id="interactiva" class="interactive-section mb-12">
+            <h2><i class="fas fa-gamepad mr-3"></i>Zona Interactiva: Calculadora de Operaciones</h2>
+            <p class="text-secondary mb-6">Elige una operación, ingresa los números y comprueba el resultado.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Potencia -->
+                <div class="bg-primary p-4 rounded-lg border border-border-color">
+                    <h3 class="font-tech text-lg text-center mb-3">Potencia (aⁿ)</h3>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="powBase" placeholder="Base (a)" class="w-full text-center font-mono p-2">
+                        <span class="font-bold text-xl">^</span>
+                        <input type="number" id="powExp" placeholder="Exp (n)" class="w-full text-center font-mono p-2">
+                    </div>
+                    <button id="calcPow" class="btn btn-primary bg-math w-full mt-3">Calcular</button>
+                    <p class="text-center mt-3 font-tech text-2xl" id="powResult">-</p>
+                </div>
+                <!-- Raíz Cuadrada -->
+                <div class="bg-primary p-4 rounded-lg border border-border-color">
+                    <h3 class="font-tech text-lg text-center mb-3">Raíz Cuadrada (√a)</h3>
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-2xl">√</span>
+                        <input type="number" id="sqrtNum" placeholder="Número (a)" class="w-full text-center font-mono p-2">
+                    </div>
+                    <button id="calcSqrt" class="btn btn-primary bg-math w-full mt-3">Calcular</button>
+                    <p class="text-center mt-3 font-tech text-2xl" id="sqrtResult">-</p>
+                </div>
+                <!-- Logaritmo base 2 -->
+                <div class="bg-primary p-4 rounded-lg border border-border-color">
+                    <h3 class="font-tech text-lg text-center mb-3">Logaritmo (log₂(a))</h3>
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-xl">log₂ (</span>
+                        <input type="number" id="logNum" placeholder="Número (a)" class="w-full text-center font-mono p-2">
+                        <span class="font-bold text-xl">)</span>
+                    </div>
+                    <button id="calcLog" class="btn btn-primary bg-math w-full mt-3">Calcular</button>
+                    <p class="text-center mt-3 font-tech text-2xl" id="logResult">-</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Evaluación -->
+        <section id="evaluacion" class="quiz-section">
+            <h2><i class="fas fa-award mr-3"></i>Evaluación: Pon a Prueba tu Poder Matemático</h2>
+            <p class="text-secondary mb-6">Demuestra que dominas estas nuevas operaciones.</p>
+            <div id="quiz-container">
+                <!-- El quiz se generará aquí -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold text-lg">I.E. Paulo VI</p>
+            <p class="text-sm mt-1">Docente: Luis Miguel Cabrera</p>
+            <p class="text-xs mt-4 text-muted">Laboratorio Virtual © 2026 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../../app.js" defer></script>
+    <script src="2_operaciones_avanzadas.js" defer></script>
+</body>
+</html>

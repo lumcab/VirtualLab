@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a la Estadística | Matemáticas 6°</title>
+    <link rel="icon" href="../../icon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        tech: ['Orbitron', 'sans-serif'],
+                        body: ['Rajdhani', 'sans-serif']
+                    },
+                    colors: {
+                        neon: '#00f3ff',
+                        cyber: '#facc15',
+                        math: '#f59e0b',
+                        geo: '#0ea5e9',
+                        fis10: '#3b82f6',
+                        fis11: '#a855f7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="navbar-content">
+            <a href="../../index.html" class="nav-brand">
+                <i class="fas fa-home-alt mr-2 text-neon"></i>
+                VIRTUAL-LAB
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="../index.html" class="nav-back border-math text-math hover:bg-math/10 hover:border-math">
+                    <i class="fas fa-calculator"></i>
+                    <span>Volver a Matemáticas 6°</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- Título del Tema -->
+        <div class="text-center mb-12">
+            <h1 class="font-tech text-4xl md:text-5xl font-bold text-math">
+                3. Introducción a la Estadística
+            </h1>
+            <p class="text-secondary mt-2 text-lg">Aprendiendo a recolectar, analizar e interpretar datos.</p>
+        </div>
+
+        <!-- Contenido Teórico -->
+        <section id="teoria" class="theory-section border-l-math mb-12">
+            <h2 class="text-math"><i class="fas fa-book-open mr-3"></i>Teoría: El Mundo de los Datos</h2>
+            <p class="mb-6">
+                La estadística es la ciencia que se encarga de recoger, organizar e interpretar datos. ¡Está por todas partes! En los deportes, las noticias, los videojuegos... Para entenderla, necesitamos conocer tres conceptos básicos:
+            </p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Población -->
+                <div class="bg-secondary p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-users"></i>Población</h3>
+                    <p class="text-sm">Es el <strong>conjunto completo</strong> de todos los elementos que nos interesan para un estudio. Por ejemplo, <span class="font-semibold text-primary">todos los estudiantes</span> de la I.E. Paulo VI.</p>
+                </div>
+                <!-- Muestra -->
+                <div class="bg-secondary p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-user-check"></i>Muestra</h3>
+                    <p class="text-sm">Es una <strong>parte o subconjunto</strong> de la población que seleccionamos para el estudio. Es más fácil y rápido estudiar una muestra. Por ejemplo, <span class="font-semibold text-primary">50 estudiantes elegidos al azar</span> del colegio.</p>
+                </div>
+                <!-- Variable -->
+                <div class="bg-secondary p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-ruler-combined"></i>Variable</h3>
+                    <p class="text-sm">Es la característica que se estudia en la población o muestra. Puede ser de dos tipos:</p>
+                    <ul class="text-xs list-disc list-inside mt-2 space-y-1">
+                        <li><strong>Cualitativa:</strong> No se mide con números (ej: color de ojos, comida favorita).</li>
+                        <li><strong>Cuantitativa:</strong> Se mide con números (ej: edad, estatura, número de hermanos).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Interactiva -->
+        <section id="interactiva" class="interactive-section mb-12">
+            <h2><i class="fas fa-gamepad mr-3"></i>Zona Interactiva: Identifica los Conceptos</h2>
+            <p class="text-secondary mb-6">Lee el siguiente caso de estudio y arrastra las etiquetas a la categoría correcta.</p>
+            
+            <div id="interactive-case" class="bg-secondary p-6 rounded-lg mb-6">
+                <p class="font-bold mb-2">Caso de Estudio:</p>
+                <p>Se quiere saber el <span class="font-bold text-math">deporte favorito</span> de los estudiantes del grado 6° de la I.E. Paulo VI. Para ello, se encuesta a <span class="font-bold text-math">25 estudiantes de sexto</span> y se les pregunta por su elección.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Dropzones -->
+                <div class="text-center">
+                    <h3 class="font-tech mb-3">POBLACIÓN</h3>
+                    <div id="drop-poblacion" class="dropzone bg-primary h-24 rounded-lg border-2 border-dashed border-border-color flex items-center justify-center">
+                        <span class="text-muted">Arrastra aquí</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="font-tech mb-3">MUESTRA</h3>
+                    <div id="drop-muestra" class="dropzone bg-primary h-24 rounded-lg border-2 border-dashed border-border-color flex items-center justify-center">
+                        <span class="text-muted">Arrastra aquí</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="font-tech mb-3">VARIABLE</h3>
+                    <div id="drop-variable" class="dropzone bg-primary h-24 rounded-lg border-2 border-dashed border-border-color flex items-center justify-center">
+                        <span class="text-muted">Arrastra aquí</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Draggables -->
+            <div id="draggable-items" class="flex flex-wrap gap-4 justify-center mt-8">
+                <div id="drag-1" class="draggable cursor-grab bg-cyber text-black font-bold p-3 rounded-md" draggable="true">Todos los estudiantes de 6°</div>
+                <div id="drag-2" class="draggable cursor-grab bg-cyber text-black font-bold p-3 rounded-md" draggable="true">Deporte favorito</div>
+                <div id="drag-3" class="draggable cursor-grab bg-cyber text-black font-bold p-3 rounded-md" draggable="true">25 estudiantes de 6°</div>
+            </div>
+            <div class="text-center mt-4">
+                 <button id="reset-drag-btn" class="btn btn-secondary hidden">
+                    <i class="fas fa-sync-alt mr-2"></i>Reiniciar Ejercicio
+                </button>
+            </div>
+        </section>
+
+        <!-- Sección de Evaluación -->
+        <section id="evaluacion" class="quiz-section">
+            <h2><i class="fas fa-award mr-3"></i>Evaluación: Conceptos de Estadística</h2>
+            <p class="text-secondary mb-6">Demuestra que dominas los conceptos básicos de la estadística.</p>
+            <div id="quiz-container">
+                <!-- El quiz se generará aquí -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold text-lg">I.E. Paulo VI</p>
+            <p class="text-sm mt-1">Docente: Luis Miguel Cabrera</p>
+            <p class="text-xs mt-4 text-muted">Laboratorio Virtual © 2026 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../../app.js" defer></script>
+    <script src="3_estadistica_intro.js" defer></script>
+</body>
+</html>

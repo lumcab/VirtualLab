@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptos Básicos | Geometría 6° - Período 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
+                    colors: { geo: '#0ea5e9', neon: '#00f3ff' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen" style="background-color: #0f172a;">
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../index.html" class="nav-back"><i class="fas fa-arrow-left"></i> Geometría 6°</a>
+            <div class="flex items-center gap-3">
+                <i class="fas fa-dot-circle text-geo text-xl"></i>
+                <span class="nav-brand">Conceptos <span class="text-geo">Básicos</span></span>
+            </div>
+            <span class="period-badge active">Período 1</span>
+        </div>
+    </nav>
+
+    <header class="text-center py-10 px-4 bg-gradient-to-b from-slate-900 to-slate-800">
+        <div class="inline-block p-4 rounded-full bg-geo/10 mb-4 animate-pulse">
+            <i class="fas fa-shapes text-4xl text-geo"></i>
+        </div>
+        <h1 class="font-tech text-4xl md:text-5xl mb-4 text-[var(--text-primary)]">Punto, Recta y Plano</h1>
+        <p class="text-slate-400 max-w-2xl mx-auto">Los elementos fundamentales de la geometría.</p>
+    </header>
+
+    <main class="container mx-auto px-4 pb-20 max-w-6xl space-y-12">
+
+        <!-- TEORÍA -->
+        <section class="theory-section">
+            <h2><i class="fas fa-book-open mr-2"></i> Elementos Fundamentales</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 text-center">
+                    <div class="w-16 h-16 bg-geo/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div class="w-3 h-3 bg-geo rounded-full"></div>
+                    </div>
+                    <h3 class="font-bold text-[var(--text-primary)] text-lg mb-2">El Punto</h3>
+                    <p class="text-slate-400 text-sm">No tiene dimensión. Se representa con una letra mayúscula: A, B, C...</p>
+                </div>
+                <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 text-center">
+                    <div class="w-16 h-16 bg-geo/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div class="w-12 h-0.5 bg-geo"></div>
+                    </div>
+                    <h3 class="font-bold text-[var(--text-primary)] text-lg mb-2">La Recta</h3>
+                    <p class="text-slate-400 text-sm">Tiene una dimensión: longitud. Se extiende infinitamente en ambos sentidos.</p>
+                </div>
+                <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 text-center">
+                    <div class="w-16 h-16 bg-geo/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div class="w-12 h-12 border-2 border-geo"></div>
+                    </div>
+                    <h3 class="font-bold text-[var(--text-primary)] text-lg mb-2">El Plano</h3>
+                    <p class="text-slate-400 text-sm">Tiene dos dimensiones: largo y ancho. Se representa con letras griegas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVO: Dibujo Geométrico -->
+        <section class="interactive-section">
+            <h2><i class="fas fa-pencil-ruler mr-2"></i> Laboratorio de Dibujo Geométrico</h2>
+            <p class="text-slate-400 mb-4">Haz clic en el canvas para dibujar puntos. Arrastra para dibujar líneas.</p>
+            
+            <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+                <canvas id="geoCanvas" class="w-full h-[400px] bg-black rounded-lg cursor-crosshair"></canvas>
+                <div class="flex justify-center gap-2 mt-4">
+                    <button onclick="setTool('point')" id="btn-point" class="px-4 py-2 bg-geo text-black font-bold rounded hover:bg-geo/80">Punto</button>
+                    <button onclick="setTool('line')" id="btn-line" class="px-4 py-2 bg-slate-700 text-[var(--text-primary)] font-bold rounded hover:bg-slate-600">Línea</button>
+                    <button onclick="clearCanvas()" class="px-4 py-2 bg-red-500 text-[var(--text-primary)] font-bold rounded hover:bg-red-600"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVALUACIÓN -->
+        <section class="quiz-section">
+            <h2><i class="fas fa-clipboard-check mr-2"></i> Evaluación: Conceptos Básicos</h2>
+            <div id="quiz-container"></div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>I.E. Paulo VI - Geometría 6° - Período 1</p>
+        <p>Docente: Luis Miguel Cabrera</p>
+    </footer>
+
+    <script src="../../app.js"></script>
+    <script>
+        // Canvas interactivo
+        const canvas = document.getElementById('geoCanvas');
+        const ctx = canvas.getContext('2d');
+        let currentTool = 'point';
+        let isDrawing = false;
+        let startX, startY;
+        let elements = [];
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = 400;
+            redraw();
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            document.getElementById('btn-point').className = tool === 'point' ? 'px-4 py-2 bg-geo text-black font-bold rounded' : 'px-4 py-2 bg-slate-700 text-[var(--text-primary)] font-bold rounded';
+            document.getElementById('btn-line').className = tool === 'line' ? 'px-4 py-2 bg-geo text-black font-bold rounded' : 'px-4 py-2 bg-slate-700 text-[var(--text-primary)] font-bold rounded';
+        }
+
+        function clearCanvas() {
+            elements = [];
+            redraw();
+        }
+
+        function redraw() {
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Dibujar cuadrícula
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+            for(let x = 0; x < canvas.width; x += 50) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+            }
+            for(let y = 0; y < canvas.height; y += 50) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+            }
+
+            // Dibujar elementos
+            elements.forEach(el => {
+                if(el.type === 'point') {
+                    ctx.fillStyle = '#0ea5e9';
+                    ctx.beginPath();
+                    ctx.arc(el.x, el.y, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if(el.type === 'line') {
+                    ctx.strokeStyle = '#0ea5e9';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(el.x1, el.y1);
+                    ctx.lineTo(el.x2, el.y2);
+                    ctx.stroke();
+                }
+            });
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if(currentTool === 'point') {
+                elements.push({ type: 'point', x, y });
+                redraw();
+            } else if(currentTool === 'line') {
+                isDrawing = true;
+                startX = x;
+                startY = y;
+            }
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if(!isDrawing) return;
+            redraw();
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            ctx.strokeStyle = '#0ea5e9';
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        });
+
+        canvas.addEventListener('mouseup', (e) => {
+            if(!isDrawing) return;
+            isDrawing = false;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            elements.push({ type: 'line', x1: startX, y1: startY, x2: x, y2: y });
+            redraw();
+        });
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Quiz
+        const quizQuestions = [
+            { question: "¿Cuántas dimensiones tiene un punto?", options: ["0", "1", "2", "3"], correct: 0 },
+            { question: "¿Qué dimensión tiene una recta?", options: ["0", "1", "2", "3"], correct: 1 },
+            { question: "¿Cuántas dimensiones tiene un plano?", options: ["0", "1", "2", "3"], correct: 2 },
+            { question: "¿Cómo se representa un punto?", options: ["Con minúsculas", "Con números", "Con letras mayúsculas", "Con símbolos"], correct: 2 }
+        ];
+
+        function initQuiz() {
+            const shuffled = [...quizQuestions].sort(() => Math.random() - 0.5);
+            const selected = shuffled.slice(0, 4);
+            
+            const container = document.getElementById('quiz-container');
+            let html = '<form id="quiz-form">';
+            
+            selected.forEach((q, index) => {
+                html += `
+                    <div class="quiz-question">
+                        <p><strong>${index + 1}.</strong> ${q.question}</p>
+                        <div class="quiz-options">
+                            ${q.options.map((opt, i) => `
+                                <label class="quiz-option" onclick="selectOption(this, ${index}, ${i}, ${q.correct})">
+                                    <input type="radio" name="q${index}" value="${i}">
+                                    <span>${opt}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += `
+                <div class="text-center mt-6">
+                    <button type="button" class="btn btn-secondary" onclick="initQuiz()">
+                        <i class="fas fa-sync"></i> Nuevas Preguntas
+                    </button>
+                </div>
+            </form>`;
+            
+            container.innerHTML = html;
+        }
+
+        function selectOption(label, qIndex, selectedIndex, correctIndex) {
+            const questionDiv = label.closest('.quiz-question');
+            const options = questionDiv.querySelectorAll('.quiz-option');
+            
+            options.forEach((opt, i) => {
+                opt.classList.remove('correct', 'incorrect');
+                if (i === correctIndex) {
+                    opt.classList.add('correct');
+                } else if (i === selectedIndex && i !== correctIndex) {
+                    opt.classList.add('incorrect');
+                }
+            });
+        }
+
+        initQuiz();
+    </script>
+</body>
+</html>

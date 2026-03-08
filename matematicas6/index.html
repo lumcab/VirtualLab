@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemáticas 6° | Laboratorio Virtual PVI</title>
+    <link rel="icon" href="../icon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
+                    colors: { math: '#f59e0b', neon: '#00f3ff', cyber: '#facc15' }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos específicos para esta página que complementan styles.css */
+        body {
+            background-image: radial-gradient(circle at 80% 20%, rgba(217, 119, 6, 0.08) 0%, transparent 50%);
+        }
+        [data-theme="dark"] body {
+            background-image: radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+        }
+        .topic-link:hover { background: var(--bg-hover); padding-left: 1.5rem; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../index.html" class="nav-back">
+                <i class="fas fa-arrow-left"></i> Inicio
+            </a>
+            <div class="flex items-center gap-3">
+                <i class="fas fa-calculator text-math text-xl"></i>
+                <span class="nav-brand">Matemáticas <span class="text-math">6°</span></span>
+            </div>
+            <a href="#temas" class="text-sm text-secondary hover:text-math">Ver Temas</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center py-12 px-4">
+        <div class="inline-block p-4 rounded-full bg-math/10 mb-4 animate-pulse">
+            <i class="fas fa-infinity text-4xl text-math"></i>
+        </div>
+        <h1 class="font-tech text-4xl md:text-5xl mb-4">Matemáticas 6°</h1>
+        <p class="text-secondary max-w-2xl mx-auto">
+            Explora los fundamentos de las matemáticas: desde sistemas numéricos antiguos hasta probabilidad y estadística.
+        </p>
+    </header>
+
+    <main id="temas" class="container mx-auto px-4 pb-20 max-w-6xl">
+        
+        <!-- Grid de Períodos -->
+        <div class="grid md:grid-cols-2 gap-6">
+            
+            <!-- Período 1 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-l-4 border-green-500">
+                <div class="p-4 border-b border-border-color">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-green-500 text-black font-bold w-10 h-10 rounded-full flex items-center justify-center">1</span>
+                            <div>
+                                <h2 class="font-tech text-xl">Período 1</h2>
+                                <p class="text-xs text-muted">Ene 26 - Abr 10</p>
+                            </div>
+                        </div>
+                        <span class="period-badge active"><i class="fas fa-check-circle mr-1"></i> Activo</span>
+                    </div>
+                </div>
+                <div class="p-4 space-y-2">
+                    <a href="periodo1/1_sistemas_numeracion.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-sort-numeric-up text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Sistemas de Numeración</p>
+                            <p class="text-xs text-muted">Romano, Binario, Maya, Egipcio, Chino</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                    <a href="periodo1/2_ecuaciones.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-equals text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Ecuaciones e Inecuaciones</p>
+                            <p class="text-xs text-muted">Resolución de ecuaciones</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                    <a href="periodo1/3_estadistica_intro.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-chart-bar text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Introducción a la Estadística</p>
+                            <p class="text-xs text-muted">Población, muestra, variables</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Período 2 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-l-4 border-yellow-500 opacity-80">
+                <div class="p-4 border-b border-border-color">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-yellow-500 text-black font-bold w-10 h-10 rounded-full flex items-center justify-center">2</span>
+                            <div>
+                                <h2 class="font-tech text-xl">Período 2</h2>
+                                <p class="text-xs text-muted">Abr 13 - Jun 19</p>
+                            </div>
+                        </div>
+                        <span class="period-badge pending"><i class="fas fa-clock mr-1"></i> Próximo</span>
+                    </div>
+                </div>
+                <div class="p-4 space-y-2">
+                    <a href="periodo2/1_divisibilidad.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-divide text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Divisibilidad</p>
+                            <p class="text-xs text-muted">MCM, MCD, criterios</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                    <a href="periodo2/2_operaciones_avanzadas.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-superscript text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Operaciones Avanzadas</p>
+                            <p class="text-xs text-muted">Potenciación, radicación, logaritmos</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                    <a href="periodo2/3_tablas_graficos.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-table text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Tablas y Gráficos</p>
+                            <p class="text-xs text-muted">Tablas de contingencia</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Período 3 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-l-4 border-orange-500 opacity-80">
+                <div class="p-4 border-b border-border-color">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-orange-500 text-black font-bold w-10 h-10 rounded-full flex items-center justify-center">3</span>
+                            <div>
+                                <h2 class="font-tech text-xl">Período 3</h2>
+                                <p class="text-xs text-muted">Jul 06 - Sep 11</p>
+                            </div>
+                        </div>
+                        <span class="period-badge pending"><i class="fas fa-hourglass mr-1"></i> Pendiente</span>
+                    </div>
+                </div>
+                <div class="p-4 space-y-2">
+                    <a href="periodo3/1_fracciones.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-square-root-alt text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Fracciones</p>
+                            <p class="text-xs text-muted">Operaciones y conversiones</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                    <a href="periodo3/2_estadistica_aleatoria.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-dice text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Estadística Aleatoria</p>
+                            <p class="text-xs text-muted">Experimentos y espacio muestral</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Período 4 -->
+            <div class="glass-card rounded-2xl overflow-hidden border-l-4 border-red-500 opacity-80">
+                <div class="p-4 border-b border-border-color">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-red-500 text-black font-bold w-10 h-10 rounded-full flex items-center justify-center">4</span>
+                            <div>
+                                <h2 class="font-tech text-xl">Período 4</h2>
+                                <p class="text-xs text-muted">Sep 08 - Nov 27</p>
+                            </div>
+                        </div>
+                        <span class="period-badge pending"><i class="fas fa-hourglass mr-1"></i> Pendiente</span>
+                    </div>
+                </div>
+                <div class="p-4 space-y-2">
+                    <a href="periodo4/1_decimales.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-calculator text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Números Decimales</p>
+                            <p class="text-xs text-muted">Orden y operaciones</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                    <a href="periodo4/2_razones_porcentajes.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-percentage text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Razones y Porcentajes</p>
+                            <p class="text-xs text-muted">Proporciones y porcentajes</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                    <a href="periodo4/3_probabilidad_conjuntos.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-border-color">
+                        <i class="fas fa-project-diagram text-math"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Probabilidad y Conjuntos</p>
+                            <p class="text-xs text-muted">Probabilidad clásica y conjuntiva</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold text-lg">I.E. Paulo VI - Matemáticas 6°</p>
+            <p class="text-sm mt-1">Docente: Luis Miguel Cabrera</p>
+            <p class="text-xs mt-4 text-muted">Laboratorio Virtual © 2026</p>
+        </div>
+    </footer>
+
+    <script src="../app.js" defer></script>
+</body>
+</html>

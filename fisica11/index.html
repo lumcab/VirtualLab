@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física 11° | Laboratorio Virtual PVI</title>
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
+                    colors: { fis11: '#a855f7', neon: '#00f3ff' }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Modo claro (default) */
+        body { background-color: #f8fafc; background-image: radial-gradient(circle at 70% 30%, rgba(124, 58, 237, 0.08) 0%, transparent 50%); }
+        
+        /* Modo oscuro */
+        [data-theme="dark"] body { background-color: #0f172a; background-image: radial-gradient(circle at 70% 30%, rgba(168, 85, 247, 0.1) 0%, transparent 50%); }
+        
+        .period-card { transition: all 0.3s ease; }
+        .period-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2); }
+        [data-theme="dark"] .period-card:hover { box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2); }
+        .topic-link { transition: all 0.2s; }
+        .topic-link:hover { background: rgba(124, 58, 237, 0.1); padding-left: 1.5rem; }
+        [data-theme="dark"] .topic-link:hover { background: rgba(168, 85, 247, 0.1); }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../index.html" class="nav-back"><i class="fas fa-arrow-left"></i> Inicio</a>
+            <div class="flex items-center gap-3">
+                <i class="fas fa-atom text-fis11 text-xl"></i>
+                <span class="nav-brand">Física <span class="text-fis11">11°</span></span>
+            </div>
+            <span class="text-xs text-slate-500">Menú Principal</span>
+        </div>
+    </nav>
+
+    <header class="text-center py-12 px-4">
+        <div class="inline-block p-4 rounded-full bg-fis11/10 mb-4 animate-pulse">
+            <i class="fas fa-atom text-4xl text-fis11"></i>
+        </div>
+        <h1 class="font-tech text-4xl md:text-5xl mb-4 text-[var(--text-primary)]">Física 11°</h1>
+        <p class="text-[var(--text-secondary)] max-w-2xl mx-auto">
+            Física avanzada: oscilaciones, ondas, óptica, electricidad y magnetismo.
+        </p>
+    </header>
+
+    <main class="container mx-auto px-4 pb-20 max-w-6xl">
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            
+            <!-- Período 1 -->
+            <div class="period-card glass-card rounded-2xl overflow-hidden border-l-4 border-green-500">
+                <div class="bg-gradient-to-r from-green-900/50 to-transparent p-4 border-b border-white/10">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-green-500 text-black font-bold w-10 h-10 rounded-full flex items-center justify-center">1</span>
+                            <div>
+                                <h2 class="font-tech text-xl text-[var(--text-primary)]">Período 1</h2>
+                                <p class="text-xs text-[var(--text-secondary)]">M.A.S. y Ondas</p>
+                            </div>
+                        </div>
+                        <span class="period-badge active"><i class="fas fa-check-circle mr-1"></i> Activo</span>
+                    </div>
+                </div>
+                <div class="p-4 space-y-2">
+                    <a href="periodo1/1_mas.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-white/5">
+                        <i class="fas fa-stopwatch text-fis11"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Movimiento Armónico Simple</p>
+                            <p class="text-xs text-slate-500">Péndulo y masa-resorte</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-600"></i>
+                    </a>
+                    <a href="periodo1/2_ondas_sonido.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-white/5">
+                        <i class="fas fa-wave-square text-fis11"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Ondas y Sonido</p>
+                            <p class="text-xs text-slate-500">Efecto Doppler y resonancia</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-600"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Período 2 -->
+            <div class="period-card glass-card rounded-2xl overflow-hidden border-l-4 border-yellow-500">
+                <div class="bg-gradient-to-r from-yellow-900/50 to-transparent p-4 border-b border-white/10">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-yellow-500 text-black font-bold w-10 h-10 rounded-full flex items-center justify-center">2</span>
+                            <div>
+                                <h2 class="font-tech text-xl text-[var(--text-primary)]">Período 2</h2>
+                                <p class="text-xs text-[var(--text-secondary)]">Óptica</p>
+                            </div>
+                        </div>
+                        <span class="period-badge pending"><i class="fas fa-clock mr-1"></i> Próximo</span>
+                    </div>
+                </div>
+                <div class="p-4 space-y-2">
+                    <a href="periodo2/1_optica_naturaleza.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-white/5">
+                        <i class="fas fa-lightbulb text-fis11"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Óptica y Naturaleza de la Luz</p>
+                            <p class="text-xs text-slate-500">Reflexión y espejos</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-600"></i>
+                    </a>
+                    <a href="periodo2/2_refraccion_instrumentos.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-white/5">
+                        <i class="fas fa-eye text-fis11"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Refracción e Instrumentos</p>
+                            <p class="text-xs text-slate-500">Ley de Snell</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-600"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Período 3 -->
+            <div class="period-card glass-card rounded-2xl overflow-hidden border-l-4 border-orange-500">
+                <div class="bg-gradient-to-r from-orange-900/50 to-transparent p-4 border-b border-white/10">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-orange-500 text-black font-bold w-10 h-10 rounded-full flex items-center justify-center">3</span>
+                            <div>
+                                <h2 class="font-tech text-xl text-[var(--text-primary)]">Período 3</h2>
+                                <p class="text-xs text-[var(--text-secondary)]">Electricidad</p>
+                            </div>
+                        </div>
+                        <span class="period-badge pending"><i class="fas fa-hourglass mr-1"></i> Pendiente</span>
+                    </div>
+                </div>
+                <div class="p-4 space-y-2">
+                    <a href="periodo3/1_electrostatica.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-white/5">
+                        <i class="fas fa-bolt text-fis11"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Electrostática</p>
+                            <p class="text-xs text-slate-500">Ley de Coulomb</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-600"></i>
+                    </a>
+                    <a href="periodo3/2_electrodinamica.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-white/5">
+                        <i class="fas fa-plug text-fis11"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Electrodinámica</p>
+                            <p class="text-xs text-slate-500">Circuitos y Ley de Ohm</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-600"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Período 4 -->
+            <div class="period-card glass-card rounded-2xl overflow-hidden border-l-4 border-red-500">
+                <div class="bg-gradient-to-r from-red-900/50 to-transparent p-4 border-b border-white/10">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-red-500 text-black font-bold w-10 h-10 rounded-full flex items-center justify-center">4</span>
+                            <div>
+                                <h2 class="font-tech text-xl text-[var(--text-primary)]">Período 4</h2>
+                                <p class="text-xs text-[var(--text-secondary)]">Magnetismo</p>
+                            </div>
+                        </div>
+                        <span class="period-badge pending"><i class="fas fa-hourglass mr-1"></i> Pendiente</span>
+                    </div>
+                </div>
+                <div class="p-4 space-y-2">
+                    <a href="periodo4/1_magnetismo.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-white/5">
+                        <i class="fas fa-magnet text-fis11"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Magnetismo</p>
+                            <p class="text-xs text-slate-500">Campo magnético</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-600"></i>
+                    </a>
+                    <a href="periodo4/2_electromagnetismo.html" class="topic-link flex items-center gap-3 p-3 rounded-lg border border-white/5">
+                        <i class="fas fa-sync text-fis11"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Electromagnetismo</p>
+                            <p class="text-xs text-slate-500">Inducción y motores</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-600"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>I.E. Paulo VI - Física 11°</p>
+        <p>Docente: Luis Miguel Cabrera</p>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

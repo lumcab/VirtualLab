@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio Virtual | I.E. Paulo VI</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        tech: ['Orbitron', 'sans-serif'],
+                        body: ['Rajdhani', 'sans-serif']
+                    },
+                    colors: {
+                        neon: '#00f3ff',
+                        cyber: '#facc15',
+                        math: '#f59e0b',
+                        geo: '#0ea5e9',
+                        fis10: '#3b82f6',
+                        fis11: '#a855f7'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Fondo para modo claro (default) */
+        body {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(8, 145, 178, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 50%);
+        }
+        
+        /* Fondo para modo oscuro */
+        [data-theme="dark"] body {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 243, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+                url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.12) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        [data-theme="dark"] .hero-glow {
+            background: radial-gradient(circle, rgba(0, 243, 255, 0.15) 0%, transparent 70%);
+        }
+        
+        .subject-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .subject-card:hover::before {
+            left: 100%;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        
+        .subject-card.math:hover { box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3); border-color: #f59e0b; }
+        .subject-card.geo:hover { box-shadow: 0 20px 40px rgba(14, 165, 233, 0.3); border-color: #0ea5e9; }
+        .subject-card.fis10:hover { box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3); border-color: #3b82f6; }
+        .subject-card.fis11:hover { box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3); border-color: #a855f7; }
+        
+        .icon-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s ease-out infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    
+    <!-- Hero Glow Effect -->
+    <div class="hero-glow"></div>
+    
+    <!-- Header -->
+    <header class="relative z-10 text-center pt-16 pb-8 px-4">
+        <div class="inline-block relative mb-6">
+            <div class="absolute inset-0 bg-cyan-500/20 rounded-full pulse-ring"></div>
+            <div class="relative p-5 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30">
+                <i class="fas fa-atom text-5xl text-cyan-400 icon-float"></i>
+            </div>
+        </div>
+        
+        <h1 class="font-tech text-5xl md:text-7xl font-bold mb-4">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">
+                VIRTUAL-LAB
+            </span>
+        </h1>
+        
+        <p class="text-xl text-[var(--text-secondary)] mb-2">I.E. Paulo VI</p>
+        <p class="text-[var(--text-muted)] max-w-xl mx-auto">
+            Laboratorio Virtual de Ciencias y Matemáticas
+        </p>
+        
+        <div class="mt-6 inline-flex items-center gap-3 bg-slate-800/50 px-6 py-3 rounded-full border border-slate-700">
+            <i class="fas fa-calendar-alt text-cyan-400"></i>
+            <span class="text-[var(--text-secondary)]">Año Lectivo 2026</span>
+            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+            <span class="text-green-400 text-sm">En progreso</span>
+        </div>
+    </header>
+
+    <main class="relative z-10 container mx-auto px-4 pb-20 max-w-6xl">
+        
+        <!-- Info Banner -->
+        <div class="bg-gradient-to-r from-cyan-900/40 to-purple-900/40 border border-cyan-500/20 rounded-2xl p-6 mb-12 backdrop-blur-sm">
+            <div class="flex items-start gap-4">
+                <div class="bg-cyan-500/20 p-3 rounded-xl shrink-0">
+                    <i class="fas fa-info-circle text-2xl text-cyan-400"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-[var(--text-primary)] text-lg mb-2">Organización por Materias y Períodos</h3>
+                    <p class="text-[var(--text-secondary)] text-sm leading-relaxed">
+                        El contenido está organizado en <strong class="text-cyan-400">4 períodos por materia al año</strong>. 
+                        Cada período contiene temas específicos con teoría, actividades interactivas y evaluaciones. 
+                        Selecciona una materia para explorar su contenido.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid de Materias -->
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+            
+            <!-- Matemáticas 6° -->
+            <a href="matematicas6/index.html" class="subject-card math glass-card p-8 rounded-2xl border-t-4 border-math group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="bg-math/20 p-4 rounded-xl">
+                        <i class="fas fa-calculator text-3xl text-math"></i>
+                    </div>
+                    <span class="period-badge active">
+                        <i class="fas fa-check-circle mr-1"></i> Activo
+                    </span>
+                </div>
+                <h2 class="font-tech text-2xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-math transition-colors">
+                    Matemáticas 6°
+                </h2>
+                <p class="text-[var(--text-secondary)] text-sm mb-4">
+                    Sistemas numéricos, ecuaciones, estadística, fracciones, decimales, razones y probabilidad.
+                </p>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-[var(--text-muted)]">4 Períodos • 11 Temas</span>
+                    <span class="text-math text-sm font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Explorar <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Geometría 6° -->
+            <a href="geometria6/index.html" class="subject-card geo glass-card p-8 rounded-2xl border-t-4 border-geo group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="bg-geo/20 p-4 rounded-xl">
+                        <i class="fas fa-shapes text-3xl text-geo"></i>
+                    </div>
+                    <span class="period-badge active">
+                        <i class="fas fa-check-circle mr-1"></i> Activo
+                    </span>
+                </div>
+                <h2 class="font-tech text-2xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-geo transition-colors">
+                    Geometría 6°
+                </h2>
+                <p class="text-[var(--text-secondary)] text-sm mb-4">
+                    Conceptos básicos, ángulos, plano cartesiano, polígonos y transformaciones geométricas.
+                </p>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-[var(--text-muted)]">4 Períodos • 8 Temas</span>
+                    <span class="text-geo text-sm font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Explorar <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Física 10° -->
+            <a href="fisica10/index.html" class="subject-card fis10 glass-card p-8 rounded-2xl border-t-4 border-fis10 group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="bg-fis10/20 p-4 rounded-xl">
+                        <i class="fas fa-gauge-high text-3xl text-fis10"></i>
+                    </div>
+                    <span class="period-badge active">
+                        <i class="fas fa-check-circle mr-1"></i> Activo
+                    </span>
+                </div>
+                <h2 class="font-tech text-2xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-fis10 transition-colors">
+                    Física 10°
+                </h2>
+                <p class="text-[var(--text-secondary)] text-sm mb-4">
+                    Magnitudes, cinemática, dinámica, energía, hidrostática, hidrodinámica y termodinámica.
+                </p>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-[var(--text-muted)]">4 Períodos • 11 Temas</span>
+                    <span class="text-fis10 text-sm font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Explorar <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Física 11° -->
+            <a href="fisica11/index.html" class="subject-card fis11 glass-card p-8 rounded-2xl border-t-4 border-fis11 group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="bg-fis11/20 p-4 rounded-xl">
+                        <i class="fas fa-atom text-3xl text-fis11"></i>
+                    </div>
+                    <span class="period-badge active">
+                        <i class="fas fa-check-circle mr-1"></i> Activo
+                    </span>
+                </div>
+                <h2 class="font-tech text-2xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-fis11 transition-colors">
+                    Física 11°
+                </h2>
+                <p class="text-[var(--text-secondary)] text-sm mb-4">
+                    Movimiento armónico, ondas, óptica, electrostática, electrodinámica y electromagnetismo.
+                </p>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-[var(--text-muted)]">4 Períodos • 8 Temas</span>
+                    <span class="text-fis11 text-sm font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Explorar <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Calendario Académico -->
+        <section class="mb-12">
+            <h2 class="font-tech text-2xl font-bold text-[var(--text-primary)] mb-6 text-center">
+                <i class="fas fa-calendar-days text-cyan-400 mr-2"></i>
+                Calendario Académico 2026
+            </h2>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="glass-card p-4 rounded-xl text-center border-t-4 border-green-500">
+                    <div class="text-green-400 font-bold text-sm mb-1">PERÍODO 1</div>
+                    <div class="text-[var(--text-primary)] font-bold">Enero 26 - Abril 10</div>
+                    <div class="text-[var(--text-secondary)] text-xs mt-2">
+                        <i class="fas fa-check-circle text-green-500 mr-1"></i> En progreso
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border-t-4 border-yellow-500 opacity-70">
+                    <div class="text-yellow-400 font-bold text-sm mb-1">PERÍODO 2</div>
+                    <div class="text-[var(--text-primary)] font-bold">Abril 13 - Junio 19</div>
+                    <div class="text-[var(--text-secondary)] text-xs mt-2">
+                        <i class="fas fa-clock text-yellow-500 mr-1"></i> Próximo
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border-t-4 border-orange-500 opacity-70">
+                    <div class="text-orange-400 font-bold text-sm mb-1">PERÍODO 3</div>
+                    <div class="text-[var(--text-primary)] font-bold">Julio 06 - Sept 11</div>
+                    <div class="text-[var(--text-secondary)] text-xs mt-2">
+                        <i class="fas fa-hourglass text-orange-500 mr-1"></i> Pendiente
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border-t-4 border-red-500 opacity-70">
+                    <div class="text-red-400 font-bold text-sm mb-1">PERÍODO 4</div>
+                    <div class="text-[var(--text-primary)] font-bold">Sept 08 - Nov 27</div>
+                    <div class="text-[var(--text-secondary)] text-xs mt-2">
+                        <i class="fas fa-hourglass text-red-500 mr-1"></i> Pendiente
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estadísticas Rápidas -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="text-3xl font-tech text-cyan-400 mb-1">38</div>
+                <div class="text-xs text-[var(--text-secondary)]">Temas Totales</div>
+            </div>
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="text-3xl font-tech text-purple-400 mb-1">4</div>
+                <div class="text-xs text-[var(--text-secondary)]">Materias</div>
+            </div>
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="text-3xl font-tech text-green-400 mb-1">16</div>
+                <div class="text-xs text-[var(--text-secondary)]">Períodos</div>
+            </div>
+            <div class="glass-card p-4 rounded-xl text-center">
+                <div class="text-3xl font-tech text-yellow-400 mb-1">∞</div>
+                <div class="text-xs text-[var(--text-secondary)]">Posibilidades</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-[var(--text-secondary)] font-bold text-lg">I.E. Paulo VI</p>
+            <p class="text-[var(--text-muted)] text-sm mt-1">Docente: Luis Miguel Cabrera</p>
+            <p class="text-[var(--text-muted)] text-xs mt-4">Laboratorio Virtual © 2026 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrodinámica | Física 11° - Período 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
+                    colors: { fis11: '#a855f7', neon: '#00f3ff' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen" style="background-color: #050b14;">
+
+    <nav class="border-b border-white/10 bg-dark/95 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="text-xs font-bold text-slate-400 hover:text-[var(--text-primary)] border border-slate-600 px-3 py-1 rounded transition-colors">
+                <i class="fas fa-arrow-left"></i> Física 11°
+            </a>
+            <span class="font-tech text-xl text-[var(--text-primary)] tracking-widest">FISICA <span class="text-neon drop-shadow-[0_0_5px_rgba(0,243,255,0.8)]">11°</span></span>
+        </div>
+    </nav>
+
+    <header class="text-center py-10 px-4">
+        <div class="inline-block p-4 rounded-full bg-fis11/10 mb-4 animate-pulse">
+            <i class="fas fa-plug text-4xl text-fis11"></i>
+        </div>
+        <h1 class="font-tech text-4xl md:text-5xl mb-4 text-[var(--text-primary)]">Electrodinámica</h1>
+        <p class="text-slate-400 max-w-2xl mx-auto">Contenido en desarrollo para Física 11°.</p>
+    </header>
+
+    <main class="container mx-auto px-4 pb-20 max-w-6xl space-y-12">
+
+        <section class="theory-section">
+            <h2><i class="fas fa-book-open mr-2"></i> Contenido en Desarrollo</h2>
+            <p class="text-slate-300 leading-relaxed">
+                Esta página está siendo desarrollada. Pronto encontrarás aquí teoría completa, 
+                simulaciones interactivas y evaluaciones.
+            </p>
+        </section>
+
+        <section class="glass-card p-8 rounded-2xl text-center">
+            <i class="fas fa-hard-hat text-6xl text-yellow-500 mb-4"></i>
+            <h3 class="font-tech text-2xl text-[var(--text-primary)] mb-2">¡Próximamente!</h3>
+            <p class="text-slate-400">Estamos trabajando en el contenido de esta sección.</p>
+            <a href="../index.html" class="btn btn-primary mt-6 inline-block">
+                <i class="fas fa-arrow-left mr-2"></i> Volver al Menú
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="mt-16 text-slate-500 text-sm text-center">
+        <p>Docente: Luis Miguel Cabrera</p>
+    </footer>
+
+    <script src="../../app.js"></script>
+</body>
+</html>

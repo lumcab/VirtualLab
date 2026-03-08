@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas y Gráficos | Matemáticas 6°</title>
+    <link rel="icon" href="../../icon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        tech: ['Orbitron', 'sans-serif'],
+                        body: ['Rajdhani', 'sans-serif']
+                    },
+                    colors: {
+                        neon: '#00f3ff',
+                        cyber: '#facc15',
+                        math: '#f59e0b',
+                        geo: '#0ea5e9',
+                        fis10: '#3b82f6',
+                        fis11: '#a855f7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="navbar-content">
+            <a href="../../index.html" class="nav-brand">
+                <i class="fas fa-home-alt mr-2 text-neon"></i>
+                VIRTUAL-LAB
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="../index.html" class="nav-back border-math text-math hover:bg-math/10 hover:border-math">
+                    <i class="fas fa-calculator"></i>
+                    <span>Volver a Matemáticas 6°</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- Título del Tema -->
+        <div class="text-center mb-12">
+            <h1 class="font-tech text-4xl md:text-5xl font-bold text-math">
+                3. Tablas y Gráficos
+            </h1>
+            <p class="text-secondary mt-2 text-lg">Tablas de contingencia y gráficos de barras para variables cualitativas.</p>
+        </div>
+
+        <!-- Contenido Teórico -->
+        <section class="glass-card p-8 rounded-2xl mb-12">
+            <h2 class="text-math"><i class="fas fa-book-open mr-3"></i>Teoría: Organizando la Información</h2>
+            <p class="mb-6">
+                Las tablas y gráficos nos ayudan a organizar y visualizar datos de manera clara. En esta lección, aprenderemos sobre tablas de contingencia y gráficos de barras, especialmente útiles para variables cualitativas.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Tablas de Contingencia -->
+                <div class="bg-secondary p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-table"></i>Tablas de Contingencia</h3>
+                    <p class="text-sm">Son tablas que muestran la frecuencia de ocurrencia de dos o más variables cualitativas. Nos permiten ver relaciones entre categorías.</p>
+                    <div class="mt-3 p-2 bg-primary rounded text-xs">
+                        <table class="w-full text-center">
+                            <tr><th>Color</th><th>Masculino</th><th>Femenino</th><th>Total</th></tr>
+                            <tr><td>Rojo</td><td>5</td><td>7</td><td>12</td></tr>
+                            <tr><td>Azul</td><td>8</td><td>4</td><td>12</td></tr>
+                            <tr><td>Total</td><td>13</td><td>11</td><td>24</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <!-- Gráficos de Barras -->
+                <div class="bg-secondary p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-chart-bar"></i>Gráficos de Barras</h3>
+                    <p class="text-sm">Representan datos cualitativos mediante barras rectangulares. La altura de cada barra indica la frecuencia de cada categoría.</p>
+                    <div class="mt-3 p-2 bg-primary rounded text-xs text-center">
+                        <p>Ejemplo: Colores favoritos</p>
+                        <div class="flex justify-center items-end gap-2 mt-2">
+                            <div class="w-8 bg-math h-12"></div>
+                            <div class="w-8 bg-blue-500 h-16"></div>
+                            <div class="w-8 bg-green-500 h-8"></div>
+                        </div>
+                        <div class="flex justify-center gap-2 text-xs mt-1">
+                            <span>Rojo</span><span>Azul</span><span>Verde</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Interactiva -->
+        <section class="glass-card p-8 rounded-2xl mb-12">
+            <h2><i class="fas fa-gamepad mr-3"></i>Zona Interactiva: Crea tu Tabla y Gráfico</h2>
+            <p class="text-secondary mb-6">Ingresa datos para crear una tabla de contingencia y un gráfico de barras simple.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Entrada de Datos -->
+                <div class="bg-primary p-4 rounded-lg border border-border-color">
+                    <h3 class="font-tech text-lg text-center mb-3">Datos de Entrada</h3>
+                    <div class="space-y-3">
+                        <input type="text" id="category1" placeholder="Categoría 1 (ej: Rojo)" class="w-full text-center font-mono p-2">
+                        <input type="number" id="value1" placeholder="Valor 1" class="w-full text-center font-mono p-2">
+                        <input type="text" id="category2" placeholder="Categoría 2 (ej: Azul)" class="w-full text-center font-mono p-2">
+                        <input type="number" id="value2" placeholder="Valor 2" class="w-full text-center font-mono p-2">
+                        <input type="text" id="category3" placeholder="Categoría 3 (ej: Verde)" class="w-full text-center font-mono p-2">
+                        <input type="number" id="value3" placeholder="Valor 3" class="w-full text-center font-mono p-2">
+                    </div>
+                    <button id="generateTable" class="btn btn-primary bg-math w-full mt-3">Generar Tabla y Gráfico</button>
+                </div>
+                <!-- Resultados -->
+                <div class="bg-primary p-4 rounded-lg border border-border-color">
+                    <h3 class="font-tech text-lg text-center mb-3">Tabla Generada</h3>
+                    <div id="tableContainer" class="mb-4">
+                        <p class="text-center text-secondary">La tabla aparecerá aquí</p>
+                    </div>
+                    <h3 class="font-tech text-lg text-center mb-3">Gráfico de Barras</h3>
+                    <div id="chartContainer" class="flex justify-center items-end gap-2 h-32">
+                        <p class="text-center text-secondary">El gráfico aparecerá aquí</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Evaluación -->
+        <section class="glass-card p-8 rounded-2xl">
+            <h2><i class="fas fa-award mr-3"></i>Evaluación: Pon a Prueba tu Conocimiento</h2>
+            <p class="text-secondary mb-6">Demuestra que dominas las tablas y gráficos.</p>
+            <div id="quiz-container">
+                <!-- El quiz se generará aquí -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold text-lg">I.E. Paulo VI</p>
+            <p class="text-sm mt-1">Docente: Luis Miguel Cabrera</p>
+            <p class="text-xs mt-4 text-muted">Laboratorio Virtual © 2026 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../../app.js" defer></script>
+    <script src="3_tablas_graficos.js" defer></script>
+</body>
+</html>
