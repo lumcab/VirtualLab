@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plano Cartesiano | Geometría 6° - Período 3</title>
+    <title>Plano Cartesiano | Geometria6° - Período 3</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
@@ -13,59 +13,137 @@
             theme: {
                 extend: {
                     fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
-                    colors: { geo: '#0ea5e9', neon: '#00f3ff' }
+                    colors: { geo: '#0ea5e9', neon: '#00f3ff', cyber: '#facc15', dark: '#050b14' }
                 }
             }
         }
     </script>
+    <style>
+        body { font-family: 'Rajdhani', sans-serif; }
+        [data-theme="dark"] body { background-color: #050b14; color: #e2e8f0; }
+        [data-theme="light"] body { background-color: #f3f4f6; color: #1f2937; }
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(59, 130, 246, 0.2); }
+        [data-theme="light"] .glass { background: rgba(255, 255, 255, 0.7); border-color: rgba(59, 130, 246, 0.3); }
+    </style>
 </head>
-<body class="min-h-screen" style="background-color: #0f172a;">
+<body class="pb-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
 
-    <nav class="navbar">
-        <div class="navbar-content">
-            <a href="../index.html" class="nav-back"><i class="fas fa-arrow-left"></i> Geometría 6°</a>
-            <div class="flex items-center gap-3">
-                <i class="fas fa-th text-geo text-xl"></i>
-                <span class="nav-brand">Plano Cartesiano</span>
-            </div>
-            <span class="period-badge active">Período 3</span>
+    <nav class="border-b border-white/10 bg-dark/95 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="text-xs font-bold text-slate-400 hover:text-geo border border-slate-600 px-3 py-1 rounded transition-colors">
+                <i class="fas fa-arrow-left"></i> Atrás
+            </a>
+            <span class="font-tech text-xl text-geo tracking-widest">PLANO CARTESIANO</span>
+            <button onclick="toggleTheme()" class="text-xs font-bold text-slate-400 hover:text-geo border border-slate-600 px-3 py-1 rounded transition-colors">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </nav>
 
-    <header class="text-center py-10 px-4 bg-gradient-to-b from-slate-900 to-slate-800">
-        <div class="inline-block p-4 rounded-full bg-geo/10 mb-4 animate-pulse">
-            <i class="fas fa-th text-4xl text-geo"></i>
+    <main class="container mx-auto px-4 py-8 max-w-5xl">
+
+        <section class="glass p-8 rounded-2xl mb-8 border-l-4 border-geo">
+            <div class="flex items-center gap-4 mb-4">
+                <i class="fas fa-book text-4xl text-geo"></i>
+                <div>
+                    <h1 class="font-tech text-4xl text-geo mb-2">Plano Cartesiano</h1>
+                    <p class="text-slate-400">Período 3</p>
+                </div>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">Exploración didáctica de plano cartesiano.</p>
+        </section>
+
+        <div class="mb-6 flex flex-wrap gap-2 justify-center">
+            <button onclick="switchTab('tab0')" class="tab-btn active px-4 py-2 rounded-full bg-geo text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-0"></i> Coordenadas
+        </button><button onclick="switchTab('tab1')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-1"></i> Distancia entre Punt
+        </button><button onclick="switchTab('tab2')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-2"></i> Punto Medio
+        </button><button onclick="switchTab('tab3')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-3"></i> Ecuación de Recta
+        </button>
         </div>
-        <h1 class="font-tech text-4xl md:text-5xl mb-4 text-[var(--text-primary)]">Plano Cartesiano</h1>
-        <p class="text-slate-400 max-w-2xl mx-auto">Contenido en desarrollo para Geometría 6°.</p>
-    </header>
 
-    <main class="container mx-auto px-4 pb-20 max-w-6xl space-y-12">
-
-        <section class="theory-section">
-            <h2><i class="fas fa-book-open mr-2"></i> Contenido en Desarrollo</h2>
-            <p class="text-slate-300 leading-relaxed">
-                Esta página está siendo desarrollada. Pronto encontrarás aquí teoría completa, 
-                actividades interactivas y evaluaciones.
-            </p>
+        <section id="tab-tab0" class=" space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-geo">
+                <h3 class="text-2xl font-bold text-geo mb-4">
+                    <i class="fas fa-book"></i> Coordenadas
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    <p class="mb-2">Pares (x, y) que ubican puntos en el plano.</p><p class="text-sm text-slate-300">x: eje horizontal (abscisa)<br>y: eje vertical (ordenada)</p>
+                </div>
+            </div>
+        </section><section id="tab-tab1" class="hidden space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-geo">
+                <h3 class="text-2xl font-bold text-geo mb-4">
+                    <i class="fas fa-book"></i> Distancia entre Puntos
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    <div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400">d = √[(x₂-x₁)² + (y₂-y₁)²]</div>
+                </div>
+            </div>
+        </section><section id="tab-tab2" class="hidden space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-geo">
+                <h3 class="text-2xl font-bold text-geo mb-4">
+                    <i class="fas fa-book"></i> Punto Medio
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    <div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400">M = ((x₁+x₂)/2, (y₁+y₂)/2)</div>
+                </div>
+            </div>
+        </section><section id="tab-tab3" class="hidden space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-geo">
+                <h3 class="text-2xl font-bold text-geo mb-4">
+                    <i class="fas fa-book"></i> Ecuación de Recta
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    <div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400">y = mx + b<br>m: pendiente <br>b: intersección con eje y</div>
+                </div>
+            </div>
         </section>
-
-        <section class="glass-card p-8 rounded-2xl text-center">
-            <i class="fas fa-hard-hat text-6xl text-yellow-500 mb-4"></i>
-            <h3 class="font-tech text-2xl text-[var(--text-primary)] mb-2">¡Próximamente!</h3>
-            <p class="text-slate-400">Estamos trabajando en el contenido de esta sección.</p>
-            <a href="../index.html" class="btn btn-primary mt-6 inline-block">
-                <i class="fas fa-arrow-left mr-2"></i> Volver al Menú
-            </a>
-        </section>
-
     </main>
 
-    <footer class="footer">
-        <p>I.E. Paulo VI - Geometría 6°</p>
-        <p>Docente: Luis Miguel Cabrera</p>
+    <section class="container mx-auto px-4 max-w-5xl mt-12">
+        <div class="glass p-6 rounded-xl border-l-4 border-cyber">
+            <h3 class="text-2xl font-bold text-cyber mb-6 flex items-center gap-2">
+                <i class="fas fa-question-circle"></i> Prueba tu Conocimiento
+            </h3>
+            <div class="bg-slate-900/50 p-4 rounded">
+                <p class="font-bold text-slate-300 mb-3">¿Qué has aprendido?</p>
+                <p class="text-sm text-slate-400">Las evaluaciones interactivas estarán disponibles próximamente.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-16 border-t border-slate-700 pt-6 pb-4 px-4">
+        <div class="container mx-auto max-w-5xl text-center text-slate-500 text-xs">
+            <p class="mb-1">I.E. Paulo VI - Docente: Luis Miguel Cabrera - Laboratorio Virtual © 2026</p>
+            <p>Plano Cartesiano | Período 3</p>
+        </div>
     </footer>
 
     <script src="../../app.js"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme') || 'dark';
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme-1_plano_cartesiano', newTheme);
+        }
+
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('theme-1_plano_cartesiano') || 'dark';
+            document.documentElement.setAttribute('data-theme', saved);
+        });
+
+        function switchTab(id) {
+            document.querySelectorAll('.section-tab').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('bg-geo'));
+            document.getElementById(id).classList.remove('hidden');
+            event.currentTarget.classList.add('bg-geo');
+        }
+    </script>
 </body>
 </html>

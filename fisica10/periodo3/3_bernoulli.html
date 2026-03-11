@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecuación de Bernoulli | Física 10° - Período 3</title>
+    <title>Teorema de Bernoulli | Física 10° - Período 3</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
@@ -13,57 +13,128 @@
             theme: {
                 extend: {
                     fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
-                    colors: { fis10: '#3b82f6', neon: '#00f3ff' }
+                    colors: { fis10: '#3b82f6', neon: '#00f3ff', cyber: '#facc15', dark: '#050b14' }
                 }
             }
         }
     </script>
+    <style>
+        body { font-family: 'Rajdhani', sans-serif; }
+        [data-theme="dark"] body { background-color: #050b14; color: #e2e8f0; }
+        [data-theme="light"] body { background-color: #f3f4f6; color: #1f2937; }
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(59, 130, 246, 0.2); }
+        [data-theme="light"] .glass { background: rgba(255, 255, 255, 0.7); border-color: rgba(59, 130, 246, 0.3); }
+    </style>
 </head>
-<body class="min-h-screen" style="background-color: #050505; background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);">
+<body class="pb-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
 
-    <nav class="border-b border-white/10 bg-black/90 sticky top-0 z-50">
+    <nav class="border-b border-white/10 bg-dark/95 backdrop-blur-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="../index.html" class="text-xs text-slate-500 hover:text-[var(--text-primary)] border border-slate-700 px-3 py-1 rounded">
-                <i class="fas fa-chevron-left"></i> Física 10°
+            <a href="../index.html" class="text-xs font-bold text-slate-400 hover:text-fis10 border border-slate-600 px-3 py-1 rounded transition-colors">
+                <i class="fas fa-arrow-left"></i> Física 10°
             </a>
-            <span class="font-tech text-xl text-[var(--text-primary)]">FISICA <span class="text-cyber">10°</span></span>
-            <div class="text-[10px] text-cyber border border-cyber px-2 rounded">SYS.ONLINE</div>
+            <span class="font-tech text-xl text-fis10 tracking-widest">TEOREMA DE BERNOULLI</span>
+            <button onclick="toggleTheme()" class="text-xs font-bold text-slate-400 hover:text-fis10 border border-slate-600 px-3 py-1 rounded transition-colors">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </nav>
 
-    <header class="text-center py-10 px-4">
-        <div class="inline-block p-4 rounded-full bg-fis10/10 mb-4 animate-pulse">
-            <i class="fas fa-tint text-4xl text-fis10"></i>
+    <main class="container mx-auto px-4 py-8 max-w-5xl">
+
+        <section class="glass p-8 rounded-2xl mb-8 border-l-4 border-fis10">
+            <div class="flex items-center gap-4 mb-4">
+                <i class="fas fa-book text-4xl text-fis10"></i>
+                <div>
+                    <h1 class="font-tech text-4xl text-fis10 mb-2">Teorema de Bernoulli</h1>
+                    <p class="text-slate-400">Física 10° - Período 3</p>
+                </div>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">Exploración didáctica de los conceptos fundamentales de teorema de bernoulli.</p>
+        </section>
+
+        <div class="mb-6 flex flex-wrap gap-2 justify-center">
+            <button onclick="switchTab('tab0')" class="tab-btn active px-4 py-2 rounded-full bg-fis10 text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-0"></i> Ecuación de Bernoull
+        </button><button onclick="switchTab('tab1')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-1"></i> Aplicaciones del Teo
+        </button>
         </div>
-        <h1 class="font-tech text-4xl md:text-5xl mb-4 text-[var(--text-primary)]">Ecuación de Bernoulli</h1>
-        <p class="text-slate-400 max-w-2xl mx-auto">Contenido en desarrollo para Física 10°.</p>
-    </header>
 
-    <main class="container mx-auto px-4 pb-20 max-w-6xl space-y-12">
-
-        <section class="theory-section">
-            <h2><i class="fas fa-book-open mr-2"></i> Contenido en Desarrollo</h2>
-            <p class="text-slate-300 leading-relaxed">
-                Esta página está siendo desarrollada. Pronto encontrarás aquí teoría completa, 
-                simulaciones interactivas y evaluaciones.
-            </p>
+        <section id="tab-tab0" class=" space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-fis10">
+                <h3 class="text-2xl font-bold text-fis10 mb-4">
+                    <i class="fas fa-book"></i> Ecuación de Bernoulli
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    
+                            <p class="mb-2">La energía total en un fluido es constante:</p>
+                            <div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400 mb-3">
+                                P + ½ρv² + ρgh = constante
+                            </div>
+                            <p class="text-sm text-slate-300">Presión + Energía cinética + Energía potencial = cte</p>
+                            
+                </div>
+            </div>
+        </section><section id="tab-tab1" class="hidden space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-fis10">
+                <h3 class="text-2xl font-bold text-fis10 mb-4">
+                    <i class="fas fa-book"></i> Aplicaciones del Teorema
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    
+                            <ul class="list-disc list-inside text-sm text-slate-300 space-y-1">
+                                <li>Tubo de Pitot (medidor de velocidad)</li>
+                                <li>Efecto Magnus (curvas en deportes)</li>
+                                <li>Alas de avión (principio de sustentación)</li>
+                                <li>Atomizadores</li>
+                            </ul>
+                            
+                </div>
+            </div>
         </section>
-
-        <section class="glass-card p-8 rounded-2xl text-center">
-            <i class="fas fa-hard-hat text-6xl text-yellow-500 mb-4"></i>
-            <h3 class="font-tech text-2xl text-[var(--text-primary)] mb-2">¡Próximamente!</h3>
-            <p class="text-slate-400">Estamos trabajando en el contenido de esta sección.</p>
-            <a href="../index.html" class="btn btn-primary mt-6 inline-block">
-                <i class="fas fa-arrow-left mr-2"></i> Volver al Menú
-            </a>
-        </section>
-
     </main>
 
-    <footer class="mt-16 text-slate-500 text-sm text-center">
-        <p>Docente: Luis Miguel Cabrera</p>
+    <section class="container mx-auto px-4 max-w-5xl mt-12">
+        <div class="glass p-6 rounded-xl border-l-4 border-cyber">
+            <h3 class="text-2xl font-bold text-cyber mb-6 flex items-center gap-2">
+                <i class="fas fa-question-circle"></i> Prueba tu Conocimiento
+            </h3>
+            <div class="bg-slate-900/50 p-4 rounded">
+                <p class="font-bold text-slate-300 mb-3">¿Qué has aprendido sobre teorema de bernoulli?</p>
+                <p class="text-sm text-slate-400">Las evaluaciones interactivas estarán disponibles próximamente.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-16 border-t border-slate-700 pt-6 pb-4 px-4">
+        <div class="container mx-auto max-w-5xl text-center text-slate-500 text-xs">
+            <p class="mb-1">I.E. Paulo VI - Docente: Luis Miguel Cabrera - Laboratorio Virtual © 2026</p>
+            <p>Teorema de Bernoulli | Física 10° - Período 3</p>
+        </div>
     </footer>
 
     <script src="../../app.js"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme') || 'dark';
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme-3_bernoulli', newTheme);
+        }
+
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('theme-3_bernoulli') || 'dark';
+            document.documentElement.setAttribute('data-theme', saved);
+        });
+
+        function switchTab(id) {
+            document.querySelectorAll('.section-tab').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('bg-fis10'));
+            document.getElementById(id).classList.remove('hidden');
+            event.currentTarget.classList.add('bg-fis10');
+        }
+    </script>
 </body>
 </html>

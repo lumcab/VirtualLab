@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movimiento Armónico Simple | Física 11° - Período 1</title>
+    <title>MAS (Movimiento Armónico Simple) | Fisica11° - Período 1</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
@@ -13,56 +13,137 @@
             theme: {
                 extend: {
                     fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
-                    colors: { fis11: '#a855f7', neon: '#00f3ff' }
+                    colors: { fis11: '#a855f7', neon: '#00f3ff', cyber: '#facc15', dark: '#050b14' }
                 }
             }
         }
     </script>
+    <style>
+        body { font-family: 'Rajdhani', sans-serif; }
+        [data-theme="dark"] body { background-color: #050b14; color: #e2e8f0; }
+        [data-theme="light"] body { background-color: #f3f4f6; color: #1f2937; }
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(59, 130, 246, 0.2); }
+        [data-theme="light"] .glass { background: rgba(255, 255, 255, 0.7); border-color: rgba(59, 130, 246, 0.3); }
+    </style>
 </head>
-<body class="min-h-screen" style="background-color: #050b14;">
+<body class="pb-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
 
     <nav class="border-b border-white/10 bg-dark/95 backdrop-blur-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="../index.html" class="text-xs font-bold text-slate-400 hover:text-[var(--text-primary)] border border-slate-600 px-3 py-1 rounded transition-colors">
-                <i class="fas fa-arrow-left"></i> Física 11°
+            <a href="../index.html" class="text-xs font-bold text-slate-400 hover:text-fis11 border border-slate-600 px-3 py-1 rounded transition-colors">
+                <i class="fas fa-arrow-left"></i> Atrás
             </a>
-            <span class="font-tech text-xl text-[var(--text-primary)] tracking-widest">FISICA <span class="text-neon drop-shadow-[0_0_5px_rgba(0,243,255,0.8)]">11°</span></span>
+            <span class="font-tech text-xl text-fis11 tracking-widest">MAS (MOVIMIENTO ARMÓNICO SIMPL</span>
+            <button onclick="toggleTheme()" class="text-xs font-bold text-slate-400 hover:text-fis11 border border-slate-600 px-3 py-1 rounded transition-colors">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </nav>
 
-    <header class="text-center py-10 px-4">
-        <div class="inline-block p-4 rounded-full bg-fis11/10 mb-4 animate-pulse">
-            <i class="fas fa-stopwatch text-4xl text-fis11"></i>
+    <main class="container mx-auto px-4 py-8 max-w-5xl">
+
+        <section class="glass p-8 rounded-2xl mb-8 border-l-4 border-fis11">
+            <div class="flex items-center gap-4 mb-4">
+                <i class="fas fa-book text-4xl text-fis11"></i>
+                <div>
+                    <h1 class="font-tech text-4xl text-fis11 mb-2">MAS (Movimiento Armónico Simple)</h1>
+                    <p class="text-slate-400">Período 1</p>
+                </div>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">Exploración didáctica de mas (movimiento armónico simple).</p>
+        </section>
+
+        <div class="mb-6 flex flex-wrap gap-2 justify-center">
+            <button onclick="switchTab('tab0')" class="tab-btn active px-4 py-2 rounded-full bg-fis11 text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-0"></i> Cinemática del MAS
+        </button><button onclick="switchTab('tab1')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-1"></i> Dinámica del MAS
+        </button><button onclick="switchTab('tab2')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-2"></i> Energía en M AS
+        </button><button onclick="switchTab('tab3')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
+            <i class="fas fa-circle-3"></i> Aplicaciones
+        </button>
         </div>
-        <h1 class="font-tech text-4xl md:text-5xl mb-4 text-[var(--text-primary)]">Movimiento Armónico Simple</h1>
-        <p class="text-slate-400 max-w-2xl mx-auto">Contenido en desarrollo para Física 11°.</p>
-    </header>
 
-    <main class="container mx-auto px-4 pb-20 max-w-6xl space-y-12">
-
-        <section class="theory-section">
-            <h2><i class="fas fa-book-open mr-2"></i> Contenido en Desarrollo</h2>
-            <p class="text-slate-300 leading-relaxed">
-                Esta página está siendo desarrollada. Pronto encontrarás aquí teoría completa, 
-                simulaciones interactivas y evaluaciones.
-            </p>
+        <section id="tab-tab0" class=" space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-fis11">
+                <h3 class="text-2xl font-bold text-fis11 mb-4">
+                    <i class="fas fa-book"></i> Cinemática del MAS
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    <div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400 mb-3">x(t) = A cos(ωt + φ)<br>v(t) = -Aω sin(ωt + φ)<br>a(t) = -Aω² cos(ωt + φ)</div>
+                </div>
+            </div>
+        </section><section id="tab-tab1" class="hidden space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-fis11">
+                <h3 class="text-2xl font-bold text-fis11 mb-4">
+                    <i class="fas fa-book"></i> Dinámica del MAS
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    <p class="mb-2"><strong class="text-fis11">Fuerza restoradora:</strong></p><div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400">F = -kx<br>ω = √(k/m)</div>
+                </div>
+            </div>
+        </section><section id="tab-tab2" class="hidden space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-fis11">
+                <h3 class="text-2xl font-bold text-fis11 mb-4">
+                    <i class="fas fa-book"></i> Energía en M AS
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    <p class="mb-2">La energía total es constante:</p><div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400">E = ½kA² = cte</div>
+                </div>
+            </div>
+        </section><section id="tab-tab3" class="hidden space-y-6 section-tab">
+            <div class="glass p-6 rounded-xl border-t-4 border-fis11">
+                <h3 class="text-2xl font-bold text-fis11 mb-4">
+                    <i class="fas fa-book"></i> Aplicaciones
+                </h3>
+                <div class="space-y-4 text-slate-300">
+                    <ul class="list-disc list-inside text-sm text-slate-300 space-y-1"><li>Péndulo simple</li><li>Masa-resorte</li><li>Osciladores acoplados</li></ul>
+                </div>
+            </div>
         </section>
-
-        <section class="glass-card p-8 rounded-2xl text-center">
-            <i class="fas fa-hard-hat text-6xl text-yellow-500 mb-4"></i>
-            <h3 class="font-tech text-2xl text-[var(--text-primary)] mb-2">¡Próximamente!</h3>
-            <p class="text-slate-400">Estamos trabajando en el contenido de esta sección.</p>
-            <a href="../index.html" class="btn btn-primary mt-6 inline-block">
-                <i class="fas fa-arrow-left mr-2"></i> Volver al Menú
-            </a>
-        </section>
-
     </main>
 
-    <footer class="mt-16 text-slate-500 text-sm text-center">
-        <p>Docente: Luis Miguel Cabrera</p>
+    <section class="container mx-auto px-4 max-w-5xl mt-12">
+        <div class="glass p-6 rounded-xl border-l-4 border-cyber">
+            <h3 class="text-2xl font-bold text-cyber mb-6 flex items-center gap-2">
+                <i class="fas fa-question-circle"></i> Prueba tu Conocimiento
+            </h3>
+            <div class="bg-slate-900/50 p-4 rounded">
+                <p class="font-bold text-slate-300 mb-3">¿Qué has aprendido?</p>
+                <p class="text-sm text-slate-400">Las evaluaciones interactivas estarán disponibles próximamente.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-16 border-t border-slate-700 pt-6 pb-4 px-4">
+        <div class="container mx-auto max-w-5xl text-center text-slate-500 text-xs">
+            <p class="mb-1">I.E. Paulo VI - Docente: Luis Miguel Cabrera - Laboratorio Virtual © 2026</p>
+            <p>MAS (Movimiento Armónico Simple) | Período 1</p>
+        </div>
     </footer>
 
     <script src="../../app.js"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme') || 'dark';
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme-1_mas', newTheme);
+        }
+
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('theme-1_mas') || 'dark';
+            document.documentElement.setAttribute('data-theme', saved);
+        });
+
+        function switchTab(id) {
+            document.querySelectorAll('.section-tab').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('bg-fis11'));
+            document.getElementById(id).classList.remove('hidden');
+            event.currentTarget.classList.add('bg-fis11');
+        }
+    </script>
 </body>
 </html>

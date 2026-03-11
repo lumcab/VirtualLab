@@ -147,6 +147,34 @@
         </div>
 
         <div id="tab-acustica" class="hidden space-y-6 section-tab">
+            <!-- Teoría de Acústica -->
+            <div class="glass p-6 rounded-2xl border-l-4 border-orange-500">
+                <h3 class="font-tech text-2xl text-[var(--text-primary)] mb-4 flex items-center gap-2"><i class="fas fa-voicemail text-orange-500"></i> Fundamentos de Acústica</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-xs text-slate-300">
+                    <div class="bg-slate-800/50 p-3 rounded">
+                        <h4 class="text-orange-400 font-bold mb-2">📢 Sonido</h4>
+                        <p>Onda mecánica que se propaga por un medio. No se propaga en el vacío.</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-3 rounded">
+                        <h4 class="text-yellow-400 font-bold mb-2">🎚️ Frecuencia</h4>
+                        <p>Número de oscilaciones por segundo (Hz). Define el tono: graves (bajos Hz), agudos (altos Hz).</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-3 rounded">
+                        <h4 class="text-cyan-400 font-bold mb-2">📊 Amplitud</h4>
+                        <p>Intensidad de la onda. Mayor amplitud = mayor volumen. Se mide en decibeles (dB).</p>
+                    </div>
+                </div>
+                <div class="mt-4 p-4 rounded-lg bg-slate-900/50 border border-slate-700">
+                    <p class="text-xs text-slate-400 mb-2"><i class="fas fa-graduation-cap"></i> <strong>Velocidad del Sonido:</strong></p>
+                    <div class="grid md:grid-cols-4 gap-2 text-xs text-slate-300 font-mono">
+                        <div>🌍 <strong>Aire:</strong> ~340 m/s</div>
+                        <div>💧 <strong>Agua:</strong> ~1500 m/s</div>
+                        <div>🪨 <strong>Acero:</strong> ~5960 m/s</div>
+                        <div>📏 <strong>Fórmula:</strong> v = λ · f</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="glass p-6 rounded-2xl border-t-4 border-orange-500">
                     <h3 class="font-bold text-xl text-[var(--text-primary)] mb-4 flex items-center gap-2"><i class="fas fa-truck-medical text-orange-500"></i> Efecto Doppler</h3>
@@ -233,8 +261,11 @@
         </div>
     </main>
 
-    <footer class="mt-16 text-slate-500 text-sm text-center">
-        <p>Docente: Luis Miguel Cabrera</p>
+    <footer class="mt-16 border-t border-slate-700 pt-6 pb-4 px-4">
+        <div class="container mx-auto max-w-7xl text-center text-slate-500 text-xs">
+            <p class="mb-1">I.E. Paulo VI - Docente: Luis Miguel Cabrera - Laboratorio Virtual © 2026</p>
+            <p>Ondas, Sonido y Acústica | Física 11° - Período 1</p>
+        </div>
     </footer>
 
     <script src="../../app.js"></script>
