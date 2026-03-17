@@ -1,438 +1,148 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ondas y Sonido | Física 11° - Período 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
-                    colors: { fis11: '#a855f7', neon: '#00f3ff', purple: '#bc13fe', dark: '#050b14' }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #050b14; color: #e2e8f0; font-family: 'Rajdhani', sans-serif; }
-        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(0, 243, 255, 0.1); box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .tab-btn.active { border-bottom: 2px solid #00f3ff; color: #00f3ff; text-shadow: 0 0 10px #00f3ff; background: linear-gradient(to top, rgba(0,243,255,0.1), transparent); }
-        input[type=range] { accent-color: #00f3ff; cursor: pointer; }
-        input[type=number] { background: #0f172a; border: 1px solid #334155; color: white; padding: 6px; border-radius: 4px; font-family: 'Rajdhani', sans-serif; font-weight: bold; }
-        input[type=number]:focus { border-color: #00f3ff; outline: none; }
-        canvas { touch-action: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ondas y sonido | Física 11°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/themes.css">
 </head>
-<body class="pb-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+<body>
+  <div id="header-mount"></div>
+  <main class="container page-shell">
+    <div id="sidebar-mount"></div>
+    <section class="content">
+      <section class="card hero">
+        <span class="badge">Física 11° · Período 1</span>
+        <h1 id="hero-title">Ondas y sonido</h1>
+        <p id="hero-subtitle">Recuperación inicial del generador senoidal con audio, controles de frecuencia y amplitud, y explicación didáctica para el aula.</p>
+      </section>
 
-    <nav class="border-b border-white/10 bg-dark/95 backdrop-blur-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="../index.html" class="text-xs font-bold text-slate-400 hover:text-[var(--text-primary)] border border-slate-600 px-3 py-1 rounded transition-colors">
-                <i class="fas fa-arrow-left"></i> Física 11°
-            </a>
-            <span class="font-tech text-xl text-[var(--text-primary)] tracking-widest">FISICA <span class="text-neon drop-shadow-[0_0_5px_rgba(0,243,255,0.8)]">11°</span></span>
+      <section class="card">
+        <h2 class="section-title">Conceptos esenciales</h2>
+        <div class="info-grid">
+          <div class="kpi"><strong>Frecuencia</strong><p class="muted">Determina cuántas oscilaciones ocurren por segundo. Se mide en hertz (Hz).</p></div>
+          <div class="kpi"><strong>Amplitud</strong><p class="muted">Se relaciona con la intensidad de la onda y con la energía transportada.</p></div>
+          <div class="kpi"><strong>Tono</strong><p class="muted">Un tono agudo tiene mayor frecuencia; un tono grave tiene menor frecuencia.</p></div>
         </div>
-    </nav>
+        <div class="formula">Modelo visual: y = A · sen(kx - ωt)</div>
+      </section>
 
-    <div class="bg-slate-900/90 border-b border-white/5 sticky top-[57px] z-40 backdrop-blur">
-        <div class="container mx-auto flex overflow-x-auto justify-center gap-2 p-1">
-            <button onclick="switchTab('mas')" class="tab-btn active px-6 py-3 font-bold text-lg uppercase tracking-wider transition-all flex-1 md:flex-none">
-                <i class="fas fa-stopwatch mr-2"></i> M.A.S.
-            </button>
-            <button onclick="switchTab('ondas')" class="tab-btn px-6 py-3 font-bold text-lg uppercase tracking-wider transition-all flex-1 md:flex-none">
-                <i class="fas fa-wave-square mr-2"></i> Ondas
-            </button>
-            <button onclick="switchTab('acustica')" class="tab-btn px-6 py-3 font-bold text-lg uppercase tracking-wider transition-all flex-1 md:flex-none">
-                <i class="fas fa-music mr-2"></i> Acústica
-            </button>
-        </div>
-    </div>
-
-    <main class="container mx-auto px-4 py-8 max-w-7xl">
-
-        <div id="tab-mas" class="space-y-6 section-tab">
-            <div class="glass p-1 rounded-2xl border border-neon/30 relative">
-                <div class="absolute top-4 left-4 z-10 bg-black/60 p-2 rounded border-l-2 border-neon backdrop-blur">
-                    <h3 class="text-neon font-tech text-sm">MONITOR DE MOVIMIENTO</h3>
-                    <p class="text-xs text-slate-300">Izquierda: Sistema Físico | Derecha: Gráfica (x vs t)</p>
-                </div>
-
-                <div class="bg-black rounded-xl h-[500px] relative overflow-hidden select-none" id="mas-container">
-                    <canvas id="masCanvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
-                    
-                    <div class="absolute top-4 right-4 w-48 bg-slate-900/80 p-3 rounded border border-white/10 pointer-events-none">
-                        <div class="mb-2">
-                            <div class="flex justify-between text-[10px] text-green-400 font-bold mb-1"><span>CINÉTICA (K)</span><span id="txtEk">0%</span></div>
-                            <div class="w-full h-1 bg-slate-700 rounded-full overflow-hidden"><div id="barEk" class="h-full bg-green-500 shadow-[0_0_10px_#22c55e]" style="width: 0%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-[10px] text-purple-400 font-bold mb-1"><span>POTENCIAL (U)</span><span id="txtEp">0%</span></div>
-                            <div class="w-full h-1 bg-slate-700 rounded-full overflow-hidden"><div id="barEp" class="h-full bg-purple-500 shadow-[0_0_10px_#a855f7]" style="width: 0%"></div></div>
-                        </div>
-                    </div>
-
-                    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black via-black/90 to-transparent p-4 flex flex-col md:flex-row gap-6 items-end justify-center">
-                        <div class="flex bg-slate-800 rounded-lg p-1 border border-slate-600">
-                            <button onclick="setMasMode('spring')" id="btn-spring" class="px-4 py-2 bg-neon text-black font-bold rounded text-xs hover:scale-105 transition">RESORTE</button>
-                            <button onclick="setMasMode('pendulum')" id="btn-pendulum" class="px-4 py-2 text-slate-300 font-bold rounded text-xs hover:text-[var(--text-primary)] transition">PÉNDULO</button>
-                        </div>
-                        
-                        <div id="controls-spring" class="flex gap-4 w-full md:w-auto">
-                            <div class="flex-1"><label class="text-[10px] text-neon block mb-1">MASA (m)</label><input type="range" id="masM" min="1" max="20" value="5" class="w-32 h-1"></div>
-                            <div class="flex-1"><label class="text-[10px] text-neon block mb-1">CONSTANTE (k)</label><input type="range" id="masK" min="10" max="100" value="50" class="w-32 h-1"></div>
-                        </div>
-                        <div id="controls-pendulum" class="hidden w-full md:w-auto">
-                            <div class="flex-1"><label class="text-[10px] text-neon block mb-1">LONGITUD (L)</label><input type="range" id="masL" min="0.5" max="3" step="0.1" value="1.5" class="w-64 h-1"></div>
-                        </div>
-                    </div>
-                </div>
+      <section class="card">
+        <h2 class="section-title">Generador de tono y osciloscopio</h2>
+        <div class="grid columns-2">
+          <div>
+            <div class="controls">
+              <label><span class="mini-note">Frecuencia</span><input class="input" id="freqSlider" type="range" min="80" max="1000" value="440"></label>
+              <label><span class="mini-note">Amplitud</span><input class="input" id="ampSlider" type="range" min="10" max="100" value="50"></label>
+              <label><span class="mini-note">Velocidad visual</span><input class="input" id="speedSlider" type="range" min="1" max="20" value="8"></label>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="glass p-4 rounded-xl border-l-4 border-green-500">
-                    <h4 class="text-green-400 font-bold text-sm">Ecuación de Posición</h4>
-                    <p class="font-mono text-xl text-[var(--text-primary)] mt-2">x(t) = A · cos(ωt)</p>
-                    <p class="text-xs text-slate-400 mt-2">Describe la curva que ves dibujarse a la derecha.</p>
-                </div>
-                <div class="glass p-4 rounded-xl border-l-4 border-purple-500">
-                    <h4 class="text-purple-400 font-bold text-sm">Frecuencia Angular (ω)</h4>
-                    <div class="flex gap-4 mt-2">
-                        <div class="text-xs text-slate-300"><span class="block font-bold text-[var(--text-primary)]">Resorte:</span> ω = √(k/m)</div>
-                        <div class="text-xs text-slate-300"><span class="block font-bold text-[var(--text-primary)]">Péndulo:</span> ω = √(g/L)</div>
-                    </div>
-                </div>
+            <div class="info-grid">
+              <div class="kpi"><strong>Frecuencia</strong><div class="math-display" id="freqOut">440 Hz</div></div>
+              <div class="kpi"><strong>Amplitud</strong><div class="math-display" id="ampOut">50 %</div></div>
             </div>
-        </div>
-
-        <div id="tab-ondas" class="hidden space-y-6 section-tab">
-            <div class="glass p-6 rounded-2xl border border-neon/20">
-                <div class="flex flex-col md:flex-row justify-between items-center mb-6">
-                    <div>
-                        <h3 class="font-tech text-2xl text-[var(--text-primary)]">Laboratorio de Ondas</h3>
-                        <p class="text-sm text-slate-400">Generador de Tono y Osciloscopio</p>
-                    </div>
-                    <button id="audioBtn" onclick="toggleAudio()" class="mt-4 md:mt-0 px-6 py-3 rounded-full bg-slate-800 text-[var(--text-primary)] font-bold border border-slate-600 hover:bg-neon hover:text-black hover:border-white transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] group">
-                        <i class="fas fa-power-off group-hover:animate-pulse"></i> ENCENDER SONIDO
-                    </button>
-                </div>
-
-                <div class="bg-black rounded-xl p-1 border border-slate-700 relative">
-                    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 20px 20px;"></div>
-                    <canvas id="waveCanvas" class="w-full h-[300px] block rounded"></canvas>
-                    <div class="absolute top-2 right-2 font-mono text-xs text-neon bg-black/80 px-2 rounded">v = λ · f</div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 mt-6">
-                    <div>
-                        <label class="flex justify-between text-xs text-slate-300 font-bold mb-2">
-                            <span>FRECUENCIA (Hz)</span> <span id="freqVal" class="text-neon bg-slate-900 px-2 rounded">440</span>
-                        </label>
-                        <input type="range" id="freqSlider" min="1" max="1000" step="1" value="440" class="w-full h-2 bg-slate-800 rounded-lg appearance-none">
-                        <div class="flex justify-between text-[10px] text-slate-500 mt-1"><span>1 Hz (Didáctico)</span><span>1000 Hz (Agudo)</span></div>
-                    </div>
-                    <div>
-                        <label class="flex justify-between text-xs text-slate-300 font-bold mb-2">
-                            <span>AMPLITUD (%)</span> <span id="ampVal" class="text-purple-400 bg-slate-900 px-2 rounded">50</span>
-                        </label>
-                        <input type="range" id="ampSlider" min="0" max="100" value="50" class="w-full h-2 bg-slate-800 rounded-lg appearance-none">
-                        <div class="flex justify-between text-[10px] text-slate-500 mt-1"><span>Silencio</span><span>Ruidoso</span></div>
-                    </div>
-                </div>
+            <div class="inline-actions">
+              <button class="btn" id="audioBtn">🔊 Encender sonido</button>
+              <button class="btn" id="presetLow">Tono grave</button>
+              <button class="btn" id="presetHigh">Tono agudo</button>
             </div>
+            <p class="callout">Usa esta página para comparar visualmente cómo cambia la onda cuando modificas la frecuencia o la amplitud. En clase puedes pedir a los estudiantes que describan qué observan antes de escuchar el sonido.</p>
+          </div>
+          <div>
+            <canvas id="waveCanvas" height="300"></canvas>
+          </div>
         </div>
+      </section>
 
-        <div id="tab-acustica" class="hidden space-y-6 section-tab">
-            <!-- Teoría de Acústica -->
-            <div class="glass p-6 rounded-2xl border-l-4 border-orange-500">
-                <h3 class="font-tech text-2xl text-[var(--text-primary)] mb-4 flex items-center gap-2"><i class="fas fa-voicemail text-orange-500"></i> Fundamentos de Acústica</h3>
-                <div class="grid md:grid-cols-3 gap-4 text-xs text-slate-300">
-                    <div class="bg-slate-800/50 p-3 rounded">
-                        <h4 class="text-orange-400 font-bold mb-2">📢 Sonido</h4>
-                        <p>Onda mecánica que se propaga por un medio. No se propaga en el vacío.</p>
-                    </div>
-                    <div class="bg-slate-800/50 p-3 rounded">
-                        <h4 class="text-yellow-400 font-bold mb-2">🎚️ Frecuencia</h4>
-                        <p>Número de oscilaciones por segundo (Hz). Define el tono: graves (bajos Hz), agudos (altos Hz).</p>
-                    </div>
-                    <div class="bg-slate-800/50 p-3 rounded">
-                        <h4 class="text-cyan-400 font-bold mb-2">📊 Amplitud</h4>
-                        <p>Intensidad de la onda. Mayor amplitud = mayor volumen. Se mide en decibeles (dB).</p>
-                    </div>
-                </div>
-                <div class="mt-4 p-4 rounded-lg bg-slate-900/50 border border-slate-700">
-                    <p class="text-xs text-slate-400 mb-2"><i class="fas fa-graduation-cap"></i> <strong>Velocidad del Sonido:</strong></p>
-                    <div class="grid md:grid-cols-4 gap-2 text-xs text-slate-300 font-mono">
-                        <div>🌍 <strong>Aire:</strong> ~340 m/s</div>
-                        <div>💧 <strong>Agua:</strong> ~1500 m/s</div>
-                        <div>🪨 <strong>Acero:</strong> ~5960 m/s</div>
-                        <div>📏 <strong>Fórmula:</strong> v = λ · f</div>
-                    </div>
-                </div>
-            </div>
+      <section class="card quiz-box"><div id="quiz-root"></div></section>
+      <section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+    </section>
+  </main>
+  <div id="footer-mount"></div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="glass p-6 rounded-2xl border-t-4 border-orange-500">
-                    <h3 class="font-bold text-xl text-[var(--text-primary)] mb-4 flex items-center gap-2"><i class="fas fa-truck-medical text-orange-500"></i> Efecto Doppler</h3>
-                    
-                    <div class="space-y-3 mb-4 text-sm">
-                        <div>
-                            <label class="block text-[11px] text-slate-400 font-bold mb-1 uppercase tracking-wide">Frecuencia de la Fuente (Hz)</label>
-                            <input type="number" id="dopF" placeholder="Ej: 440" class="w-full">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-[11px] text-slate-400 font-bold mb-1 uppercase tracking-wide">Velocidad del Sonido (m/s)</label>
-                            <input type="number" id="dopV" value="340" class="w-full text-slate-400 bg-slate-900/50">
-                        </div>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/theme-toggle.js"></script>
+  <script src="../../js/site-map.js"></script>
+  <script src="../../js/router.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/quiz-engine.js"></script>
+  <script src="../../js/graph-engine.js"></script>
+  <script src="../../js/simulator-engine.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    App.initPage({ depth: 2, subjectKey: 'fisica11', periodKey: 'periodo1', topicSlug: '2_ondas_sonido.html', theme: 'violet', pageTitle: 'Ondas y sonido', pageDescription: 'Visualiza una señal senoidal y escucha cómo cambian el tono y la intensidad.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: 'Si la frecuencia aumenta, el sonido suele percibirse más...', options: ['Grave', 'Agudo', 'Lento', 'Débil'], answer: 1, feedback: 'A mayor frecuencia, mayor tono.' },
+      { prompt: 'La amplitud se relaciona principalmente con...', options: ['La intensidad', 'La masa', 'La longitud del péndulo', 'La carga eléctrica'], answer: 0, feedback: 'Una amplitud mayor suele producir un sonido más intenso.' },
+      { prompt: '¿Qué forma tiene la señal del simulador?', options: ['Rectangular', 'Triangular', 'Senoidal', 'Aleatoria'], answer: 2, feedback: 'La gráfica es una onda senoidal.' }
+    ], 'fisica11-periodo1-2_ondas_sonido.html');
 
-                        <div>
-                            <label class="block text-[11px] text-slate-400 font-bold mb-1 uppercase tracking-wide">Observador (Receptor)</label>
-                            <div class="flex gap-2 bg-slate-800/50 p-2 rounded">
-                                <div class="flex-1">
-                                    <span class="text-[9px] text-slate-500 block">VELOCIDAD (m/s)</span>
-                                    <input type="number" id="dopVo" value="0" class="w-full">
-                                </div>
-                                <div class="flex-1">
-                                    <span class="text-[9px] text-slate-500 block">ACCIÓN</span>
-                                    <select id="dopSignO" class="w-full bg-black border border-slate-600 rounded p-1 text-xs text-[var(--text-primary)]">
-                                        <option value="add">Se Acerca (+)</option>
-                                        <option value="sub">Se Aleja (-)</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+    const canvas = document.getElementById('waveCanvas');
+    const ctx = canvas.getContext('2d');
+    const freqSlider = document.getElementById('freqSlider');
+    const ampSlider = document.getElementById('ampSlider');
+    const speedSlider = document.getElementById('speedSlider');
+    const freqOut = document.getElementById('freqOut');
+    const ampOut = document.getElementById('ampOut');
+    let phase = 0;
+    let audioCtx = null, osc = null, gain = null, audioOn = false;
 
-                        <div>
-                            <label class="block text-[11px] text-slate-400 font-bold mb-1 uppercase tracking-wide">Fuente Sonora</label>
-                            <div class="flex gap-2 bg-slate-800/50 p-2 rounded">
-                                <div class="flex-1">
-                                    <span class="text-[9px] text-slate-500 block">VELOCIDAD (m/s)</span>
-                                    <input type="number" id="dopVf" value="0" class="w-full">
-                                </div>
-                                <div class="flex-1">
-                                    <span class="text-[9px] text-slate-500 block">ACCIÓN</span>
-                                    <select id="dopSignF" class="w-full bg-black border border-slate-600 rounded p-1 text-xs text-[var(--text-primary)]">
-                                        <option value="sub">Se Acerca (-)</option>
-                                        <option value="add">Se Aleja (+)</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button onclick="calcDoppler()" class="w-full bg-gradient-to-r from-orange-600 to-orange-500 text-[var(--text-primary)] font-bold py-3 rounded hover:brightness-110 shadow-lg">CALCULAR FRECUENCIA PERCIBIDA</button>
-                    <div id="dopResult" class="mt-4 text-center p-2 rounded bg-orange-500/10 border border-orange-500/30 text-2xl font-mono text-[var(--text-primary)] hidden">0.00 Hz</div>
-                </div>
+    function resizeWave() { SimulatorEngine.resizeCanvas(canvas, 300); }
 
-                <div class="glass p-6 rounded-2xl border-t-4 border-cyan-500">
-                    <h3 class="font-bold text-xl text-[var(--text-primary)] mb-4 flex items-center gap-2"><i class="fas fa-wind text-cyan-500"></i> Tubos Sonoros</h3>
-                    
-                    <div class="space-y-4 mb-6 text-sm">
-                        <div>
-                            <label class="block text-[11px] text-slate-400 font-bold mb-1 uppercase tracking-wide">Tipo de Sistema</label>
-                            <select id="tubeType" class="w-full p-2">
-                                <option value="2">Tubo Abierto / Cuerda (2L)</option>
-                                <option value="4">Tubo Cerrado (4L)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-[11px] text-slate-400 font-bold mb-1 uppercase tracking-wide">Longitud (m)</label>
-                                <input type="number" id="tubeL" placeholder="Ej: 1.5" class="w-full">
-                            </div>
-                            <div>
-                                <label class="block text-[11px] text-slate-400 font-bold mb-1 uppercase tracking-wide">Armónico (n)</label>
-                                <input type="number" id="tubeN" value="1" class="w-full">
-                            </div>
-                        </div>
-                        <div class="text-[10px] text-slate-500 bg-slate-800 p-2 rounded">
-                            <i class="fas fa-circle-info"></i> En tubos cerrados, 'n' solo puede ser impar (1, 3, 5...).
-                        </div>
-                    </div>
-                    <button onclick="calcTube()" class="w-full bg-gradient-to-r from-cyan-600 to-cyan-500 text-[var(--text-primary)] font-bold py-3 rounded hover:brightness-110 shadow-lg">CALCULAR FRECUENCIA</button>
-                    <div id="tubeResult" class="mt-4 text-center p-2 rounded bg-cyan-500/10 border border-cyan-500/30 text-2xl font-mono text-[var(--text-primary)] hidden">0.00 Hz</div>
-                </div>
-            </div>
-        </div>
-    </main>
+    function drawWave() {
+      resizeWave();
+      const w = canvas.width, h = canvas.height;
+      const freq = Number(freqSlider.value), amp = Number(ampSlider.value), speed = Number(speedSlider.value);
+      freqOut.textContent = freq + ' Hz';
+      ampOut.textContent = amp + ' %';
+      ctx.clearRect(0,0,w,h);
+      ctx.strokeStyle = 'rgba(130,130,130,.28)';
+      for (let gy=30; gy<h; gy+=30) { ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(w,gy); ctx.stroke(); }
+      ctx.beginPath(); ctx.moveTo(0,h/2); ctx.lineTo(w,h/2); ctx.stroke();
+      ctx.beginPath(); ctx.strokeStyle = '#7cb27d'; ctx.lineWidth = 3;
+      for (let x=0; x<w; x++) {
+        const y = h/2 + (amp * 0.8) * Math.sin((x * 0.015 * (freq/120)) - phase);
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      if (audioOn && osc) {
+        osc.frequency.value = freq;
+        gain.gain.value = Math.min(0.18, amp / 500);
+      }
+      phase += speed * 0.08;
+      requestAnimationFrame(drawWave);
+    }
 
-    <footer class="mt-16 border-t border-slate-700 pt-6 pb-4 px-4">
-        <div class="container mx-auto max-w-7xl text-center text-slate-500 text-xs">
-            <p class="mb-1">I.E. Paulo VI - Docente: Luis Miguel Cabrera - Laboratorio Virtual © 2026</p>
-            <p>Ondas, Sonido y Acústica | Física 11° - Período 1</p>
-        </div>
-    </footer>
+    function toggleAudio() {
+      const btn = document.getElementById('audioBtn');
+      if (!audioOn) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        osc = audioCtx.createOscillator();
+        gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.connect(gain); gain.connect(audioCtx.destination); osc.start();
+        audioOn = true;
+        btn.textContent = '🔇 Apagar sonido';
+      } else {
+        osc.stop();
+        osc.disconnect(); gain.disconnect();
+        osc = null; gain = null; audioOn = false;
+        btn.textContent = '🔊 Encender sonido';
+      }
+    }
 
-    <script src="../../app.js"></script>
-    <script>
-        function switchTab(id) {
-            document.querySelectorAll('.section-tab').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`tab-${id}`).classList.remove('hidden');
-            event.currentTarget.classList.add('active');
-            if(id==='ondas') requestAnimationFrame(drawWave);
-            if(id==='mas') requestAnimationFrame(drawMasLoop);
-        }
-
-        const mCanvas = document.getElementById('masCanvas');
-        const mCtx = mCanvas.getContext('2d');
-        let masState = { mode:'spring', dragging:false, t:0, x:0, A:100, k:50, m:5, L:1.5, g:9.8, originY:50 };
-        let wavePath = [];
-
-        function setMasMode(mode) {
-            masState.mode = mode; masState.t = 0; masState.x = 0; wavePath = [];
-            document.getElementById('controls-spring').classList.toggle('hidden', mode!=='spring');
-            document.getElementById('controls-pendulum').classList.toggle('hidden', mode!=='pendulum');
-            const activeClass = "px-4 py-2 bg-neon text-black font-bold rounded text-xs hover:scale-105 transition";
-            const inactiveClass = "px-4 py-2 text-slate-300 font-bold rounded text-xs hover:text-[var(--text-primary)] transition";
-            document.getElementById('btn-spring').className = mode==='spring'?activeClass:inactiveClass;
-            document.getElementById('btn-pendulum').className = mode==='pendulum'?activeClass:inactiveClass;
-        }
-
-        function getPos(e) { 
-            const r=mCanvas.getBoundingClientRect(); 
-            return {x:(e.touches?e.touches[0].clientX:e.clientX)-r.left, y:(e.touches?e.touches[0].clientY:e.clientY)-r.top}; 
-        }
-        
-        mCanvas.addEventListener('mousedown', sD); 
-        mCanvas.addEventListener('touchstart', sD, {passive:false});
-        window.addEventListener('mousemove', dD); 
-        window.addEventListener('touchmove', dD, {passive:false});
-        window.addEventListener('mouseup', eD); 
-        window.addEventListener('touchend', eD);
-        
-        function sD(e) {e.preventDefault(); masState.dragging=true; wavePath=[];}
-        function dD(e) {
-            if(!masState.dragging)return; e.preventDefault(); const p=getPos(e);
-            if(masState.mode==='spring') masState.x = p.y - (masState.originY+150);
-            else masState.x = p.x - mCanvas.width/4;
-        }
-        function eD(){ masState.dragging=false; masState.t=0; masState.A=masState.x; }
-
-        function drawMasLoop() {
-            if(mCanvas.parentElement.clientWidth>0) { mCanvas.width=mCanvas.parentElement.clientWidth; mCanvas.height=500; }
-            masState.k = parseFloat(document.getElementById('masK').value);
-            masState.m = parseFloat(document.getElementById('masM').value);
-            masState.L = parseFloat(document.getElementById('masL').value);
-            
-            if(!masState.dragging) {
-                let w = (masState.mode==='spring') ? Math.sqrt(masState.k/masState.m) : Math.sqrt(masState.g/masState.L);
-                masState.t += 0.05;
-                masState.A *= 0.999;
-                masState.x = masState.A * Math.cos(w*masState.t);
-            }
-
-            const cx = mCanvas.width / 4; const cy = 50; 
-            mCtx.fillStyle='#000'; mCtx.fillRect(0,0,mCanvas.width,mCanvas.height);
-            mCtx.strokeStyle='#1e293b'; mCtx.lineWidth=1; mCtx.beginPath();
-            for(let i=cx*2; i<mCanvas.width; i+=40) { mCtx.moveTo(i,0); mCtx.lineTo(i,mCanvas.height); }
-            mCtx.stroke();
-            const graphY = (masState.mode==='spring') ? (cy + 150 + 100) : (cy + 100*masState.L);
-            mCtx.strokeStyle='#334155'; mCtx.beginPath(); mCtx.moveTo(cx, graphY); mCtx.lineTo(mCanvas.width, graphY); mCtx.stroke();
-
-            let objX, objY;
-            if(masState.mode==='spring') {
-                const len = 150 + masState.x + 100;
-                objX = cx; objY = cy + len;
-                mCtx.strokeStyle='#ccc'; mCtx.lineWidth=3; mCtx.beginPath(); mCtx.moveTo(cx,cy);
-                for(let i=0; i<=20; i++) mCtx.lineTo(cx+(i%2==0?15:-15), cy+(len/20)*i);
-                mCtx.stroke();
-                mCtx.fillStyle='#00f3ff'; mCtx.shadowBlur=15; mCtx.shadowColor='#00f3ff'; mCtx.fillRect(cx-25, objY, 50, 50); mCtx.shadowBlur=0;
-            } else {
-                const px = 100 * masState.L;
-                const theta = masState.x / px;
-                objX = cx + px*Math.sin(theta); objY = cy + px*Math.cos(theta);
-                mCtx.strokeStyle='#fff'; mCtx.lineWidth=2; mCtx.beginPath(); mCtx.moveTo(cx,cy); mCtx.lineTo(objX,objY); mCtx.stroke();
-                mCtx.fillStyle='#bc13fe'; mCtx.shadowBlur=15; mCtx.shadowColor='#bc13fe'; mCtx.beginPath(); mCtx.arc(objX, objY, 20, 0, Math.PI*2); mCtx.fill(); mCtx.shadowBlur=0;
-            }
-
-            const plotVal = (masState.mode==='spring') ? (objY - (cy+250)) : masState.x; 
-            wavePath.unshift(plotVal);
-            if(wavePath.length > (mCanvas.width - cx*1.5)) wavePath.pop();
-
-            const graphStartX = cx * 1.5;
-            mCtx.strokeStyle = 'rgba(255,255,255,0.2)'; mCtx.setLineDash([5,5]); mCtx.beginPath();
-            mCtx.moveTo(objX, objY + (masState.mode==='spring'?25:0)); 
-            mCtx.lineTo(graphStartX, graphY + wavePath[0]); 
-            mCtx.stroke(); mCtx.setLineDash([]);
-
-            mCtx.strokeStyle = masState.mode==='spring' ? '#00f3ff' : '#bc13fe';
-            mCtx.lineWidth = 2; mCtx.beginPath();
-            for(let i=0; i<wavePath.length; i++) {
-                mCtx.lineTo(graphStartX + i, graphY + wavePath[i]);
-            }
-            mCtx.stroke();
-
-            let phase = (!masState.dragging) ? (masState.mode==='spring'? Math.sqrt(masState.k/masState.m): Math.sqrt(masState.g/masState.L)) * masState.t : 0;
-            let Ep = (masState.dragging) ? 100 : Math.cos(phase)**2 * 100;
-            let Ek = (masState.dragging) ? 0 : Math.sin(phase)**2 * 100;
-            document.getElementById('barEp').style.width=Ep+"%"; document.getElementById('txtEp').innerText=Math.round(Ep)+"%";
-            document.getElementById('barEk').style.width=Ek+"%"; document.getElementById('txtEk').innerText=Math.round(Ek)+"%";
-
-            requestAnimationFrame(drawMasLoop);
-        }
-
-        let audioCtx, osc, gain;
-        const wCanvas = document.getElementById('waveCanvas'), wCtx = wCanvas.getContext('2d');
-        let wavePhase=0;
-        
-        function toggleAudio(){
-            const btn=document.getElementById('audioBtn');
-            if(!audioCtx) audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-            if(!osc){
-                osc=audioCtx.createOscillator(); gain=audioCtx.createGain(); osc.connect(gain); gain.connect(audioCtx.destination); osc.start();
-                btn.classList.add('bg-neon','text-black'); btn.innerHTML='<i class="fas fa-volume-high"></i> APAGAR';
-            }else{
-                osc.stop(); osc=null;
-                btn.classList.remove('bg-neon','text-black'); btn.innerHTML='<i class="fas fa-power-off"></i> ENCENDER';
-            }
-        }
-        
-        function drawWave(){
-            if(wCanvas.parentElement.clientWidth>0){wCanvas.width=wCanvas.parentElement.clientWidth;wCanvas.height=300;}
-            const f=parseFloat(document.getElementById('freqSlider').value), a=parseFloat(document.getElementById('ampSlider').value);
-            document.getElementById('freqVal').innerText=f+" Hz"; document.getElementById('ampVal').innerText=a+"%";
-            if(osc){osc.frequency.value=f; gain.gain.value=(a/100)*0.1;}
-            
-            wCtx.fillStyle='rgba(0,0,0,0.2)'; wCtx.fillRect(0,0,wCanvas.width,wCanvas.height);
-            wCtx.strokeStyle='#00f3ff'; wCtx.lineWidth=3; wCtx.beginPath();
-            const cy=wCanvas.height/2;
-            
-            let scaleFactor = f < 50 ? 50 : 20; 
-            if(f < 10) scaleFactor = 200;
-            
-            const lam=wCanvas.width/(f/scaleFactor + 0.5);
-
-            for(let x=0;x<wCanvas.width;x++){
-                const y=cy+(a)*Math.sin(x/lam*Math.PI*2-wavePhase); x==0?wCtx.moveTo(x,y):wCtx.lineTo(x,y);
-            }
-            wCtx.stroke(); 
-            wavePhase+=0.1*(f/100)+0.02;
-            requestAnimationFrame(drawWave);
-        }
-
-        function calcDoppler(){
-            const f=parseFloat(document.getElementById('dopF').value), v=parseFloat(document.getElementById('dopV').value), vo=parseFloat(document.getElementById('dopVo').value), vf=parseFloat(document.getElementById('dopVf').value);
-            const so=document.getElementById('dopSignO').value==='add'?1:-1, sf=document.getElementById('dopSignF').value==='sub'?-1:1;
-            if(!f){alert('Ingresa Frecuencia');return;}
-            const r=f*(v+so*vo)/(v+sf*vf);
-            const d=document.getElementById('dopResult'); d.classList.remove('hidden'); d.innerText=r.toFixed(2)+" Hz";
-        }
-        
-        function calcTube(){
-            const t=parseInt(document.getElementById('tubeType').value), L=parseFloat(document.getElementById('tubeL').value), n=parseInt(document.getElementById('tubeN').value);
-            if(!L)return;
-            const r=n*340/(t*L);
-            const d=document.getElementById('tubeResult'); d.classList.remove('hidden'); d.innerText=r.toFixed(2)+" Hz";
-        }
-
-        requestAnimationFrame(drawMasLoop); 
-        requestAnimationFrame(drawWave);
-    </script>
+    document.getElementById('audioBtn').addEventListener('click', toggleAudio);
+    document.getElementById('presetLow').addEventListener('click', () => { freqSlider.value = 180; ampSlider.value = 60; });
+    document.getElementById('presetHigh').addEventListener('click', () => { freqSlider.value = 880; ampSlider.value = 45; });
+    window.addEventListener('resize', resizeWave);
+    drawWave();
+  </script>
 </body>
 </html>

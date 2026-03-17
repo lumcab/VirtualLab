@@ -1,0 +1,42 @@
+.toolbar { display:flex; gap:.75rem; flex-wrap:wrap; align-items:center; }
+.input, .select {
+  width:100%; padding:.72rem .8rem; border-radius: 12px; color: var(--text);
+  background: color-mix(in srgb, var(--panel-strong) 88%, transparent); border:1px solid var(--line);
+}
+.input:focus, .select:focus { outline:none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 24%, transparent); }
+.input::placeholder { color: var(--muted); opacity: 1; }
+.select option {
+  color: var(--text);
+  background: var(--panel-strong);
+}
+.select optgroup {
+  color: var(--text);
+  background: var(--panel-strong);
+}
+.stat {
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:.8rem 1rem; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.03);
+}
+.callout {
+  border-left:4px solid var(--accent); padding:1rem 1rem 1rem 1.1rem; border-radius: 16px;
+  background: rgba(255,255,255,.03);
+}
+.quiz-box { padding: 1.15rem; }
+.quiz-options { display:grid; gap:.7rem; margin:1rem 0; }
+.quiz-item {
+  display:flex; gap:.7rem; align-items:flex-start; padding:.8rem; border-radius:14px; border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+}
+.score-pill {
+  padding:.45rem .8rem; border-radius:999px; font-weight:700; color:#082032; background: linear-gradient(135deg, var(--accent-2), var(--accent));
+}
+.mini-note { font-size:.88rem; color: var(--muted); }
+.period-list a, .topic-list a {
+  display:block; padding:.55rem .7rem; border-radius:10px; color: var(--muted); transition:.2s;
+}
+.period-list a:hover, .topic-list a:hover, .period-list a.active, .topic-list a.active {
+  background: rgba(255,255,255,0.05); color: var(--text);
+}
+.theme-toggle {
+  display:inline-flex; gap:.5rem; align-items:center;
+}

@@ -1,149 +1,182 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth" data-theme="dark">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAS (Movimiento Armónico Simple) | Fisica11° - Período 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
-                    colors: { fis11: '#a855f7', neon: '#00f3ff', cyber: '#facc15', dark: '#050b14' }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { font-family: 'Rajdhani', sans-serif; }
-        [data-theme="dark"] body { background-color: #050b14; color: #e2e8f0; }
-        [data-theme="light"] body { background-color: #f3f4f6; color: #1f2937; }
-        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(59, 130, 246, 0.2); }
-        [data-theme="light"] .glass { background: rgba(255, 255, 255, 0.7); border-color: rgba(59, 130, 246, 0.3); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movimiento armónico simple | Física 11°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/themes.css">
 </head>
-<body class="pb-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+<body>
+  <div id="header-mount"></div>
+  <main class="container page-shell">
+    <div id="sidebar-mount"></div>
+    <section class="content">
+      <section class="card hero">
+        <span class="badge">Física 11° · Período 1</span>
+        <h1 id="hero-title">Movimiento armónico simple</h1>
+        <p id="hero-subtitle">Página recuperada con doble modo: sistema masa-resorte y péndulo, con visualización del movimiento y gráfica de posición vs tiempo.</p>
+      </section>
 
-    <nav class="border-b border-white/10 bg-dark/95 backdrop-blur-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="../index.html" class="text-xs font-bold text-slate-400 hover:text-fis11 border border-slate-600 px-3 py-1 rounded transition-colors">
-                <i class="fas fa-arrow-left"></i> Atrás
-            </a>
-            <span class="font-tech text-xl text-fis11 tracking-widest">MAS (MOVIMIENTO ARMÓNICO SIMPL</span>
-            <button onclick="toggleTheme()" class="text-xs font-bold text-slate-400 hover:text-fis11 border border-slate-600 px-3 py-1 rounded transition-colors">
-                <i class="fas fa-moon"></i>
-            </button>
+      <section class="card">
+        <h2 class="section-title">Ideas clave</h2>
+        <div class="info-grid">
+          <div class="kpi"><strong>Magnitud restauradora</strong><p class="muted">El sistema tiende a volver al equilibrio cuando se separa de él.</p></div>
+          <div class="kpi"><strong>Periodo</strong><p class="muted">Tiempo que tarda una oscilación completa.</p></div>
+          <div class="kpi"><strong>Energía</strong><p class="muted">La energía pasa de potencial a cinética durante el movimiento.</p></div>
         </div>
-    </nav>
+        <div class="formula">Resorte: ω = √(k/m) ··· Péndulo ideal: ω = √(g/L)</div>
+      </section>
 
-    <main class="container mx-auto px-4 py-8 max-w-5xl">
-
-        <section class="glass p-8 rounded-2xl mb-8 border-l-4 border-fis11">
-            <div class="flex items-center gap-4 mb-4">
-                <i class="fas fa-book text-4xl text-fis11"></i>
-                <div>
-                    <h1 class="font-tech text-4xl text-fis11 mb-2">MAS (Movimiento Armónico Simple)</h1>
-                    <p class="text-slate-400">Período 1</p>
-                </div>
-            </div>
-            <p class="text-sm text-slate-300 leading-relaxed">Exploración didáctica de mas (movimiento armónico simple).</p>
-        </section>
-
-        <div class="mb-6 flex flex-wrap gap-2 justify-center">
-            <button onclick="switchTab('tab0')" class="tab-btn active px-4 py-2 rounded-full bg-fis11 text-white font-bold text-sm hover:scale-105 transition-transform">
-            <i class="fas fa-circle-0"></i> Cinemática del MAS
-        </button><button onclick="switchTab('tab1')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
-            <i class="fas fa-circle-1"></i> Dinámica del MAS
-        </button><button onclick="switchTab('tab2')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
-            <i class="fas fa-circle-2"></i> Energía en M AS
-        </button><button onclick="switchTab('tab3')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
-            <i class="fas fa-circle-3"></i> Aplicaciones
-        </button>
+      <section class="card">
+        <h2 class="section-title">Laboratorio interactivo</h2>
+        <div class="toolbar">
+          <button class="btn" id="modeSpring">Modo resorte</button>
+          <button class="btn" id="modePendulum">Modo péndulo</button>
         </div>
-
-        <section id="tab-tab0" class=" space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-fis11">
-                <h3 class="text-2xl font-bold text-fis11 mb-4">
-                    <i class="fas fa-book"></i> Cinemática del MAS
-                </h3>
-                <div class="space-y-4 text-slate-300">
-                    <div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400 mb-3">x(t) = A cos(ωt + φ)<br>v(t) = -Aω sin(ωt + φ)<br>a(t) = -Aω² cos(ωt + φ)</div>
-                </div>
+        <div class="grid columns-2" style="margin-top:1rem;">
+          <div>
+            <div id="springControls" class="controls">
+              <label><span class="mini-note">Masa (m)</span><input class="input" id="massInput" type="range" min="1" max="20" value="5"></label>
+              <label><span class="mini-note">Constante (k)</span><input class="input" id="kInput" type="range" min="10" max="100" value="45"></label>
+              <label><span class="mini-note">Amplitud</span><input class="input" id="ampSpringInput" type="range" min="20" max="120" value="80"></label>
             </div>
-        </section><section id="tab-tab1" class="hidden space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-fis11">
-                <h3 class="text-2xl font-bold text-fis11 mb-4">
-                    <i class="fas fa-book"></i> Dinámica del MAS
-                </h3>
-                <div class="space-y-4 text-slate-300">
-                    <p class="mb-2"><strong class="text-fis11">Fuerza restoradora:</strong></p><div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400">F = -kx<br>ω = √(k/m)</div>
-                </div>
+            <div id="pendulumControls" class="controls" style="display:none;">
+              <label><span class="mini-note">Longitud (L)</span><input class="input" id="lengthInput" type="range" min="0.5" max="3" step="0.1" value="1.5"></label>
+              <label><span class="mini-note">Ángulo inicial</span><input class="input" id="angleInput" type="range" min="5" max="35" value="20"></label>
             </div>
-        </section><section id="tab-tab2" class="hidden space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-fis11">
-                <h3 class="text-2xl font-bold text-fis11 mb-4">
-                    <i class="fas fa-book"></i> Energía en M AS
-                </h3>
-                <div class="space-y-4 text-slate-300">
-                    <p class="mb-2">La energía total es constante:</p><div class="bg-black/50 p-3 rounded font-mono text-sm text-yellow-400">E = ½kA² = cte</div>
-                </div>
+            <div class="info-grid">
+              <div class="kpi"><strong>Periodo aproximado</strong><div class="math-display" id="periodOut">2.09 s</div></div>
+              <div class="kpi"><strong>Frecuencia angular</strong><div class="math-display" id="omegaOut">3.00 rad/s</div></div>
             </div>
-        </section><section id="tab-tab3" class="hidden space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-fis11">
-                <h3 class="text-2xl font-bold text-fis11 mb-4">
-                    <i class="fas fa-book"></i> Aplicaciones
-                </h3>
-                <div class="space-y-4 text-slate-300">
-                    <ul class="list-disc list-inside text-sm text-slate-300 space-y-1"><li>Péndulo simple</li><li>Masa-resorte</li><li>Osciladores acoplados</li></ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <section class="container mx-auto px-4 max-w-5xl mt-12">
-        <div class="glass p-6 rounded-xl border-l-4 border-cyber">
-            <h3 class="text-2xl font-bold text-cyber mb-6 flex items-center gap-2">
-                <i class="fas fa-question-circle"></i> Prueba tu Conocimiento
-            </h3>
-            <div class="bg-slate-900/50 p-4 rounded">
-                <p class="font-bold text-slate-300 mb-3">¿Qué has aprendido?</p>
-                <p class="text-sm text-slate-400">Las evaluaciones interactivas estarán disponibles próximamente.</p>
-            </div>
+            <p class="callout">La izquierda muestra el sistema físico y la derecha la gráfica x(t). Esta base queda lista para seguir refinando el estilo con Codex.</p>
+          </div>
+          <div>
+            <canvas id="masCanvas" height="260"></canvas>
+            <canvas id="graphCanvas" height="180" style="margin-top:1rem;"></canvas>
+          </div>
         </div>
+      </section>
+
+      <section class="card quiz-box"><div id="quiz-root"></div></section>
+      <section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
     </section>
+  </main>
+  <div id="footer-mount"></div>
 
-    <footer class="mt-16 border-t border-slate-700 pt-6 pb-4 px-4">
-        <div class="container mx-auto max-w-5xl text-center text-slate-500 text-xs">
-            <p class="mb-1">I.E. Paulo VI - Docente: Luis Miguel Cabrera - Laboratorio Virtual © 2026</p>
-            <p>MAS (Movimiento Armónico Simple) | Período 1</p>
-        </div>
-    </footer>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/theme-toggle.js"></script>
+  <script src="../../js/site-map.js"></script>
+  <script src="../../js/router.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/quiz-engine.js"></script>
+  <script src="../../js/graph-engine.js"></script>
+  <script src="../../js/simulator-engine.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    App.initPage({ depth: 2, subjectKey: 'fisica11', periodKey: 'periodo1', topicSlug: '1_mas.html', theme: 'violet', pageTitle: 'Movimiento armónico simple', pageDescription: 'Experimenta con resorte y péndulo, observando la relación entre variables físicas y la oscilación.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: 'Si aumenta la masa del resorte, el periodo...', options: ['Disminuye', 'Aumenta', 'No cambia', 'Se vuelve cero'], answer: 1, feedback: 'T = 2π√(m/k), así que una mayor masa aumenta el periodo.' },
+      { prompt: 'En un péndulo simple ideal, el periodo depende sobre todo de...', options: ['La masa', 'La longitud', 'El color de la esfera', 'La velocidad del sonido'], answer: 1, feedback: 'T = 2π√(L/g).' },
+      { prompt: 'En el equilibrio del MAS la energía potencial suele ser...', options: ['Máxima', 'Nula o mínima', 'Infinita', 'Negativa siempre'], answer: 1, feedback: 'En el punto de equilibrio domina la energía cinética.' }
+    ], 'fisica11-periodo1-1_mas.html');
 
-    <script src="../../app.js"></script>
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const current = html.getAttribute('data-theme') || 'dark';
-            const newTheme = current === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme-1_mas', newTheme);
+    const modeSpring = document.getElementById('modeSpring');
+    const modePendulum = document.getElementById('modePendulum');
+    const springControls = document.getElementById('springControls');
+    const pendulumControls = document.getElementById('pendulumControls');
+    const masCanvas = document.getElementById('masCanvas');
+    const graphCanvas = document.getElementById('graphCanvas');
+    const mCtx = masCanvas.getContext('2d');
+    const gCtx = graphCanvas.getContext('2d');
+    let mode = 'spring';
+    let t = 0;
+    let history = [];
+
+    function resizeAll() {
+      SimulatorEngine.resizeCanvas(masCanvas, 260);
+      SimulatorEngine.resizeCanvas(graphCanvas, 180);
+    }
+
+    function setMode(next) {
+      mode = next;
+      springControls.style.display = mode === 'spring' ? 'grid' : 'none';
+      pendulumControls.style.display = mode === 'pendulum' ? 'grid' : 'none';
+      modeSpring.style.borderColor = mode === 'spring' ? 'var(--accent)' : 'var(--line)';
+      modePendulum.style.borderColor = mode === 'pendulum' ? 'var(--accent)' : 'var(--line)';
+      history = [];
+    }
+    modeSpring.addEventListener('click', () => setMode('spring'));
+    modePendulum.addEventListener('click', () => setMode('pendulum'));
+
+    function drawGraph(value) {
+      const w = graphCanvas.width, h = graphCanvas.height;
+      gCtx.clearRect(0,0,w,h);
+      gCtx.strokeStyle = 'rgba(140,140,140,.35)';
+      gCtx.beginPath(); gCtx.moveTo(24,h/2); gCtx.lineTo(w-12,h/2); gCtx.stroke();
+      history.push(value); if (history.length > w-40) history.shift();
+      gCtx.strokeStyle = '#7cb27d'; gCtx.lineWidth = 2.4; gCtx.beginPath();
+      history.forEach((v,i) => { const x = 24 + i; const y = h/2 - v; i===0 ? gCtx.moveTo(x,y) : gCtx.lineTo(x,y); });
+      gCtx.stroke();
+    }
+
+    function render() {
+      resizeAll();
+      const w = masCanvas.width, h = masCanvas.height;
+      mCtx.clearRect(0,0,w,h);
+      mCtx.strokeStyle = 'rgba(140,140,140,.45)';
+      mCtx.lineWidth = 2;
+      let plotted = 0;
+      if (mode === 'spring') {
+        const m = Number(document.getElementById('massInput').value);
+        const k = Number(document.getElementById('kInput').value);
+        const A = Number(document.getElementById('ampSpringInput').value);
+        const omega = Math.sqrt(k / m);
+        const x = A * Math.cos(omega * t * 0.08);
+        plotted = x * 0.65;
+        const anchorX = 54, eqX = w/2, blockX = eqX + x;
+        for (let i=0;i<18;i++) {
+          const px = anchorX + i * ((blockX-anchorX-36)/18);
+          const py = h/2 + (i%2===0 ? -18 : 18);
+          i===0 ? mCtx.beginPath() : null;
+          i===0 ? mCtx.moveTo(anchorX,h/2) : mCtx.lineTo(px,py);
         }
-
-        window.addEventListener('load', () => {
-            const saved = localStorage.getItem('theme-1_mas') || 'dark';
-            document.documentElement.setAttribute('data-theme', saved);
-        });
-
-        function switchTab(id) {
-            document.querySelectorAll('.section-tab').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('bg-fis11'));
-            document.getElementById(id).classList.remove('hidden');
-            event.currentTarget.classList.add('bg-fis11');
-        }
-    </script>
+        mCtx.lineTo(blockX-36,h/2); mCtx.stroke();
+        mCtx.fillStyle = '#8fa876'; mCtx.fillRect(blockX-36, h/2-28, 72, 56);
+        mCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+        mCtx.fillText('Equilibrio', eqX-24, 34);
+        mCtx.setLineDash([6,6]); mCtx.beginPath(); mCtx.moveTo(eqX,50); mCtx.lineTo(eqX,h-30); mCtx.stroke(); mCtx.setLineDash([]);
+        document.getElementById('omegaOut').textContent = omega.toFixed(2) + ' rad/s';
+        document.getElementById('periodOut').textContent = (2*Math.PI/omega).toFixed(2) + ' s';
+      } else {
+        const L = Number(document.getElementById('lengthInput').value);
+        const angle0 = Number(document.getElementById('angleInput').value) * Math.PI/180;
+        const omega = Math.sqrt(9.8 / L);
+        const angle = angle0 * Math.cos(omega * t * 0.08);
+        const lenPx = 70 + L*55;
+        const ox = w/2, oy = 24;
+        const bx = ox + lenPx * Math.sin(angle), by = oy + lenPx * Math.cos(angle);
+        mCtx.beginPath(); mCtx.moveTo(ox, oy); mCtx.lineTo(bx, by); mCtx.stroke();
+        mCtx.fillStyle = '#8fa876'; mCtx.beginPath(); mCtx.arc(bx, by, 18, 0, Math.PI*2); mCtx.fill();
+        mCtx.beginPath(); mCtx.arc(ox, oy, 6, 0, Math.PI*2); mCtx.fill();
+        plotted = angle * 130;
+        document.getElementById('omegaOut').textContent = omega.toFixed(2) + ' rad/s';
+        document.getElementById('periodOut').textContent = (2*Math.PI/omega).toFixed(2) + ' s';
+      }
+      drawGraph(plotted);
+      t += 1;
+      requestAnimationFrame(render);
+    }
+    setMode('spring');
+    render();
+    window.addEventListener('resize', resizeAll);
+  </script>
 </body>
 </html>

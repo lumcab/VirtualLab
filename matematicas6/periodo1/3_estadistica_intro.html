@@ -1,156 +1,217 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introducción a la Estadística | Matemáticas 6°</title>
-    <link rel="icon" href="../../icon.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        tech: ['Orbitron', 'sans-serif'],
-                        body: ['Rajdhani', 'sans-serif']
-                    },
-                    colors: {
-                        neon: '#00f3ff',
-                        cyber: '#facc15',
-                        math: '#f59e0b',
-                        geo: '#0ea5e9',
-                        fis10: '#3b82f6',
-                        fis11: '#a855f7'
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a la estadística | Matemáticas 6°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/themes.css">
 </head>
-<body class="min-h-screen">
+<body>
+  <div id="header-mount"></div>
+  <main class="container page-shell">
+    <div id="sidebar-mount"></div>
+    <section class="content">
+      <section class="card hero">
+        <span class="badge">Matemáticas 6° · Período 1</span>
+        <h1 id="hero-title">Introducción a la estadística</h1>
+        <p id="hero-subtitle">Descubre cómo recolectar, organizar e interpretar datos a partir de conceptos como población, muestra y variables, para responder preguntas sobre situaciones reales.</p>
+      </section>
 
-    <!-- Header -->
-    <header class="navbar">
-        <div class="navbar-content">
-            <a href="../../index.html" class="nav-brand">
-                <i class="fas fa-home-alt mr-2 text-neon"></i>
-                VIRTUAL-LAB
-            </a>
-            <div class="flex items-center gap-4">
-                <a href="../index.html" class="nav-back border-math text-math hover:bg-math/10 hover:border-math">
-                    <i class="fas fa-calculator"></i>
-                    <span>Volver a Matemáticas 6°</span>
-                </a>
-            </div>
+      <section class="card">
+        <h2 class="section-title">Teoría esencial</h2>
+        <p>La estadística estudia datos para describir una situación y tomar decisiones. Antes de hacer tablas o gráficos, es importante saber <strong>qué se observa</strong>, <strong>a quién se estudia</strong> y <strong>qué característica se quiere analizar</strong>.</p>
+        <div class="info-grid">
+          <div class="kpi"><strong>Población</strong><p class="muted">Es el conjunto total que queremos estudiar. Ejemplo: todos los estudiantes de un grado.</p></div>
+          <div class="kpi"><strong>Muestra</strong><p class="muted">Es una parte de la población elegida para observarla con más detalle.</p></div>
+          <div class="kpi"><strong>Variable</strong><p class="muted">Es la característica que se registra, como color favorito, edad o número de hermanos.</p></div>
         </div>
-    </header>
+        <table class="table-lite" style="margin-top:1rem;">
+          <thead><tr><th>Situación</th><th>Población</th><th>Variable</th><th>Tipo</th></tr></thead>
+          <tbody>
+            <tr><td>Encuesta sobre deporte favorito</td><td>Estudiantes del curso</td><td>Deporte favorito</td><td>Cualitativa</td></tr>
+            <tr><td>Conteo de hermanos</td><td>Niños del salón</td><td>Número de hermanos</td><td>Cuantitativa</td></tr>
+            <tr><td>Registro de estaturas</td><td>Equipo de baloncesto</td><td>Estatura</td><td>Cuantitativa</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:1rem;"><span class="topic-chip">Población</span><span class="topic-chip">Muestra</span><span class="topic-chip">Variables y su clasificación</span><span class="topic-chip">Frecuencia</span></div>
+        <div class="formula">Interacción propuesta: Clasificador de variables y conteo de frecuencias</div>
+      </section>
 
-    <main class="container mx-auto px-4 py-12">
-        <!-- Título del Tema -->
-        <div class="text-center mb-12">
-            <h1 class="font-tech text-4xl md:text-5xl font-bold text-math">
-                3. Introducción a la Estadística
-            </h1>
-            <p class="text-secondary mt-2 text-lg">Aprendiendo a recolectar, analizar e interpretar datos.</p>
+      <section class="card">
+        <h2 class="section-title">Interacción</h2>
+        <div class="grid columns-2">
+          <div>
+            <div class="kpi"><strong>Clasificador de variables</strong><p class="muted">Selecciona una situación, identifica el tipo de variable y observa cómo se organizan sus frecuencias.</p></div>
+            <label style="display:block; margin-top:1rem;">
+              <span class="mini-note">Situación de estudio</span>
+              <select class="select" id="statsScenario"></select>
+            </label>
+            <label style="display:block; margin-top:1rem;">
+              <span class="mini-note">¿Cómo clasificarías la variable?</span>
+              <select class="select" id="statsGuess">
+                <option value="cualitativa">Cualitativa</option>
+                <option value="cuantitativa">Cuantitativa</option>
+              </select>
+            </label>
+            <div class="inline-actions" style="margin-top:1rem;">
+              <button class="btn" id="statsCheckBtn">Comprobar</button>
+              <button class="btn" id="statsNextBtn">Cambiar situación</button>
+            </div>
+            <div class="callout" style="margin-top:1rem;">
+              <strong id="statsQuestion">Pregunta estadística:</strong>
+              <p class="muted" id="statsFeedback" style="margin-top:.45rem;">Observa qué se está registrando y decide si la respuesta se expresa con categorías o con números.</p>
+            </div>
+            <table class="table-lite" style="margin-top:1rem;">
+              <thead><tr><th>Categoría</th><th>Frecuencia</th></tr></thead>
+              <tbody id="statsTableBody"></tbody>
+            </table>
+            <p class="mini-note" id="statsSummary">Las frecuencias muestran cuántas veces aparece cada respuesta en la muestra observada.</p>
+          </div>
+          <canvas id="sim-canvas" height="280"></canvas>
         </div>
+      </section>
 
-        <!-- Contenido Teórico -->
-        <section id="teoria" class="theory-section border-l-math mb-12">
-            <h2 class="text-math"><i class="fas fa-book-open mr-3"></i>Teoría: El Mundo de los Datos</h2>
-            <p class="mb-6">
-                La estadística es la ciencia que se encarga de recoger, organizar e interpretar datos. ¡Está por todas partes! En los deportes, las noticias, los videojuegos... Para entenderla, necesitamos conocer tres conceptos básicos:
-            </p>
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Población -->
-                <div class="bg-secondary p-4 rounded-lg">
-                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-users"></i>Población</h3>
-                    <p class="text-sm">Es el <strong>conjunto completo</strong> de todos los elementos que nos interesan para un estudio. Por ejemplo, <span class="font-semibold text-primary">todos los estudiantes</span> de la I.E. Paulo VI.</p>
-                </div>
-                <!-- Muestra -->
-                <div class="bg-secondary p-4 rounded-lg">
-                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-user-check"></i>Muestra</h3>
-                    <p class="text-sm">Es una <strong>parte o subconjunto</strong> de la población que seleccionamos para el estudio. Es más fácil y rápido estudiar una muestra. Por ejemplo, <span class="font-semibold text-primary">50 estudiantes elegidos al azar</span> del colegio.</p>
-                </div>
-                <!-- Variable -->
-                <div class="bg-secondary p-4 rounded-lg">
-                    <h3 class="font-bold text-lg text-math mb-2 flex items-center gap-2"><i class="fas fa-ruler-combined"></i>Variable</h3>
-                    <p class="text-sm">Es la característica que se estudia en la población o muestra. Puede ser de dos tipos:</p>
-                    <ul class="text-xs list-disc list-inside mt-2 space-y-1">
-                        <li><strong>Cualitativa:</strong> No se mide con números (ej: color de ojos, comida favorita).</li>
-                        <li><strong>Cuantitativa:</strong> Se mide con números (ej: edad, estatura, número de hermanos).</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Interactiva -->
-        <section id="interactiva" class="interactive-section mb-12">
-            <h2><i class="fas fa-gamepad mr-3"></i>Zona Interactiva: Identifica los Conceptos</h2>
-            <p class="text-secondary mb-6">Lee el siguiente caso de estudio y arrastra las etiquetas a la categoría correcta.</p>
-            
-            <div id="interactive-case" class="bg-secondary p-6 rounded-lg mb-6">
-                <p class="font-bold mb-2">Caso de Estudio:</p>
-                <p>Se quiere saber el <span class="font-bold text-math">deporte favorito</span> de los estudiantes del grado 6° de la I.E. Paulo VI. Para ello, se encuesta a <span class="font-bold text-math">25 estudiantes de sexto</span> y se les pregunta por su elección.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Dropzones -->
-                <div class="text-center">
-                    <h3 class="font-tech mb-3">POBLACIÓN</h3>
-                    <div id="drop-poblacion" class="dropzone bg-primary h-24 rounded-lg border-2 border-dashed border-border-color flex items-center justify-center">
-                        <span class="text-muted">Arrastra aquí</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <h3 class="font-tech mb-3">MUESTRA</h3>
-                    <div id="drop-muestra" class="dropzone bg-primary h-24 rounded-lg border-2 border-dashed border-border-color flex items-center justify-center">
-                        <span class="text-muted">Arrastra aquí</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <h3 class="font-tech mb-3">VARIABLE</h3>
-                    <div id="drop-variable" class="dropzone bg-primary h-24 rounded-lg border-2 border-dashed border-border-color flex items-center justify-center">
-                        <span class="text-muted">Arrastra aquí</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Draggables -->
-            <div id="draggable-items" class="flex flex-wrap gap-4 justify-center mt-8">
-                <div id="drag-1" class="draggable cursor-grab bg-cyber text-black font-bold p-3 rounded-md" draggable="true">Todos los estudiantes de 6°</div>
-                <div id="drag-2" class="draggable cursor-grab bg-cyber text-black font-bold p-3 rounded-md" draggable="true">Deporte favorito</div>
-                <div id="drag-3" class="draggable cursor-grab bg-cyber text-black font-bold p-3 rounded-md" draggable="true">25 estudiantes de 6°</div>
-            </div>
-            <div class="text-center mt-4">
-                 <button id="reset-drag-btn" class="btn btn-secondary hidden">
-                    <i class="fas fa-sync-alt mr-2"></i>Reiniciar Ejercicio
-                </button>
-            </div>
-        </section>
-
-        <!-- Sección de Evaluación -->
-        <section id="evaluacion" class="quiz-section">
-            <h2><i class="fas fa-award mr-3"></i>Evaluación: Conceptos de Estadística</h2>
-            <p class="text-secondary mb-6">Demuestra que dominas los conceptos básicos de la estadística.</p>
-            <div id="quiz-container">
-                <!-- El quiz se generará aquí -->
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container mx-auto px-4 text-center">
-            <p class="font-bold text-lg">I.E. Paulo VI</p>
-            <p class="text-sm mt-1">Docente: Luis Miguel Cabrera</p>
-            <p class="text-xs mt-4 text-muted">Laboratorio Virtual © 2026 - Todos los derechos reservados</p>
+      <section class="card">
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="grid columns-2">
+          <div class="callout">
+            <strong>Reto 1:</strong> si preguntas por el color favorito de 20 estudiantes, ¿la variable es cualitativa o cuantitativa? ¿Por qué?
+          </div>
+          <div class="callout">
+            <strong>Reto 2:</strong> si registras cuántos libros leyó cada estudiante en un mes, ¿qué tipo de variable estás observando?
+          </div>
         </div>
-    </footer>
+        <p class="muted">Al resolver estos ejemplos, identifica primero la población, luego la muestra si existe, y finalmente la variable que se va a registrar.</p>
+      </section>
 
-    <script src="../../app.js" defer></script>
-    <script src="3_estadistica_intro.js" defer></script>
+      <section class="card quiz-box">
+        <div id="quiz-root"></div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Navegación pedagógica</h2>
+        <div class="nav-pedagogic" id="pedagogic-nav"></div>
+      </section>
+    </section>
+  </main>
+  <div id="footer-mount"></div>
+
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/theme-toggle.js"></script>
+  <script src="../../js/site-map.js"></script>
+  <script src="../../js/router.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/quiz-engine.js"></script>
+  <script src="../../js/graph-engine.js"></script>
+  <script src="../../js/simulator-engine.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo1', topicSlug: '3_estadistica_intro.html', theme: 'amber', pageTitle: 'Introducción a la estadística', pageDescription: 'Reconoce población, muestra y tipos de variables con tablas simples de frecuencias.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: '¿Qué es una población en estadística?', options: ['El grupo total que se quiere estudiar', 'Solo cinco datos', 'Un gráfico de barras', 'La respuesta más repetida'], answer: 0, feedback: 'La población es el conjunto completo sobre el que se desea obtener información.' },
+      { prompt: 'La variable "color favorito" es:', options: ['Cuantitativa', 'Cualitativa', 'Decimal', 'Aleatoria'], answer: 1, feedback: 'Es cualitativa porque describe categorías, no cantidades numéricas.' },
+      { prompt: '¿Qué muestra una frecuencia?', options: ['Cuántas veces aparece un dato o categoría', 'El tamaño de la población mundial', 'La solución de una ecuación', 'Solo el dato más pequeño'], answer: 0, feedback: 'La frecuencia cuenta cuántas veces se repite una respuesta en los datos recogidos.' }
+    ], 'matematicas6-periodo1-3_estadistica_intro.html');
+
+    const statsScenario = document.getElementById('statsScenario');
+    const statsGuess = document.getElementById('statsGuess');
+    const statsQuestion = document.getElementById('statsQuestion');
+    const statsFeedback = document.getElementById('statsFeedback');
+    const statsTableBody = document.getElementById('statsTableBody');
+    const statsSummary = document.getElementById('statsSummary');
+    const statsCanvas = document.getElementById('sim-canvas');
+
+    const scenarios = [
+      {
+        title: 'Color favorito de 24 estudiantes',
+        variable: 'Color favorito',
+        type: 'cualitativa',
+        population: 'Todos los estudiantes del curso',
+        sample: '24 estudiantes encuestados',
+        question: '¿Cuál es el color favorito del grupo?',
+        values: [
+          { label: 'Azul', value: 9 },
+          { label: 'Rojo', value: 6 },
+          { label: 'Verde', value: 5 },
+          { label: 'Amarillo', value: 4 }
+        ]
+      },
+      {
+        title: 'Número de hermanos de 20 estudiantes',
+        variable: 'Número de hermanos',
+        type: 'cuantitativa',
+        population: 'Estudiantes de sexto',
+        sample: '20 estudiantes observados',
+        question: '¿Cuántos hermanos tiene cada estudiante?',
+        values: [
+          { label: '0', value: 4 },
+          { label: '1', value: 7 },
+          { label: '2', value: 6 },
+          { label: '3', value: 3 }
+        ]
+      },
+      {
+        title: 'Medio de transporte para llegar al colegio',
+        variable: 'Medio de transporte',
+        type: 'cualitativa',
+        population: 'Grupo de sexto',
+        sample: '18 respuestas registradas',
+        question: '¿Cómo llegan los estudiantes al colegio?',
+        values: [
+          { label: 'Caminando', value: 8 },
+          { label: 'Bus', value: 5 },
+          { label: 'Bicicleta', value: 3 },
+          { label: 'Moto', value: 2 }
+        ]
+      }
+    ];
+
+    let statsIndex = 0;
+
+    function fillScenarioOptions() {
+      statsScenario.innerHTML = scenarios.map((scenario, index) => `<option value="${index}">${scenario.title}</option>`).join('');
+    }
+
+    function renderScenario(index) {
+      const scenario = scenarios[index];
+      statsScenario.value = String(index);
+      statsQuestion.textContent = `Pregunta estadística: ${scenario.question}`;
+      statsFeedback.textContent = `Población: ${scenario.population}. Muestra: ${scenario.sample}. Decide si la variable "${scenario.variable}" se describe con categorías o con números.`;
+      statsTableBody.innerHTML = scenario.values.map(item => `<tr><td>${item.label}</td><td>${item.value}</td></tr>`).join('');
+      statsSummary.textContent = `La variable observada es "${scenario.variable}". La tabla resume la frecuencia de cada respuesta en la muestra.`;
+      SimulatorEngine.mountBarChart(statsCanvas, scenario.values);
+    }
+
+    function checkClassification() {
+      const scenario = scenarios[statsIndex];
+      if (statsGuess.value === scenario.type) {
+        statsFeedback.textContent = `Correcto. La variable "${scenario.variable}" es ${scenario.type} porque ${scenario.type === 'cualitativa' ? 'se expresa con categorías o cualidades' : 'se expresa con cantidades numéricas'}.`;
+      } else {
+        statsFeedback.textContent = `Revisa de nuevo. La variable "${scenario.variable}" no se clasifica como ${statsGuess.value}; piensa si la respuesta se da en categorías o en números.`;
+      }
+    }
+
+    fillScenarioOptions();
+    renderScenario(statsIndex);
+
+    statsScenario.addEventListener('change', () => {
+      statsIndex = Number(statsScenario.value);
+      renderScenario(statsIndex);
+    });
+
+    document.getElementById('statsCheckBtn').addEventListener('click', checkClassification);
+    document.getElementById('statsNextBtn').addEventListener('click', () => {
+      statsIndex = (statsIndex + 1) % scenarios.length;
+      renderScenario(statsIndex);
+    });
+  </script>
 </body>
 </html>

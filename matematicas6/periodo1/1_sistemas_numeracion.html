@@ -1,506 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemas de Numeración | Matemáticas 6°</title>
-    <link rel="icon" href="../../icon.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        tech: ['Orbitron', 'sans-serif'],
-                        body: ['Rajdhani', 'sans-serif']
-                    },
-                    colors: {
-                        neon: '#00f3ff',
-                        cyber: '#facc15',
-                        math: '#f59e0b',
-                        geo: '#0ea5e9',
-                        fis10: '#3b82f6',
-                        fis11: '#a855f7'
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas de numeración | Matemáticas 6°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/themes.css">
 </head>
-<body class="min-h-screen">
+<body>
+  <div id="header-mount"></div>
+  <main class="container page-shell">
+    <div id="sidebar-mount"></div>
+    <section class="content">
+      <section class="card hero">
+        <span class="badge">Matemáticas 6° · Período 1</span>
+        <h1 id="hero-title">Sistemas de numeración</h1>
+        <p id="hero-subtitle">Recuperación inicial de la página rica en contenido sobre números romanos y sistema binario, manteniendo una estructura fácil de seguir y de editar.</p>
+      </section>
 
-    <!-- Header -->
-    <header class="navbar">
-        <div class="navbar-content">
-            <a href="../../index.html" class="nav-brand">
-                <i class="fas fa-home-alt mr-2 text-neon"></i>
-                VIRTUAL-LAB
-            </a>
-            <div class="flex items-center gap-4">
-                <a href="../index.html" class="nav-back border-math text-math hover:bg-math/10 hover:border-math">
-                    <i class="fas fa-calculator"></i>
-                    <span>Volver a Matemáticas 6°</span>
-                </a>
-            </div>
+      <section class="card">
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>Un sistema de numeración es una forma organizada de representar cantidades. Algunos sistemas son <strong>aditivos</strong>, como el romano, y otros son <strong>posicionales</strong>, como el decimal y el binario.</p>
+        <div class="info-grid">
+          <div class="kpi"><strong>Romano</strong><p class="muted">Usa símbolos I, V, X, L, C, D y M. Importa el orden y algunas reglas de resta.</p></div>
+          <div class="kpi"><strong>Decimal</strong><p class="muted">Es el que usamos a diario. Tiene base 10 y cada posición vale 10 veces la anterior.</p></div>
+          <div class="kpi"><strong>Binario</strong><p class="muted">Solo usa 0 y 1. Es el lenguaje básico con el que trabajan los computadores.</p></div>
         </div>
-    </header>
+      </section>
 
-    <main class="container mx-auto px-4 py-12">
-        <!-- Título del Tema -->
-        <div class="text-center mb-12">
-            <h1 class="font-tech text-4xl md:text-5xl font-bold text-math">
-                1. Sistemas de Numeración
-            </h1>
-            <p class="text-secondary mt-2 text-lg">Explorando cómo diferentes culturas representan los números.</p>
+      <section class="card">
+        <h2 class="section-title">Tabla rápida de símbolos romanos</h2>
+        <table class="table-lite">
+          <thead><tr><th>Símbolo</th><th>Valor</th><th>Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td>I</td><td>1</td><td>III = 3</td></tr>
+            <tr><td>V</td><td>5</td><td>VIII = 8</td></tr>
+            <tr><td>X</td><td>10</td><td>XIV = 14</td></tr>
+            <tr><td>L</td><td>50</td><td>LX = 60</td></tr>
+            <tr><td>C</td><td>100</td><td>CIX = 109</td></tr>
+          </tbody>
+        </table>
+        <div class="formula">Regla clave: si un símbolo menor va antes de uno mayor, se resta. Ejemplo: IV = 4.</div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Conversor decimal · romano · binario</h2>
+        <div class="grid columns-2">
+          <div>
+            <label><span class="mini-note">Ingresa un número entre 1 y 255</span><input class="input" id="decimalInput" type="number" min="1" max="255" value="49"></label>
+            <div class="inline-actions">
+              <button class="btn" id="convertBtn">Convertir</button>
+              <button class="btn" id="randomBtn">Número aleatorio</button>
+            </div>
+            <div class="info-grid" style="margin-top:1rem;">
+              <div class="kpi"><strong>Decimal</strong><div class="math-display" id="decimalOut">49</div></div>
+              <div class="kpi"><strong>Romano</strong><div class="math-display" id="romanOut">XLIX</div></div>
+              <div class="kpi"><strong>Binario</strong><div class="math-display" id="binaryOut">110001</div></div>
+            </div>
+          </div>
+          <div>
+            <canvas id="binaryCanvas" height="290"></canvas>
+            <p class="muted" style="margin-top:.8rem;">Cada cuadro representa un valor posicional en base 2. Cuando el bit está encendido, ese valor participa en la suma.</p>
+          </div>
         </div>
+      </section>
 
-        <!-- Contenido Teórico -->
-        <section id="teoria" class="theory-section border-l-math mb-12">
-            <h2 class="text-math"><i class="fas fa-book-open mr-3"></i>Teoría: Un Viaje Numérico</h2>
-            <p class="mb-6">
-                Un sistema de numeración es un conjunto de símbolos y reglas que nos permiten representar cantidades. A lo largo de la historia, civilizaciones como la romana, la maya y la egipcia crearon sus propios sistemas, mucho antes de que adoptáramos el sistema decimal que usamos hoy.
-            </p>
-            
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Sistema Romano -->
-                <div class="border border-border-color p-4 rounded-lg">
-                    <h3 class="font-bold text-lg text-math mb-2">Sistema Romano</h3>
-                    <p class="text-sm mb-3">Usa letras mayúsculas como símbolos: I (1), V (5), X (10), L (50), C (100), D (500), M (1000). Es un sistema aditivo y sustractivo.</p>
-                    <p class="font-tech text-center text-xl bg-secondary rounded py-1">Ej: 2026 → MMXXVI</p>
-                </div>
-                <!-- Sistema Binario -->
-                <div class="border border-border-color p-4 rounded-lg">
-                    <h3 class="font-bold text-lg text-math mb-2">Sistema Binario</h3>
-                    <p class="text-sm mb-3">La base de la computación moderna. Utiliza solo dos dígitos: 0 y 1. Es un sistema posicional de base 2.</p>
-                     <p class="font-tech text-center text-xl bg-secondary rounded py-1">Ej: 26 → 11010</p>
-                </div>
-                <!-- Otros Sistemas -->
-                <div class="border border-border-color p-4 rounded-lg">
-                    <h3 class="font-bold text-lg text-math mb-2">Otros (Maya, Egipcio)</h3>
-                    <p class="text-sm mb-3">Los mayas usaban un sistema vigesimal (base 20) e incluían el cero. Los egipcios usaban jeroglíficos para representar potencias de 10.</p>
-                     <p class="font-tech text-center text-xl bg-secondary rounded py-1">Civilizaciones ingeniosas</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Interactiva -->
-        <section id="interactiva" class="interactive-section mb-12">
-            <h2><i class="fas fa-gamepad mr-3"></i>Zona Interactiva: Máquina del Tiempo Numérica</h2>
-            <p class="text-secondary mb-6">Escribe un número y compara cómo lo escribían diferentes civilizaciones</p>
-            
-            <div class="glass-card p-8 rounded-2xl mb-8">
-                <div class="max-w-md mx-auto mb-8">
-                    <input type="number" id="mainInput" placeholder="Escribe un número (1-3999)" 
-                           class="w-full bg-primary border-2 border-border-color rounded-xl py-4 px-6 text-center text-2xl font-bold text-[var(--text-primary)] focus:border-math outline-none"
-                           oninput="convertAll()">
-                </div>
-
-                <!-- Comparación en tiempo real -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-primary p-4 rounded-xl text-center border border-border-color">
-                        <h4 class="text-math font-bold text-sm mb-2"><i class="fas fa-building-columns mr-1"></i> Romano</h4>
-                        <div id="romanOutput" class="font-tech text-3xl text-math font-bold min-h-[3rem]">...</div>
-                    </div>
-                    <div class="bg-primary p-4 rounded-xl text-center border border-border-color">
-                        <h4 class="text-math font-bold text-sm mb-2"><i class="fas fa-pyramid mr-1"></i> Egipcio</h4>
-                        <div id="egyptOutput" class="flex justify-center items-end min-h-[3rem]">...</div>
-                    </div>
-                    <div class="bg-primary p-4 rounded-xl text-center border border-border-color">
-                        <h4 class="text-math font-bold text-sm mb-2"><i class="fas fa-sun mr-1"></i> Maya</h4>
-                        <div id="mayaOutput" class="flex justify-center min-h-[3rem]">...</div>
-                    </div>
-                    <div class="bg-primary p-4 rounded-xl text-center border border-border-color">
-                        <h4 class="text-math font-bold text-sm mb-2"><i class="fas fa-dragon mr-1"></i> Chino</h4>
-                        <div id="chinaOutput" class="font-tech text-3xl text-math font-bold min-h-[3rem]">...</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Juego Romano -->
-            <div class="glass-card p-8 rounded-2xl mb-8">
-                <h3 class="font-tech text-xl text-center mb-4 text-math">⚔️ Desafío del Gladiador Romano</h3>
-                <div class="text-center mb-3">
-                    <span class="bg-primary text-[var(--text-primary)] px-4 py-2 rounded-lg text-xl font-bold">
-                        Reto: <span id="targetNumber" class="text-math">?</span>
-                    </span>
-                </div>
-                <div class="min-h-[40px] text-2xl font-tech font-bold text-math mb-3 bg-secondary border-b-2 border-border-color mx-auto max-w-xs text-center" id="playerBuild"></div>
-                <div class="flex flex-wrap justify-center gap-1 mb-3">
-                    <button onclick="addRoman('M')" class="w-8 h-8 bg-primary text-math font-bold rounded hover:bg-math/20 text-sm">M</button>
-                    <button onclick="addRoman('D')" class="w-8 h-8 bg-primary text-math font-bold rounded hover:bg-math/20 text-sm">D</button>
-                    <button onclick="addRoman('C')" class="w-8 h-8 bg-primary text-math font-bold rounded hover:bg-math/20 text-sm">C</button>
-                    <button onclick="addRoman('L')" class="w-8 h-8 bg-primary text-math font-bold rounded hover:bg-math/20 text-sm">L</button>
-                    <button onclick="addRoman('X')" class="w-8 h-8 bg-primary text-math font-bold rounded hover:bg-math/20 text-sm">X</button>
-                    <button onclick="addRoman('V')" class="w-8 h-8 bg-primary text-math font-bold rounded hover:bg-math/20 text-sm">V</button>
-                    <button onclick="addRoman('I')" class="w-8 h-8 bg-primary text-math font-bold rounded hover:bg-math/20 text-sm">I</button>
-                    <button onclick="backspaceRoman()" class="w-8 h-8 bg-red-100 text-red-600 rounded hover:bg-red-200"><i class="fa-solid fa-delete-left text-xs"></i></button>
-                </div>
-                <div class="flex gap-2 justify-center">
-                    <button onclick="checkRomanAnswer()" class="btn btn-primary bg-math text-white px-4 py-2 rounded font-bold text-sm hover:bg-math/80">COMBATIR</button>
-                    <button onclick="initRomanGame()" class="bg-secondary text-[var(--text-primary)] px-3 py-2 rounded hover:bg-secondary/80 text-sm"><i class="fas fa-rotate"></i></button>
-                </div>
-                <p id="gameFeedback" class="mt-2 font-bold text-center h-6"></p>
-            </div>
-
-            <!-- Laboratorio de Bits -->
-            <div class="glass-card p-8 rounded-2xl mb-8">
-                <div class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
-                    <h3 class="font-tech text-2xl md:text-3xl font-bold text-math">🎛️ Laboratorio de Bits Interactivo</h3>
-                    <div class="bg-primary px-6 py-3 rounded-xl border border-border-color shadow-lg">
-                        <span class="text-[var(--text-secondary)] text-sm mr-2 block text-center md:inline">Valor Decimal:</span>
-                        <span id="decimalDisplay" class="font-tech text-4xl font-bold text-math">0</span>
-                    </div>
-                </div>
-                
-                <p class="text-center text-[var(--text-secondary)] mb-6">¡Toca los interruptores para encender/apagar bits y ver el resultado!</p>
-
-                <div class="overflow-x-auto pb-4">
-                    <div class="flex justify-center min-w-max gap-2 md:gap-4 px-2">
-                        <script>
-                            const bitValues = [128, 64, 32, 16, 8, 4, 2, 1];
-                            bitValues.forEach(val => {
-                                document.write(`
-                                    <div class="flex flex-col items-center gap-2 group">
-                                        <span class="text-xs text-[var(--text-secondary)] font-bold">${val}</span>
-                                        <button onclick="toggleBit(${val}, this)" class="switch-btn w-12 h-20 md:w-16 md:h-24 bg-primary rounded-lg border-b-4 border-border-color flex flex-col items-center justify-end pb-2 relative overflow-hidden">
-                                            <div class="absolute top-2 w-3 h-3 rounded-full bg-red-500 status-light transition-colors shadow-inner"></div>
-                                            <span class="font-tech text-xl md:text-2xl font-bold text-[var(--text-secondary)] bit-val">0</span>
-                                        </button>
-                                    </div>
-                                `);
-                            });
-                        </script>
-                    </div>
-                </div>
-
-                <div class="mt-6 bg-primary rounded-xl p-4 text-center border border-border-color min-h-[3rem] flex items-center justify-center">
-                    <p id="mathSteps" class="text-[var(--text-secondary)] font-mono text-sm md:text-base">0 = 0</p>
-                </div>
-            </div>
-
-            <!-- Conversores -->
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <div class="glass-card p-6 border-t-4 border-math">
-                    <h4 class="font-tech text-xl font-bold mb-4 flex items-center gap-2">
-                        <span class="bg-math text-xs px-2 py-1 rounded text-white">DEC</span>
-                        <i class="fas fa-arrow-right text-[var(--text-secondary)]"></i>
-                        <span class="bg-cyber text-xs px-2 py-1 rounded text-white">BIN</span>
-                    </h4>
-                    <p class="text-[var(--text-secondary)] text-sm mb-4">Convierte decimal a binario:</p>
-                    <input type="number" id="inputDec" placeholder="Número (0-255)" oninput="convertDecToBin()" 
-                           class="w-full bg-primary border border-border-color rounded-xl p-3 text-[var(--text-primary)] focus:outline-none focus:border-math font-bold text-lg mb-4">
-                    <div class="bg-secondary rounded-xl p-4 text-center">
-                        <span id="outputBin" class="font-tech text-3xl text-math tracking-widest">00000000</span>
-                    </div>
-                    <div class="mt-4 p-3 bg-primary rounded-lg">
-                        <p class="text-xs text-[var(--text-secondary)]">
-                            <strong class="text-math">Método:</strong> Divide entre 2 y anota los residuos de abajo hacia arriba.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="glass-card p-6 border-t-4 border-math">
-                    <h4 class="font-tech text-xl font-bold mb-4 flex items-center gap-2">
-                        <span class="bg-cyber text-xs px-2 py-1 rounded text-white">BIN</span>
-                        <i class="fas fa-arrow-right text-[var(--text-secondary)]"></i>
-                        <span class="bg-math text-xs px-2 py-1 rounded text-white">DEC</span>
-                    </h4>
-                    <p class="text-[var(--text-secondary)] text-sm mb-4">Convierte binario a decimal:</p>
-                    <input type="text" id="inputBin" placeholder="Ej: 101010" maxlength="8" oninput="convertBinToDec()" 
-                           class="w-full bg-primary border border-border-color rounded-xl p-3 text-[var(--text-primary)] focus:outline-none focus:border-math font-mono tracking-widest text-lg mb-4">
-                    <div class="bg-secondary rounded-xl p-4 text-center">
-                        <span id="outputDec" class="font-tech text-3xl text-math font-bold">0</span>
-                    </div>
-                    <div class="mt-4 p-3 bg-primary rounded-lg">
-                        <p class="text-xs text-[var(--text-secondary)]">
-                            <strong class="text-math">Método:</strong> Multiplica cada bit por su valor (1, 2, 4, 8...) y suma.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Desafío Hacker -->
-            <div class="glass-card p-8 rounded-2xl bg-gradient-to-br from-primary to-secondary border border-math/30 text-center">
-                <h3 class="font-tech text-3xl font-bold mb-2 text-math">¡Desafío Hacker!</h3>
-                <p class="text-[var(--text-secondary)] mb-6">¿Qué número es este código binario?</p>
-                
-                <div class="bg-primary inline-block px-8 py-4 rounded-xl mb-8 border-2 border-math shadow-lg">
-                    <span id="gameQuestion" class="font-tech text-4xl md:text-5xl text-math tracking-widest">...</span>
-                </div>
-
-                <div id="gameOptions" class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-6"></div>
-
-                <div class="flex justify-between items-center bg-primary p-4 rounded-xl max-w-md mx-auto">
-                    <div><span class="text-xs text-[var(--text-secondary)]">Puntaje:</span> <span id="score" class="text-xl font-bold text-math">0</span></div>
-                    <div id="feedback" class="font-bold"></div>
-                    <button onclick="initGame()" class="text-xs bg-secondary px-3 py-1 rounded hover:bg-secondary/80">Saltar</button>
-                </div>
-            </div>
-        </section>
-
-            <div id="results" class="mt-8 grid md:grid-cols-2 gap-4 text-center hidden">
-                <div class="bg-secondary p-6 rounded-lg">
-                    <h3 class="font-tech text-lg text-math mb-2">Número Romano</h3>
-                    <p id="romanResult" class="font-tech text-4xl">-</p>
-                </div>
-                <div class="bg-secondary p-6 rounded-lg">
-                    <h3 class="font-tech text-lg text-math mb-2">Número Binario</h3>
-                    <p id="binaryResult" class="font-tech text-4xl">-</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección de Evaluación -->
-        <section id="evaluacion" class="quiz-section">
-            <h2><i class="fas fa-award mr-3"></i>Evaluación: Pon a Prueba tu Conocimiento</h2>
-            <p class="text-secondary mb-6">Responde las siguientes preguntas para verificar lo que has aprendido. ¡Las preguntas cambian cada vez que recargas!</p>
-            <div id="quiz-container">
-                <!-- El quiz se generará aquí -->
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container mx-auto px-4 text-center">
-            <p class="font-bold text-lg">I.E. Paulo VI</p>
-            <p class="text-sm mt-1">Docente: Luis Miguel Cabrera</p>
-            <p class="text-xs mt-4 text-muted">Laboratorio Virtual © 2026 - Todos los derechos reservados</p>
+      <section class="card">
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="grid columns-2">
+          <div class="callout"><strong>Reto romano:</strong> escribe 19, 24 y 49 con símbolos romanos. Luego verifica con el conversor.</div>
+          <div class="callout"><strong>Reto binario:</strong> compara 8, 13 y 25. Observa cómo cambian las posiciones 1, 2, 4, 8 y 16.</div>
         </div>
-    </footer>
+      </section>
 
-    <script>
-        // ========== SISTEMAS NUMÉRICOS ==========
-        function convertAll() {
-            const input = document.getElementById('mainInput');
-            let val = parseInt(input.value);
-            if (isNaN(val) || val < 1) { 
-                document.getElementById('romanOutput').innerHTML = '...';
-                document.getElementById('egyptOutput').innerHTML = '...';
-                document.getElementById('mayaOutput').innerHTML = '...';
-                document.getElementById('chinaOutput').innerHTML = '...';
-                return; 
-            }
-            if (val > 3999) { val = 3999; input.value = 3999; }
+      <section class="card quiz-box"><div id="quiz-root"></div></section>
+      <section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+    </section>
+  </main>
+  <div id="footer-mount"></div>
 
-            updateRoman(val);
-            updateEgyptian(val);
-            updateMayan(val);
-            updateChinese(val);
-        }
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/theme-toggle.js"></script>
+  <script src="../../js/site-map.js"></script>
+  <script src="../../js/router.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/quiz-engine.js"></script>
+  <script src="../../js/graph-engine.js"></script>
+  <script src="../../js/simulator-engine.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo1', topicSlug: '1_sistemas_numeracion.html', theme: 'amber', pageTitle: 'Sistemas de numeración', pageDescription: 'Explora la lógica de los números romanos y del sistema binario con un conversor visual.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: '¿Cuál sistema es posicional?', options: ['Decimal y binario', 'Romano y egipcio', 'Solo romano', 'Ninguno'], answer: 0, feedback: 'Decimal y binario cambian el valor de una cifra según su posición.' },
+      { prompt: '¿Qué significa IV?', options: ['6', '4', '9', '15'], answer: 1, feedback: 'I antes de V indica resta: 5 - 1 = 4.' },
+      { prompt: '¿Cuál es el binario de 5?', options: ['111', '101', '100', '110'], answer: 1, feedback: '5 = 4 + 1, por eso se representa como 101.' }
+    ], 'matematicas6-periodo1-1_sistemas_numeracion.html');
 
-        function updateRoman(num) {
-            const romanValues = [
-                {val:1000, char:'M'}, {val:900, char:'CM'}, {val:500, char:'D'}, {val:400, char:'CD'},
-                {val:100, char:'C'}, {val:90, char:'XC'}, {val:50, char:'L'}, {val:40, char:'XL'},
-                {val:10, char:'X'}, {val:9, char:'IX'}, {val:5, char:'V'}, {val:4, char:'IV'}, {val:1, char:'I'}
-            ];
-            let result = '';
-            let tempNum = num;
-            for (let item of romanValues) {
-                while (tempNum >= item.val) {
-                    result += item.char;
-                    tempNum -= item.val;
-                }
-            }
-            document.getElementById('romanOutput').innerText = result;
-        }
+    const decimalInput = document.getElementById('decimalInput');
+    const decimalOut = document.getElementById('decimalOut');
+    const romanOut = document.getElementById('romanOut');
+    const binaryOut = document.getElementById('binaryOut');
+    const canvas = document.getElementById('binaryCanvas');
+    const ctx = canvas.getContext('2d');
 
-        function updateEgyptian(num) {
-            const svgStroke = `<svg viewBox="0 0 10 40" class="w-3"><line x1="5" y1="5" x2="5" y2="35" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>`;
-            const svgHeel = `<svg viewBox="0 0 30 40" class="w-5"><path d="M5,35 V15 Q5,5 15,5 Q25,5 25,15 V35" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>`;
-            const svgCoil = `<svg viewBox="0 0 40 40" class="w-6"><path d="M25,30 Q35,30 35,20 Q35,10 20,10 Q10,10 10,25 Q10,35 30,35" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>`;
-            const svgLotus = `<svg viewBox="0 0 40 40" class="w-6"><path d="M20,35 V15 M10,15 L20,5 L30,15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M10,35 H30" stroke="currentColor" stroke-width="3"/></svg>`;
+    function toRoman(num) {
+      const map = [
+        ['M',1000],['CM',900],['D',500],['CD',400],['C',100],['XC',90],['L',50],['XL',40],['X',10],['IX',9],['V',5],['IV',4],['I',1]
+      ];
+      let n=num, out='';
+      for (const [s,v] of map) while (n>=v) { out += s; n -= v; }
+      return out;
+    }
 
-            let html = '';
-            const thousands = Math.floor(num / 1000);
-            for(let i=0; i<thousands; i++) html += svgLotus;
-            const hundreds = Math.floor((num % 1000) / 100);
-            for(let i=0; i<hundreds; i++) html += svgCoil;
-            const tens = Math.floor((num % 100) / 10);
-            for(let i=0; i<tens; i++) html += svgHeel;
-            const ones = num % 10;
-            for(let i=0; i<ones; i++) html += svgStroke;
-            document.getElementById('egyptOutput').innerHTML = html || '...';
-        }
+    function drawBinary(num) {
+      SimulatorEngine.resizeCanvas(canvas, 290);
+      const bits = num.toString(2).padStart(8, '0').split('');
+      const values = [128,64,32,16,8,4,2,1];
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.font = '16px Verdana';
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+      ctx.fillText('Descomposición binaria', 18, 28);
+      bits.forEach((bit, i) => {
+        const x = 18 + i * ((canvas.width - 36) / 8);
+        const on = bit === '1';
+        ctx.fillStyle = on ? '#7cb27d' : 'rgba(120,120,120,.25)';
+        ctx.fillRect(x, 60, 42, 78);
+        ctx.strokeStyle = 'rgba(120,120,120,.35)';
+        ctx.strokeRect(x, 60, 42, 78);
+        ctx.fillStyle = on ? '#0f1713' : getComputedStyle(document.documentElement).getPropertyValue('--text');
+        ctx.font = 'bold 26px Verdana';
+        ctx.fillText(bit, x + 13, 108);
+        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+        ctx.font = '14px Verdana';
+        ctx.fillText(String(values[i]), x + 4, 160);
+      });
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--muted');
+      ctx.font = '15px Verdana';
+      ctx.fillText(`${num} = ${values.filter((_,i)=>bits[i]==='1').join(' + ') || 0}`, 18, 220);
+    }
 
-        function updateMayan(num) {
-            if(num === 0) { document.getElementById('mayaOutput').innerHTML = '...'; return; }
-            let levels = [];
-            let temp = num;
-            while (temp > 0) { levels.push(temp % 20); temp = Math.floor(temp / 20); }
-            
-            let html = '<div class="flex flex-col items-center">';
-            for (let i = levels.length - 1; i >= 0; i--) {
-                const value = levels[i];
-                const power = Math.pow(20, i);
-                let groupHtml = `<div class="bg-secondary p-2 rounded w-16 mb-1 flex flex-col items-center">`;
-                if (value === 0) {
-                    groupHtml += `<div class="w-6 h-4 border-2 border-math rounded-full"></div>`;
-                } else {
-                    const bars = Math.floor(value / 5);
-                    const dots = value % 5;
-                    if (dots > 0) {
-                        groupHtml += '<div class="flex justify-center gap-1 mb-1">';
-                        for(let d=0; d<dots; d++) groupHtml += `<div class="w-2 h-2 bg-math rounded-full"></div>`;
-                        groupHtml += '</div>';
-                    }
-                    for(let b=0; b<bars; b++) groupHtml += `<div class="w-8 h-1 bg-math mb-1 rounded"></div>`;
-                }
-                groupHtml += `<span class="text-xs text-[var(--text-secondary)]">×${power}</span></div>`;
-                html += groupHtml;
-            }
-            html += '</div>';
-            document.getElementById('mayaOutput').innerHTML = html;
-        }
-
-        function updateChinese(num) {
-            const digits = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
-            const units = ['', '十', '百', '千'];
-            let str = num.toString();
-            let result = '';
-            let len = str.length;
-
-            for (let i = 0; i < len; i++) {
-                let digit = parseInt(str[i]);
-                let pos = len - 1 - i;
-                
-                if (digit !== 0) {
-                    if(pos === 1 && digit === 1 && len === 2) {
-                        result += units[pos];
-                    } else {
-                        result += digits[digit] + units[pos];
-                    }
-                } else {
-                    if (pos > 0 && str[i+1] !== '0') {
-                        result += digits[0]; 
-                    }
-                }
-            }
-            document.getElementById('chinaOutput').innerText = result;
-        }
-
-        // Juego Romano
-        let targetNum = 0;
-        let playerString = "";
-        
-        function initRomanGame() {
-            targetNum = Math.floor(Math.random() * 89) + 1;
-            playerString = "";
-            document.getElementById('targetNumber').innerText = targetNum;
-            document.getElementById('playerBuild').innerText = "";
-            document.getElementById('gameFeedback').innerText = "";
-        }
-        function addRoman(c) { playerString += c; document.getElementById('playerBuild').innerText = playerString; }
-        function backspaceRoman() { playerString = playerString.slice(0, -1); document.getElementById('playerBuild').innerText = playerString; }
-        
-        function checkRomanAnswer() {
-            let correct = "";
-            const vals = [{v:1000,c:'M'},{v:900,c:'CM'},{v:500,c:'D'},{v:400,c:'CD'},{v:100,c:'C'},{v:90,c:'XC'},{v:50,c:'L'},{v:40,c:'XL'},{v:10,c:'X'},{v:9,c:'IX'},{v:5,c:'V'},{v:4,c:'IV'},{v:1,c:'I'}];
-            let n = targetNum;
-            for(let o of vals) { while(n >= o.v) { correct += o.c; n -= o.v; } }
-            
-            if(playerString === correct) {
-                document.getElementById('gameFeedback').innerHTML = "<span class='text-green-600'>¡Correcto!</span>";
-                setTimeout(initRomanGame, 1500);
-            } else {
-                document.getElementById('gameFeedback').innerHTML = "<span class='text-red-600'>Intenta de nuevo</span>";
-            }
-        }
-
-        // ========== SISTEMA BINARIO ==========
-        let totalValue = 0;
-
-        function toggleBit(val, btn) {
-            const isActive = btn.classList.contains('active');
-            const light = btn.querySelector('.status-light');
-            const text = btn.querySelector('.bit-val');
-            
-            if (isActive) {
-                btn.classList.remove('active');
-                light.classList.remove('bg-green-400', 'shadow-[0_0_10px_#4ade80]');
-                light.classList.add('bg-red-500');
-                text.textContent = '0';
-                text.classList.remove('text-white');
-                totalValue -= val;
-            } else {
-                btn.classList.add('active');
-                light.classList.remove('bg-red-500');
-                light.classList.add('bg-green-400', 'shadow-[0_0_10px_#4ade80]');
-                text.textContent = '1';
-                text.classList.add('text-white');
-                totalValue += val;
-            }
-            document.getElementById('decimalDisplay').innerText = totalValue;
-            updateMathSteps();
-        }
-
-        function updateMathSteps() {
-            const activeBits = [];
-            document.querySelectorAll('.switch-btn').forEach((btn, idx) => {
-                if(btn.classList.contains('active')) activeBits.push([128,64,32,16,8,4,2,1][idx]);
-            });
-            document.getElementById('mathSteps').innerHTML = activeBits.length ? 
-                activeBits.join(' + ') + ` = <span class="text-math font-bold">${totalValue}</span>` : "Todo apagado = 0";
-        }
-
-        function convertDecToBin() {
-            let val = parseInt(document.getElementById('inputDec').value) || 0;
-            if(val > 255) val = 255;
-            document.getElementById('outputBin').innerText = val.toString(2).padStart(8, '0');
-        }
-
-        function convertBinToDec() {
-            let val = document.getElementById('inputBin').value.replace(/[^01]/g, '');
-            document.getElementById('inputBin').value = val;
-            document.getElementById('outputDec').innerText = val ? parseInt(val, 2) : 0;
-        }
-
-        // Juego Binario
-        let currentTarget = 0, score = 0;
-        function initGame() {
-            currentTarget = Math.floor(Math.random() * 255) + 1;
-            document.getElementById('gameQuestion').innerText = currentTarget.toString(2).padStart(8, '0');
-            document.getElementById('feedback').innerText = "";
-            
-            let options = [currentTarget];
-            while(options.length < 4) {
-                let r = Math.floor(Math.random() * 255) + 1;
-                if(!options.includes(r)) options.push(r);
-            }
-            options.sort(() => Math.random() - 0.5);
-
-            const container = document.getElementById('gameOptions');
-            container.innerHTML = '';
-            options.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.className = "bg-primary hover:bg-secondary text-[var(--text-primary)] font-bold py-3 rounded-xl border border-border-color text-xl";
-                btn.innerText = opt;
-                btn.onclick = () => {
-                    if(opt === currentTarget) {
-                        btn.className = "bg-green-500 text-white font-bold py-3 rounded-xl border border-green-400 text-xl";
-                        score += 10;
-                        document.getElementById('score').innerText = score;
-                        document.getElementById('feedback').innerHTML = "<span class='text-green-400'>¡Correcto!</span>";
-                        setTimeout(initGame, 1000);
-                    } else {
-                        btn.className = "bg-red-500/50 text-white font-bold py-3 rounded-xl border border-red-400 text-xl";
-                        document.getElementById('feedback').innerHTML = "<span class='text-red-400'>Intenta de nuevo</span>";
-                    }
-                };
-                container.appendChild(btn);
-            });
-        }
-
-        // Inicializar
-        initRomanGame();
-        initGame();
-    </script>
-
-    <script src="../../app.js" defer></script>
-    <script src="1_sistemas_numeracion.js" defer></script>
+    function render() {
+      let value = Number(decimalInput.value || 1);
+      value = Math.max(1, Math.min(255, value));
+      decimalInput.value = value;
+      decimalOut.textContent = value;
+      romanOut.textContent = toRoman(value);
+      binaryOut.textContent = value.toString(2);
+      drawBinary(value);
+    }
+    document.getElementById('convertBtn').addEventListener('click', render);
+    document.getElementById('randomBtn').addEventListener('click', () => { decimalInput.value = Math.floor(Math.random()*255)+1; render(); });
+    decimalInput.addEventListener('input', render);
+    render();
+    window.addEventListener('resize', render);
+  </script>
 </body>
 </html>

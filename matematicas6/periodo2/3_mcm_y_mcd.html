@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCM y MCD | Matemáticas 6°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+</head>
+<body>
+  <div id="header-mount"></div>
+  <main class="container page-shell">
+    <div id="sidebar-mount"></div>
+    <section class="content">
+      <section class="card hero">
+        <span class="badge">Matemáticas 6° · Período 2</span>
+        <h1 id="hero-title">MCM y MCD</h1>
+        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Teoría esencial</h2>
+        <p>Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <div><span class="topic-chip">Mínimo común múltiplo</span><span class="topic-chip">Máximo común divisor</span></div>
+        <ul class="list-clean"><li>Mínimo común múltiplo</li><li>Máximo común divisor</li></ul>
+        <div class="formula">Interacción propuesta: Calculadora visual de MCM y MCD</div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Interacción</h2>
+        
+        <div class="grid columns-2">
+          <div>
+            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Calculadora visual de MCM y MCD</p></div>
+            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+          </div>
+          <canvas id="sim-canvas" height="280"></canvas>
+        </div>
+        <script>
+          const c = document.getElementById('sim-canvas');
+          SimulatorEngine.resizeCanvas(c, 280);
+          GraphEngine.drawSine(c, 36, 90, 0);
+        </script>
+        
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Aplicación pedagógica</h2>
+        <div class="callout">
+          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        </div>
+        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
+
+      <section class="card quiz-box">
+        <div id="quiz-root"></div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Navegación pedagógica</h2>
+        <div class="nav-pedagogic" id="pedagogic-nav"></div>
+      </section>
+    </section>
+  </main>
+  <div id="footer-mount"></div>
+
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/theme-toggle.js"></script>
+  <script src="../../js/site-map.js"></script>
+  <script src="../../js/router.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/quiz-engine.js"></script>
+  <script src="../../js/graph-engine.js"></script>
+  <script src="../../js/simulator-engine.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo2', topicSlug: '3_mcm_y_mcd.html', theme: 'amber', pageTitle: 'MCM y MCD', pageDescription: 'MCM y MCD' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Determina un MCM.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Determina un MCD.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Aplica a un problema cotidiano.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'matematicas6-periodo2-3_mcm_y_mcd.html');
+  </script>
+</body>
+</html>

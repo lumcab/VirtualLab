@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecuaciones e inecuaciones | Matemáticas 6°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/themes.css">
+</head>
+<body>
+  <div id="header-mount"></div>
+  <main class="container page-shell">
+    <div id="sidebar-mount"></div>
+    <section class="content">
+      <section class="card hero">
+        <span class="badge">Matemáticas 6° · Período 1</span>
+        <h1 id="hero-title">Ecuaciones e inecuaciones</h1>
+        <p id="hero-subtitle">Aprende a representar igualdades y desigualdades con una variable, y usa operaciones equivalentes para encontrar el valor o el conjunto de valores que hacen verdadera una expresión.</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Teoría esencial</h2>
+        <p>Una <strong>ecuación</strong> expresa una igualdad entre dos miembros. Una <strong>inecuación</strong> compara dos expresiones con signos como <strong>&lt;</strong>, <strong>&gt;</strong>, <strong>&le;</strong> o <strong>&ge;</strong>. En ambos casos, la meta es transformar la expresión sin cambiar su sentido.</p>
+        <div class="info-grid">
+          <div class="kpi"><strong>Ecuación</strong><p class="muted">Ejemplo: <strong>x + 3 = 8</strong>. Buscamos el valor de <strong>x</strong> que mantiene el equilibrio.</p></div>
+          <div class="kpi"><strong>Inecuación</strong><p class="muted">Ejemplo: <strong>x + 2 &lt; 7</strong>. Buscamos todos los valores de <strong>x</strong> que hacen verdadera la comparación.</p></div>
+          <div class="kpi"><strong>Regla clave</strong><p class="muted">Si sumas o restas la misma cantidad en ambos lados, la igualdad o desigualdad se conserva.</p></div>
+        </div>
+        <table class="table-lite" style="margin-top:1rem;">
+          <thead><tr><th>Expresión</th><th>Operación equivalente</th><th>Resultado</th></tr></thead>
+          <tbody>
+            <tr><td><strong>x + 4 = 11</strong></td><td>Restar 4 en ambos lados</td><td><strong>x = 7</strong></td></tr>
+            <tr><td><strong>x + 3 &lt; 9</strong></td><td>Restar 3 en ambos lados</td><td><strong>x &lt; 6</strong></td></tr>
+            <tr><td><strong>x - 2 = 5</strong></td><td>Sumar 2 en ambos lados</td><td><strong>x = 7</strong></td></tr>
+          </tbody>
+        </table>
+        <div class="formula">Interacción propuesta: Balanza algebraica simple</div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Interacción</h2>
+        <div class="grid columns-2">
+          <div>
+            <div class="kpi"><strong>Componente interactivo</strong><p class="muted">Transforma la expresión sumando o restando la misma cantidad en ambos lados.</p></div>
+            <label style="display:block; margin-top:1rem;">
+              <span class="mini-note">Tipo de reto</span>
+              <select class="select" id="balanceMode">
+                <option value="equation">Ecuación</option>
+                <option value="inequality">Inecuación</option>
+              </select>
+            </label>
+            <label style="display:block; margin-top:1rem;">
+              <span class="mini-note">Cantidad para aplicar en ambos lados</span>
+              <select class="select" id="balanceStep">
+                <option value="1">1 unidad</option>
+                <option value="2">2 unidades</option>
+                <option value="3">3 unidades</option>
+                <option value="4">4 unidades</option>
+              </select>
+            </label>
+            <div class="inline-actions" style="margin-top:1rem;">
+              <button class="btn" id="balanceAddBtn">Sumar a ambos lados</button>
+              <button class="btn" id="balanceSubBtn">Restar a ambos lados</button>
+            </div>
+            <div class="inline-actions" style="margin-top:.8rem;">
+              <button class="btn" id="balanceResetBtn">Reiniciar reto</button>
+              <button class="btn" id="balanceNextBtn">Nuevo reto</button>
+            </div>
+            <div class="info-grid" style="margin-top:1rem;">
+              <div class="kpi"><strong>Expresión actual</strong><div class="math-display" id="balanceExpression">x + 3 = 8</div></div>
+              <div class="kpi"><strong>Solución</strong><div class="math-display" id="balanceSolution">x = 5</div></div>
+              <div class="kpi"><strong>Pista</strong><p class="muted" id="balanceHint">Observa cuánto sobra junto a la variable y elimina esa cantidad en ambos lados.</p></div>
+            </div>
+          </div>
+          <div>
+            <canvas id="balance-canvas" height="320"></canvas>
+            <p class="muted" id="balanceReading" style="margin-top:.8rem;">La balanza muestra una igualdad: ambos lados deben seguir representando lo mismo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="grid columns-2">
+          <div class="callout">
+            <strong>Reto 1:</strong> si tienes <strong>x + 4 = 10</strong>, ¿qué operación conviene hacer primero para dejar sola la variable?
+          </div>
+          <div class="callout">
+            <strong>Reto 2:</strong> en <strong>x + 2 &lt; 6</strong>, encuentra todos los valores de <strong>x</strong> que cumplen la comparación.
+          </div>
+        </div>
+        <p class="muted">Puedes usar la interacción para comprobar tus respuestas: primero identifica la operación que elimina el número que acompaña a <strong>x</strong>, luego interpreta el resultado final.</p>
+      </section>
+
+      <section class="card quiz-box">
+        <div id="quiz-root"></div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Navegación pedagógica</h2>
+        <div class="nav-pedagogic" id="pedagogic-nav"></div>
+      </section>
+    </section>
+  </main>
+  <div id="footer-mount"></div>
+
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/theme-toggle.js"></script>
+  <script src="../../js/site-map.js"></script>
+  <script src="../../js/router.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/quiz-engine.js"></script>
+  <script src="../../js/graph-engine.js"></script>
+  <script src="../../js/simulator-engine.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo1', topicSlug: '2_ecuaciones_e_inecuaciones.html', theme: 'amber', pageTitle: 'Ecuaciones e inecuaciones', pageDescription: 'Representa y transforma ecuaciones e inecuaciones con una balanza algebraica simple.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: '¿Qué operación conserva una ecuación?', options: ['Sumar o restar la misma cantidad en ambos lados', 'Cambiar solo un lado', 'Borrar la variable', 'Cambiar el signo igual por menor que'], answer: 0, feedback: 'Las operaciones equivalentes deben hacerse en ambos miembros para mantener la relación.' },
+      { prompt: 'Si x + 5 = 12, entonces x es:', options: ['17', '7', '5', '12'], answer: 1, feedback: 'Para dejar sola la variable, resta 5 en ambos lados: x = 7.' },
+      { prompt: 'Si x + 2 < 8, entonces la solución es:', options: ['x < 6', 'x > 6', 'x = 6', 'x < 10'], answer: 0, feedback: 'Al restar 2 en ambos lados, queda x < 6.' }
+    ], 'matematicas6-periodo1-2_ecuaciones_e_inecuaciones.html');
+
+    const balanceCanvas = document.getElementById('balance-canvas');
+    const balanceCtx = balanceCanvas.getContext('2d');
+    const balanceMode = document.getElementById('balanceMode');
+    const balanceStep = document.getElementById('balanceStep');
+    const balanceExpression = document.getElementById('balanceExpression');
+    const balanceSolution = document.getElementById('balanceSolution');
+    const balanceHint = document.getElementById('balanceHint');
+    const balanceReading = document.getElementById('balanceReading');
+
+    const balanceScenarios = {
+      equation: [
+        { leftConstant: 3, rightConstant: 8, operator: '=', prompt: 'Aísla la variable para encontrar el valor exacto.' },
+        { leftConstant: 4, rightConstant: 11, operator: '=', prompt: 'Quita del lado izquierdo lo que acompaña a la variable.' },
+        { leftConstant: -2, rightConstant: 5, operator: '=', prompt: 'Piensa qué debes hacer cuando la variable tiene una resta.' }
+      ],
+      inequality: [
+        { leftConstant: 2, rightConstant: 7, operator: '<', prompt: 'Busca todos los valores menores que hacen verdadera la comparación.' },
+        { leftConstant: 4, rightConstant: 10, operator: '<', prompt: 'Conserva el signo de desigualdad al transformar ambos lados.' },
+        { leftConstant: -1, rightConstant: 4, operator: '>', prompt: 'Observa cómo cambia la expresión cuando sumas la misma cantidad a ambos lados.' }
+      ]
+    };
+
+    let balanceState = null;
+
+    function pickScenario(mode) {
+      const options = balanceScenarios[mode];
+      const selected = options[Math.floor(Math.random() * options.length)];
+      balanceState = { ...selected, delta: 0, mode };
+    }
+
+    function formatLeft(constant) {
+      if (constant === 0) return 'x';
+      return constant > 0 ? `x + ${constant}` : `x - ${Math.abs(constant)}`;
+    }
+
+    function formatExpression(constant, operator, right) {
+      return `${formatLeft(constant)} ${operator} ${right}`;
+    }
+
+    function formatSolution(operator, value) {
+      return `x ${operator} ${value}`;
+    }
+
+    function getSolutionValue() {
+      return balanceState.rightConstant - balanceState.leftConstant;
+    }
+
+    function getCurrentLeft() {
+      return balanceState.leftConstant + balanceState.delta;
+    }
+
+    function getCurrentRight() {
+      return balanceState.rightConstant + balanceState.delta;
+    }
+
+    function drawTray(x, y, label, items, color) {
+      balanceCtx.fillStyle = 'rgba(255,255,255,0.05)';
+      balanceCtx.strokeStyle = 'rgba(255,255,255,0.12)';
+      balanceCtx.lineWidth = 2;
+      balanceCtx.fillRect(x - 82, y - 12, 164, 18);
+      balanceCtx.strokeRect(x - 82, y - 12, 164, 18);
+      balanceCtx.fillStyle = color;
+      balanceCtx.font = 'bold 18px Verdana';
+      balanceCtx.fillText(label, x - 20, y - 26);
+
+      let offset = x - ((items.length - 1) * 24) / 2;
+      items.forEach(item => {
+        if (item === 'x') {
+          balanceCtx.fillStyle = '#f6c35b';
+          balanceCtx.fillRect(offset - 14, y - 52, 28, 28);
+          balanceCtx.fillStyle = '#2f2410';
+          balanceCtx.font = 'bold 18px Verdana';
+          balanceCtx.fillText('x', offset - 5, y - 32);
+        } else if (item === '-1') {
+          balanceCtx.fillStyle = '#e78a8a';
+          balanceCtx.fillRect(offset - 12, y - 48, 24, 24);
+          balanceCtx.fillStyle = '#341414';
+          balanceCtx.font = 'bold 12px Verdana';
+          balanceCtx.fillText('-1', offset - 8, y - 31);
+        } else {
+          balanceCtx.fillStyle = '#7cb27d';
+          balanceCtx.fillRect(offset - 12, y - 48, 24, 24);
+          balanceCtx.fillStyle = '#112015';
+          balanceCtx.font = 'bold 14px Verdana';
+          balanceCtx.fillText('1', offset - 4, y - 31);
+        }
+        offset += 24;
+      });
+    }
+
+    function buildItems(side, includeVariable) {
+      const items = [];
+      if (includeVariable) items.push('x');
+      const amount = Math.abs(side);
+      const token = side < 0 ? '-1' : '1';
+      for (let i = 0; i < amount; i += 1) items.push(token);
+      return items;
+    }
+
+    function drawBalance() {
+      SimulatorEngine.resizeCanvas(balanceCanvas, 320);
+      const { width, height } = balanceCanvas;
+      const operator = balanceState.operator;
+      const leftY = operator === '<' ? 150 : operator === '>' ? 205 : 178;
+      const rightY = operator === '<' ? 205 : operator === '>' ? 150 : 178;
+      const beamLeftX = width * 0.26;
+      const beamRightX = width * 0.74;
+      const midX = width / 2;
+      const baseY = 246;
+      const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#e5e7eb';
+      const mutedColor = getComputedStyle(document.documentElement).getPropertyValue('--muted').trim() || '#94a3b8';
+
+      balanceCtx.clearRect(0, 0, width, height);
+      balanceCtx.strokeStyle = 'rgba(148,163,184,0.35)';
+      balanceCtx.lineWidth = 6;
+      balanceCtx.beginPath();
+      balanceCtx.moveTo(midX, 86);
+      balanceCtx.lineTo(beamLeftX, leftY);
+      balanceCtx.lineTo(beamRightX, rightY);
+      balanceCtx.stroke();
+
+      balanceCtx.beginPath();
+      balanceCtx.moveTo(midX, 86);
+      balanceCtx.lineTo(midX, baseY - 32);
+      balanceCtx.stroke();
+
+      balanceCtx.fillStyle = '#2a3344';
+      balanceCtx.beginPath();
+      balanceCtx.moveTo(midX - 42, baseY);
+      balanceCtx.lineTo(midX + 42, baseY);
+      balanceCtx.lineTo(midX, baseY - 48);
+      balanceCtx.closePath();
+      balanceCtx.fill();
+
+      drawTray(beamLeftX, leftY + 30, 'Lado A', buildItems(getCurrentLeft(), true), '#8fb1ff');
+      drawTray(beamRightX, rightY + 30, 'Lado B', buildItems(getCurrentRight(), false), '#8ad6a2');
+
+      balanceCtx.fillStyle = textColor;
+      balanceCtx.font = 'bold 24px Verdana';
+      balanceCtx.fillText(operator, midX - 8, 74);
+      balanceCtx.font = '15px Verdana';
+      balanceCtx.fillStyle = mutedColor;
+      balanceCtx.fillText(balanceState.prompt, 18, height - 20);
+    }
+
+    function updateBalanceText() {
+      const currentLeft = getCurrentLeft();
+      const currentRight = getCurrentRight();
+      const solutionValue = getSolutionValue();
+      const isolated = currentLeft === 0;
+
+      balanceExpression.textContent = formatExpression(currentLeft, balanceState.operator, currentRight);
+      balanceSolution.textContent = formatSolution(balanceState.operator, solutionValue);
+
+      if (balanceState.operator === '=') {
+        balanceReading.textContent = isolated
+          ? `La variable ya quedó sola. La solución de la ecuación es x = ${solutionValue}.`
+          : 'La balanza representa una igualdad: cualquier cambio debe hacerse en ambos lados.';
+      } else {
+        balanceReading.textContent = isolated
+          ? `La comparación final indica todos los valores que cumplen: x ${balanceState.operator} ${solutionValue}.`
+          : 'La comparación conserva su sentido cuando sumas o restas la misma cantidad en ambos lados.';
+      }
+
+      if (isolated) {
+        balanceHint.textContent = 'La variable ya está aislada. Ahora interpreta la solución y prueba otro reto.';
+      } else if (currentLeft > 0) {
+        balanceHint.textContent = `Para aislar x, conviene restar ${currentLeft} en ambos lados.`;
+      } else {
+        balanceHint.textContent = `Para aislar x, conviene sumar ${Math.abs(currentLeft)} en ambos lados.`;
+      }
+    }
+
+    function renderBalance() {
+      updateBalanceText();
+      drawBalance();
+    }
+
+    function resetBalance() {
+      pickScenario(balanceMode.value);
+      renderBalance();
+    }
+
+    document.getElementById('balanceAddBtn').addEventListener('click', () => {
+      balanceState.delta += Number(balanceStep.value);
+      renderBalance();
+    });
+
+    document.getElementById('balanceSubBtn').addEventListener('click', () => {
+      balanceState.delta -= Number(balanceStep.value);
+      renderBalance();
+    });
+
+    document.getElementById('balanceResetBtn').addEventListener('click', () => {
+      balanceState.delta = 0;
+      renderBalance();
+    });
+    document.getElementById('balanceNextBtn').addEventListener('click', resetBalance);
+    balanceMode.addEventListener('change', resetBalance);
+    window.addEventListener('resize', renderBalance);
+
+    pickScenario('equation');
+    renderBalance();
+  </script>
+</body>
+</html>

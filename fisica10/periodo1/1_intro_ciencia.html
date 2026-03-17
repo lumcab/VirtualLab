@@ -1,198 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introducción a la Física | Física 10° - Período 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
-                    colors: { fis10: '#3b82f6', neon: '#00f3ff' }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a la física | Física 10°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/themes.css">
 </head>
-<body class="min-h-screen" style="background-color: #050505; background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);">
+<body>
+  <div id="header-mount"></div>
+  <main class="container page-shell">
+    <div id="sidebar-mount"></div>
+    <section class="content">
+      <section class="card hero">
+        <span class="badge">Física 10° · Período 1</span>
+        <h1 id="hero-title">Introducción a la física</h1>
+        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Introducción a la física y cinemática</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+      </section>
 
-    <nav class="border-b border-white/10 bg-black/90 sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="../index.html" class="text-xs text-slate-500 hover:text-[var(--text-primary)] border border-slate-700 px-3 py-1 rounded">
-                <i class="fas fa-chevron-left"></i> Física 10°
-            </a>
-            <span class="font-tech text-xl text-[var(--text-primary)]">FISICA <span class="text-cyber">10°</span></span>
-            <div class="text-[10px] text-cyber border border-cyber px-2 rounded">SYS.ONLINE</div>
+      <section class="card">
+        <h2 class="section-title">Teoría esencial</h2>
+        <p>Este tema pertenece a la unidad <strong>Introducción a la física y cinemática</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <div><span class="topic-chip">Método científico</span><span class="topic-chip">Cómo se construye la ciencia</span><span class="topic-chip">Notación científica</span></div>
+        <ul class="list-clean"><li>Método científico</li><li>Cómo se construye la ciencia</li><li>Notación científica</li></ul>
+        <div class="formula">Interacción propuesta: Juego de notación científica</div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Interacción</h2>
+        
+        <div class="grid columns-2">
+          <div>
+            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Juego de notación científica</p></div>
+            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+          </div>
+          <canvas id="sim-canvas" height="280"></canvas>
         </div>
-    </nav>
+        <script>
+          const c = document.getElementById('sim-canvas');
+          SimulatorEngine.resizeCanvas(c, 280);
+          GraphEngine.drawSine(c, 36, 90, 0);
+        </script>
+        
+      </section>
 
-    <header class="text-center py-10 px-4">
-        <div class="inline-block p-4 rounded-full bg-fis10/10 mb-4 animate-pulse">
-            <i class="fas fa-flask text-4xl text-fis10"></i>
+      <section class="card">
+        <h2 class="section-title">Aplicación pedagógica</h2>
+        <div class="callout">
+          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
         </div>
-        <h1 class="font-tech text-4xl md:text-5xl mb-4 text-[var(--text-primary)]">Introducción a la Física</h1>
-        <p class="text-slate-400 max-w-2xl mx-auto">Contenido en desarrollo para Física 10°.</p>
-    </header>
+        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
 
-    <main class="container mx-auto px-4 pb-20 max-w-6xl space-y-12">
+      <section class="card quiz-box">
+        <div id="quiz-root"></div>
+      </section>
 
-        <!-- Tabs de Contenido -->
-        <div class="mb-6 flex flex-wrap gap-2 justify-center">
-            <button onclick="switchTab('metodo')" class="tab-btn active px-4 py-2 rounded-full bg-fis10 text-white font-bold text-sm hover:scale-105 transition-transform">
-                <i class="fas fa-microscope"></i> Método Científico
-            </button>
-            <button onclick="switchTab('notacion')" class="tab-btn px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
-                <i class="fas fa-superscript"></i> Notación Científica
-            </button>
-            <button onclick="switchTab('magnitudes')" class="tab-btn px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
-                <i class="fas fa-ruler"></i> Magnitudes
-            </button>
-        </div>
+      <section class="card">
+        <h2 class="section-title">Navegación pedagógica</h2>
+        <div class="nav-pedagogic" id="pedagogic-nav"></div>
+      </section>
+    </section>
+  </main>
+  <div id="footer-mount"></div>
 
-        <!-- TAB 1: Método Científico -->
-        <section id="tab-metodo" class="space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-fis10">
-                <h3 class="text-2xl font-bold text-fis10 mb-4"><i class="fas fa-circle-notch"></i> Etapas del Método Científico</h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="bg-blue-500/10 border-l-4 border-blue-500 p-4 rounded">
-                        <h4 class="font-bold text-blue-400 mb-2">1️⃣ Observación</h4>
-                        <p class="text-sm text-slate-300">Se realiza una observación cuidadosa del fenómeno. Se registran los datos relevantes.</p>
-                    </div>
-                    <div class="bg-green-500/10 border-l-4 border-green-500 p-4 rounded">
-                        <h4 class="font-bold text-green-400 mb-2">2️⃣ Hipótesis</h4>
-                        <p class="text-sm text-slate-300">Se propone una respuesta tentativa basada en hechos conocidos.</p>
-                    </div>
-                    <div class="bg-yellow-500/10 border-l-4 border-yellow-500 p-4 rounded">
-                        <h4 class="font-bold text-yellow-400 mb-2">3️⃣ Experimentación</h4>
-                        <p class="text-sm text-slate-300">Se diseña un experimento controlado para verificar la hipótesis.</p>
-                    </div>
-                    <div class="bg-purple-500/10 border-l-4 border-purple-500 p-4 rounded">
-                        <h4 class="font-bold text-purple-400 mb-2">4️⃣ Conclusión</h4>
-                        <p class="text-sm text-slate-300">Se analizan resultados y se formula una ley o principio.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 2: Notación Científica -->
-        <section id="tab-notacion" class="hidden space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-fis10">
-                <h3 class="text-2xl font-bold text-fis10 mb-4"><i class="fas fa-superscript"></i> Notación Científica</h3>
-                <p class="text-slate-300 mb-4">Escribir números grandes o pequeños: <span class="font-mono text-cyber">a × 10ⁿ</span></p>
-                <div class="grid md:grid-cols-2 gap-4 bg-slate-900/50 p-4 rounded text-sm font-mono">
-                    <div><strong class="text-cyber">Ejemplos:</strong>
-                        <p>300 = 3 × 10²</p>
-                        <p>0.001 = 1 × 10⁻³</p>
-                        <p>6.023 × 10²³</p>
-                    </div>
-                    <div><strong class="text-cyber">Conversiones:</strong>
-                        <input type="number" id="numConv" placeholder="Número" class="w-full mb-2 bg-black/50 border border-slate-600 px-2 py-1 text-white rounded">
-                        <button onclick="convertToSci()" class="px-3 py-1 bg-fis10 text-white font-bold rounded hover:bg-blue-700">Convertir</button>
-                        <p id="resultSci" class="text-yellow-400 mt-2"></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 3: Magnitudes y Unidades -->
-        <section id="tab-magnitudes" class="hidden space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-fis10">
-                <h3 class="text-2xl font-bold text-fis10 mb-4"><i class="fas fa-ruler"></i> Sistema Internacional (SI)</h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-xs border-collapse">
-                        <thead class="bg-fis10/20">
-                            <tr><th class="border border-fis10/30 px-2 py-1 text-left">Magnitud</th><th class="border border-fis10/30 px-2 py-1">Unidad</th><th class="border border-fis10/30 px-2 py-1">Símbolo</th></tr>
-                        </thead>
-                        <tbody class="text-slate-300">
-                            <tr><td class="border border-slate-700 px-2 py-1">Longitud</td><td class="border border-slate-700 px-2 py-1">Metro</td><td class="border border-slate-700 px-2 py-1 font-mono">m</td></tr>
-                            <tr><td class="border border-slate-700 px-2 py-1">Masa</td><td class="border border-slate-700 px-2 py-1">Kilogramo</td><td class="border border-slate-700 px-2 py-1 font-mono">kg</td></tr>
-                            <tr><td class="border border-slate-700 px-2 py-1">Tiempo</td><td class="border border-slate-700 px-2 py-1">Segundo</td><td class="border border-slate-700 px-2 py-1 font-mono">s</td></tr>
-                            <tr><td class="border border-slate-700 px-2 py-1">Velocidad</td><td class="border border-slate-700 px-2 py-1">Metro/segundo</td><td class="border border-slate-700 px-2 py-1 font-mono">m/s</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- QUIZ -->
-        <section class="glass p-8 rounded-2xl border-l-4 border-cyber">
-            <h3 class="font-tech text-2xl text-cyber mb-6 flex items-center gap-2"><i class="fas fa-question-circle"></i> Prueba tu Conocimiento</h3>
-            <div class="space-y-6">
-                <div class="bg-slate-900/50 p-4 rounded">
-                    <p class="font-bold text-slate-300 mb-3">1. ¿Cuál es el PRIMER paso del método científico?</p>
-                    <div class="space-y-2">
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" value="a"> A) Observación</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" value="b"> B) Hipótesis</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" value="c"> C) Conclusión</label>
-                    </div>
-                </div>
-
-                <div class="bg-slate-900/50 p-4 rounded">
-                    <p class="font-bold text-slate-300 mb-3">2. ¿Cuál es la unidad de VELOCIDAD en el SI?</p>
-                    <div class="space-y-2">
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q2" value="a"> A) km/h</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q2" value="b"> B) m/s</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q2" value="c"> C) cm/s</label>
-                    </div>
-                </div>
-
-                <div class="bg-slate-900/50 p-4 rounded">
-                    <p class="font-bold text-slate-300 mb-3">3. ¿Cómo se escribe 0.00045 en notación científica?</p>
-                    <div class="space-y-2">
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q3" value="a"> A) 4.5 × 10⁻⁵</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q3" value="b"> B) 4.5 × 10⁻⁴</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="q3" value="c"> C) 45 × 10⁻⁵</label>
-                    </div>
-                </div>
-
-                <button onclick="checkAnswers()" class="w-full px-4 py-3 bg-gradient-to-r from-fis10 to-cyan-600 text-white font-bold rounded-lg hover:scale-105 transition-transform">
-                    <i class="fas fa-check-circle"></i> Verificar Respuestas
-                </button>
-                <p id="resultQuiz" class="text-center text-lg font-bold hidden"></p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="mt-16 border-t border-slate-700 pt-6 pb-4 px-4">
-        <div class="container mx-auto max-w-6xl text-center text-slate-500 text-xs">
-            <p class="mb-1">I.E. Paulo VI - Docente: Luis Miguel Cabrera - Laboratorio Virtual © 2026</p>
-            <p>Introducción a la Física | Física 10° - Período 1</p>
-        </div>
-    </footer>
-
-    <script src="../../app.js"></script>
-    <script>
-        function switchTab(id) {
-            document.querySelectorAll('.section-tab').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('bg-fis10'));
-            document.getElementById('tab-'+id).classList.remove('hidden');
-            event.currentTarget.classList.add('bg-fis10');
-        }
-
-        function convertToSci() {
-            const n = parseFloat(document.getElementById('numConv').value);
-            if(isNaN(n) || n === 0) return;
-            const exp = Math.floor(Math.log10(Math.abs(n)));
-            const m = (n / Math.pow(10, exp)).toFixed(2);
-            document.getElementById('resultSci').textContent = m + ' × 10^' + exp;
-        }
-
-        function checkAnswers() {
-            const answers = {q1: 'a', q2: 'b', q3: 'b'};
-            let score = 0;
-            for(let [q, ans] of Object.entries(answers)) {
-                const selected = document.querySelector(`input[name="${q}"]:checked`);
-                if(selected && selected.value === ans) score++;
-            }
-            const result = document.getElementById('resultQuiz');
-            result.textContent = `✅ ${score}/3 respuestas correctas`;
-            result.classList.remove('hidden');
-            result.style.color = score === 3 ? '#22c55e' : score === 2 ? '#3b82f6' : '#ef4444';
-        }
-    </script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/theme-toggle.js"></script>
+  <script src="../../js/site-map.js"></script>
+  <script src="../../js/router.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/quiz-engine.js"></script>
+  <script src="../../js/graph-engine.js"></script>
+  <script src="../../js/simulator-engine.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo1', topicSlug: '1_intro_ciencia.html', theme: 'blue', pageTitle: 'Introducción a la física', pageDescription: 'Introducción a la física' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Ordena pasos del método científico.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Convierte a notación científica.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Reconoce una magnitud física.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo1-1_intro_ciencia.html');
+  </script>
+</body>
+</html>

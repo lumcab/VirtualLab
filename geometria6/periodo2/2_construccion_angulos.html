@@ -1,149 +1,88 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth" data-theme="dark">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Construcción de Ángulos | Geometria6° - Período 2</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { tech: ['Orbitron', 'sans-serif'], body: ['Rajdhani', 'sans-serif'] },
-                    colors: { geo: '#0ea5e9', neon: '#00f3ff', cyber: '#facc15', dark: '#050b14' }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { font-family: 'Rajdhani', sans-serif; }
-        [data-theme="dark"] body { background-color: #050b14; color: #e2e8f0; }
-        [data-theme="light"] body { background-color: #f3f4f6; color: #1f2937; }
-        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(59, 130, 246, 0.2); }
-        [data-theme="light"] .glass { background: rgba(255, 255, 255, 0.7); border-color: rgba(59, 130, 246, 0.3); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construcción de ángulos | Geometría 6°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/themes.css">
 </head>
-<body class="pb-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+<body>
+  <div id="header-mount"></div>
+  <main class="container page-shell">
+    <div id="sidebar-mount"></div>
+    <section class="content">
+      <section class="card hero">
+        <span class="badge">Geometría 6° · Período 2</span>
+        <h1 id="hero-title">Construcción de ángulos</h1>
+        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Clasificación y construcción de los ángulos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+      </section>
 
-    <nav class="border-b border-white/10 bg-dark/95 backdrop-blur-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="../index.html" class="text-xs font-bold text-slate-400 hover:text-geo border border-slate-600 px-3 py-1 rounded transition-colors">
-                <i class="fas fa-arrow-left"></i> Atrás
-            </a>
-            <span class="font-tech text-xl text-geo tracking-widest">CONSTRUCCIÓN DE ÁNGULOS</span>
-            <button onclick="toggleTheme()" class="text-xs font-bold text-slate-400 hover:text-geo border border-slate-600 px-3 py-1 rounded transition-colors">
-                <i class="fas fa-moon"></i>
-            </button>
+      <section class="card">
+        <h2 class="section-title">Teoría esencial</h2>
+        <p>Este tema pertenece a la unidad <strong>Clasificación y construcción de los ángulos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <div><span class="topic-chip">Construcción de ángulos con regla y transportador</span></div>
+        <ul class="list-clean"><li>Construcción de ángulos con regla y transportador</li></ul>
+        <div class="formula">Interacción propuesta: Trazador de ángulos</div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Interacción</h2>
+        
+        <div class="grid columns-2">
+          <div>
+            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Trazador de ángulos</p></div>
+            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+          </div>
+          <canvas id="sim-canvas" height="280"></canvas>
         </div>
-    </nav>
+        <script>
+          const c = document.getElementById('sim-canvas');
+          SimulatorEngine.resizeCanvas(c, 280);
+          GraphEngine.drawSine(c, 36, 90, 0);
+        </script>
+        
+      </section>
 
-    <main class="container mx-auto px-4 py-8 max-w-5xl">
-
-        <section class="glass p-8 rounded-2xl mb-8 border-l-4 border-geo">
-            <div class="flex items-center gap-4 mb-4">
-                <i class="fas fa-book text-4xl text-geo"></i>
-                <div>
-                    <h1 class="font-tech text-4xl text-geo mb-2">Construcción de Ángulos</h1>
-                    <p class="text-slate-400">Período 2</p>
-                </div>
-            </div>
-            <p class="text-sm text-slate-300 leading-relaxed">Exploración didáctica de construcción de ángulos.</p>
-        </section>
-
-        <div class="mb-6 flex flex-wrap gap-2 justify-center">
-            <button onclick="switchTab('tab0')" class="tab-btn active px-4 py-2 rounded-full bg-geo text-white font-bold text-sm hover:scale-105 transition-transform">
-            <i class="fas fa-circle-0"></i> Transportador
-        </button><button onclick="switchTab('tab1')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
-            <i class="fas fa-circle-1"></i> Compás
-        </button><button onclick="switchTab('tab2')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
-            <i class="fas fa-circle-2"></i> Copia de Ángulos
-        </button><button onclick="switchTab('tab3')" class="tab-btn  px-4 py-2 rounded-full bg-slate-600 text-white font-bold text-sm hover:scale-105 transition-transform">
-            <i class="fas fa-circle-3"></i> Ángulos Especiales
-        </button>
+      <section class="card">
+        <h2 class="section-title">Aplicación pedagógica</h2>
+        <div class="callout">
+          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
         </div>
+        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
 
-        <section id="tab-tab0" class=" space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-geo">
-                <h3 class="text-2xl font-bold text-geo mb-4">
-                    <i class="fas fa-book"></i> Transportador
-                </h3>
-                <div class="space-y-4 text-slate-300">
-                    <p class="text-sm text-slate-300">Instrumento para medir y construir ángulos con precisión.</p>
-                </div>
-            </div>
-        </section><section id="tab-tab1" class="hidden space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-geo">
-                <h3 class="text-2xl font-bold text-geo mb-4">
-                    <i class="fas fa-book"></i> Compás
-                </h3>
-                <div class="space-y-4 text-slate-300">
-                    <p class="text-sm text-slate-300">Herramienta para construir ángulos iguales y bisectrices.</p>
-                </div>
-            </div>
-        </section><section id="tab-tab2" class="hidden space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-geo">
-                <h3 class="text-2xl font-bold text-geo mb-4">
-                    <i class="fas fa-book"></i> Copia de Ángulos
-                </h3>
-                <div class="space-y-4 text-slate-300">
-                    <p class="text-sm text-slate-300">Procedimiento geométrico para reproducir un ángulo.</p>
-                </div>
-            </div>
-        </section><section id="tab-tab3" class="hidden space-y-6 section-tab">
-            <div class="glass p-6 rounded-xl border-t-4 border-geo">
-                <h3 class="text-2xl font-bold text-geo mb-4">
-                    <i class="fas fa-book"></i> Ángulos Especiales
-                </h3>
-                <div class="space-y-4 text-slate-300">
-                    <ul class="list-disc list-inside text-sm text-slate-300 space-y-1"><li>30° (π/6)</li><li>45° (π/4)</li><li>60° (π/3)</li><li>90° (π/2)</li></ul>
-                </div>
-            </div>
-        </section>
-    </main>
+      <section class="card quiz-box">
+        <div id="quiz-root"></div>
+      </section>
 
-    <section class="container mx-auto px-4 max-w-5xl mt-12">
-        <div class="glass p-6 rounded-xl border-l-4 border-cyber">
-            <h3 class="text-2xl font-bold text-cyber mb-6 flex items-center gap-2">
-                <i class="fas fa-question-circle"></i> Prueba tu Conocimiento
-            </h3>
-            <div class="bg-slate-900/50 p-4 rounded">
-                <p class="font-bold text-slate-300 mb-3">¿Qué has aprendido?</p>
-                <p class="text-sm text-slate-400">Las evaluaciones interactivas estarán disponibles próximamente.</p>
-            </div>
-        </div>
+      <section class="card">
+        <h2 class="section-title">Navegación pedagógica</h2>
+        <div class="nav-pedagogic" id="pedagogic-nav"></div>
+      </section>
     </section>
+  </main>
+  <div id="footer-mount"></div>
 
-    <footer class="mt-16 border-t border-slate-700 pt-6 pb-4 px-4">
-        <div class="container mx-auto max-w-5xl text-center text-slate-500 text-xs">
-            <p class="mb-1">I.E. Paulo VI - Docente: Luis Miguel Cabrera - Laboratorio Virtual © 2026</p>
-            <p>Construcción de Ángulos | Período 2</p>
-        </div>
-    </footer>
-
-    <script src="../../app.js"></script>
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const current = html.getAttribute('data-theme') || 'dark';
-            const newTheme = current === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme-2_construccion_angulos', newTheme);
-        }
-
-        window.addEventListener('load', () => {
-            const saved = localStorage.getItem('theme-2_construccion_angulos') || 'dark';
-            document.documentElement.setAttribute('data-theme', saved);
-        });
-
-        function switchTab(id) {
-            document.querySelectorAll('.section-tab').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('bg-geo'));
-            document.getElementById(id).classList.remove('hidden');
-            event.currentTarget.classList.add('bg-geo');
-        }
-    </script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/theme-toggle.js"></script>
+  <script src="../../js/site-map.js"></script>
+  <script src="../../js/router.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/quiz-engine.js"></script>
+  <script src="../../js/graph-engine.js"></script>
+  <script src="../../js/simulator-engine.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo2', topicSlug: '2_construccion_angulos.html', theme: 'sky', pageTitle: 'Construcción de ángulos', pageDescription: 'Construcción de ángulos' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Construye un ángulo pedido.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta una medida angular.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Selecciona el instrumento adecuado.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'geometria6-periodo2-2_construccion_angulos.html');
+  </script>
 </body>
 </html>
