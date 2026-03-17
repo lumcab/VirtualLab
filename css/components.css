@@ -40,3 +40,56 @@
 .theme-toggle {
   display:inline-flex; gap:.5rem; align-items:center;
 }
+
+.academic-calendar {
+  padding: 1.25rem;
+  margin-top: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.calendar-header {
+  margin-bottom: 1rem;
+}
+
+.calendar-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.calendar-card {
+  padding: 1.15rem;
+  border-radius: 18px;
+  border: 2px solid color-mix(in srgb, var(--period-color) 72%, white 28%);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--panel-strong) 92%, transparent), color-mix(in srgb, var(--panel) 88%, transparent)),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--period-color) 12%, transparent), transparent 56%);
+  box-shadow: var(--shadow);
+}
+
+.calendar-period {
+  display: inline-block;
+  margin-bottom: .7rem;
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--period-color);
+}
+
+.calendar-card h3 {
+  margin: 0 0 .75rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.calendar-status {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-weight: 700;
+  color: var(--period-color);
+}
+
+a.topic-card {
+  display: block;
+}

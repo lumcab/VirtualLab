@@ -33,10 +33,19 @@
           <h2 class="section-title" style="margin-bottom:.35rem;">Panel de materias</h2>
           <p class="muted">Selecciona una materia para explorar sus períodos, temas y recursos disponibles.</p>
         </div>
-        <button class="btn" onclick="toggleTheme()">🌓 <span data-theme-label></span></button>
       </div>
     </section>
     <section class="grid topic-grid" id="subject-grid"></section>
+    <section class="academic-calendar card">
+      <div class="calendar-header">
+        <div>
+          <span class="badge">Calendario 2026</span>
+          <h2 class="section-title" style="margin:.65rem 0 .35rem;">Calendario Académico 2026</h2>
+          <p class="muted">Los períodos muestran sus fechas de inicio y cierre para ayudar a organizar el tiempo de trabajo durante el año.</p>
+        </div>
+      </div>
+      <div class="grid calendar-grid" id="calendar-grid"></div>
+    </section>
   </main>
   <div id="footer-mount"></div>
 
@@ -49,6 +58,41 @@
   <script src="js/main.js"></script>
   <script>
     App.initPage({ depth: 0, theme: 'blue', pageTitle: 'VirtualLab' });
+    const academicPeriods = [
+      { title: 'Período 1', start: '2026-01-26', end: '2026-04-10', color: 'var(--success)' },
+      { title: 'Período 2', start: '2026-04-13', end: '2026-07-19', color: '#d4a11d' },
+      { title: 'Período 3', start: '2026-07-06', end: '2026-09-11', color: '#f27a1a' },
+      { title: 'Período 4', start: '2026-09-08', end: '2026-11-27', color: 'var(--danger)' }
+    ];
+
+    const monthFormatter = new Intl.DateTimeFormat('es-CO', { month: 'long', day: 'numeric' });
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    function getPeriodStatus(start, end) {
+      if (today < start) {
+        return { label: 'Próximo', icon: '◔' };
+      }
+      if (today > end) {
+        return { label: 'Finalizado', icon: '✓' };
+      }
+      return { label: 'En progreso', icon: '●' };
+    }
+
+    const calendarGrid = document.getElementById('calendar-grid');
+    calendarGrid.innerHTML = academicPeriods.map(period => {
+      const start = new Date(`${period.start}T00:00:00`);
+      const end = new Date(`${period.end}T00:00:00`);
+      const status = getPeriodStatus(start, end);
+      return `
+        <article class="calendar-card" style="--period-color:${period.color};">
+          <span class="calendar-period">${period.title}</span>
+          <h3><strong>${monthFormatter.format(start)} - ${monthFormatter.format(end)}</strong></h3>
+          <span class="calendar-status">${status.icon} ${status.label}</span>
+        </article>
+      `;
+    }).join('');
+
     const grid = document.getElementById('subject-grid');
     grid.innerHTML = Object.entries(SITE_MAP).map(([key, subject]) => `
       <a class="card topic-card" href="${key}/index.html">
@@ -56,7 +100,6 @@
         <h3 style="font-size:1.35rem; margin:.9rem 0 .5rem;">${subject.title}</h3>
         <p class="muted">${subject.description}</p>
         <div style="margin:1rem 0;">${Object.values(subject.periods).map(period => `<span class="topic-chip">${period.title}</span>`).join('')}</div>
-        <span class="btn">Entrar</span>
       </a>
     `).join('');
   </script>
