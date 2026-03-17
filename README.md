@@ -1,95 +1,216 @@
 <div align="center">
 
-# 🔬 Laboratorio Virtual | LUMCAB
+# VirtualLab
 
-![Estado](https://img.shields.io/badge/Estado-Activo_y_Modular-success?style=for-the-badge&logo=statuspage)
-![Versión](https://img.shields.io/badge/Versión-2.0.0-blue?style=for-the-badge&logo=git)
-![Licencia](https://img.shields.io/badge/Licencia-MIT-yellow?style=for-the-badge&logo=open-source-initiative)
-![Tech](https://img.shields.io/badge/Tech-HTML5_|_JS_Puro_|_Bash-38bdf8?style=for-the-badge&logo=javascript)
+**Laboratorio Virtual de Ciencias y Matemáticas**
 
-**Plataforma interactiva para la enseñanza de Ciencias Naturales y Matemáticas mediante simulaciones y evaluación en tiempo real.**
+![Estado](https://img.shields.io/badge/Estado-Activo-22c55e?style=for-the-badge)
+![Arquitectura](https://img.shields.io/badge/Arquitectura-HTML%20%2B%20CSS%20%2B%20JS-7c3aed?style=for-the-badge)
+![Licencia](https://img.shields.io/badge/Licencia-MIT-f59e0b?style=for-the-badge)
+![Año](https://img.shields.io/badge/Año-2026-0ea5e9?style=for-the-badge)
 
-[Ver Demo (GitHub Pages)]() · [Reportar un Bug]() · [Solicitar Función]()
+Recursos interactivos para apoyar el aprendizaje de **Matemáticas**, **Geometría** y **Física** en distintos grados y períodos académicos.
 
 </div>
 
 ---
 
-## 📋 Descripción
+## Descripción
 
-El **Laboratorio Virtual** es una suite de herramientas educativas web desarrollada para los estudiantes de la **Institución Educativa Paulo VI**. Este proyecto busca modernizar el aprendizaje en el aula mediante la gamificación, la visualización interactiva de conceptos abstractos y la evaluación continua.
+**VirtualLab** es un sitio educativo estático creado por **Luis Miguel Cabrera** para organizar contenidos por materia, período y tema, con una experiencia visual moderna y ligera.
 
-En su versión 2.0.0, el sistema ha sido completamente reestructurado en una **arquitectura modular por periodos académicos**, evitando la sobrecarga cognitiva. Es un sistema ligero, estático y no requiere instalación, ideal para funcionar en equipos con recursos limitados o dispositivos móviles.
+El proyecto está pensado para:
 
----
-
-## 🚀 Módulos Académicos (Plan Anual)
-
-El contenido está distribuido a lo largo de los 4 periodos académicos del año escolar para facilitar el aprendizaje progresivo.
-
-### 📐 Matemáticas y Geometría (Grado 6°)
-Fundamentos numéricos, lógicos y espaciales.
-
-| Módulo | Directorio Base | Descripción Temática | Características Clave |
-| :--- | :--- | :--- | :--- |
-| **Matemáticas** | `/matematicas_6/` | Sistemas numéricos, divisibilidad, fracciones, decimales y estadística. | • Juegos de lógica binaria<br>• Calculadoras fraccionarias<br>• Quizzes al final de cada tema |
-| **Geometría** | `/geometria_6/` | Geometría Euclidiana, ángulos, polígonos y transformaciones. | • Renderizado en Canvas API<br>• Herramientas de trazado virtual<br>• Interfaz táctil amigable |
-
-### ⚛️ Ciencias Naturales: Física (Grados 10° y 11°)
-Simuladores para fenómenos físicos, cinemática y electromagnetismo.
-
-| Módulo | Directorio Base | Descripción Temática | Características Clave |
-| :--- | :--- | :--- | :--- |
-| **Física Mecánica (10°)** | `/fisica_10/` | Cinemática, dinámica, mecánica de fluidos y termodinámica. | • Simuladores de movimiento<br>• Diagramas de cuerpo libre<br>• Calculadora de calorimetría |
-| **Ondas y Energía (11°)** | `/fisica_11/` | Movimiento armónico, ondas, óptica y electromagnetismo. | • Visualizador de efecto Doppler<br>• Trazador de rayos (Óptica)<br>• Circuitos virtuales (Ley Ohm) |
+- presentar teoría de forma clara
+- incluir interacciones en `canvas` y herramientas visuales
+- acompañar cada tema con un mini quiz
+- funcionar bien sin dependencias pesadas
+- poder editarse fácilmente archivo por archivo
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Materias Disponibles
 
-Este proyecto utiliza un stack **"Vanilla"** (sin frameworks pesados) para garantizar la máxima compatibilidad, velocidad de carga y facilidad de edición en entornos Linux y Windows.
+### Matemáticas 6°
 
-* **Estructura:** HTML5 Semántico.
-* **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (vía CDN) y CSS3 moderno.
-* **Lógica e Interacción:** JavaScript (ES6+) nativo.
-* **Automatización:** Scripts de Bash (`.sh`) para el andamiaje del proyecto.
-* **Iconografía:** [FontAwesome 6](https://fontawesome.com/).
-* **Tipografías:** Google Fonts (*Cinzel, Fredoka, Orbitron, Share Tech Mono*).
+- Período 1: Sistemas de numeración, Ecuaciones e inecuaciones, Introducción a la estadística
+- Período 2: Múltiplos y divisores, Factores primos, MCM y MCD, Tablas y gráficos
+- Período 3: Fracciones, Estadística y experimentos aleatorios
+- Período 4: Decimales, Razones y porcentajes, Probabilidad y conjuntos
+
+### Geometría 6°
+
+- Período 1: Conceptos básicos de geometría, Construcción de rectas
+- Período 2: Ángulos y construcción de ángulos
+- Período 3: Plano cartesiano y polígonos
+- Período 4: Transformaciones geométricas
+
+### Física 10°
+
+- Período 1: Introducción a la física, Magnitudes unidades y vectores, Cinemática
+- Período 2: Estática y dinámica, Trabajo y energía, Impulso y gravitación
+- Período 3: Hidrostática, Hidrodinámica, Ecuación de Bernoulli
+- Período 4: Temperatura y calor, Termodinámica
+
+### Física 11°
+
+- Período 1: Movimiento armónico simple, Ondas y sonido, Sísmica y ondas sísmicas
+- Período 2: Naturaleza de la luz, Refracción e instrumentos ópticos
+- Período 3: Electrostática, Electrodinámica
+- Período 4: Magnetismo, Electromagnetismo
 
 ---
 
-## 📂 Estructura del Proyecto
+## Qué Incluye Cada Tema
 
-El repositorio sigue un modelo estricto de carpetas para mantener el orden por materia y periodo lectivo:
+La estructura pedagógica del proyecto sigue una línea común:
+
+- cabecera y contexto del tema
+- teoría esencial
+- interacción o simulador
+- aplicación pedagógica o lectura guiada
+- quiz corto
+- navegación pedagógica entre temas
+
+---
+
+## Interacciones Destacadas
+
+Algunas páginas ya incluyen experiencias interactivas como:
+
+- conversor decimal, romano y binario
+- flor mandala con regla, compás y transportador
+- construcción de rectas paralelas, perpendiculares y secantes
+- notación científica con lectura visual de escala
+- suma de 2 o 3 vectores en forma gráfica y analítica
+- conversor de magnitudes entre SI y sistema inglés/escolar
+- comparador de MRU, MRUV y caída libre
+- simulador de MAS, ondas y sonido
+- sismograma didáctico con ondas `P`, `S` y superficiales
+
+---
+
+## Tecnologías
+
+El proyecto usa una base simple y fácil de mantener:
+
+- **HTML5** para la estructura
+- **CSS3** para estilos globales, layout, componentes y temas
+- **JavaScript vanilla** para navegación, quizzes y simulaciones
+- **Canvas API** para visualizaciones e interacciones
+
+No usa frameworks pesados ni procesos de build obligatorios.
+
+---
+
+## Estructura del Proyecto
 
 ```text
-edu-repo/
-├── index.html                    ← Panel central con 4 materias
-├── styles.css                    ← CSS global con modo oscuro/claro
-├── app.js                        ← JavaScript global (quizzes, utilidades)
-│
+VirtualLab/
+├── index.html
+├── css/
+│   ├── global.css
+│   ├── layout.css
+│   ├── components.css
+│   └── themes.css
+├── js/
+│   ├── config.js
+│   ├── main.js
+│   ├── navigation.js
+│   ├── router.js
+│   ├── site-map.js
+│   ├── storage.js
+│   ├── theme-toggle.js
+│   ├── quiz-engine.js
+│   ├── graph-engine.js
+│   └── simulator-engine.js
+├── components/
+│   ├── navbar.html
+│   ├── sidebar.html
+│   ├── footer.html
+│   └── quiz-template.html
 ├── matematicas6/
-│   ├── index.html                ← Menú de 4 periodos
-│   └── periodo1-4/               ← 11 páginas temáticas
-│       ├── 1_sistemas_numeracion.html  (✨ Completo con interactivos)
-│       ├── 2_ecuaciones.html           (✨ Completo)
-│       ├── 3_estadistica_intro.html    (✨ Completo)
-│       └── ... (otras 8 páginas)
-│
 ├── geometria6/
-│   ├── index.html                ← Menú de 4 periodos
-│   └── periodo1-4/               ← 8 páginas temáticas
-│       ├── 1_conceptos_basicos.html    (✨ Con Canvas interactivo)
-│       └── ... (otras 7 páginas)
-│
 ├── fisica10/
-│   ├── index.html                ← Menú de 4 periodos
-│   └── periodo1-4/               ← 11 páginas temáticas
-│       ├── 2_magnitudes_vectores.html  (✨ Simulaciones completas)
-│       └── ... (otras 10 páginas)
-│
 └── fisica11/
-    ├── index.html                ← Menú de 4 periodos
-    └── periodo1-4/               ← 8 páginas temáticas
-        ├── 2_ondas_sonido.html   (✨ M.A.S., Ondas, Efecto Doppler)
-        └── ... (otras 7 páginas)
+```
+
+---
+
+## Navegación y Configuración
+
+La información principal de materias, períodos y temas vive en:
+
+- [js/site-map.js](./js/site-map.js)
+
+La configuración general de marca vive en:
+
+- [js/config.js](./js/config.js)
+
+La shell compartida del sitio se renderiza desde:
+
+- [js/navigation.js](./js/navigation.js)
+
+---
+
+## Diseño Actual
+
+El sitio usa un sistema visual por temas:
+
+- **Matemáticas**: ámbar
+- **Geometría**: azul/cian
+- **Física 10**: violeta pizarra
+- **Física 11**: violeta/magenta
+
+Además cuenta con:
+
+- modo claro y oscuro
+- fondos dinámicos suaves
+- tarjetas con relieve y animaciones ligeras
+- interacciones adaptadas a la paleta de cada materia
+
+---
+
+## Uso Local
+
+Como es un proyecto estático, basta con abrir `index.html` en el navegador o servir la carpeta con un servidor local simple.
+
+Ejemplo:
+
+```bash
+python3 -m http.server
+```
+
+Luego abre en el navegador:
+
+```text
+http://localhost:8000
+```
+
+---
+
+## Convenciones del Proyecto
+
+Para mantener consistencia:
+
+- no inventar rutas fuera de `js/site-map.js`
+- cada tema debe conservar teoría, interacción, quiz y navegación
+- priorizar rendimiento y compatibilidad
+- reutilizar los motores compartidos de simulación y gráfica cuando sea posible
+
+Referencia interna:
+
+- [Copilot.md](./Copilot.md)
+
+---
+
+## Autor
+
+**Luis Miguel Cabrera**  
+Proyecto educativo 2026
+
+---
+
+## Licencia
+
+Este proyecto se distribuye bajo licencia **MIT**.
