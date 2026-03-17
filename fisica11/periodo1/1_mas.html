@@ -100,6 +100,19 @@
     let t = 0;
     let history = [];
 
+    function getPalette() {
+      const styles = getComputedStyle(document.documentElement);
+      const isLight = document.documentElement.dataset.theme === 'light';
+      return {
+        text: styles.getPropertyValue('--canvas-text').trim() || styles.getPropertyValue('--text').trim(),
+        grid: isLight ? 'rgba(118, 82, 136, 0.14)' : 'rgba(140,140,140,.35)',
+        line: isLight ? '#9333ea' : '#c084fc',
+        fill: isLight ? '#c084fc' : '#a855f7',
+        accent: styles.getPropertyValue('--accent').trim(),
+        axis: isLight ? 'rgba(118, 82, 136, 0.24)' : 'rgba(140,140,140,.45)'
+      };
+    }
+
     function resizeAll() {
       SimulatorEngine.resizeCanvas(masCanvas, 260);
       SimulatorEngine.resizeCanvas(graphCanvas, 180);
@@ -117,21 +130,23 @@
     modePendulum.addEventListener('click', () => setMode('pendulum'));
 
     function drawGraph(value) {
+      const palette = getPalette();
       const w = graphCanvas.width, h = graphCanvas.height;
       gCtx.clearRect(0,0,w,h);
-      gCtx.strokeStyle = 'rgba(140,140,140,.35)';
+      gCtx.strokeStyle = palette.grid;
       gCtx.beginPath(); gCtx.moveTo(24,h/2); gCtx.lineTo(w-12,h/2); gCtx.stroke();
       history.push(value); if (history.length > w-40) history.shift();
-      gCtx.strokeStyle = '#7cb27d'; gCtx.lineWidth = 2.4; gCtx.beginPath();
+      gCtx.strokeStyle = palette.line; gCtx.lineWidth = 2.4; gCtx.beginPath();
       history.forEach((v,i) => { const x = 24 + i; const y = h/2 - v; i===0 ? gCtx.moveTo(x,y) : gCtx.lineTo(x,y); });
       gCtx.stroke();
     }
 
     function render() {
+      const palette = getPalette();
       resizeAll();
       const w = masCanvas.width, h = masCanvas.height;
       mCtx.clearRect(0,0,w,h);
-      mCtx.strokeStyle = 'rgba(140,140,140,.45)';
+      mCtx.strokeStyle = palette.axis;
       mCtx.lineWidth = 2;
       let plotted = 0;
       if (mode === 'spring') {
@@ -149,8 +164,8 @@
           i===0 ? mCtx.moveTo(anchorX,h/2) : mCtx.lineTo(px,py);
         }
         mCtx.lineTo(blockX-36,h/2); mCtx.stroke();
-        mCtx.fillStyle = '#8fa876'; mCtx.fillRect(blockX-36, h/2-28, 72, 56);
-        mCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+        mCtx.fillStyle = palette.fill; mCtx.fillRect(blockX-36, h/2-28, 72, 56);
+        mCtx.fillStyle = palette.text;
         mCtx.fillText('Equilibrio', eqX-24, 34);
         mCtx.setLineDash([6,6]); mCtx.beginPath(); mCtx.moveTo(eqX,50); mCtx.lineTo(eqX,h-30); mCtx.stroke(); mCtx.setLineDash([]);
         document.getElementById('omegaOut').textContent = omega.toFixed(2) + ' rad/s';
@@ -164,7 +179,7 @@
         const ox = w/2, oy = 24;
         const bx = ox + lenPx * Math.sin(angle), by = oy + lenPx * Math.cos(angle);
         mCtx.beginPath(); mCtx.moveTo(ox, oy); mCtx.lineTo(bx, by); mCtx.stroke();
-        mCtx.fillStyle = '#8fa876'; mCtx.beginPath(); mCtx.arc(bx, by, 18, 0, Math.PI*2); mCtx.fill();
+        mCtx.fillStyle = palette.fill; mCtx.beginPath(); mCtx.arc(bx, by, 18, 0, Math.PI*2); mCtx.fill();
         mCtx.beginPath(); mCtx.arc(ox, oy, 6, 0, Math.PI*2); mCtx.fill();
         plotted = angle * 130;
         document.getElementById('omegaOut').textContent = omega.toFixed(2) + ' rad/s';
@@ -177,6 +192,7 @@
     setMode('spring');
     render();
     window.addEventListener('resize', resizeAll);
+    new MutationObserver(() => { history = []; }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   </script>
 </body>
 </html>

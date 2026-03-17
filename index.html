@@ -16,32 +16,84 @@
 <body class="theme-blue">
   <div id="header-mount"></div>
   <main class="container">
-    <section class="hero">
-      <span class="badge">⚗️ VirtualLab 2026</span>
-      <h1>VirtualLab de Ciencias y Matemáticas</h1>
-      <p><strong>VirtualLab</strong> es un recurso educativo creado por <strong>Luis Miguel Cabrera</strong> para apoyar el aprendizaje de Ciencias y Matemáticas. Aquí encontrarás los temas organizados por materia y período, con contenidos y actividades pensados para una consulta clara y práctica.</p>
-      <div class="inline-actions">
-        <span class="topic-chip">Temas por materia</span>
-        <span class="topic-chip">Funciona offline</span>
-        <span class="topic-chip">Actividades y recursos</span>
-        <span class="topic-chip">Contenido editable</span>
+    <section class="hero hero-panel home-hero surface-grid">
+      <div class="home-copy">
+        <span class="badge">⚗️ VirtualLab 2026</span>
+        <h1>Un laboratorio virtual más visual, activo y fácil de recorrer.</h1>
+        <p><strong>VirtualLab</strong> reúne Matemáticas, Geometría y Física en una experiencia organizada por materias y períodos. Conserva todo el contenido pedagógico ya construido y lo presenta con una interfaz más clara, atractiva y lista para seguir creciendo.</p>
+        <div class="inline-actions">
+          <span class="topic-chip">Temas por materia</span>
+          <span class="topic-chip">Actividades interactivas</span>
+          <span class="topic-chip">Consulta rápida</span>
+          <span class="topic-chip">Diseño adaptable</span>
+        </div>
+        <div class="grid hero-stats" id="hero-stats" style="margin-top:1.2rem;"></div>
       </div>
-    </section>
-    <section class="card" style="padding:1.2rem; margin-bottom:1.2rem;">
-      <div class="toolbar" style="justify-content:space-between;">
-        <div>
-          <h2 class="section-title" style="margin-bottom:.35rem;">Panel de materias</h2>
-          <p class="muted">Selecciona una materia para explorar sus períodos, temas y recursos disponibles.</p>
+      <div class="hero-visual">
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="hero-core"></div>
+          <div class="hero-node node-a"></div>
+          <div class="hero-node node-b"></div>
+          <div class="hero-node node-c"></div>
         </div>
       </div>
     </section>
+
+    <section class="grid highlight-grid" style="margin:1.2rem 0 1.4rem;">
+      <article class="highlight-card">
+        <div class="feature-icon">🧭</div>
+        <h3>Recorrido más claro</h3>
+        <p class="muted">Cada materia mantiene su estructura por períodos y temas, pero ahora con tarjetas y bloques más legibles.</p>
+      </article>
+      <article class="highlight-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Más presencia visual</h3>
+        <p class="muted">Fondos con capas, secciones con relieve, animación suave y mejor jerarquía para destacar lo importante.</p>
+      </article>
+      <article class="highlight-card">
+        <div class="feature-icon">🧪</div>
+        <h3>Contenido intacto</h3>
+        <p class="muted">Se conserva todo lo que ya hemos avanzado en teoría, actividades, simuladores y navegación pedagógica.</p>
+      </article>
+    </section>
+
+    <section class="card" style="padding:1.3rem; margin-bottom:1.2rem;">
+      <div class="toolbar timeline-panel" style="justify-content:space-between;">
+        <div>
+          <span class="badge">Panel principal</span>
+          <h2 class="section-title" style="margin:.65rem 0 .35rem;">Explora las materias disponibles</h2>
+          <p class="muted">Selecciona una materia para entrar a sus períodos, repasar los temas y acceder a los recursos ya construidos.</p>
+        </div>
+        <div class="subject-meta">Actualizado para una experiencia más dinámica</div>
+      </div>
+    </section>
+
     <section class="grid topic-grid" id="subject-grid"></section>
+
+    <section class="grid feature-grid" style="margin:1.4rem 0;">
+      <article class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Aprendizaje por etapas</h3>
+        <p class="muted">Cada período organiza los contenidos para que el avance sea gradual y fácil de seguir en clase o en casa.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Apoyo al trabajo docente</h3>
+        <p class="muted">La estructura permite ubicar rápido temas, actividades y evaluaciones sin perder tiempo navegando.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🖥️</div>
+        <h3>Base para seguir creciendo</h3>
+        <p class="muted">El sitio queda listo para nuevas páginas, más simulaciones y una presentación cada vez más profesional.</p>
+      </article>
+    </section>
+
     <section class="academic-calendar card">
       <div class="calendar-header">
         <div>
           <span class="badge">Calendario 2026</span>
           <h2 class="section-title" style="margin:.65rem 0 .35rem;">Calendario Académico 2026</h2>
-          <p class="muted">Los períodos muestran sus fechas de inicio y cierre para ayudar a organizar el tiempo de trabajo durante el año.</p>
+          <p class="muted">Los períodos muestran sus fechas de inicio y cierre para ayudar a organizar el ritmo del trabajo durante el año escolar.</p>
         </div>
       </div>
       <div class="grid calendar-grid" id="calendar-grid"></div>
@@ -79,6 +131,29 @@
       return { label: 'En progreso', icon: '●' };
     }
 
+    const subjectColors = {
+      amber: '#f59e0b',
+      sky: '#0ea5e9',
+      blue: '#7c3aed',
+      violet: '#a855f7'
+    };
+
+    const subjects = Object.entries(SITE_MAP);
+    const totalTopics = subjects.reduce((sum, [, subject]) => {
+      return sum + Object.values(subject.periods).reduce((periodSum, period) => periodSum + period.topics.length, 0);
+    }, 0);
+
+    document.getElementById('hero-stats').innerHTML = [
+      { label: 'Materias activas', value: subjects.length },
+      { label: 'Períodos organizados', value: subjects.reduce((sum, [, subject]) => sum + Object.keys(subject.periods).length, 0) },
+      { label: 'Temas disponibles', value: totalTopics }
+    ].map(item => `
+      <article class="hero-stat">
+        <span class="muted">${item.label}</span>
+        <strong>${item.value}</strong>
+      </article>
+    `).join('');
+
     const calendarGrid = document.getElementById('calendar-grid');
     calendarGrid.innerHTML = academicPeriods.map(period => {
       const start = new Date(`${period.start}T00:00:00`);
@@ -94,14 +169,25 @@
     }).join('');
 
     const grid = document.getElementById('subject-grid');
-    grid.innerHTML = Object.entries(SITE_MAP).map(([key, subject]) => `
-      <a class="card topic-card" href="${key}/index.html">
-        <div class="badge">${subject.icon} ${subject.title}</div>
-        <h3 style="font-size:1.35rem; margin:.9rem 0 .5rem;">${subject.title}</h3>
+    grid.innerHTML = subjects.map(([key, subject]) => {
+      const periods = Object.values(subject.periods);
+      const themeColor = subjectColors[subject.theme] || 'var(--accent)';
+      const topicCount = periods.reduce((sum, period) => sum + period.topics.length, 0);
+      return `
+      <a class="card topic-card subject-card" href="${key}/index.html" style="--subject-color:${themeColor};">
+        <div class="subject-card-header">
+          <div class="subject-icon">${subject.icon}</div>
+          <span class="subject-tag">4 períodos</span>
+        </div>
+        <h3>${subject.title}</h3>
         <p class="muted">${subject.description}</p>
-        <div style="margin:1rem 0;">${Object.values(subject.periods).map(period => `<span class="topic-chip">${period.title}</span>`).join('')}</div>
+        <div style="margin:1rem 0;">${periods.map(period => `<span class="topic-chip">${period.title}</span>`).join('')}</div>
+        <div class="subject-card-footer">
+          <strong>Explorar</strong>
+        </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
   </script>
 </body>
 </html>

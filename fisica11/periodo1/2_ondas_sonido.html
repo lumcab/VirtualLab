@@ -94,19 +94,30 @@
     let phase = 0;
     let audioCtx = null, osc = null, gain = null, audioOn = false;
 
+    function getPalette() {
+      const styles = getComputedStyle(document.documentElement);
+      const isLight = document.documentElement.dataset.theme === 'light';
+      return {
+        text: styles.getPropertyValue('--canvas-text').trim() || styles.getPropertyValue('--text').trim(),
+        grid: isLight ? 'rgba(118, 82, 136, 0.14)' : 'rgba(130,130,130,.28)',
+        wave: isLight ? '#9333ea' : '#c084fc'
+      };
+    }
+
     function resizeWave() { SimulatorEngine.resizeCanvas(canvas, 300); }
 
     function drawWave() {
+      const palette = getPalette();
       resizeWave();
       const w = canvas.width, h = canvas.height;
       const freq = Number(freqSlider.value), amp = Number(ampSlider.value), speed = Number(speedSlider.value);
       freqOut.textContent = freq + ' Hz';
       ampOut.textContent = amp + ' %';
       ctx.clearRect(0,0,w,h);
-      ctx.strokeStyle = 'rgba(130,130,130,.28)';
+      ctx.strokeStyle = palette.grid;
       for (let gy=30; gy<h; gy+=30) { ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(w,gy); ctx.stroke(); }
       ctx.beginPath(); ctx.moveTo(0,h/2); ctx.lineTo(w,h/2); ctx.stroke();
-      ctx.beginPath(); ctx.strokeStyle = '#7cb27d'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.strokeStyle = palette.wave; ctx.lineWidth = 3;
       for (let x=0; x<w; x++) {
         const y = h/2 + (amp * 0.8) * Math.sin((x * 0.015 * (freq/120)) - phase);
         x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
@@ -142,6 +153,7 @@
     document.getElementById('presetLow').addEventListener('click', () => { freqSlider.value = 180; ampSlider.value = 60; });
     document.getElementById('presetHigh').addEventListener('click', () => { freqSlider.value = 880; ampSlider.value = 45; });
     window.addEventListener('resize', resizeWave);
+    new MutationObserver(drawWave).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     drawWave();
   </script>
 </body>

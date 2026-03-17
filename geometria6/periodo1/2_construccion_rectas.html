@@ -8,10 +8,68 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .line-tool-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin: 1rem 0;
+    }
+
+    .line-tool-btn.active {
+      border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--text);
+    }
+
+    .line-stage {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.1fr);
+      align-items: start;
+    }
+
+    .line-notes {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+
+    .line-note {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .line-note strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .reading-box {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .canvas-hint {
+      margin-top: .8rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .line-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +79,150 @@
       <section class="card hero">
         <span class="badge">Geometría 6° · Período 1</span>
         <h1 id="hero-title">Construcción de rectas</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Tópicos de la geometría euclidiana</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Aprende a construir rectas paralelas, perpendiculares y secantes usando regla, compás y una lectura clara de ángulos.</p>
       </section>
 
       <section class="card">
         <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Tópicos de la geometría euclidiana</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Rectas paralelas</span><span class="topic-chip">Perpendiculares</span><span class="topic-chip">Secantes</span></div>
-        <ul class="list-clean"><li>Rectas paralelas</li><li>Perpendiculares</li><li>Secantes</li></ul>
-        <div class="formula">Interacción propuesta: Constructor de rectas con compás virtual</div>
+        <p>Las rectas pueden relacionarse de distintas maneras dentro del plano. Identificar esa relación es importante para construir figuras, interpretar croquis y resolver problemas geométricos con precisión.</p>
+        <div>
+          <span class="topic-chip">Rectas paralelas</span>
+          <span class="topic-chip">Perpendiculares</span>
+          <span class="topic-chip">Secantes</span>
+          <span class="topic-chip">Construcción con instrumentos</span>
+        </div>
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="kpi">
+            <strong>Paralelas</strong>
+            <p class="muted">Son rectas que nunca se cortan y mantienen siempre la misma distancia entre sí.</p>
+          </div>
+          <div class="kpi">
+            <strong>Perpendiculares</strong>
+            <p class="muted">Se cruzan formando un ángulo recto de 90°.</p>
+          </div>
+          <div class="kpi">
+            <strong>Secantes</strong>
+            <p class="muted">Se cortan en un punto, pero el ángulo de cruce no es recto.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:1rem;">
+          <strong>Idea clave:</strong> para construir rectas no basta con “trazar líneas”. Hay que controlar dirección, distancia y ángulo con ayuda de la regla, el compás o la escuadra.
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">¿Cómo se construyen?</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Constructor de rectas con compás virtual</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <p>Cuando trabajamos en el cuaderno, estos son los pasos más habituales:</p>
+            <ul class="list-clean">
+              <li><strong>Rectas paralelas:</strong> se traza una recta base y luego otra con la misma dirección, cuidando que la separación sea constante.</li>
+              <li><strong>Rectas perpendiculares:</strong> se toma una recta base y se levanta otra que forme un ángulo de 90°.</li>
+              <li><strong>Rectas secantes:</strong> se dibujan dos rectas que se crucen en un punto cualquiera con un ángulo distinto de 90°.</li>
+            </ul>
+            <div class="formula">Una buena construcción depende de tres ideas: dirección, separación y medida del ángulo.</div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div class="line-notes">
+            <div class="line-note">
+              <strong>Con regla</strong>
+              Se asegura que el trazo sea recto y permite unir puntos con limpieza.
+            </div>
+            <div class="line-note">
+              <strong>Con compás</strong>
+              Ayuda a trasladar distancias iguales y comprobar separaciones constantes.
+            </div>
+            <div class="line-note">
+              <strong>Con transportador o escuadra</strong>
+              Permite verificar si el ángulo es recto o si la apertura es mayor o menor de 90°.
+            </div>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Constructor interactivo de rectas</h2>
+        <div class="line-stage">
+          <div>
+            <div class="kpi">
+              <strong>Explorador de relaciones</strong>
+              <p class="muted">Elige el tipo de construcción y ajusta los controles. La simulación muestra cómo cambian la inclinación, la distancia y el punto de cruce.</p>
+            </div>
+
+            <div class="line-tool-row">
+              <button class="btn line-tool-btn active" data-line-mode="paralelas" type="button">Paralelas</button>
+              <button class="btn line-tool-btn" data-line-mode="perpendiculares" type="button">Perpendiculares</button>
+              <button class="btn line-tool-btn" data-line-mode="secantes" type="button">Secantes</button>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span class="mini-note">Inclinación base</span>
+                <input class="input" id="baseAngle" type="range" min="-70" max="70" step="5" value="20">
+              </label>
+              <label>
+                <span class="mini-note">Separación</span>
+                <input class="input" id="lineOffset" type="range" min="20" max="110" step="5" value="60">
+              </label>
+              <label>
+                <span class="mini-note">Ángulo de cruce</span>
+                <input class="input" id="crossAngle" type="range" min="15" max="165" step="5" value="55">
+              </label>
+            </div>
+
+            <div class="reading-box">
+              <div class="stat"><span>Tipo</span><strong id="relationLabel">Paralelas</strong></div>
+              <div class="stat"><span>Ángulo entre rectas</span><strong id="angleBetweenLabel">0°</strong></div>
+              <div class="stat"><span>Lectura clave</span><strong id="measureLabel">Separación constante</strong></div>
+            </div>
+
+            <p class="callout" id="relationExplanation" style="margin-top:1rem;">
+              Dos rectas paralelas conservan la misma dirección y no se encuentran aunque se prolonguen.
+            </p>
+          </div>
+
+          <div>
+            <canvas id="lineCanvas" height="420"></canvas>
+            <p class="canvas-hint">Usa este explorador para anticipar la construcción antes de hacerla con regla y compás en el cuaderno.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
         <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <div class="grid columns-2">
+          <div class="callout">
+            <strong>En el aula:</strong> el estudiante puede predecir qué pasará si conserva la dirección, cambia la separación o modifica el ángulo de intersección.
+          </div>
+          <div class="callout">
+            <strong>Durante la práctica:</strong> se puede pedir que clasifique pares de rectas y justifique su respuesta usando ángulos y distancias.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+        <table class="table-lite" style="margin-top:1rem;">
+          <thead>
+            <tr>
+              <th>Tipo de recta</th>
+              <th>Característica principal</th>
+              <th>Cómo reconocerla</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Paralelas</td>
+              <td>Misma dirección y distancia constante.</td>
+              <td>No se cortan en ningún punto.</td>
+            </tr>
+            <tr>
+              <td>Perpendiculares</td>
+              <td>Se cruzan formando 90°.</td>
+              <td>Producen cuatro ángulos rectos.</td>
+            </tr>
+            <tr>
+              <td>Secantes</td>
+              <td>Se cruzan en un punto.</td>
+              <td>El ángulo de cruce es distinto de 90°.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +248,240 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo1', topicSlug: '2_construccion_rectas.html', theme: 'sky', pageTitle: 'Construcción de rectas', pageDescription: 'Construcción de rectas' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Clasifica dos rectas.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Reconoce perpendicularidad.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Escoge la construcción correcta.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'geometria6-periodo1-2_construccion_rectas.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'geometria6',
+      periodKey: 'periodo1',
+      topicSlug: '2_construccion_rectas.html',
+      theme: 'sky',
+      pageTitle: 'Construcción de rectas',
+      pageDescription: 'Aprende a construir rectas paralelas, perpendiculares y secantes usando regla, compás y ángulos.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Cómo son dos rectas paralelas?',
+        options: [
+          'Tienen la misma dirección y no se cortan.',
+          'Se cruzan formando 90°.',
+          'Siempre forman un triángulo.',
+          'Tienen distinta inclinación y el mismo punto inicial.'
+        ],
+        answer: 0,
+        feedback: 'Las paralelas conservan dirección y distancia constante, por eso no se encuentran.'
+      },
+      {
+        prompt: '¿Qué caracteriza a dos rectas perpendiculares?',
+        options: [
+          'Forman un ángulo recto.',
+          'Nunca se cortan.',
+          'Tienen la misma inclinación.',
+          'Siempre son horizontales.'
+        ],
+        answer: 0,
+        feedback: 'La perpendicularidad se reconoce porque aparece un ángulo de 90°.'
+      },
+      {
+        prompt: 'Si dos rectas se cortan y el ángulo no es de 90°, entonces son:',
+        options: [
+          'Secantes.',
+          'Paralelas.',
+          'Coincidentes obligatoriamente.',
+          'Curvas.'
+        ],
+        answer: 0,
+        feedback: 'Las secantes se cruzan en un punto, pero no necesariamente forman un ángulo recto.'
+      }
+    ], 'geometria6-periodo1-2_construccion_rectas.html');
+
+    const canvas = document.getElementById('lineCanvas');
+    const ctx = canvas.getContext('2d');
+    const modeButtons = Array.from(document.querySelectorAll('[data-line-mode]'));
+    const baseAngle = document.getElementById('baseAngle');
+    const lineOffset = document.getElementById('lineOffset');
+    const crossAngle = document.getElementById('crossAngle');
+    const relationLabel = document.getElementById('relationLabel');
+    const angleBetweenLabel = document.getElementById('angleBetweenLabel');
+    const measureLabel = document.getElementById('measureLabel');
+    const relationExplanation = document.getElementById('relationExplanation');
+
+    let activeMode = 'paralelas';
+
+    function getPalette() {
+      const styles = getComputedStyle(document.documentElement);
+      const isLight = document.documentElement.dataset.theme === 'light';
+      return {
+        text: styles.getPropertyValue('--canvas-text').trim() || styles.getPropertyValue('--text').trim(),
+        grid: isLight ? 'rgba(71, 97, 120, 0.10)' : 'rgba(148, 163, 184, 0.12)',
+        axis: isLight ? 'rgba(71, 97, 120, 0.28)' : 'rgba(148, 163, 184, 0.24)',
+        primary: isLight ? '#0284c7' : '#7dd3fc',
+        secondary: isLight ? '#059669' : '#34d399',
+        helper: isLight ? 'rgba(15, 41, 64, 0.35)' : 'rgba(248,250,252,.35)',
+        danger: isLight ? '#dc2626' : '#f87171'
+      };
+    }
+
+    const modeCopy = {
+      paralelas: 'Dos rectas paralelas conservan la misma dirección y no se encuentran aunque se prolonguen.',
+      perpendiculares: 'Dos rectas perpendiculares se cortan formando un ángulo recto de 90°.',
+      secantes: 'Dos rectas secantes se cortan en un punto y generan ángulos distintos de 90°.'
+    };
+
+    function resizeCanvas() {
+      SimulatorEngine.resizeCanvas(canvas, 420);
+    }
+
+    function drawGrid(width, height) {
+      const palette = getPalette();
+      ctx.save();
+      ctx.strokeStyle = palette.grid;
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= width; x += 24) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= height; y += 24) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawInfiniteLine(cx, cy, angle, color, widthLine) {
+      const length = Math.max(canvas.width, canvas.height) * 1.3;
+      const dx = Math.cos(angle) * length;
+      const dy = Math.sin(angle) * length;
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = widthLine;
+      ctx.beginPath();
+      ctx.moveTo(cx - dx, cy - dy);
+      ctx.lineTo(cx + dx, cy + dy);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawRightAngleMarker(cx, cy, base, second) {
+      const palette = getPalette();
+      const size = 24;
+      ctx.save();
+      ctx.strokeStyle = palette.text;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(cx + Math.cos(base) * size, cy + Math.sin(base) * size);
+      ctx.lineTo(cx + Math.cos(base) * size + Math.cos(second) * size, cy + Math.sin(base) * size + Math.sin(second) * size);
+      ctx.lineTo(cx + Math.cos(second) * size, cy + Math.sin(second) * size);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function renderLines() {
+      const palette = getPalette();
+      resizeCanvas();
+      const width = canvas.width;
+      const height = canvas.height;
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const base = (Number(baseAngle.value) * Math.PI) / 180;
+      const offset = Number(lineOffset.value);
+      const crossing = (Number(crossAngle.value) * Math.PI) / 180;
+
+      ctx.clearRect(0, 0, width, height);
+      drawGrid(width, height);
+
+      ctx.save();
+      ctx.strokeStyle = palette.axis;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(24, centerY);
+      ctx.lineTo(width - 24, centerY);
+      ctx.moveTo(centerX, 24);
+      ctx.lineTo(centerX, height - 24);
+      ctx.stroke();
+      ctx.restore();
+
+      let secondAngle = base;
+      let secondX = centerX;
+      let secondY = centerY;
+      let angleBetween = 0;
+      let reading = 'Separación constante';
+
+      if (activeMode === 'paralelas') {
+        secondX = centerX - Math.sin(base) * offset;
+        secondY = centerY + Math.cos(base) * offset;
+        angleBetween = 0;
+        reading = `Distancia ${offset} u`;
+      } else if (activeMode === 'perpendiculares') {
+        secondAngle = base + Math.PI / 2;
+        angleBetween = 90;
+        reading = 'Ángulo recto';
+      } else {
+        secondAngle = base + crossing;
+        angleBetween = Math.round(Math.min(crossing, Math.PI - crossing) * 180 / Math.PI);
+        reading = `Cruce en ${angleBetween}°`;
+      }
+
+      drawInfiniteLine(centerX, centerY, base, palette.primary, 3);
+      drawInfiniteLine(secondX, secondY, secondAngle, palette.secondary, 3);
+
+      ctx.save();
+      ctx.fillStyle = palette.text;
+      ctx.font = 'bold 13px "Segoe UI"';
+      ctx.fillText('r', centerX + Math.cos(base) * 120, centerY + Math.sin(base) * 120 - 10);
+      ctx.fillText('s', secondX + Math.cos(secondAngle) * 120, secondY + Math.sin(secondAngle) * 120 - 10);
+      ctx.restore();
+
+      if (activeMode === 'paralelas') {
+        ctx.save();
+        ctx.strokeStyle = palette.helper;
+        ctx.setLineDash([8, 6]);
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(secondX, secondY);
+        ctx.stroke();
+        ctx.restore();
+      } else {
+        ctx.save();
+        ctx.fillStyle = palette.text;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      if (activeMode === 'perpendiculares') {
+        drawRightAngleMarker(centerX, centerY, base, secondAngle);
+      }
+
+      relationLabel.textContent = activeMode === 'paralelas'
+        ? 'Paralelas'
+        : activeMode === 'perpendiculares'
+          ? 'Perpendiculares'
+          : 'Secantes';
+      angleBetweenLabel.textContent = `${angleBetween}°`;
+      measureLabel.textContent = reading;
+      relationExplanation.textContent = modeCopy[activeMode];
+    }
+
+    modeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activeMode = button.dataset.lineMode;
+        modeButtons.forEach(node => node.classList.toggle('active', node === button));
+        crossAngle.disabled = activeMode !== 'secantes';
+        lineOffset.disabled = activeMode === 'perpendiculares';
+        renderLines();
+      });
+    });
+
+    [baseAngle, lineOffset, crossAngle].forEach(input => input.addEventListener('input', renderLines));
+    window.addEventListener('resize', renderLines);
+    new MutationObserver(renderLines).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    crossAngle.disabled = true;
+    renderLines();
   </script>
 </body>
 </html>

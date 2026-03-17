@@ -8,10 +8,72 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .kinematics-mode-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin: 1rem 0;
+    }
+
+    .kinematics-mode.active {
+      border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--text);
+    }
+
+    .kinematics-stage {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+      align-items: start;
+    }
+
+    .reading-box {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .formula-block {
+      margin-top: 1rem;
+    }
+
+    .canvas-hint {
+      margin-top: .8rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .application-grid {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+
+    .application-card {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .application-card strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    @media (max-width: 980px) {
+      .kinematics-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +83,133 @@
       <section class="card hero">
         <span class="badge">Física 10° · Período 1</span>
         <h1 id="hero-title">Cinemática</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Introducción a la física y cinemática</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Estudia el movimiento en línea recta y en caída libre comparando `MRU`, `MRUV` y la acción de la gravedad mediante ecuaciones, gráficas y simulaciones.</p>
       </section>
 
       <section class="card">
         <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Introducción a la física y cinemática</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Movimiento en una dirección</span><span class="topic-chip">Movimiento rectilíneo</span><span class="topic-chip">Caída libre</span><span class="topic-chip">Movimiento parabólico</span><span class="topic-chip">Movimiento circular</span></div>
-        <ul class="list-clean"><li>Movimiento en una dirección</li><li>Movimiento rectilíneo</li><li>Caída libre</li><li>Movimiento parabólico</li><li>Movimiento circular</li></ul>
-        <div class="formula">Interacción propuesta: Simulador de caída libre y trayectoria</div>
+        <p>La cinemática describe el movimiento sin preocuparse primero por sus causas. Analiza cómo cambian la posición, la velocidad y el tiempo en distintas situaciones. En este nivel es fundamental reconocer cuándo un movimiento es uniforme, cuándo está acelerado y cómo se comporta un cuerpo en caída libre.</p>
+        <div>
+          <span class="topic-chip">MRU</span>
+          <span class="topic-chip">MRUV</span>
+          <span class="topic-chip">Caída libre</span>
+          <span class="topic-chip">Gráficas x-t y v-t</span>
+        </div>
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="kpi">
+            <strong>MRU</strong>
+            <p class="muted">La velocidad permanece constante y la posición cambia linealmente con el tiempo.</p>
+          </div>
+          <div class="kpi">
+            <strong>MRUV</strong>
+            <p class="muted">La aceleración es constante, así que la velocidad cambia de manera uniforme.</p>
+          </div>
+          <div class="kpi">
+            <strong>Caída libre</strong>
+            <p class="muted">Es un caso particular del MRUV donde la aceleración corresponde a la gravedad.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:1rem;">
+          <strong>Idea clave:</strong> cuando interpretamos un movimiento debemos observar tres preguntas: ¿cómo cambia la posición?, ¿la velocidad es constante o cambia?, ¿existe aceleración?
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
+        <h2 class="section-title">Comparador interactivo de movimiento</h2>
+        <div class="kinematics-stage">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Simulador de caída libre y trayectoria</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <div class="kpi">
+              <strong>Explorador de cinemática</strong>
+              <p class="muted">Selecciona un tipo de movimiento y ajusta las variables. El panel calcula posición y velocidad a un tiempo dado y el canvas representa la trayectoria sobre un eje horizontal o vertical.</p>
+            </div>
+
+            <div class="kinematics-mode-row">
+              <button class="btn kinematics-mode active" data-motion="mru" type="button">MRU</button>
+              <button class="btn kinematics-mode" data-motion="mruv" type="button">MRUV</button>
+              <button class="btn kinematics-mode" data-motion="caida" type="button">Caída libre</button>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span class="mini-note">Posición inicial</span>
+                <input class="input" id="x0" type="range" min="0" max="40" step="1" value="5">
+              </label>
+              <label>
+                <span class="mini-note">Velocidad inicial</span>
+                <input class="input" id="v0" type="range" min="-20" max="30" step="1" value="8">
+              </label>
+              <label>
+                <span class="mini-note">Aceleración</span>
+                <input class="input" id="acc" type="range" min="-15" max="15" step="1" value="2">
+              </label>
+              <label>
+                <span class="mini-note">Tiempo</span>
+                <input class="input" id="timeValue" type="range" min="0" max="10" step="0.5" value="4">
+              </label>
+            </div>
+
+            <div class="reading-box">
+              <div class="stat"><span>Posición</span><strong id="positionOutput">0 m</strong></div>
+              <div class="stat"><span>Velocidad</span><strong id="velocityOutput">0 m/s</strong></div>
+              <div class="stat"><span>Aceleración</span><strong id="accelerationOutput">0 m/s²</strong></div>
+              <div class="stat"><span>Tiempo</span><strong id="timeOutput">0 s</strong></div>
+            </div>
+
+            <div class="formula formula-block" id="equationOutput">x = x0 + v·t</div>
+            <p class="callout" id="motionExplanation" style="margin-top:1rem;">
+              En MRU la velocidad no cambia, por eso la gráfica posición-tiempo es una línea recta.
+            </p>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+
+          <div>
+            <canvas id="kinematicsCanvas" height="420"></canvas>
+            <p class="canvas-hint">El punto final representa la posición del móvil en el instante elegido. Las marcas intermedias ayudan a visualizar cómo evoluciona el movimiento.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
       </section>
 
       <section class="card">
         <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <div class="application-grid">
+          <div class="application-card">
+            <strong>MRU en contexto</strong>
+            Permite modelar un vehículo que se mueve a velocidad constante en una carretera recta.
+          </div>
+          <div class="application-card">
+            <strong>MRUV en contexto</strong>
+            Describe un móvil que acelera o frena de manera uniforme, como una bicicleta o un automóvil.
+          </div>
+          <div class="application-card">
+            <strong>Caída libre en contexto</strong>
+            Sirve para analizar objetos que caen verticalmente cuando la gravedad es la aceleración dominante.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+        <table class="table-lite" style="margin-top:1rem;">
+          <thead>
+            <tr>
+              <th>Movimiento</th>
+              <th>Característica principal</th>
+              <th>Ecuación destacada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>MRU</td>
+              <td>Velocidad constante</td>
+              <td>x = x0 + v·t</td>
+            </tr>
+            <tr>
+              <td>MRUV</td>
+              <td>Aceleración constante</td>
+              <td>x = x0 + v0·t + 1/2·a·t²</td>
+            </tr>
+            <tr>
+              <td>Caída libre</td>
+              <td>MRUV con a = g</td>
+              <td>y = y0 + v0·t - 1/2·g·t²</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +235,246 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo1', topicSlug: '3_cinematica.html', theme: 'blue', pageTitle: 'Cinemática', pageDescription: 'Cinemática' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Lee una gráfica x-t.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Calcula velocidad media.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Identifica variables de un lanzamiento.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo1-3_cinematica.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'fisica10',
+      periodKey: 'periodo1',
+      topicSlug: '3_cinematica.html',
+      theme: 'blue',
+      pageTitle: 'Cinemática',
+      pageDescription: 'Estudia MRU, MRUV y caída libre mediante ecuaciones, lectura de variables y simulaciones.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Qué característica define al MRU?',
+        options: [
+          'La velocidad permanece constante.',
+          'La aceleración aumenta con el tiempo.',
+          'La posición no cambia.',
+          'La gravedad desaparece.'
+        ],
+        answer: 0,
+        feedback: 'En el MRU la velocidad no cambia, por eso la posición crece linealmente.'
+      },
+      {
+        prompt: '¿Qué ocurre en un MRUV?',
+        options: [
+          'La aceleración es constante.',
+          'La velocidad siempre es cero.',
+          'La posición disminuye obligatoriamente.',
+          'No existe relación entre tiempo y movimiento.'
+        ],
+        answer: 0,
+        feedback: 'En el MRUV la aceleración constante hace que la velocidad cambie uniformemente.'
+      },
+      {
+        prompt: 'La caída libre puede entenderse como:',
+        options: [
+          'Un MRUV donde la aceleración es la gravedad.',
+          'Un MRU sin velocidad inicial.',
+          'Un movimiento circular uniforme.',
+          'Una suma de vectores sin aceleración.'
+        ],
+        answer: 0,
+        feedback: 'La caída libre es un caso de aceleración constante dominada por la gravedad.'
+      }
+    ], 'fisica10-periodo1-3_cinematica.html');
+
+    const modeButtons = Array.from(document.querySelectorAll('[data-motion]'));
+    const x0 = document.getElementById('x0');
+    const v0 = document.getElementById('v0');
+    const acc = document.getElementById('acc');
+    const timeValue = document.getElementById('timeValue');
+    const positionOutput = document.getElementById('positionOutput');
+    const velocityOutput = document.getElementById('velocityOutput');
+    const accelerationOutput = document.getElementById('accelerationOutput');
+    const timeOutput = document.getElementById('timeOutput');
+    const equationOutput = document.getElementById('equationOutput');
+    const motionExplanation = document.getElementById('motionExplanation');
+    const canvas = document.getElementById('kinematicsCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let activeMotion = 'mru';
+
+    function getPalette() {
+      const styles = getComputedStyle(document.documentElement);
+      const isLight = document.documentElement.dataset.theme === 'light';
+      return {
+        text: styles.getPropertyValue('--canvas-text').trim() || styles.getPropertyValue('--text').trim(),
+        grid: isLight ? 'rgba(91, 75, 138, 0.10)' : 'rgba(148, 163, 184, 0.12)',
+        axis: isLight ? 'rgba(91, 75, 138, 0.28)' : 'rgba(148,163,184,.45)',
+        helper: isLight ? 'rgba(91, 75, 138, 0.30)' : 'rgba(248,250,252,.35)',
+        primary: isLight ? '#7c3aed' : '#7dd3fc',
+        marker: isLight ? '#059669' : 'rgba(52,211,153,.95)'
+      };
+    }
+
+    const motionText = {
+      mru: 'En MRU la velocidad no cambia, por eso la gráfica posición-tiempo es una línea recta.',
+      mruv: 'En MRUV la aceleración es constante, de modo que la velocidad cambia de forma uniforme.',
+      caida: 'En caída libre la gravedad actúa como aceleración constante dirigida hacia abajo.'
+    };
+
+    function resizeCanvas() {
+      SimulatorEngine.resizeCanvas(canvas, 420);
+    }
+
+    function drawBackground(width, height) {
+      const palette = getPalette();
+      ctx.clearRect(0, 0, width, height);
+      ctx.strokeStyle = palette.grid;
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= width; x += 24) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= height; y += 24) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+    }
+
+    function drawArrow(fromX, fromY, toX, toY, color) {
+      const headLength = 10;
+      const angle = Math.atan2(toY - fromY, toX - fromX);
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(fromX, fromY);
+      ctx.lineTo(toX, toY);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(toX, toY);
+      ctx.lineTo(toX - headLength * Math.cos(angle - Math.PI / 6), toY - headLength * Math.sin(angle - Math.PI / 6));
+      ctx.lineTo(toX - headLength * Math.cos(angle + Math.PI / 6), toY - headLength * Math.sin(angle + Math.PI / 6));
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function renderKinematics() {
+      const palette = getPalette();
+      resizeCanvas();
+      const width = canvas.width;
+      const height = canvas.height;
+      const initialPos = Number(x0.value);
+      const initialVel = Number(v0.value);
+      let acceleration = Number(acc.value);
+      const t = Number(timeValue.value);
+
+      if (activeMotion === 'mru') acceleration = 0;
+      if (activeMotion === 'caida') acceleration = -9.8;
+
+      let position = initialPos + initialVel * t + 0.5 * acceleration * t * t;
+      let velocity = initialVel + acceleration * t;
+      let equation = 'x = x0 + v·t';
+
+      if (activeMotion === 'mruv') {
+        equation = 'x = x0 + v0·t + 1/2·a·t²';
+      } else if (activeMotion === 'caida') {
+        equation = 'y = y0 + v0·t - 1/2·g·t²';
+      }
+
+      drawBackground(width, height);
+      ctx.strokeStyle = palette.axis;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      if (activeMotion === 'caida') {
+        ctx.moveTo(width / 2, 24);
+        ctx.lineTo(width / 2, height - 24);
+      } else {
+        ctx.moveTo(40, height / 2);
+        ctx.lineTo(width - 20, height / 2);
+      }
+      ctx.stroke();
+
+      const maxDistance = Math.max(20, Math.abs(position), Math.abs(initialPos), 10);
+      const scale = activeMotion === 'caida'
+        ? (height - 80) / (maxDistance + 10)
+        : (width - 90) / (maxDistance + 10);
+
+      if (activeMotion === 'caida') {
+        const startX = width / 2;
+        const startY = 40 + initialPos * scale;
+        const endY = 40 + position * scale;
+        ctx.save();
+        ctx.strokeStyle = palette.helper;
+        ctx.setLineDash([8, 6]);
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(startX, endY);
+        ctx.stroke();
+        ctx.restore();
+        drawArrow(startX, startY, startX, endY, palette.primary);
+        ctx.fillStyle = palette.text;
+        ctx.font = 'bold 14px "Segoe UI"';
+        ctx.fillText('y0', startX + 12, startY);
+        ctx.fillText('y', startX + 12, endY);
+      } else {
+        const startX = 50 + initialPos * scale;
+        const endX = 50 + position * scale;
+        const y = height / 2;
+        ctx.save();
+        ctx.strokeStyle = palette.helper;
+        ctx.setLineDash([8, 6]);
+        ctx.beginPath();
+        ctx.moveTo(startX, y);
+        ctx.lineTo(endX, y);
+        ctx.stroke();
+        ctx.restore();
+        drawArrow(startX, y, endX, y, palette.primary);
+        ctx.fillStyle = palette.text;
+        ctx.font = 'bold 14px "Segoe UI"';
+        ctx.fillText('x0', startX - 8, y - 14);
+        ctx.fillText('x', endX - 4, y - 14);
+      }
+
+      const markerCount = 5;
+      for (let i = 0; i <= markerCount; i += 1) {
+        const partialT = (t / markerCount) * i;
+        const partialPos = initialPos + initialVel * partialT + 0.5 * acceleration * partialT * partialT;
+        ctx.fillStyle = palette.marker;
+        ctx.beginPath();
+        if (activeMotion === 'caida') {
+          ctx.arc(width / 2, 40 + partialPos * scale, 4, 0, Math.PI * 2);
+        } else {
+          ctx.arc(50 + partialPos * scale, height / 2, 4, 0, Math.PI * 2);
+        }
+        ctx.fill();
+      }
+
+      positionOutput.textContent = `${position.toFixed(2)} m`;
+      velocityOutput.textContent = `${velocity.toFixed(2)} m/s`;
+      accelerationOutput.textContent = `${acceleration.toFixed(2)} m/s²`;
+      timeOutput.textContent = `${t.toFixed(1)} s`;
+      equationOutput.textContent = equation;
+      motionExplanation.textContent = motionText[activeMotion];
+
+      acc.disabled = activeMotion !== 'mruv';
+      if (activeMotion === 'caida') {
+        accelerationOutput.textContent = '-9.80 m/s²';
+      }
+    }
+
+    modeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activeMotion = button.dataset.motion;
+        modeButtons.forEach(node => node.classList.toggle('active', node === button));
+        renderKinematics();
+      });
+    });
+
+    [x0, v0, acc, timeValue].forEach(input => input.addEventListener('input', renderKinematics));
+    window.addEventListener('resize', renderKinematics);
+    new MutationObserver(renderKinematics).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    renderKinematics();
   </script>
 </body>
 </html>

@@ -8,10 +8,72 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .tool-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin: 1rem 0;
+    }
+
+    .tool-btn.active {
+      border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--text);
+    }
+
+    .geo-stage {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.1fr);
+      align-items: start;
+    }
+
+    .mandala-tips {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+
+    .mandala-tip {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .mandala-tip strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .canvas-wrap {
+      position: relative;
+    }
+
+    .canvas-hint {
+      margin-top: .8rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .reading-box {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 980px) {
+      .geo-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +83,154 @@
       <section class="card hero">
         <span class="badge">Geometría 6° · Período 1</span>
         <h1 id="hero-title">Conceptos básicos de geometría</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Tópicos de la geometría euclidiana</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Reconoce punto, recta y plano mientras practicas el uso de regla, transportador y compás a partir de la construcción de una flor mandala.</p>
       </section>
 
       <section class="card">
         <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Tópicos de la geometría euclidiana</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Punto</span><span class="topic-chip">Recta</span><span class="topic-chip">Plano</span></div>
-        <ul class="list-clean"><li>Punto</li><li>Recta</li><li>Plano</li></ul>
-        <div class="formula">Interacción propuesta: Lienzo geométrico básico</div>
+        <p>La geometría comienza con tres ideas fundamentales: <strong>punto</strong>, <strong>recta</strong> y <strong>plano</strong>. Aunque parecen simples, son la base para construir figuras, medir ángulos y diseñar trazos con instrumentos escolares.</p>
+        <div>
+          <span class="topic-chip">Punto</span>
+          <span class="topic-chip">Recta</span>
+          <span class="topic-chip">Plano</span>
+          <span class="topic-chip">Instrumentos geométricos</span>
+        </div>
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="kpi">
+            <strong>Punto</strong>
+            <p class="muted">Indica una posición exacta. No tiene largo ni ancho. En el cuaderno suele marcarse con una letra mayúscula.</p>
+          </div>
+          <div class="kpi">
+            <strong>Recta</strong>
+            <p class="muted">Es una sucesión infinita de puntos. Se extiende en dos sentidos y sirve como referencia para medir y construir.</p>
+          </div>
+          <div class="kpi">
+            <strong>Plano</strong>
+            <p class="muted">Es una superficie plana donde ubicamos figuras. La hoja, el tablero o la pantalla pueden representar un plano.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:1rem;">
+          <strong>Conexión con la clase:</strong> al construir una flor mandala, el centro se interpreta como un punto, los diámetros como rectas y toda la hoja funciona como plano. Los instrumentos permiten pasar de la idea geométrica al trazo preciso.
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Flor mandala y uso de instrumentos</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Lienzo geométrico básico</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <p>La flor mandala se forma repitiendo circunferencias o arcos alrededor de un centro. Para lograrla con orden conviene seguir este proceso:</p>
+            <ul class="list-clean">
+              <li><strong>Compás:</strong> fija un centro y conserva la misma abertura para repetir radios iguales.</li>
+              <li><strong>Regla:</strong> ayuda a unir puntos, marcar diámetros y revisar simetrías.</li>
+              <li><strong>Transportador:</strong> divide la circunferencia en partes iguales para ubicar pétalos con precisión.</li>
+            </ul>
+            <div class="formula">Idea clave: cuando un mismo radio se repite alrededor del centro, aparece una figura simétrica y armónica.</div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div class="mandala-tips">
+            <div class="mandala-tip">
+              <strong>Paso 1. Centro del diseño</strong>
+              Marca un punto central. Ese punto organiza toda la construcción.
+            </div>
+            <div class="mandala-tip">
+              <strong>Paso 2. Circunferencia base</strong>
+              Usa el compás para dibujar una circunferencia principal y conservar el mismo radio.
+            </div>
+            <div class="mandala-tip">
+              <strong>Paso 3. División angular</strong>
+              Con el transportador ubica ángulos iguales, por ejemplo cada 30°, 45° o 60°.
+            </div>
+            <div class="mandala-tip">
+              <strong>Paso 4. Unión y repetición</strong>
+              Apoya la regla para unir puntos y repetir el patrón de pétalos.
+            </div>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Taller interactivo</h2>
+        <div class="geo-stage">
+          <div>
+            <div class="kpi">
+              <strong>Explorador geométrico</strong>
+              <p class="muted">Selecciona una herramienta y mueve los controles para construir una flor mandala simple. El diseño se actualiza en tiempo real sobre el plano.</p>
+            </div>
+
+            <div class="tool-row">
+              <button class="btn tool-btn active" data-tool="compas" type="button">Compás</button>
+              <button class="btn tool-btn" data-tool="regla" type="button">Regla</button>
+              <button class="btn tool-btn" data-tool="transportador" type="button">Transportador</button>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span class="mini-note">Número de pétalos</span>
+                <input class="input" id="petalCount" type="range" min="6" max="18" step="2" value="12">
+              </label>
+              <label>
+                <span class="mini-note">Radio principal</span>
+                <input class="input" id="radiusSize" type="range" min="60" max="150" step="5" value="105">
+              </label>
+              <label>
+                <span class="mini-note">Giro inicial</span>
+                <input class="input" id="rotationAngle" type="range" min="0" max="180" step="5" value="0">
+              </label>
+            </div>
+
+            <div class="reading-box">
+              <div class="stat"><span>Herramienta</span><strong id="toolLabel">Compás</strong></div>
+              <div class="stat"><span>Separación angular</span><strong id="angleLabel">30°</strong></div>
+              <div class="stat"><span>Medida destacada</span><strong id="measureLabel">Radio 105 u</strong></div>
+            </div>
+
+            <p class="callout" id="toolExplanation" style="margin-top:1rem;">
+              El compás mantiene una distancia fija desde el centro para repetir circunferencias y formar pétalos iguales.
+            </p>
+          </div>
+
+          <div class="canvas-wrap">
+            <canvas id="mandalaCanvas" height="420"></canvas>
+            <p class="canvas-hint">Observa cómo cambian los puntos, rectas y ángulos del diseño. Puedes usar esta simulación antes de pasar al cuaderno con regla, compás y transportador reales.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
         <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <div class="grid columns-2">
+          <div class="callout">
+            <strong>En el aula:</strong> primero se identifican centro, radios y divisiones angulares en la pantalla; después los estudiantes replican la flor mandala en su cuaderno.
+          </div>
+          <div class="callout">
+            <strong>Durante la práctica:</strong> se puede pedir que expliquen qué representa un punto, dónde aparece una recta y cómo se usa el plano en la construcción.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+        <table class="table-lite" style="margin-top:1rem;">
+          <thead>
+            <tr>
+              <th>Instrumento</th>
+              <th>¿Para qué sirve?</th>
+              <th>Relación con los conceptos básicos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Compás</td>
+              <td>Traza circunferencias y conserva radios iguales.</td>
+              <td>Ubica un punto central y genera trayectorias en el plano.</td>
+            </tr>
+            <tr>
+              <td>Regla</td>
+              <td>Une puntos y compara longitudes.</td>
+              <td>Permite visualizar rectas, segmentos y ejes de simetría.</td>
+            </tr>
+            <tr>
+              <td>Transportador</td>
+              <td>Mide y divide ángulos.</td>
+              <td>Ayuda a repartir el espacio del plano en partes iguales alrededor del centro.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +256,286 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo1', topicSlug: '1_conceptos_basicos.html', theme: 'sky', pageTitle: 'Conceptos básicos de geometría', pageDescription: 'Conceptos básicos de geometría' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Identifica un punto.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Diferencia recta y plano.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Relaciona representaciones geométricas.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'geometria6-periodo1-1_conceptos_basicos.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'geometria6',
+      periodKey: 'periodo1',
+      topicSlug: '1_conceptos_basicos.html',
+      theme: 'sky',
+      pageTitle: 'Conceptos básicos de geometría',
+      pageDescription: 'Reconoce punto, recta y plano mientras practicas el uso de regla, transportador y compás.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Qué representa mejor un punto en geometría?',
+        options: [
+          'Una ubicación exacta sin largo ni ancho.',
+          'Una línea que se prolonga en dos sentidos.',
+          'Una superficie que contiene figuras.',
+          'Una curva cerrada formada por arcos.'
+        ],
+        answer: 0,
+        feedback: 'El punto solo indica posición; no tiene dimensiones.'
+      },
+      {
+        prompt: '¿Qué instrumento ayuda más a conservar siempre la misma distancia desde un centro?',
+        options: [
+          'El compás.',
+          'La regla.',
+          'El transportador.',
+          'El borrador.'
+        ],
+        answer: 0,
+        feedback: 'El compás mantiene fijo el radio, por eso sirve para repetir circunferencias.'
+      },
+      {
+        prompt: 'En una flor mandala, ¿para qué sirve el transportador?',
+        options: [
+          'Para dividir la circunferencia en ángulos iguales.',
+          'Para alargar el radio principal.',
+          'Para cambiar un punto por una recta.',
+          'Para borrar el centro del diseño.'
+        ],
+        answer: 0,
+        feedback: 'El transportador permite ubicar divisiones angulares regulares alrededor del centro.'
+      }
+    ], 'geometria6-periodo1-1_conceptos_basicos.html');
+
+    const canvas = document.getElementById('mandalaCanvas');
+    const ctx = canvas.getContext('2d');
+    const petalCount = document.getElementById('petalCount');
+    const radiusSize = document.getElementById('radiusSize');
+    const rotationAngle = document.getElementById('rotationAngle');
+    const toolButtons = Array.from(document.querySelectorAll('[data-tool]'));
+    const toolLabel = document.getElementById('toolLabel');
+    const angleLabel = document.getElementById('angleLabel');
+    const measureLabel = document.getElementById('measureLabel');
+    const toolExplanation = document.getElementById('toolExplanation');
+
+    const toolCopy = {
+      compas: 'El compás mantiene una distancia fija desde el centro para repetir circunferencias y formar pétalos iguales.',
+      regla: 'La regla permite unir puntos opuestos, marcar diámetros y reconocer líneas de simetría dentro del diseño.',
+      transportador: 'El transportador muestra cómo la circunferencia se divide en ángulos iguales para distribuir los pétalos con orden.'
+    };
+
+    let activeTool = 'compas';
+
+    function getPalette() {
+      const styles = getComputedStyle(document.documentElement);
+      const isLight = document.documentElement.dataset.theme === 'light';
+      return {
+        text: styles.getPropertyValue('--canvas-text').trim() || styles.getPropertyValue('--text').trim(),
+        muted: styles.getPropertyValue('--canvas-muted').trim() || styles.getPropertyValue('--muted').trim(),
+        axis: isLight ? 'rgba(71, 97, 120, 0.28)' : 'rgba(148, 163, 184, 0.28)',
+        grid: isLight ? 'rgba(71, 97, 120, 0.10)' : 'rgba(148, 163, 184, 0.12)',
+        compass: isLight ? '#0284c7' : 'rgba(90, 200, 250, 0.95)',
+        compassSoft: isLight ? 'rgba(2, 132, 199, 0.26)' : 'rgba(226, 232, 240, 0.8)',
+        ruler: isLight ? '#059669' : 'rgba(52, 211, 153, 0.95)',
+        rulerSoft: isLight ? 'rgba(5, 150, 105, 0.28)' : 'rgba(148, 163, 184, 0.35)',
+        protractor: isLight ? '#d97706' : 'rgba(251, 191, 36, 0.95)',
+        protractorSoft: isLight ? 'rgba(217, 119, 6, 0.72)' : 'rgba(251, 191, 36, 0.75)',
+        marker: isLight ? '#0369a1' : '#e0f2fe',
+        center: styles.getPropertyValue('--accent').trim()
+      };
+    }
+
+    function resizeCanvas() {
+      SimulatorEngine.resizeCanvas(canvas, 420);
+    }
+
+    function polarPoint(cx, cy, radius, angle) {
+      return {
+        x: cx + radius * Math.cos(angle),
+        y: cy + radius * Math.sin(angle)
+      };
+    }
+
+    function drawBackground(ctx, width, height) {
+      const palette = getPalette();
+      ctx.save();
+      ctx.strokeStyle = palette.grid;
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= width; x += 24) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= height; y += 24) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawCompassMode(ctx, cx, cy, radius, points) {
+      const palette = getPalette();
+      ctx.save();
+      ctx.strokeStyle = palette.compass;
+      ctx.lineWidth = 2;
+      points.forEach(point => {
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, radius, 0, Math.PI * 2);
+        ctx.stroke();
+      });
+      ctx.strokeStyle = palette.compassSoft;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.fillStyle = palette.marker;
+      points.forEach(point => {
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.restore();
+    }
+
+    function drawRulerMode(ctx, cx, cy, radius, points) {
+      const palette = getPalette();
+      ctx.save();
+      ctx.strokeStyle = palette.rulerSoft;
+      ctx.lineWidth = 1.2;
+      points.forEach(point => {
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(point.x, point.y);
+        ctx.stroke();
+      });
+      ctx.strokeStyle = palette.ruler;
+      ctx.lineWidth = 2.4;
+      for (let i = 0; i < points.length / 2; i += 1) {
+        const a = points[i];
+        const b = points[(i + points.length / 2) % points.length];
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+      ctx.fillStyle = palette.ruler;
+      points.forEach(point => {
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.restore();
+    }
+
+    function drawProtractorMode(ctx, cx, cy, radius, points, step) {
+      const palette = getPalette();
+      ctx.save();
+      ctx.strokeStyle = palette.protractor;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius + 26, Math.PI, 2 * Math.PI);
+      ctx.stroke();
+      ctx.strokeStyle = palette.protractorSoft;
+      ctx.fillStyle = palette.protractor;
+      ctx.font = '12px "Segoe UI"';
+      for (let i = 0; i < points.length; i += 1) {
+        const angle = Math.PI + i * step;
+        const outer = polarPoint(cx, cy, radius + 26, angle);
+        const inner = polarPoint(cx, cy, radius + 10, angle);
+        const textPoint = polarPoint(cx, cy, radius + 44, angle);
+        ctx.beginPath();
+        ctx.moveTo(inner.x, inner.y);
+        ctx.lineTo(outer.x, outer.y);
+        ctx.stroke();
+        const degrees = Math.round((i * step * 180) / Math.PI);
+        if (degrees <= 180) {
+          ctx.fillText(String(degrees), textPoint.x - 8, textPoint.y + 4);
+        }
+      }
+      ctx.strokeStyle = palette.protractor;
+      ctx.lineWidth = 1.8;
+      points.forEach(point => {
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(point.x, point.y);
+        ctx.stroke();
+      });
+      ctx.restore();
+    }
+
+    function renderMandala() {
+      const palette = getPalette();
+      resizeCanvas();
+      const width = canvas.width;
+      const height = canvas.height;
+      const petals = Number(petalCount.value);
+      const radius = Number(radiusSize.value);
+      const rotation = (Number(rotationAngle.value) * Math.PI) / 180;
+      const step = (Math.PI * 2) / petals;
+      const cx = width / 2;
+      const cy = height / 2;
+      const points = Array.from({ length: petals }, (_, i) => polarPoint(cx, cy, radius, rotation + i * step));
+
+      ctx.clearRect(0, 0, width, height);
+      drawBackground(ctx, width, height);
+
+      ctx.save();
+      ctx.strokeStyle = palette.axis;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(24, cy);
+      ctx.lineTo(width - 24, cy);
+      ctx.moveTo(cx, 24);
+      ctx.lineTo(cx, height - 24);
+      ctx.stroke();
+      ctx.restore();
+
+      if (activeTool === 'compas') {
+        drawCompassMode(ctx, cx, cy, radius, points);
+      } else if (activeTool === 'regla') {
+        drawRulerMode(ctx, cx, cy, radius, points);
+      } else {
+        drawProtractorMode(ctx, cx, cy, radius, points, step);
+      }
+
+      ctx.save();
+      ctx.strokeStyle = palette.text;
+      ctx.lineWidth = 2.2;
+      points.forEach((point, index) => {
+        const next = points[(index + 1) % points.length];
+        ctx.beginPath();
+        ctx.moveTo(point.x, point.y);
+        ctx.lineTo(next.x, next.y);
+        ctx.stroke();
+      });
+      ctx.fillStyle = palette.center;
+      ctx.beginPath();
+      ctx.arc(cx, cy, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.font = 'bold 14px "Segoe UI"';
+      ctx.fillText('Centro', cx + 10, cy - 10);
+      ctx.restore();
+
+      const angleDegrees = Math.round(360 / petals);
+      toolLabel.textContent = activeTool === 'compas' ? 'Compás' : activeTool === 'regla' ? 'Regla' : 'Transportador';
+      angleLabel.textContent = `${angleDegrees}°`;
+      measureLabel.textContent = activeTool === 'transportador'
+        ? `Abertura ${angleDegrees}°`
+        : activeTool === 'regla'
+          ? `Diámetro ${radius * 2} u`
+          : `Radio ${radius} u`;
+      toolExplanation.textContent = toolCopy[activeTool];
+    }
+
+    toolButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activeTool = button.dataset.tool;
+        toolButtons.forEach(node => node.classList.toggle('active', node === button));
+        renderMandala();
+      });
+    });
+
+    [petalCount, radiusSize, rotationAngle].forEach(input => input.addEventListener('input', renderMandala));
+    window.addEventListener('resize', renderMandala);
+    new MutationObserver(renderMandala).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    renderMandala();
   </script>
 </body>
 </html>

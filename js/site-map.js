@@ -631,6 +631,24 @@ window.SITE_MAP = {
               "Relaciona frecuencia y tono.",
               "Explica Doppler en contexto."
             ]
+          },
+          {
+            "slug": "3_sismica.html",
+            "title": "Sísmica y ondas sísmicas",
+            "unit": "Movimiento ondulatorio y fenómenos sísmicos",
+            "content": [
+              "Fenómenos sísmicos",
+              "Ondas P",
+              "Ondas S",
+              "Ondas superficiales",
+              "Lectura básica de sismogramas"
+            ],
+            "interactive": "Simulador de propagación sísmica",
+            "quiz": [
+              "Diferencia ondas P y S.",
+              "Reconoce ondas superficiales.",
+              "Interpreta llegada de ondas en un sismograma."
+            ]
           }
         ]
       },

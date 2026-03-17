@@ -41,8 +41,18 @@ window.Navigation = {
     target.innerHTML = `
       <div class="container row">
         <a class="brand" href="${RouteUtils.rel(config.depth, 'index.html')}">
-          <span class="brand-mark">VL</span>
-          <span>${brand.projectName}</span>
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-atom">
+              <span class="brand-orbit orbit-a"></span>
+              <span class="brand-orbit orbit-b"></span>
+              <span class="brand-orbit orbit-c"></span>
+              <span class="brand-nucleus"></span>
+            </span>
+          </span>
+          <span class="brand-copy">
+            <strong>${brand.projectName}</strong>
+            <small>${brand.projectSubtitle}</small>
+          </span>
         </a>
         <nav class="main-nav">${links}</nav>
         <button class="btn theme-toggle" onclick="toggleTheme()">🌓 <span data-theme-label></span></button>
@@ -71,7 +81,15 @@ window.Navigation = {
     const target = document.getElementById('site-footer');
     if (!target) return;
     const brand = this.brand();
-    target.innerHTML = `<div class="container"><div class="card" style="padding:1rem 1.2rem; text-align:center;"><strong>${brand.projectName}</strong><br>Docente: ${brand.author}<br>Laboratorio Virtual &copy; 2026</div></div>`;
+    target.innerHTML = `
+      <div class="container">
+        <div class="card footer-card">
+          <span class="badge">Proyecto educativo 2026</span>
+          <p>Recursos interactivos para Ciencias y Matemáticas.</p>
+          <p>Docente: ${brand.author}</p>
+          <p><strong>${brand.projectName}</strong> &copy; 2026</p>
+        </div>
+      </div>`;
   },
   renderPedagogicNav(config) {
     const target = document.getElementById('pedagogic-nav');

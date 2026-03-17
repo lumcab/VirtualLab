@@ -8,10 +8,65 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .physics-stage {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+      align-items: start;
+    }
+
+    .science-steps {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+
+    .science-step {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .science-step strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .reading-box {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .canvas-hint {
+      margin-top: .8rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .equation-line {
+      font-family: "Consolas", monospace;
+      font-size: 1.2rem;
+      padding: .95rem 1rem;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 980px) {
+      .physics-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +76,145 @@
       <section class="card hero">
         <span class="badge">Física 10° · Período 1</span>
         <h1 id="hero-title">Introducción a la física</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Introducción a la física y cinemática</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Descubre qué estudia la física, cómo se construye el conocimiento científico y por qué la notación científica facilita trabajar con cantidades muy grandes o muy pequeñas.</p>
       </section>
 
       <section class="card">
         <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Introducción a la física y cinemática</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Método científico</span><span class="topic-chip">Cómo se construye la ciencia</span><span class="topic-chip">Notación científica</span></div>
-        <ul class="list-clean"><li>Método científico</li><li>Cómo se construye la ciencia</li><li>Notación científica</li></ul>
-        <div class="formula">Interacción propuesta: Juego de notación científica</div>
+        <p>La física es la ciencia que estudia la materia, la energía, el movimiento y las leyes que explican muchos fenómenos naturales. Gracias a ella comprendemos por qué caen los cuerpos, cómo se transmite el calor, cómo viaja la luz y de qué forma actúan las fuerzas.</p>
+        <div>
+          <span class="topic-chip">Método científico</span>
+          <span class="topic-chip">Construcción de la ciencia</span>
+          <span class="topic-chip">Notación científica</span>
+          <span class="topic-chip">Magnitudes físicas</span>
+        </div>
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="kpi">
+            <strong>Observar</strong>
+            <p class="muted">La física parte de fenómenos reales: caída, movimiento, luz, sonido, calor o electricidad.</p>
+          </div>
+          <div class="kpi">
+            <strong>Explicar</strong>
+            <p class="muted">Busca relaciones, propone modelos y formula leyes para describir lo que ocurre.</p>
+          </div>
+          <div class="kpi">
+            <strong>Medir</strong>
+            <p class="muted">Necesita datos y unidades para comparar resultados y comunicar conclusiones con precisión.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:1rem;">
+          <strong>Idea central:</strong> la física no solo memoriza fórmulas. Observa, pregunta, experimenta, mide y usa el lenguaje matemático para explicar el mundo.
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Cómo se construye la ciencia</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Juego de notación científica</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <p>El conocimiento científico se organiza a partir de preguntas y evidencias. Aunque no siempre ocurre de forma rígida, el método científico suele seguir estas etapas:</p>
+            <ul class="list-clean">
+              <li><strong>Observación:</strong> reconocer un fenómeno y describirlo con cuidado.</li>
+              <li><strong>Pregunta o problema:</strong> plantear qué se desea explicar.</li>
+              <li><strong>Hipótesis:</strong> proponer una posible respuesta.</li>
+              <li><strong>Experimentación:</strong> obtener datos y comprobar la hipótesis.</li>
+              <li><strong>Análisis:</strong> interpretar resultados.</li>
+              <li><strong>Conclusión y comunicación:</strong> decidir si la hipótesis se sostiene y compartir lo aprendido.</li>
+            </ul>
+            <div class="formula">La ciencia avanza cuando las ideas pueden ponerse a prueba, compararse con datos y comunicarse claramente.</div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div class="science-steps">
+            <div class="science-step">
+              <strong>Ejemplo 1. ¿Por qué cae una pelota?</strong>
+              Se observa el fenómeno, se propone una explicación relacionada con la gravedad y luego se compara con nuevas pruebas.
+            </div>
+            <div class="science-step">
+              <strong>Ejemplo 2. ¿Qué material conduce mejor el calor?</strong>
+              Se miden temperaturas, se comparan resultados y se formula una conclusión.
+            </div>
+            <div class="science-step">
+              <strong>Ejemplo 3. ¿Qué tan grande es una célula o un planeta?</strong>
+              Para describir escalas tan distintas se usa la notación científica.
+            </div>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Taller interactivo de notación científica</h2>
+        <div class="physics-stage">
+          <div>
+            <div class="kpi">
+              <strong>Explorador numérico</strong>
+              <p class="muted">Ajusta el coeficiente y el exponente para formar una cantidad en notación científica. El panel muestra su valor decimal y una interpretación física sencilla.</p>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span class="mini-note">Coeficiente</span>
+                <input class="input" id="coefficient" type="range" min="1" max="9.9" step="0.1" value="3.2">
+              </label>
+              <label>
+                <span class="mini-note">Exponente</span>
+                <input class="input" id="exponent" type="range" min="-9" max="9" step="1" value="5">
+              </label>
+            </div>
+
+            <div class="equation-line" id="scientificExpression">3.2 × 10^5</div>
+
+            <div class="reading-box">
+              <div class="stat"><span>Valor decimal</span><strong id="decimalValue">320000</strong></div>
+              <div class="stat"><span>Tipo de escala</span><strong id="scaleLabel">Cantidad grande</strong></div>
+              <div class="stat"><span>Movimiento de coma</span><strong id="shiftLabel">5 lugares</strong></div>
+            </div>
+
+            <p class="callout" id="scienceExplanation" style="margin-top:1rem;">
+              Cuando el exponente es positivo, la coma se mueve a la derecha y el número representa una cantidad grande.
+            </p>
+          </div>
+
+          <div>
+            <canvas id="scienceCanvas" height="420"></canvas>
+            <p class="canvas-hint">La barra comparativa muestra cómo cambia el tamaño de una cantidad según el exponente. Esto ayuda a interpretar mejor datos físicos.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
         <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <div class="grid columns-2">
+          <div class="callout">
+            <strong>En el aula:</strong> esta página permite relacionar fenómeno, pregunta, medición y lenguaje matemático en una sola secuencia de trabajo.
+          </div>
+          <div class="callout">
+            <strong>Durante la práctica:</strong> el estudiante puede comparar cuándo conviene escribir una cantidad completa y cuándo resulta más útil expresarla en notación científica.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+        <table class="table-lite" style="margin-top:1rem;">
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>¿Qué significa?</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fenómeno físico</td>
+              <td>Hecho observable que puede describirse y medirse.</td>
+              <td>La caída de una pelota.</td>
+            </tr>
+            <tr>
+              <td>Método científico</td>
+              <td>Proceso para investigar, comprobar y comunicar resultados.</td>
+              <td>Observar, plantear hipótesis, experimentar y concluir.</td>
+            </tr>
+            <tr>
+              <td>Notación científica</td>
+              <td>Forma abreviada de escribir cantidades muy grandes o muy pequeñas.</td>
+              <td>6.0 × 10^8</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +240,161 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo1', topicSlug: '1_intro_ciencia.html', theme: 'blue', pageTitle: 'Introducción a la física', pageDescription: 'Introducción a la física' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Ordena pasos del método científico.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Convierte a notación científica.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Reconoce una magnitud física.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo1-1_intro_ciencia.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'fisica10',
+      periodKey: 'periodo1',
+      topicSlug: '1_intro_ciencia.html',
+      theme: 'blue',
+      pageTitle: 'Introducción a la física',
+      pageDescription: 'Descubre qué estudia la física, cómo se construye la ciencia y cómo funciona la notación científica.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Cuál es una característica importante de la física?',
+        options: [
+          'Estudia fenómenos naturales apoyándose en observación y medición.',
+          'Solo describe ideas sin necesidad de datos.',
+          'No utiliza matemáticas.',
+          'Se limita únicamente al estudio de los seres vivos.'
+        ],
+        answer: 0,
+        feedback: 'La física observa fenómenos, mide variables y construye explicaciones basadas en evidencia.'
+      },
+      {
+        prompt: '¿Qué paso viene después de plantear una hipótesis dentro del método científico?',
+        options: [
+          'Ponerla a prueba mediante experimentación o recolección de datos.',
+          'Eliminar todas las observaciones previas.',
+          'Convertirla de inmediato en ley científica.',
+          'Ignorar los resultados obtenidos.'
+        ],
+        answer: 0,
+        feedback: 'La hipótesis debe contrastarse con datos para evaluar si se sostiene.'
+      },
+      {
+        prompt: '¿Cuál expresión está escrita en notación científica correcta?',
+        options: [
+          '4.5 × 10^6',
+          '45 × 10^6',
+          '0.045 × 10^6',
+          '4500000 × 10^0'
+        ],
+        answer: 0,
+        feedback: 'En notación científica el coeficiente debe ser mayor o igual que 1 y menor que 10.'
+      }
+    ], 'fisica10-periodo1-1_intro_ciencia.html');
+
+    const canvas = document.getElementById('scienceCanvas');
+    const ctx = canvas.getContext('2d');
+    const coefficient = document.getElementById('coefficient');
+    const exponent = document.getElementById('exponent');
+    const scientificExpression = document.getElementById('scientificExpression');
+    const decimalValue = document.getElementById('decimalValue');
+    const scaleLabel = document.getElementById('scaleLabel');
+    const shiftLabel = document.getElementById('shiftLabel');
+    const scienceExplanation = document.getElementById('scienceExplanation');
+
+    function getPalette() {
+      const styles = getComputedStyle(document.documentElement);
+      const isLight = document.documentElement.dataset.theme === 'light';
+      return {
+        text: styles.getPropertyValue('--canvas-text').trim() || styles.getPropertyValue('--text').trim(),
+        grid: isLight ? 'rgba(91, 75, 138, 0.10)' : 'rgba(148, 163, 184, 0.12)',
+        barPositive: isLight ? '#7c3aed' : '#7dd3fc',
+        barNegative: isLight ? '#d97706' : '#facc15'
+      };
+    }
+
+    function resizeCanvas() {
+      SimulatorEngine.resizeCanvas(canvas, 420);
+    }
+
+    function formatDecimal(value) {
+      return value.toLocaleString('es-CO', {
+        maximumFractionDigits: 12
+      });
+    }
+
+    function drawBackground(width, height) {
+      const palette = getPalette();
+      ctx.save();
+      ctx.strokeStyle = palette.grid;
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= width; x += 24) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= height; y += 24) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function renderScience() {
+      const palette = getPalette();
+      resizeCanvas();
+      const width = canvas.width;
+      const height = canvas.height;
+      const coeff = Number(coefficient.value);
+      const exp = Number(exponent.value);
+      const value = coeff * (10 ** exp);
+      const magnitude = Math.min(1, Math.abs(exp) / 9);
+      const barWidth = 80 + magnitude * (width - 150);
+
+      ctx.clearRect(0, 0, width, height);
+      drawBackground(width, height);
+
+      ctx.save();
+      ctx.fillStyle = 'rgba(148, 163, 184, 0.16)';
+      ctx.fillRect(48, height / 2 - 24, width - 96, 48);
+      ctx.restore();
+
+      ctx.save();
+      const barColor = exp >= 0 ? palette.barPositive : palette.barNegative;
+      ctx.fillStyle = barColor;
+      ctx.fillRect(48, height / 2 - 24, barWidth, 48);
+      ctx.strokeStyle = palette.text;
+      ctx.lineWidth = 2;
+      ctx.strokeRect(48, height / 2 - 24, barWidth, 48);
+      ctx.restore();
+
+      ctx.save();
+      ctx.fillStyle = palette.text;
+      ctx.font = 'bold 16px "Segoe UI"';
+      ctx.fillText('Escala de la cantidad', 48, 80);
+      ctx.font = '14px "Segoe UI"';
+      ctx.fillText('Muy pequeña', 48, height / 2 + 46);
+      ctx.fillText('Muy grande', width - 126, height / 2 + 46);
+      ctx.fillText(`10^${exp}`, 58 + barWidth, height / 2 - 34);
+      ctx.restore();
+
+      scientificExpression.textContent = `${coeff.toFixed(1)} × 10^${exp}`;
+      decimalValue.textContent = formatDecimal(value);
+      shiftLabel.textContent = `${Math.abs(exp)} ${Math.abs(exp) === 1 ? 'lugar' : 'lugares'}`;
+
+      if (exp > 0) {
+        scaleLabel.textContent = 'Cantidad grande';
+        scienceExplanation.textContent = 'Cuando el exponente es positivo, la coma se mueve a la derecha y el número representa una cantidad grande.';
+      } else if (exp < 0) {
+        scaleLabel.textContent = 'Cantidad pequeña';
+        scienceExplanation.textContent = 'Cuando el exponente es negativo, la coma se mueve a la izquierda y el número representa una cantidad muy pequeña.';
+      } else {
+        scaleLabel.textContent = 'Escala unitaria';
+        scienceExplanation.textContent = 'Cuando el exponente es 0, el valor queda igual al coeficiente porque 10^0 = 1.';
+      }
+    }
+
+    [coefficient, exponent].forEach(input => input.addEventListener('input', renderScience));
+    window.addEventListener('resize', renderScience);
+    new MutationObserver(renderScience).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    renderScience();
   </script>
 </body>
 </html>
