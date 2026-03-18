@@ -315,3 +315,92 @@ a.topic-card {
     order: -1;
   }
 }
+
+@media (max-width: 760px) {
+  .home-hero {
+    gap: 1.35rem;
+    padding: 1.2rem;
+  }
+
+  .hero-visual {
+    order: 0;
+    padding: .35rem 0 .1rem;
+    min-height: auto;
+  }
+
+  .hero-orbit {
+    width: min(100%, 280px);
+  }
+
+  .hero-core {
+    inset: 32%;
+  }
+
+  .hero-stats,
+  .feature-grid,
+  .highlight-grid,
+  .calendar-grid,
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stat,
+  .feature-card,
+  .highlight-card,
+  .calendar-card,
+  .topic-card.subject-card {
+    border-radius: 18px;
+  }
+
+  .timeline-panel {
+    gap: .8rem;
+  }
+
+  .subject-meta {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .subject-card-header,
+  .subject-card-footer {
+    align-items: flex-start;
+  }
+
+  .subject-card .topic-chip {
+    margin-bottom: .45rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .academic-calendar {
+    padding: 1rem;
+  }
+
+  .home-hero {
+    padding: 1rem;
+  }
+
+  .hero-orbit {
+    width: min(100%, 236px);
+  }
+
+  .hero-node {
+    width: 15px;
+    height: 15px;
+  }
+
+  .feature-icon,
+  .subject-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .calendar-card,
+  .feature-card,
+  .highlight-card,
+  .topic-card,
+  .hero-stat {
+    padding: 1rem;
+  }
+}
