@@ -21,7 +21,7 @@
         <span class="badge">⚗️ VirtualLab 2026</span>
         <h1>Un laboratorio virtual más visual, activo y fácil de recorrer.</h1>
         <p><strong>VirtualLab</strong> reúne Matemáticas, Geometría y Física en una experiencia organizada por materias y períodos. Conserva todo el contenido pedagógico ya construido y lo presenta con una interfaz más clara, atractiva y lista para seguir creciendo.</p>
-        <div class="inline-actions">
+        <div class="inline-actions hero-actions">
           <span class="topic-chip">Temas por materia</span>
           <span class="topic-chip">Actividades interactivas</span>
           <span class="topic-chip">Consulta rápida</span>
@@ -39,7 +39,7 @@
       </div>
     </section>
 
-    <section class="grid highlight-grid" style="margin:1.2rem 0 1.4rem;">
+    <section class="grid highlight-grid home-highlights" style="margin:1.2rem 0 1.4rem;">
       <article class="highlight-card">
         <div class="feature-icon">🧭</div>
         <h3>Recorrido más claro</h3>
@@ -57,7 +57,7 @@
       </article>
     </section>
 
-    <section class="card" style="padding:1.3rem; margin-bottom:1.2rem;">
+    <section class="card home-section-card" style="padding:1.3rem; margin-bottom:1.2rem;">
       <div class="toolbar timeline-panel" style="justify-content:space-between;">
         <div>
           <span class="badge">Panel principal</span>
@@ -181,8 +181,9 @@
         </div>
         <h3>${subject.title}</h3>
         <p class="muted">${subject.description}</p>
-        <div style="margin:1rem 0;">${periods.map(period => `<span class="topic-chip">${period.title}</span>`).join('')}</div>
+        <div class="subject-periods">${periods.map(period => `<span class="topic-chip">${period.title}</span>`).join('')}</div>
         <div class="subject-card-footer">
+          <span class="subject-count">${topicCount} temas</span>
           <strong>Explorar</strong>
         </div>
       </a>
