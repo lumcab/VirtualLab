@@ -8,10 +8,68 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .physics-mode-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin: 1rem 0;
+    }
+
+    .physics-mode.active {
+      border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--text);
+    }
+
+    .physics-stage {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+      align-items: start;
+    }
+
+    .reading-box {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .application-grid {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+
+    .application-card {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .application-card strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .canvas-hint {
+      margin-top: .8rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .physics-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +79,166 @@
       <section class="card hero">
         <span class="badge">Física 10° · Período 2</span>
         <h1 id="hero-title">Estática y dinámica</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Dinámica y conservación de la energía</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Analiza cuándo un cuerpo permanece en equilibrio y cuándo cambia su movimiento por la acción de las fuerzas. Este tema conecta diagramas de cuerpo libre, equilibrio y leyes de Newton.</p>
       </section>
 
       <section class="card">
         <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Dinámica y conservación de la energía</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Condición de equilibrio</span><span class="topic-chip">Diagramas de cuerpo libre</span><span class="topic-chip">Tipos de fuerzas</span><span class="topic-chip">Leyes de Newton</span></div>
-        <ul class="list-clean"><li>Condición de equilibrio</li><li>Diagramas de cuerpo libre</li><li>Tipos de fuerzas</li><li>Leyes de Newton</li></ul>
-        <div class="formula">Interacción propuesta: Panel DCL con fuerzas</div>
+        <p>La <strong>estática</strong> estudia los cuerpos que están en equilibrio, mientras que la <strong>dinámica</strong> explica cómo las fuerzas producen cambios en el movimiento. En ambos casos es clave identificar las fuerzas que actúan sobre el cuerpo.</p>
+        <div>
+          <span class="topic-chip">Equilibrio</span>
+          <span class="topic-chip">Diagramas de cuerpo libre</span>
+          <span class="topic-chip">Fuerza neta</span>
+          <span class="topic-chip">Leyes de Newton</span>
+        </div>
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="kpi">
+            <strong>Equilibrio</strong>
+            <p class="muted">Ocurre cuando la suma de fuerzas es cero. El cuerpo puede estar quieto o moverse con velocidad constante.</p>
+          </div>
+          <div class="kpi">
+            <strong>Fuerza neta</strong>
+            <p class="muted">Es el resultado de sumar todas las fuerzas. Si no es cero, aparece aceleración.</p>
+          </div>
+          <div class="kpi">
+            <strong>Diagrama de cuerpo libre</strong>
+            <p class="muted">Representa con flechas las fuerzas que actúan sobre un objeto aislado.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:1rem;">
+          <strong>Idea clave:</strong> si las fuerzas se compensan, hay equilibrio. Si una fuerza domina, el cuerpo acelera en esa dirección.
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
+        <h2 class="section-title">Explorador de fuerzas</h2>
+        <div class="physics-stage">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Panel DCL con fuerzas</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <div class="kpi">
+              <strong>Panel de estática y dinámica</strong>
+              <p class="muted">Ajusta las fuerzas horizontal y vertical para observar cuándo el cuerpo está en equilibrio y cuándo aparece una fuerza neta. También puedes alternar entre el enfoque de estática y el de dinámica.</p>
+            </div>
+
+            <div class="physics-mode-row">
+              <button class="btn physics-mode active" data-mode="equilibrio" type="button">Equilibrio</button>
+              <button class="btn physics-mode" data-mode="dinamica" type="button">Dinámica</button>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span class="mini-note">Fuerza hacia la derecha</span>
+                <input class="input" id="forceRight" type="range" min="0" max="20" step="1" value="8">
+              </label>
+              <label>
+                <span class="mini-note">Fuerza hacia la izquierda</span>
+                <input class="input" id="forceLeft" type="range" min="0" max="20" step="1" value="8">
+              </label>
+              <label>
+                <span class="mini-note">Fuerza hacia arriba</span>
+                <input class="input" id="forceUp" type="range" min="0" max="20" step="1" value="10">
+              </label>
+              <label>
+                <span class="mini-note">Fuerza hacia abajo</span>
+                <input class="input" id="forceDown" type="range" min="0" max="20" step="1" value="10">
+              </label>
+              <label>
+                <span class="mini-note">Masa del objeto</span>
+                <input class="input" id="massValue" type="range" min="1" max="10" step="1" value="4">
+              </label>
+            </div>
+
+            <div class="reading-box">
+              <div class="stat"><span>Fx neta</span><strong id="netXOutput">0 N</strong></div>
+              <div class="stat"><span>Fy neta</span><strong id="netYOutput">0 N</strong></div>
+              <div class="stat"><span>Fuerza total</span><strong id="netOutput">0 N</strong></div>
+              <div class="stat"><span>Aceleración</span><strong id="accOutput">0 m/s²</strong></div>
+            </div>
+
+            <div class="formula" id="equationOutput">ΣF = 0 -> equilibrio</div>
+            <p class="callout" id="modeExplanation" style="margin-top:1rem;">
+              En equilibrio, la suma de fuerzas en cada eje es cero y el cuerpo no cambia su estado de movimiento.
+            </p>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+
+          <div>
+            <canvas id="forcesCanvas" height="420"></canvas>
+            <p class="canvas-hint">El cuadrado representa el cuerpo y las flechas muestran las fuerzas aplicadas. La flecha destacada indica la fuerza neta resultante.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Leyes de Newton en contexto</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Ley</th>
+              <th>Idea central</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primera ley</td>
+              <td>Si no hay fuerza neta, el cuerpo conserva su estado de reposo o movimiento rectilíneo uniforme.</td>
+              <td>Un libro sobre la mesa permanece quieto porque las fuerzas se equilibran.</td>
+            </tr>
+            <tr>
+              <td>Segunda ley</td>
+              <td>La aceleración depende de la fuerza neta y de la masa: F = m·a.</td>
+              <td>Un carrito acelera más si se empuja con mayor fuerza.</td>
+            </tr>
+            <tr>
+              <td>Tercera ley</td>
+              <td>Toda acción genera una reacción de igual magnitud y sentido opuesto.</td>
+              <td>Al caminar, empujamos el suelo hacia atrás y el suelo nos impulsa hacia adelante.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card">
         <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <div class="application-grid">
+          <div class="application-card">
+            <strong>Estática en contexto</strong>
+            Permite estudiar puentes, lámparas colgantes, mesas y objetos apoyados donde interesa analizar equilibrio.
+          </div>
+          <div class="application-card">
+            <strong>Dinámica en contexto</strong>
+            Explica el movimiento de automóviles, ascensores, pelotas o personas al interactuar con fuerzas.
+          </div>
+          <div class="application-card">
+            <strong>Diagrama de cuerpo libre</strong>
+            Ayuda a separar el objeto del entorno para dibujar solo las fuerzas relevantes y resolver problemas con claridad.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+        <table class="table-lite" style="margin-top:1rem;">
+          <thead>
+            <tr>
+              <th>Situación</th>
+              <th>Fuerza neta</th>
+              <th>Interpretación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Objeto quieto sobre una superficie</td>
+              <td>0 N</td>
+              <td>Está en equilibrio.</td>
+            </tr>
+            <tr>
+              <td>Carro que acelera hacia adelante</td>
+              <td>Mayor que 0 N</td>
+              <td>La fuerza neta produce aceleración.</td>
+            </tr>
+            <tr>
+              <td>Caja jalada por dos personas con igual fuerza opuesta</td>
+              <td>0 N</td>
+              <td>Las fuerzas horizontales se cancelan.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +264,167 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo2', topicSlug: '1_estatica_dinamica.html', theme: 'blue', pageTitle: 'Estática y dinámica', pageDescription: 'Estática y dinámica' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Reconoce fuerzas en un sistema.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta equilibrio.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Aplica una ley de Newton.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo2-1_estatica_dinamica.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'fisica10',
+      periodKey: 'periodo2',
+      topicSlug: '1_estatica_dinamica.html',
+      theme: 'blue',
+      pageTitle: 'Estática y dinámica',
+      pageDescription: 'Analiza equilibrio, diagramas de cuerpo libre y leyes de Newton con un panel interactivo de fuerzas.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Qué ocurre cuando la fuerza neta sobre un cuerpo es cero?',
+        options: [
+          'Siempre acelera.',
+          'Está en equilibrio o mantiene velocidad constante.',
+          'Su masa desaparece.',
+          'La gravedad deja de actuar.'
+        ],
+        answer: 1,
+        feedback: 'Si la fuerza neta es cero, el cuerpo no cambia su estado de movimiento.'
+      },
+      {
+        prompt: '¿Para qué sirve un diagrama de cuerpo libre?',
+        options: [
+          'Para dibujar trayectorias circulares.',
+          'Para representar únicamente las fuerzas que actúan sobre un objeto.',
+          'Para medir temperatura.',
+          'Para eliminar la masa del sistema.'
+        ],
+        answer: 1,
+        feedback: 'El diagrama de cuerpo libre muestra las fuerzas relevantes aplicadas al objeto.'
+      },
+      {
+        prompt: 'Si aumenta la fuerza neta sobre un cuerpo de la misma masa, su aceleración...',
+        options: [
+          'disminuye',
+          'permanece igual',
+          'aumenta',
+          'se vuelve cero'
+        ],
+        answer: 2,
+        feedback: 'Según la segunda ley de Newton, mayor fuerza neta implica mayor aceleración si la masa es la misma.'
+      }
+    ], 'fisica10-periodo2-1_estatica_dinamica.html');
+
+    const modeButtons = Array.from(document.querySelectorAll('[data-mode]'));
+    const forceRight = document.getElementById('forceRight');
+    const forceLeft = document.getElementById('forceLeft');
+    const forceUp = document.getElementById('forceUp');
+    const forceDown = document.getElementById('forceDown');
+    const massValue = document.getElementById('massValue');
+    const netXOutput = document.getElementById('netXOutput');
+    const netYOutput = document.getElementById('netYOutput');
+    const netOutput = document.getElementById('netOutput');
+    const accOutput = document.getElementById('accOutput');
+    const equationOutput = document.getElementById('equationOutput');
+    const modeExplanation = document.getElementById('modeExplanation');
+    const canvas = document.getElementById('forcesCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let activeMode = 'equilibrio';
+
+    const modeText = {
+      equilibrio: 'En equilibrio, la suma de fuerzas en cada eje es cero y el cuerpo no cambia su estado de movimiento.',
+      dinamica: 'En dinámica, una fuerza neta distinta de cero produce aceleración en la dirección de la resultante.'
+    };
+
+    function resizeCanvas() {
+      SimulatorEngine.resizeCanvas(canvas, 420);
+    }
+
+    function drawArrow(x1, y1, x2, y2, color, label) {
+      const angle = Math.atan2(y2 - y1, x2 - x1);
+      const head = 10;
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(x2 - head * Math.cos(angle - Math.PI / 6), y2 - head * Math.sin(angle - Math.PI / 6));
+      ctx.lineTo(x2 - head * Math.cos(angle + Math.PI / 6), y2 - head * Math.sin(angle + Math.PI / 6));
+      ctx.closePath();
+      ctx.fill();
+      ctx.font = '13px Verdana';
+      ctx.fillText(label, x2 + 6, y2 - 6);
+    }
+
+    function render() {
+      const fr = Number(forceRight.value);
+      const fl = Number(forceLeft.value);
+      const fu = Number(forceUp.value);
+      const fd = Number(forceDown.value);
+      const mass = Number(massValue.value);
+      const netX = fr - fl;
+      const netY = fu - fd;
+      const net = Math.sqrt(netX * netX + netY * netY);
+      const acc = mass === 0 ? 0 : net / mass;
+
+      netXOutput.textContent = `${netX.toFixed(1)} N`;
+      netYOutput.textContent = `${netY.toFixed(1)} N`;
+      netOutput.textContent = `${net.toFixed(1)} N`;
+      accOutput.textContent = `${acc.toFixed(2)} m/s²`;
+      equationOutput.textContent = net === 0
+        ? 'ΣF = 0 -> equilibrio'
+        : `ΣF = ${net.toFixed(1)} N -> a = ${acc.toFixed(2)} m/s²`;
+      modeExplanation.textContent = modeText[activeMode];
+
+      resizeCanvas();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const styles = getComputedStyle(document.documentElement);
+      const text = styles.getPropertyValue('--text');
+      const muted = styles.getPropertyValue('--muted');
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2 + 20;
+      const box = 70;
+      const scale = 7;
+
+      ctx.fillStyle = text;
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillText('Diagrama de cuerpo libre', 18, 24);
+
+      ctx.fillStyle = 'rgba(255,255,255,.06)';
+      ctx.strokeStyle = 'rgba(255,255,255,.18)';
+      ctx.lineWidth = 2;
+      ctx.fillRect(cx - box / 2, cy - box / 2, box, box);
+      ctx.strokeRect(cx - box / 2, cy - box / 2, box, box);
+
+      drawArrow(cx, cy, cx + fr * scale, cy, '#7dd3fc', `F→ ${fr}`);
+      drawArrow(cx, cy, cx - fl * scale, cy, '#fca5a5', `F← ${fl}`);
+      drawArrow(cx, cy, cx, cy - fu * scale, '#86efac', `F↑ ${fu}`);
+      drawArrow(cx, cy, cx, cy + fd * scale, '#fcd34d', `F↓ ${fd}`);
+
+      if (net > 0) {
+        drawArrow(cx, cy, cx + netX * scale, cy - netY * scale, '#c084fc', `ΣF ${net.toFixed(1)}`);
+      }
+
+      ctx.fillStyle = muted;
+      ctx.font = '14px Verdana';
+      ctx.fillText(`Masa: ${mass} kg`, 18, canvas.height - 24);
+    }
+
+    modeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeMode = button.dataset.mode;
+        modeButtons.forEach((item) => item.classList.toggle('active', item === button));
+        render();
+      });
+    });
+
+    [forceRight, forceLeft, forceUp, forceDown, massValue].forEach((input) => {
+      input.addEventListener('input', render);
+    });
+
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>

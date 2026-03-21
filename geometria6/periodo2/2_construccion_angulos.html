@@ -8,10 +8,72 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid,
+    .steps-grid,
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .math-display {
+      margin-top: .5rem;
+      font-size: clamp(1.3rem, 1.1rem + .85vw, 2rem);
+      font-weight: 800;
+      color: var(--accent-3);
+      word-break: break-word;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: .9rem;
+    }
+
+    .step-card,
+    .result-box {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent));
+    }
+
+    .step-card h3,
+    .result-box h3 {
+      margin: 0 0 .5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .table-lite {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+
+    .table-lite th,
+    .table-lite td {
+      padding: .9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table-lite thead {
+      background: color-mix(in srgb, var(--panel-strong) 90%, transparent);
+    }
+
+    .table-lite tbody tr:last-child td {
+      border-bottom: 0;
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +83,142 @@
       <section class="card hero">
         <span class="badge">Geometría 6° · Período 2</span>
         <h1 id="hero-title">Construcción de ángulos</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Clasificación y construcción de los ángulos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Aprende a construir ángulos con regla y transportador paso a paso. Este proceso ayuda a medir con precisión y a representar figuras geométricas correctamente.</p>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Clasificación y construcción de los ángulos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Construcción de ángulos con regla y transportador</span></div>
-        <ul class="list-clean"><li>Construcción de ángulos con regla y transportador</li></ul>
-        <div class="formula">Interacción propuesta: Trazador de ángulos</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>Construir un ángulo significa dibujarlo con una medida específica. Para hacerlo correctamente se necesita una <strong>semirrecta inicial</strong>, un <strong>vértice</strong> y el uso adecuado del <strong>transportador</strong>.</p>
+        <div class="info-grid">
+          <div class="kpi">
+            <strong>Regla</strong>
+            <p class="muted">Sirve para trazar la semirrecta base y prolongar lados con precisión.</p>
+          </div>
+          <div class="kpi">
+            <strong>Transportador</strong>
+            <p class="muted">Permite ubicar la medida exacta del ángulo en grados.</p>
+          </div>
+          <div class="kpi">
+            <strong>Precisión</strong>
+            <p class="muted">Una construcción correcta depende de colocar bien el centro y leer bien la escala.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Pasos para construir un ángulo</h2>
+        <div class="steps-grid">
+          <article class="step-card">
+            <h3>Paso 1</h3>
+            <p>Traza una semirrecta con regla. Ese será el primer lado del ángulo.</p>
+          </article>
+          <article class="step-card">
+            <h3>Paso 2</h3>
+            <p>Coloca el centro del transportador sobre el vértice y alinea la base con la semirrecta inicial.</p>
+          </article>
+          <article class="step-card">
+            <h3>Paso 3</h3>
+            <p>Marca la medida deseada y une esa marca con el vértice para formar el segundo lado.</p>
+            <div class="formula">Ejemplo: para 60°, se marca 60 en la escala y se une al vértice.</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Errores comunes al construir</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Error</th>
+              <th>Qué ocurre</th>
+              <th>Cómo evitarlo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Centro mal ubicado</td>
+              <td>La medida sale incorrecta.</td>
+              <td>Verifica que el centro del transportador coincida con el vértice.</td>
+            </tr>
+            <tr>
+              <td>Escala equivocada</td>
+              <td>Se lee una medida distinta a la deseada.</td>
+              <td>Observa desde qué lado inicia la semirrecta base.</td>
+            </tr>
+            <tr>
+              <td>Línea sin regla</td>
+              <td>El ángulo pierde precisión.</td>
+              <td>Usa la regla para marcar lados rectos y claros.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Trazador interactivo</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Trazador de ángulos</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <label>
+              <span class="mini-note">Medida a construir</span>
+              <input class="input" id="angleInput" type="range" min="0" max="180" step="1" value="60">
+            </label>
+            <label style="margin-top:1rem; display:block;">
+              <span class="mini-note">Tipo de referencia</span>
+              <select class="select" id="guideSelect">
+                <option value="transportador">Con transportador</option>
+                <option value="semirrecta">Semirrecta base</option>
+                <option value="marca">Marca de medida</option>
+              </select>
+            </label>
+            <div class="inline-actions">
+              <button class="btn" id="analyzeBtn">Actualizar</button>
+              <button class="btn" id="randomBtn">Ángulo aleatorio</button>
+            </div>
+            <div class="callout" style="margin-top:1rem;">
+              <strong>Pista:</strong> observa la semirrecta base, la marca de medición y el lado final. Esa es la misma secuencia que se sigue en el cuaderno.
+            </div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="constructionCanvas" height="360"></canvas>
+            <p class="muted" style="margin-top:.8rem;">La visualización simula la construcción de un ángulo usando una base horizontal y una segunda semirrecta en la medida seleccionada.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <h3>Ángulo solicitado</h3>
+            <div class="math-display" id="measureOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Clasificación</h3>
+            <div class="math-display" id="typeOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Guía activa</h3>
+            <div class="math-display" id="guideOutput"></div>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="practice-grid">
+          <div class="callout">
+            <strong>Reto 1:</strong> construye en el cuaderno un ángulo de 45° y verifica su medida con el transportador.
+          </div>
+          <div class="callout">
+            <strong>Reto 2:</strong> dibuja un ángulo de 120° y clasifícalo según su medida.
+          </div>
+          <div class="callout">
+            <strong>Reto 3:</strong> compara la construcción de 90° y 150°. ¿Qué cambia en la abertura?
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Aplicación en contexto</h2>
+        <p>Construir ángulos correctamente es importante para diseñar figuras, interpretar planos, elaborar polígonos y trabajar con instrumentos geométricos en clase. La práctica mejora la precisión visual y manual.</p>
+        <div class="formula">Primero se alinea, luego se mide y por último se traza el segundo lado.</div>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +244,158 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo2', topicSlug: '2_construccion_angulos.html', theme: 'sky', pageTitle: 'Construcción de ángulos', pageDescription: 'Construcción de ángulos' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Construye un ángulo pedido.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta una medida angular.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Selecciona el instrumento adecuado.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'geometria6-periodo2-2_construccion_angulos.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'geometria6',
+      periodKey: 'periodo2',
+      topicSlug: '2_construccion_angulos.html',
+      theme: 'sky',
+      pageTitle: 'Construcción de ángulos',
+      pageDescription: 'Aprende a construir ángulos con regla y transportador mediante una guía paso a paso.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Qué instrumento permite medir la abertura de un ángulo?',
+        options: ['Regla', 'Compás', 'Transportador', 'Escuadra'],
+        answer: 2,
+        feedback: 'El transportador es el instrumento diseñado para medir y construir ángulos.'
+      },
+      {
+        prompt: '¿Qué se debe hacer primero para construir un ángulo?',
+        options: ['Marcar la medida sin base', 'Trazar una semirrecta base', 'Borrar el vértice', 'Dibujar un círculo'],
+        answer: 1,
+        feedback: 'La construcción comienza con una semirrecta base desde el vértice.'
+      },
+      {
+        prompt: 'Si construyes un ángulo de 120°, ¿cómo se clasifica?',
+        options: ['Agudo', 'Recto', 'Obtuso', 'Llano'],
+        answer: 2,
+        feedback: '120° es mayor que 90° y menor que 180°, por eso es obtuso.'
+      }
+    ], 'geometria6-periodo2-2_construccion_angulos.html');
+
+    const angleInput = document.getElementById('angleInput');
+    const guideSelect = document.getElementById('guideSelect');
+    const measureOutput = document.getElementById('measureOutput');
+    const typeOutput = document.getElementById('typeOutput');
+    const guideOutput = document.getElementById('guideOutput');
+    const canvas = document.getElementById('constructionCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function classifyAngle(angle) {
+      if (angle === 0) return 'Nulo';
+      if (angle > 0 && angle < 90) return 'Agudo';
+      if (angle === 90) return 'Recto';
+      if (angle > 90 && angle < 180) return 'Obtuso';
+      return 'Llano';
+    }
+
+    function guideLabel(value) {
+      if (value === 'transportador') return 'Transportador visible';
+      if (value === 'semirrecta') return 'Semirrecta base destacada';
+      return 'Marca de medida destacada';
+    }
+
+    function drawConstruction(angle, guide) {
+      SimulatorEngine.resizeCanvas(canvas, 360);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const styles = getComputedStyle(document.documentElement);
+      const textColor = styles.getPropertyValue('--text');
+      const mutedColor = styles.getPropertyValue('--muted');
+      const cx = canvas.width / 2;
+      const cy = 250;
+      const radius = 120;
+      const end = Math.PI + (angle * Math.PI / 180);
+
+      ctx.fillStyle = textColor;
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillText('Construcción guiada del ángulo', 18, 24);
+
+      if (guide === 'transportador') {
+        ctx.strokeStyle = 'rgba(131,182,217,.35)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, Math.PI, Math.PI * 2);
+        ctx.stroke();
+        for (let deg = 0; deg <= 180; deg += 10) {
+          const rad = Math.PI + (deg * Math.PI / 180);
+          const x1 = cx + (radius - 10) * Math.cos(rad);
+          const y1 = cy + (radius - 10) * Math.sin(rad);
+          const x2 = cx + radius * Math.cos(rad);
+          const y2 = cy + radius * Math.sin(rad);
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+        }
+      }
+
+      ctx.strokeStyle = guide === 'semirrecta' ? '#f0d078' : '#83b6d9';
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx - radius, cy);
+      ctx.stroke();
+
+      const markX = cx + radius * Math.cos(end);
+      const markY = cy + radius * Math.sin(end);
+
+      if (guide === 'marca') {
+        ctx.fillStyle = '#f0d078';
+        ctx.beginPath();
+        ctx.arc(markX, markY, 7, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.strokeStyle = '#7cb27d';
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(markX, markY);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(131,182,217,.2)';
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, 58, Math.PI, end, false);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = '#f0d078';
+      ctx.beginPath();
+      ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = textColor;
+      ctx.font = '14px Verdana';
+      ctx.fillText(`${angle}°`, cx - 10, cy - 70);
+
+      ctx.fillStyle = mutedColor;
+      ctx.fillText('1. Base  2. Medida  3. Segundo lado', 18, 340);
+    }
+
+    function render() {
+      const angle = Math.max(0, Math.min(180, Number(angleInput.value) || 0));
+      const guide = guideSelect.value;
+      angleInput.value = angle;
+
+      measureOutput.textContent = `${angle}°`;
+      typeOutput.textContent = classifyAngle(angle);
+      guideOutput.textContent = guideLabel(guide);
+
+      drawConstruction(angle, guide);
+    }
+
+    document.getElementById('analyzeBtn').addEventListener('click', render);
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      angleInput.value = Math.floor(Math.random() * 181);
+      render();
+    });
+    angleInput.addEventListener('input', render);
+    guideSelect.addEventListener('change', render);
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>

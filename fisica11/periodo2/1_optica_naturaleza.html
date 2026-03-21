@@ -8,10 +8,68 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .light-mode-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin: 1rem 0;
+    }
+
+    .light-mode.active {
+      border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--text);
+    }
+
+    .light-stage {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+      align-items: start;
+    }
+
+    .reading-box {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .application-grid {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+
+    .application-card {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .application-card strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .canvas-hint {
+      margin-top: .8rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .light-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +79,134 @@
       <section class="card hero">
         <span class="badge">Física 11° · Período 2</span>
         <h1 id="hero-title">Naturaleza de la luz</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Óptica (La luz)</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Explora cómo la luz puede comportarse como onda y como partícula, y cómo sus propiedades permiten explicar reflexión, propagación e interacción con la materia.</p>
       </section>
 
       <section class="card">
         <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Óptica (La luz)</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">La luz y su naturaleza</span><span class="topic-chip">Dualidad onda-partícula</span><span class="topic-chip">Óptica geométrica y física</span><span class="topic-chip">Reflexión de la luz</span></div>
-        <ul class="list-clean"><li>La luz y su naturaleza</li><li>Dualidad onda-partícula</li><li>Óptica geométrica y física</li><li>Reflexión de la luz</li></ul>
-        <div class="formula">Interacción propuesta: Banco de rayos en espejo</div>
+        <p>La luz es una forma de radiación electromagnética. En algunos fenómenos se comporta como <strong>onda</strong>, mientras que en otros muestra características de <strong>partícula</strong>. Esa doble descripción permite entender gran parte de la óptica moderna.</p>
+        <div>
+          <span class="topic-chip">Naturaleza ondulatoria</span>
+          <span class="topic-chip">Dualidad onda-partícula</span>
+          <span class="topic-chip">Óptica geométrica</span>
+          <span class="topic-chip">Reflexión</span>
+          <span class="topic-chip">Difracción</span>
+        </div>
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="kpi">
+            <strong>Onda</strong>
+            <p class="muted">Permite explicar interferencia, difracción y propagación en el espacio.</p>
+          </div>
+          <div class="kpi">
+            <strong>Partícula</strong>
+            <p class="muted">Se representa mediante fotones que transportan energía.</p>
+          </div>
+          <div class="kpi">
+            <strong>Óptica geométrica</strong>
+            <p class="muted">Usa rayos para describir reflexión y formación básica de imágenes.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:1rem;">
+          <strong>Idea clave:</strong> la luz no se describe completamente con una sola idea; por eso hablamos de dualidad onda-partícula. Fenómenos como la <strong>difracción</strong> muestran con claridad su comportamiento ondulatorio.
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
+        <h2 class="section-title">Explorador de reflexión y naturaleza</h2>
+        <div class="light-stage">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Banco de rayos en espejo</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <div class="kpi">
+              <strong>Banco de rayos</strong>
+              <p class="muted">Cambia el ángulo de incidencia y alterna entre enfoque ondulatorio y geométrico para observar cómo se representa la luz, cómo se verifica la ley de reflexión y cómo aparece una representación simple de difracción.</p>
+            </div>
+
+            <div class="light-mode-row">
+              <button class="btn light-mode active" data-mode="geometrica" type="button">Óptica geométrica</button>
+              <button class="btn light-mode" data-mode="ondulatoria" type="button">Naturaleza ondulatoria</button>
+              <button class="btn light-mode" data-mode="difraccion" type="button">Difracción</button>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span class="mini-note">Ángulo de incidencia</span>
+                <input class="input" id="angleValue" type="range" min="5" max="85" step="1" value="35">
+              </label>
+              <label>
+                <span class="mini-note">Intensidad del haz</span>
+                <input class="input" id="intensityValue" type="range" min="1" max="10" step="1" value="6">
+              </label>
+              <label>
+                <span class="mini-note">Frecuencia relativa</span>
+                <input class="input" id="frequencyValue" type="range" min="1" max="10" step="1" value="5">
+              </label>
+            </div>
+
+            <div class="reading-box">
+              <div class="stat"><span>Incidencia</span><strong id="incidenceOutput">0°</strong></div>
+              <div class="stat"><span>Reflexión</span><strong id="reflectionOutput">0°</strong></div>
+              <div class="stat"><span>Intensidad</span><strong id="intensityOutput">0</strong></div>
+              <div class="stat"><span>Frecuencia</span><strong id="frequencyOutput">0</strong></div>
+            </div>
+
+            <div class="formula" id="equationOutput">θi = θr</div>
+            <p class="callout" id="modeExplanation" style="margin-top:1rem;">
+              En óptica geométrica, el ángulo de incidencia es igual al ángulo de reflexión respecto a la normal.
+            </p>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+
+          <div>
+            <canvas id="lightCanvas" height="420"></canvas>
+            <p class="canvas-hint">La línea vertical es la normal y la horizontal representa el espejo. El comportamiento visual cambia según el modo elegido.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Comparación conceptual</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Enfoque</th>
+              <th>Qué explica mejor</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ondulatorio</td>
+              <td>Interferencia, difracción y propagación.</td>
+              <td>Patrones de luz al pasar por rendijas.</td>
+            </tr>
+            <tr>
+              <td>Corpuscular</td>
+              <td>Interacción energética con la materia.</td>
+              <td>Efecto fotoeléctrico.</td>
+            </tr>
+            <tr>
+              <td>Geométrico</td>
+              <td>Trayectoria de rayos, reflexión y formación de imágenes.</td>
+              <td>Rayos en espejos planos.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card">
         <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <div class="application-grid">
+          <div class="application-card">
+            <strong>Reflexión en contexto</strong>
+            Ayuda a explicar espejos, periscopios y superficies reflectantes.
+          </div>
+          <div class="application-card">
+            <strong>Dualidad en contexto</strong>
+            Permite comprender por qué la luz sirve tanto para formar imágenes como para transferir energía.
+          </div>
+          <div class="application-card">
+            <strong>Óptica en laboratorio</strong>
+            Facilita el análisis de rayos, normales, ángulos y fenómenos ondulatorios como la difracción en montajes experimentales.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +232,190 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica11', periodKey: 'periodo2', topicSlug: '1_optica_naturaleza.html', theme: 'violet', pageTitle: 'Naturaleza de la luz', pageDescription: 'Naturaleza de la luz' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Diferencia óptica geométrica y física.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Reconoce ley de reflexión.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta formación básica de imágenes.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica11-periodo2-1_optica_naturaleza.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'fisica11',
+      periodKey: 'periodo2',
+      topicSlug: '1_optica_naturaleza.html',
+      theme: 'violet',
+      pageTitle: 'Naturaleza de la luz',
+      pageDescription: 'Explora la dualidad onda-partícula y la reflexión de la luz con un banco de rayos interactivo.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Qué afirma la ley de la reflexión?',
+        options: ['La luz desaparece al chocar con un espejo', 'El ángulo de incidencia es igual al ángulo de reflexión', 'La reflexión solo ocurre en agua', 'La frecuencia cambia obligatoriamente'],
+        answer: 1,
+        feedback: 'En reflexión, el ángulo de incidencia es igual al de reflexión respecto a la normal.'
+      },
+      {
+        prompt: '¿Qué idea describe mejor la dualidad de la luz?',
+        options: ['La luz solo es partícula', 'La luz solo es onda', 'La luz presenta comportamiento de onda y de partícula', 'La luz no transporta energía'],
+        answer: 2,
+        feedback: 'La dualidad onda-partícula permite explicar distintos fenómenos luminosos.'
+      },
+      {
+        prompt: '¿Qué enfoque es más útil para estudiar trayectorias de rayos en espejos?',
+        options: ['Óptica geométrica', 'Termodinámica', 'Electrostática', 'Hidrostática'],
+        answer: 0,
+        feedback: 'La óptica geométrica estudia la propagación de la luz mediante rayos.'
+      },
+      {
+        prompt: '¿Qué fenómeno muestra claramente el comportamiento ondulatorio de la luz al pasar por una rendija?',
+        options: ['Difracción', 'Inercia', 'Gravitación', 'Compresión'],
+        answer: 0,
+        feedback: 'La difracción aparece cuando la luz se dispersa o curva al atravesar aberturas pequeñas.'
+      }
+    ], 'fisica11-periodo2-1_optica_naturaleza.html');
+
+    const modeButtons = Array.from(document.querySelectorAll('[data-mode]'));
+    const angleValue = document.getElementById('angleValue');
+    const intensityValue = document.getElementById('intensityValue');
+    const frequencyValue = document.getElementById('frequencyValue');
+    const incidenceOutput = document.getElementById('incidenceOutput');
+    const reflectionOutput = document.getElementById('reflectionOutput');
+    const intensityOutput = document.getElementById('intensityOutput');
+    const frequencyOutput = document.getElementById('frequencyOutput');
+    const equationOutput = document.getElementById('equationOutput');
+    const modeExplanation = document.getElementById('modeExplanation');
+    const canvas = document.getElementById('lightCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let activeMode = 'geometrica';
+    const modeText = {
+      geometrica: 'En óptica geométrica, el ángulo de incidencia es igual al ángulo de reflexión respecto a la normal.',
+      ondulatoria: 'En el enfoque ondulatorio, la luz se representa como una perturbación periódica que transporta energía.',
+      difraccion: 'La difracción ocurre cuando la luz atraviesa una abertura pequeña y se dispersa, mostrando su naturaleza ondulatoria.'
+    };
+
+    function resizeCanvas() {
+      SimulatorEngine.resizeCanvas(canvas, 420);
+    }
+
+    function render() {
+      const angle = Number(angleValue.value);
+      const intensity = Number(intensityValue.value);
+      const frequency = Number(frequencyValue.value);
+
+      incidenceOutput.textContent = `${angle}°`;
+      reflectionOutput.textContent = `${angle}°`;
+      intensityOutput.textContent = String(intensity);
+      frequencyOutput.textContent = String(frequency);
+      equationOutput.textContent = activeMode === 'geometrica'
+        ? `θi = ${angle}° = θr`
+        : activeMode === 'ondulatoria'
+          ? `f ~ ${frequency} | A ~ ${intensity}`
+          : `Abertura pequena -> difracción visible`;
+      modeExplanation.textContent = modeText[activeMode];
+
+      resizeCanvas();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const styles = getComputedStyle(document.documentElement);
+      const text = styles.getPropertyValue('--text');
+      const muted = styles.getPropertyValue('--muted');
+      const cx = canvas.width / 2;
+      const cy = 260;
+      const length = 150;
+      const rad = angle * Math.PI / 180;
+
+      ctx.fillStyle = text;
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillText('Banco de rayos y naturaleza de la luz', 18, 24);
+
+      ctx.strokeStyle = 'rgba(255,255,255,.2)';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(40, cy);
+      ctx.lineTo(canvas.width - 40, cy);
+      ctx.stroke();
+
+      ctx.strokeStyle = 'rgba(255,255,255,.18)';
+      ctx.beginPath();
+      ctx.moveTo(cx, 90);
+      ctx.lineTo(cx, 360);
+      ctx.stroke();
+
+      const ix = cx - length * Math.sin(rad);
+      const iy = cy - length * Math.cos(rad);
+      const rx = cx + length * Math.sin(rad);
+      const ry = cy - length * Math.cos(rad);
+
+      ctx.strokeStyle = '#7dd3fc';
+      ctx.lineWidth = 3 + intensity * 0.3;
+      ctx.beginPath();
+      ctx.moveTo(ix, iy);
+      ctx.lineTo(cx, cy);
+      ctx.stroke();
+
+      ctx.strokeStyle = '#c084fc';
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(rx, ry);
+      ctx.stroke();
+
+      if (activeMode === 'ondulatoria') {
+        ctx.strokeStyle = '#fbbf24';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        for (let x = 40; x <= canvas.width - 40; x += 4) {
+          const y = 95 + Math.sin((x - 40) / 16 * frequency * 0.5) * (10 + intensity);
+          if (x === 40) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+
+      if (activeMode === 'difraccion') {
+        const slitX = cx - 12;
+        ctx.fillStyle = 'rgba(255,255,255,.15)';
+        ctx.fillRect(slitX, 70, 10, 110);
+        ctx.fillRect(slitX, 220, 10, 110);
+
+        ctx.strokeStyle = '#fbbf24';
+        ctx.lineWidth = 2;
+        for (let i = 0; i < 6; i += 1) {
+          ctx.beginPath();
+          for (let x = cx; x <= canvas.width - 30; x += 4) {
+            const spread = (i - 2.5) * 0.045;
+            const dx = x - cx;
+            const y = cy + Math.sin(dx / (14 - frequency * 0.6)) * (8 + intensity) + dx * spread;
+            if (x === cx) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        }
+
+        ctx.fillStyle = muted;
+        ctx.font = '14px Verdana';
+        ctx.fillText('Rendija pequeña', cx - 34, 205);
+      }
+
+      ctx.fillStyle = muted;
+      ctx.font = '14px Verdana';
+      ctx.fillText(
+        activeMode === 'geometrica'
+          ? 'Reflexión especular sobre un espejo plano.'
+          : activeMode === 'ondulatoria'
+            ? 'Representación ondulatoria de la propagación luminosa.'
+            : 'Difracción: la luz se abre después de pasar por una rendija.',
+        18,
+        390
+      );
+    }
+
+    modeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeMode = button.dataset.mode;
+        modeButtons.forEach((item) => item.classList.toggle('active', item === button));
+        render();
+      });
+    });
+
+    [angleValue, intensityValue, frequencyValue].forEach((input) => input.addEventListener('input', render));
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>

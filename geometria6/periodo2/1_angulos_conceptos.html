@@ -8,10 +8,72 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid,
+    .class-grid,
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .math-display {
+      margin-top: .5rem;
+      font-size: clamp(1.3rem, 1.1rem + .85vw, 2rem);
+      font-weight: 800;
+      color: var(--accent-3);
+      word-break: break-word;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: .9rem;
+    }
+
+    .class-card,
+    .result-box {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent));
+    }
+
+    .class-card h3,
+    .result-box h3 {
+      margin: 0 0 .5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .table-lite {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+
+    .table-lite th,
+    .table-lite td {
+      padding: .9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table-lite thead {
+      background: color-mix(in srgb, var(--panel-strong) 90%, transparent);
+    }
+
+    .table-lite tbody tr:last-child td {
+      border-bottom: 0;
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +83,154 @@
       <section class="card hero">
         <span class="badge">Geometría 6° · Período 2</span>
         <h1 id="hero-title">Conceptos y clasificación de ángulos</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Clasificación y construcción de los ángulos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Reconoce qué es un ángulo, cuáles son sus partes y cómo se clasifica según su medida y su posición. Este tema prepara el uso correcto del transportador y la construcción de figuras.</p>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Clasificación y construcción de los ángulos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Conceptos básicos del ángulo</span><span class="topic-chip">Clasificación según su medida</span><span class="topic-chip">Clasificación según su posición</span></div>
-        <ul class="list-clean"><li>Conceptos básicos del ángulo</li><li>Clasificación según su medida</li><li>Clasificación según su posición</li></ul>
-        <div class="formula">Interacción propuesta: Transportador virtual</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>Un <strong>ángulo</strong> se forma cuando dos semirrectas parten de un mismo punto. Ese punto común se llama <strong>vértice</strong> y la abertura entre las semirrectas es la medida del ángulo.</p>
+        <div class="info-grid">
+          <div class="kpi">
+            <strong>Vértice</strong>
+            <p class="muted">Es el punto donde se unen los dos lados del ángulo.</p>
+          </div>
+          <div class="kpi">
+            <strong>Lados</strong>
+            <p class="muted">Son las dos semirrectas que forman la abertura angular.</p>
+          </div>
+          <div class="kpi">
+            <strong>Medida</strong>
+            <p class="muted">Se expresa en grados y se representa con el símbolo °.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Clasificación según su medida</h2>
+        <div class="class-grid">
+          <article class="class-card">
+            <h3>Ángulo agudo</h3>
+            <p>Mide más de 0° y menos de 90°.</p>
+            <div class="formula">Ejemplo: 35°</div>
+          </article>
+          <article class="class-card">
+            <h3>Ángulo recto</h3>
+            <p>Mide exactamente 90°.</p>
+            <div class="formula">Ejemplo: esquina de un cuaderno</div>
+          </article>
+          <article class="class-card">
+            <h3>Ángulo obtuso</h3>
+            <p>Mide más de 90° y menos de 180°.</p>
+            <div class="formula">Ejemplo: 120°</div>
+          </article>
+          <article class="class-card">
+            <h3>Ángulo llano</h3>
+            <p>Mide exactamente 180°.</p>
+            <div class="formula">Ejemplo: una línea recta</div>
+          </article>
+          <article class="class-card">
+            <h3>Ángulo completo</h3>
+            <p>Mide 360°.</p>
+            <div class="formula">Ejemplo: un giro completo</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Clasificación según su posición</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Características</th>
+              <th>Idea clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Consecutivos</td>
+              <td>Comparten vértice y un lado.</td>
+              <td>Están uno junto al otro.</td>
+            </tr>
+            <tr>
+              <td>Adyacentes</td>
+              <td>Son consecutivos y además forman un ángulo llano.</td>
+              <td>Sus medidas suman 180°.</td>
+            </tr>
+            <tr>
+              <td>Opuestos por el vértice</td>
+              <td>Se forman cuando dos rectas se cruzan.</td>
+              <td>Tienen la misma medida.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Medidor interactivo de ángulos</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Transportador virtual</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <label>
+              <span class="mini-note">Medida del ángulo</span>
+              <input class="input" id="angleInput" type="range" min="0" max="360" step="1" value="65">
+            </label>
+            <label style="margin-top:1rem; display:block;">
+              <span class="mini-note">Par de ángulos por posición</span>
+              <select class="select" id="positionSelect">
+                <option value="consecutivos">Consecutivos</option>
+                <option value="adyacentes">Adyacentes</option>
+                <option value="opuestos">Opuestos por el vértice</option>
+              </select>
+            </label>
+            <div class="inline-actions">
+              <button class="btn" id="analyzeBtn">Actualizar</button>
+              <button class="btn" id="randomBtn">Ejemplo aleatorio</button>
+            </div>
+            <div class="callout" style="margin-top:1rem;">
+              <strong>Pista:</strong> mueve la medida y observa cómo cambia la abertura. Luego compara cómo se relacionan dos ángulos según su posición.
+            </div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="angleCanvas" height="340"></canvas>
+            <p class="muted" style="margin-top:.8rem;">El dibujo muestra el vértice, los lados y la abertura del ángulo seleccionado.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <h3>Medida actual</h3>
+            <div class="math-display" id="measureOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Clasificación</h3>
+            <div class="math-display" id="typeOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Relación por posición</h3>
+            <div class="math-display" id="positionOutput"></div>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="practice-grid">
+          <div class="callout">
+            <strong>Reto 1:</strong> busca una esquina del salón y decide por qué representa un ángulo recto.
+          </div>
+          <div class="callout">
+            <strong>Reto 2:</strong> compara 45°, 90° y 140° y clasifícalos según su medida.
+          </div>
+          <div class="callout">
+            <strong>Reto 3:</strong> dibuja dos rectas que se crucen y localiza un par de ángulos opuestos por el vértice.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Aplicación en contexto</h2>
+        <p>Los ángulos aparecen en señales, construcciones, figuras geométricas y objetos cotidianos. Clasificarlos ayuda a interpretar formas, usar el transportador y construir con precisión.</p>
+        <div class="formula">Si reconoces la abertura, puedes clasificar el ángulo. Si reconoces la posición, puedes relacionarlo con otros ángulos.</div>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +256,136 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo2', topicSlug: '1_angulos_conceptos.html', theme: 'sky', pageTitle: 'Conceptos y clasificación de ángulos', pageDescription: 'Conceptos y clasificación de ángulos' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Clasifica un ángulo por su medida.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Clasifica ángulos por posición.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Lee una abertura angular.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'geometria6-periodo2-1_angulos_conceptos.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'geometria6',
+      periodKey: 'periodo2',
+      topicSlug: '1_angulos_conceptos.html',
+      theme: 'sky',
+      pageTitle: 'Conceptos y clasificación de ángulos',
+      pageDescription: 'Reconoce las partes de un ángulo y clasifícalo según su medida y su posición.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Cómo se llama el punto donde se unen los lados de un ángulo?',
+        options: ['Centro', 'Vértice', 'Arco', 'Plano'],
+        answer: 1,
+        feedback: 'El vértice es el punto común donde nacen los lados del ángulo.'
+      },
+      {
+        prompt: '¿Qué tipo de ángulo mide exactamente 90°?',
+        options: ['Agudo', 'Obtuso', 'Recto', 'Llano'],
+        answer: 2,
+        feedback: 'El ángulo recto mide exactamente 90°.'
+      },
+      {
+        prompt: 'Si dos ángulos se forman cuando dos rectas se cruzan y quedan enfrentados, son...',
+        options: ['Adyacentes', 'Consecutivos', 'Opuestos por el vértice', 'Complementarios'],
+        answer: 2,
+        feedback: 'Los opuestos por el vértice aparecen cuando dos rectas se intersectan.'
+      }
+    ], 'geometria6-periodo2-1_angulos_conceptos.html');
+
+    const angleInput = document.getElementById('angleInput');
+    const positionSelect = document.getElementById('positionSelect');
+    const measureOutput = document.getElementById('measureOutput');
+    const typeOutput = document.getElementById('typeOutput');
+    const positionOutput = document.getElementById('positionOutput');
+    const canvas = document.getElementById('angleCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function classifyAngle(angle) {
+      if (angle === 0) return 'Nulo';
+      if (angle > 0 && angle < 90) return 'Agudo';
+      if (angle === 90) return 'Recto';
+      if (angle > 90 && angle < 180) return 'Obtuso';
+      if (angle === 180) return 'Llano';
+      if (angle > 180 && angle < 360) return 'Cóncavo';
+      return 'Completo';
+    }
+
+    function drawAngle(angle, relation) {
+      SimulatorEngine.resizeCanvas(canvas, 340);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const styles = getComputedStyle(document.documentElement);
+      const textColor = styles.getPropertyValue('--text');
+      const mutedColor = styles.getPropertyValue('--muted');
+      const centerX = canvas.width / 2;
+      const centerY = 230;
+      const radius = 110;
+      const start = Math.PI;
+      const end = Math.PI + (angle * Math.PI / 180);
+
+      ctx.fillStyle = textColor;
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillText('Visualización del ángulo', 18, 24);
+
+      ctx.strokeStyle = '#83b6d9';
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.lineTo(centerX - radius, centerY);
+      ctx.stroke();
+
+      ctx.strokeStyle = '#7cb27d';
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.lineTo(centerX + radius * Math.cos(end), centerY + radius * Math.sin(end));
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(131,182,217,.2)';
+      ctx.moveTo(centerX, centerY);
+      ctx.arc(centerX, centerY, 52, start, end, false);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = '#f0d078';
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, 6, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = textColor;
+      ctx.font = '14px Verdana';
+      ctx.fillText(`${angle}°`, centerX - 12, centerY - 64);
+
+      ctx.fillStyle = mutedColor;
+      ctx.fillText(`Relación: ${relation}`, 18, 320);
+    }
+
+    function describePosition(kind, angle) {
+      if (kind === 'consecutivos') {
+        return `Comparten vértice y un lado. Uno puede medir ${angle}°.`;
+      }
+      if (kind === 'adyacentes') {
+        return `Comparten vértice y lado, y juntos forman 180°. Si uno mide ${angle}°, el otro mide ${180 - Math.min(angle, 180)}°.`;
+      }
+      return `Están enfrentados cuando dos rectas se cruzan. Si uno mide ${angle}°, el opuesto también mide ${angle}°.`;
+    }
+
+    function render() {
+      const angle = Math.max(0, Math.min(360, Number(angleInput.value) || 0));
+      const relation = positionSelect.value;
+      angleInput.value = angle;
+
+      measureOutput.textContent = `${angle}°`;
+      typeOutput.textContent = classifyAngle(angle);
+      positionOutput.textContent = describePosition(relation, angle);
+
+      drawAngle(angle, relation);
+    }
+
+    document.getElementById('analyzeBtn').addEventListener('click', render);
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      angleInput.value = Math.floor(Math.random() * 361);
+      render();
+    });
+    angleInput.addEventListener('input', render);
+    positionSelect.addEventListener('change', render);
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>

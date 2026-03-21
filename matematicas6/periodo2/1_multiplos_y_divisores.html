@@ -8,10 +8,82 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid,
+    .criteria-grid,
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .math-display {
+      margin-top: .55rem;
+      font-size: clamp(1.35rem, 1.1rem + .8vw, 2rem);
+      font-weight: 800;
+      color: var(--accent-3);
+      word-break: break-word;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: .9rem;
+    }
+
+    .result-box {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent));
+    }
+
+    .result-box h3,
+    .criteria-card h3 {
+      margin: 0 0 .5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .criteria-card {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .criteria-card strong {
+      color: var(--accent-3);
+    }
+
+    .table-lite {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+
+    .table-lite th,
+    .table-lite td {
+      padding: .9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table-lite thead {
+      background: color-mix(in srgb, var(--panel-strong) 90%, transparent);
+    }
+
+    .table-lite tbody tr:last-child td {
+      border-bottom: 0;
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +93,145 @@
       <section class="card hero">
         <span class="badge">Matemáticas 6° · Período 2</span>
         <h1 id="hero-title">Múltiplos y divisores</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Explora cómo un número puede repetirse para formar múltiplos y cómo puede repartirse exactamente para encontrar divisores. Este tema fortalece el cálculo mental, la divisibilidad y la resolución de problemas.</p>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Múltiplos y divisores de un número</span><span class="topic-chip">Criterios de divisibilidad</span></div>
-        <ul class="list-clean"><li>Múltiplos y divisores de un número</li><li>Criterios de divisibilidad</li></ul>
-        <div class="formula">Interacción propuesta: Panel de múltiplos y divisores</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>Un <strong>múltiplo</strong> se obtiene al multiplicar un número por 1, 2, 3, 4 y así sucesivamente. Un <strong>divisor</strong> es un número que lo divide exactamente, es decir, sin dejar residuo.</p>
+        <div class="info-grid">
+          <div class="kpi">
+            <strong>Múltiplos</strong>
+            <p class="muted">Si tomamos el 6, sus primeros múltiplos son 6, 12, 18, 24 y 30.</p>
+          </div>
+          <div class="kpi">
+            <strong>Divisores</strong>
+            <p class="muted">Los divisores de 12 son 1, 2, 3, 4, 6 y 12 porque lo reparten exactamente.</p>
+          </div>
+          <div class="kpi">
+            <strong>Idea clave</strong>
+            <p class="muted">Si un número es divisor de otro, entonces ese otro número es múltiplo del primero.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Ideas esenciales</h2>
+        <div class="criteria-grid">
+          <article class="criteria-card">
+            <h3>Cómo reconocer múltiplos</h3>
+            <p>Para encontrar múltiplos, multiplicamos el número base por los naturales: <strong>n x 1, n x 2, n x 3...</strong></p>
+            <div class="formula">Ejemplo: múltiplos de 4 = 4, 8, 12, 16, 20...</div>
+          </article>
+          <article class="criteria-card">
+            <h3>Cómo reconocer divisores</h3>
+            <p>Un divisor permite una división exacta. Si al dividir no sobra nada, entonces sí es divisor.</p>
+            <div class="formula">Ejemplo: 18 ÷ 3 = 6, entonces 3 es divisor de 18.</div>
+          </article>
+          <article class="criteria-card">
+            <h3>Relación entre ambos</h3>
+            <p>Si <strong>a</strong> divide a <strong>b</strong>, entonces <strong>b</strong> pertenece a la lista de múltiplos de <strong>a</strong>.</p>
+            <div class="formula">Ejemplo: 5 es divisor de 20 y 20 es múltiplo de 5.</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Criterios de divisibilidad</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Número</th>
+              <th>Criterio</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2</td>
+              <td>Termina en 0, 2, 4, 6 u 8.</td>
+              <td>46 es divisible entre 2.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>La suma de sus cifras es múltiplo de 3.</td>
+              <td>123: 1 + 2 + 3 = 6.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Termina en 0 o en 5.</td>
+              <td>70 y 135 son divisibles entre 5.</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Termina en 0.</td>
+              <td>250 es divisible entre 10.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Explorador interactivo</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Panel de múltiplos y divisores</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <label>
+              <span class="mini-note">Número principal para explorar</span>
+              <input class="input" id="numberInput" type="number" min="1" max="60" value="12">
+            </label>
+            <label style="margin-top:1rem; display:block;">
+              <span class="mini-note">Número para comprobar si es divisor</span>
+              <input class="input" id="divisorInput" type="number" min="1" max="60" value="3">
+            </label>
+            <div class="inline-actions">
+              <button class="btn" id="analyzeBtn">Analizar</button>
+              <button class="btn" id="randomBtn">Ejemplo aleatorio</button>
+            </div>
+            <div class="callout" style="margin-top:1rem;">
+              <strong>Pista:</strong> cambia el número principal y observa cómo se transforman sus múltiplos, sus divisores y los criterios de divisibilidad.
+            </div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="multiplesCanvas" height="300"></canvas>
+            <p class="muted" style="margin-top:.8rem;">En la cuadrícula se resaltan en verde los <strong>múltiplos</strong> del número elegido hasta 60 y en amarillo los <strong>divisores</strong> del número base.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <h3>Primeros múltiplos</h3>
+            <div class="math-display" id="multiplesOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Divisores exactos</h3>
+            <div class="math-display" id="divisorsOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Comprobación</h3>
+            <div class="math-display" id="checkOutput"></div>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="practice-grid">
+          <div class="callout">
+            <strong>Reto 1:</strong> escribe los primeros seis múltiplos de 7 y compáralos con el explorador.
+          </div>
+          <div class="callout">
+            <strong>Reto 2:</strong> busca todos los divisores de 24 y explica por qué aparecen en parejas.
+          </div>
+          <div class="callout">
+            <strong>Reto 3:</strong> decide si 45 es divisible entre 3, 5 y 10 usando solo criterios de divisibilidad.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Aplicación en contexto</h2>
+        <p>Los múltiplos y divisores aparecen cuando organizamos grupos, repartimos materiales o buscamos coincidencias entre cantidades. Por ejemplo, si hay 24 fichas y queremos formar grupos iguales, sus divisores nos dicen cuántas formas exactas de reparto existen.</p>
+        <div class="formula">Pensar en divisores ayuda a repartir. Pensar en múltiplos ayuda a repetir cantidades ordenadamente.</div>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +257,136 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo2', topicSlug: '1_multiplos_y_divisores.html', theme: 'amber', pageTitle: 'Múltiplos y divisores', pageDescription: 'Múltiplos y divisores' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Reconoce un divisor.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Aplica un criterio de divisibilidad.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Elige múltiplos de un número.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'matematicas6-periodo2-1_multiplos_y_divisores.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'matematicas6',
+      periodKey: 'periodo2',
+      topicSlug: '1_multiplos_y_divisores.html',
+      theme: 'amber',
+      pageTitle: 'Múltiplos y divisores',
+      pageDescription: 'Explora múltiplos, divisores y criterios de divisibilidad con ejemplos claros y una actividad interactiva.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Cuál de estos números es múltiplo de 6?',
+        options: ['18', '15', '25', '31'],
+        answer: 0,
+        feedback: '18 = 6 x 3, por eso sí es múltiplo de 6.'
+      },
+      {
+        prompt: '¿Cuál de estos números es divisor de 24?',
+        options: ['5', '7', '8', '11'],
+        answer: 2,
+        feedback: '24 ÷ 8 = 3, así que 8 divide exactamente a 24.'
+      },
+      {
+        prompt: '¿Qué criterio permite saber rápido si un número es divisible entre 5?',
+        options: ['Que termine en número par', 'Que sus cifras sumen 5', 'Que termine en 0 o 5', 'Que tenga dos cifras'],
+        answer: 2,
+        feedback: 'Todo número que termina en 0 o 5 es divisible entre 5.'
+      }
+    ], 'matematicas6-periodo2-1_multiplos_y_divisores.html');
+
+    const numberInput = document.getElementById('numberInput');
+    const divisorInput = document.getElementById('divisorInput');
+    const multiplesOutput = document.getElementById('multiplesOutput');
+    const divisorsOutput = document.getElementById('divisorsOutput');
+    const checkOutput = document.getElementById('checkOutput');
+    const canvas = document.getElementById('multiplesCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function sanitize(value) {
+      return Math.max(1, Math.min(60, Number(value) || 1));
+    }
+
+    function firstMultiples(base, count) {
+      return Array.from({ length: count }, (_, index) => base * (index + 1));
+    }
+
+    function divisorsOf(num) {
+      const divisors = [];
+      for (let i = 1; i <= num; i += 1) {
+        if (num % i === 0) divisors.push(i);
+      }
+      return divisors;
+    }
+
+    function drawGrid(base, divisors) {
+      SimulatorEngine.resizeCanvas(canvas, 300);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const columns = 10;
+      const rows = 6;
+      const gap = 8;
+      const padding = 18;
+      const cellWidth = (canvas.width - padding * 2 - gap * (columns - 1)) / columns;
+      const cellHeight = 34;
+      const styles = getComputedStyle(document.documentElement);
+      const textColor = styles.getPropertyValue('--text');
+      const mutedColor = styles.getPropertyValue('--muted');
+
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillStyle = textColor;
+      ctx.fillText('Cuadrícula numérica del 1 al 60', padding, 24);
+
+      for (let row = 0; row < rows; row += 1) {
+        for (let col = 0; col < columns; col += 1) {
+          const n = row * columns + col + 1;
+          const x = padding + col * (cellWidth + gap);
+          const y = 40 + row * (cellHeight + gap);
+          const isMultiple = n % base === 0;
+          const isDivisor = divisors.includes(n);
+
+          let fill = 'rgba(255,255,255,.04)';
+          if (isMultiple && isDivisor) fill = '#f3c96b';
+          else if (isMultiple) fill = '#7cb27d';
+          else if (isDivisor) fill = '#f0d078';
+
+          ctx.fillStyle = fill;
+          ctx.fillRect(x, y, cellWidth, cellHeight);
+          ctx.strokeStyle = 'rgba(255,255,255,.12)';
+          ctx.strokeRect(x, y, cellWidth, cellHeight);
+          ctx.fillStyle = '#142019';
+          if (!isMultiple && !isDivisor) ctx.fillStyle = textColor;
+          ctx.font = 'bold 14px Verdana';
+          ctx.fillText(String(n), x + 10, y + 22);
+        }
+      }
+
+      ctx.fillStyle = mutedColor;
+      ctx.font = '14px Verdana';
+      ctx.fillText('Verde: múltiplos   Amarillo: divisores   Dorado: ambos', padding, 290);
+    }
+
+    function render() {
+      const base = sanitize(numberInput.value);
+      const candidate = sanitize(divisorInput.value);
+      const divisors = divisorsOf(base);
+      const multiples = firstMultiples(base, 6);
+      const exact = base % candidate === 0;
+
+      numberInput.value = base;
+      divisorInput.value = candidate;
+      multiplesOutput.textContent = multiples.join(', ');
+      divisorsOutput.textContent = divisors.join(', ');
+      checkOutput.textContent = exact
+        ? `${candidate} sí es divisor de ${base}`
+        : `${candidate} no es divisor de ${base}`;
+
+      drawGrid(base, divisors);
+    }
+
+    document.getElementById('analyzeBtn').addEventListener('click', render);
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      numberInput.value = Math.floor(Math.random() * 20) + 2;
+      divisorInput.value = Math.floor(Math.random() * 10) + 1;
+      render();
+    });
+    numberInput.addEventListener('input', render);
+    divisorInput.addEventListener('input', render);
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>

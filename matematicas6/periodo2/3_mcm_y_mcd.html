@@ -8,10 +8,72 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid,
+    .compare-grid,
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .math-display {
+      margin-top: .5rem;
+      font-size: clamp(1.35rem, 1.1rem + .9vw, 2rem);
+      font-weight: 800;
+      color: var(--accent-3);
+      word-break: break-word;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: .9rem;
+    }
+
+    .compare-card,
+    .result-box {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent));
+    }
+
+    .compare-card h3,
+    .result-box h3 {
+      margin: 0 0 .5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .table-lite {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+
+    .table-lite th,
+    .table-lite td {
+      padding: .9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table-lite thead {
+      background: color-mix(in srgb, var(--panel-strong) 90%, transparent);
+    }
+
+    .table-lite tbody tr:last-child td {
+      border-bottom: 0;
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -20,42 +82,136 @@
     <section class="content">
       <section class="card hero">
         <span class="badge">Matemáticas 6° · Período 2</span>
-        <h1 id="hero-title">MCM y MCD</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <h1 id="hero-title">Mínimo común múltiplo y máximo común divisor</h1>
+        <p id="hero-subtitle">Aprende a reconocer cuándo conviene buscar el primer múltiplo en común y cuándo es mejor encontrar el mayor divisor compartido. Este tema conecta la divisibilidad con problemas de organización y reparto.</p>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Mínimo común múltiplo</span><span class="topic-chip">Máximo común divisor</span></div>
-        <ul class="list-clean"><li>Mínimo común múltiplo</li><li>Máximo común divisor</li></ul>
-        <div class="formula">Interacción propuesta: Calculadora visual de MCM y MCD</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>El <strong>MCM</strong> es el menor número distinto de cero que aparece en la lista de múltiplos de dos o más números. El <strong>MCD</strong> es el mayor número que divide exactamente a esos números al mismo tiempo.</p>
+        <div class="info-grid">
+          <div class="kpi">
+            <strong>MCM</strong>
+            <p class="muted">Se usa para encontrar coincidencias o sincronizar repeticiones, como horarios o vueltas.</p>
+          </div>
+          <div class="kpi">
+            <strong>MCD</strong>
+            <p class="muted">Se usa para repartir en grupos iguales y lo más grandes posible, sin que sobre nada.</p>
+          </div>
+          <div class="kpi">
+            <strong>Conexión</strong>
+            <p class="muted">Ambos conceptos se pueden hallar con múltiplos, divisores o descomposición en factores primos.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">¿Cuándo usar cada uno?</h2>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <h3>Usa MCM cuando...</h3>
+            <p>Necesitas saber en qué momento o cantidad dos patrones vuelven a coincidir por primera vez.</p>
+            <div class="formula">Ejemplo: una campana suena cada 4 minutos y otra cada 6. Coinciden cada 12 minutos.</div>
+          </article>
+          <article class="compare-card">
+            <h3>Usa MCD cuando...</h3>
+            <p>Quieres dividir varias cantidades en grupos iguales, sin sobrar elementos y usando el grupo más grande posible.</p>
+            <div class="formula">Ejemplo: 18 lápices y 24 borradores se pueden repartir en 6 grupos iguales.</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Pasos rápidos</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Qué se busca</th>
+              <th>Estrategia sencilla</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>MCM</td>
+              <td>El primer múltiplo común</td>
+              <td>Escribe los múltiplos de ambos números y busca el primero que se repite.</td>
+            </tr>
+            <tr>
+              <td>MCD</td>
+              <td>El mayor divisor común</td>
+              <td>Escribe los divisores de ambos números y elige el mayor compartido.</td>
+            </tr>
+            <tr>
+              <td>Ambos</td>
+              <td>Resultado exacto</td>
+              <td>También se pueden hallar con factorización prima cuando los números son grandes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Calculadora visual</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Calculadora visual de MCM y MCD</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <label>
+              <span class="mini-note">Primer número</span>
+              <input class="input" id="firstInput" type="number" min="1" max="60" value="12">
+            </label>
+            <label style="margin-top:1rem; display:block;">
+              <span class="mini-note">Segundo número</span>
+              <input class="input" id="secondInput" type="number" min="1" max="60" value="18">
+            </label>
+            <div class="inline-actions">
+              <button class="btn" id="analyzeBtn">Calcular</button>
+              <button class="btn" id="randomBtn">Números aleatorios</button>
+            </div>
+            <div class="callout" style="margin-top:1rem;">
+              <strong>Observa:</strong> la actividad muestra los múltiplos de ambos números, los divisores compartidos y destaca el MCM y el MCD para comparar los dos procedimientos.
+            </div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="mcmCanvas" height="320"></canvas>
+            <p class="muted" style="margin-top:.8rem;">Las barras ayudan a ver qué múltiplos aparecen para cada número y cuál es la primera coincidencia entre los dos.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <h3>Múltiplos en común</h3>
+            <div class="math-display" id="commonMultiplesOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Divisores en común</h3>
+            <div class="math-display" id="commonDivisorsOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Resultados</h3>
+            <div class="math-display" id="resultsOutput"></div>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <h2 class="section-title">Problemas del aula</h2>
+        <div class="practice-grid">
+          <div class="callout">
+            <strong>Situación 1:</strong> dos luces se encienden cada 3 y 5 segundos. ¿Cada cuánto se encienden juntas? Usa el MCM.
+          </div>
+          <div class="callout">
+            <strong>Situación 2:</strong> tienes 20 galletas y 30 jugos. ¿Cuál es el mayor número de grupos iguales que puedes formar? Usa el MCD.
+          </div>
+          <div class="callout">
+            <strong>Situación 3:</strong> compara 8 y 12. Encuentra su MCM y MCD y explica por qué los resultados no representan la misma idea.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Idea de cierre</h2>
+        <p>El MCM responde a la pregunta <strong>"¿cuándo coinciden?"</strong> y el MCD responde a <strong>"¿cómo reparto en partes iguales máximas?"</strong>. Distinguir esas dos preguntas ayuda mucho a escoger el procedimiento correcto.</p>
+        <div class="formula">Si se trata de coincidir, piensa en múltiplos. Si se trata de repartir, piensa en divisores.</div>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +237,147 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo2', topicSlug: '3_mcm_y_mcd.html', theme: 'amber', pageTitle: 'MCM y MCD', pageDescription: 'MCM y MCD' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Determina un MCM.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Determina un MCD.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Aplica a un problema cotidiano.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'matematicas6-periodo2-3_mcm_y_mcd.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'matematicas6',
+      periodKey: 'periodo2',
+      topicSlug: '3_mcm_y_mcd.html',
+      theme: 'amber',
+      pageTitle: 'MCM y MCD',
+      pageDescription: 'Aprende a encontrar el mínimo común múltiplo y el máximo común divisor con una calculadora visual.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Cuál es el MCM de 4 y 6?',
+        options: ['8', '10', '12', '24'],
+        answer: 2,
+        feedback: 'Los múltiplos de 4 y 6 coinciden por primera vez en 12.'
+      },
+      {
+        prompt: '¿Cuál es el MCD de 18 y 24?',
+        options: ['3', '6', '8', '12'],
+        answer: 1,
+        feedback: '6 es el mayor número que divide exactamente a 18 y a 24.'
+      },
+      {
+        prompt: '¿En cuál situación conviene usar el MCD?',
+        options: ['Para saber cuándo coinciden dos semáforos', 'Para hallar el primer múltiplo común', 'Para repartir cantidades en grupos iguales máximos', 'Para sumar dos cantidades'],
+        answer: 2,
+        feedback: 'El MCD se usa cuando queremos repartir sin que sobre nada y con grupos del mayor tamaño posible.'
+      }
+    ], 'matematicas6-periodo2-3_mcm_y_mcd.html');
+
+    const firstInput = document.getElementById('firstInput');
+    const secondInput = document.getElementById('secondInput');
+    const commonMultiplesOutput = document.getElementById('commonMultiplesOutput');
+    const commonDivisorsOutput = document.getElementById('commonDivisorsOutput');
+    const resultsOutput = document.getElementById('resultsOutput');
+    const canvas = document.getElementById('mcmCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function sanitize(value) {
+      return Math.max(1, Math.min(60, Number(value) || 1));
+    }
+
+    function gcd(a, b) {
+      let x = a;
+      let y = b;
+      while (y !== 0) {
+        const temp = y;
+        y = x % y;
+        x = temp;
+      }
+      return x;
+    }
+
+    function lcm(a, b) {
+      return (a * b) / gcd(a, b);
+    }
+
+    function multiplesOf(num, limit) {
+      const list = [];
+      for (let i = 1; i <= limit; i += 1) {
+        list.push(num * i);
+      }
+      return list;
+    }
+
+    function divisorsOf(num) {
+      const list = [];
+      for (let i = 1; i <= num; i += 1) {
+        if (num % i === 0) list.push(i);
+      }
+      return list;
+    }
+
+    function drawBars(a, b, commonLcm) {
+      SimulatorEngine.resizeCanvas(canvas, 320);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const styles = getComputedStyle(document.documentElement);
+      const textColor = styles.getPropertyValue('--text');
+      const mutedColor = styles.getPropertyValue('--muted');
+      const maxValue = Math.max(commonLcm, a * 6, b * 6);
+      const startX = 80;
+      const width = canvas.width - 110;
+
+      ctx.fillStyle = textColor;
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillText('Coincidencia de múltiplos', 18, 24);
+
+      function drawRow(label, num, y, color) {
+        const values = multiplesOf(num, 6);
+        ctx.fillStyle = textColor;
+        ctx.font = '14px Verdana';
+        ctx.fillText(label, 18, y + 18);
+        values.forEach((value, index) => {
+          const barWidth = Math.max(16, (value / maxValue) * width);
+          ctx.fillStyle = value === commonLcm ? '#f3c96b' : color;
+          ctx.fillRect(startX, y + index * 34, barWidth, 22);
+          ctx.fillStyle = '#162019';
+          ctx.font = 'bold 12px Verdana';
+          ctx.fillText(String(value), startX + 8, y + 15 + index * 34);
+        });
+      }
+
+      drawRow(`Múltiplos de ${a}`, a, 48, '#7cb27d');
+      drawRow(`Múltiplos de ${b}`, b, 48 + 6 * 34 + 16, '#83b6d9');
+
+      ctx.fillStyle = mutedColor;
+      ctx.font = '14px Verdana';
+      ctx.fillText(`La barra dorada marca el MCM = ${commonLcm}.`, 18, 310);
+    }
+
+    function render() {
+      const a = sanitize(firstInput.value);
+      const b = sanitize(secondInput.value);
+      const commonGcd = gcd(a, b);
+      const commonLcm = lcm(a, b);
+      const commonMultiples = multiplesOf(commonLcm, 4);
+      const divisorsA = divisorsOf(a);
+      const divisorsB = divisorsOf(b);
+      const commonDivisors = divisorsA.filter((value) => divisorsB.includes(value));
+
+      firstInput.value = a;
+      secondInput.value = b;
+      commonMultiplesOutput.textContent = commonMultiples.join(', ');
+      commonDivisorsOutput.textContent = commonDivisors.join(', ');
+      resultsOutput.textContent = `MCM = ${commonLcm} | MCD = ${commonGcd}`;
+
+      drawBars(a, b, commonLcm);
+    }
+
+    document.getElementById('analyzeBtn').addEventListener('click', render);
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      firstInput.value = Math.floor(Math.random() * 20) + 2;
+      secondInput.value = Math.floor(Math.random() * 20) + 2;
+      render();
+    });
+    firstInput.addEventListener('input', render);
+    secondInput.addEventListener('input', render);
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>

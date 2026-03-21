@@ -8,10 +8,68 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .momentum-mode-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin: 1rem 0;
+    }
+
+    .momentum-mode.active {
+      border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--text);
+    }
+
+    .momentum-stage {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+      align-items: start;
+    }
+
+    .reading-box {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .application-grid {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+
+    .application-card {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .application-card strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .canvas-hint {
+      margin-top: .8rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .momentum-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +79,175 @@
       <section class="card hero">
         <span class="badge">Física 10° · Período 2</span>
         <h1 id="hero-title">Impulso y gravitación</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Dinámica y conservación de la energía</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Relaciona fuerza, tiempo y cambio de movimiento con la cantidad de movimiento y estudia cómo la gravitación universal explica la atracción entre masas.</p>
       </section>
 
       <section class="card">
         <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Dinámica y conservación de la energía</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Impulso y cantidad de movimiento</span><span class="topic-chip">Ley de la gravitación universal</span></div>
-        <ul class="list-clean"><li>Impulso y cantidad de movimiento</li><li>Ley de la gravitación universal</li></ul>
-        <div class="formula">Interacción propuesta: Comparador impulso-cantidad de movimiento</div>
+        <p>El <strong>impulso</strong> mide el efecto de una fuerza aplicada durante un intervalo de tiempo y se relaciona con el cambio en la <strong>cantidad de movimiento</strong>. La <strong>gravitación universal</strong> explica la fuerza de atracción entre dos cuerpos con masa.</p>
+        <div>
+          <span class="topic-chip">Impulso</span>
+          <span class="topic-chip">Cantidad de movimiento</span>
+          <span class="topic-chip">Colisiones</span>
+          <span class="topic-chip">Gravitación universal</span>
+        </div>
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="kpi">
+            <strong>Impulso</strong>
+            <p class="muted">Se calcula como fuerza por tiempo y produce cambios en la velocidad del cuerpo.</p>
+          </div>
+          <div class="kpi">
+            <strong>Cantidad de movimiento</strong>
+            <p class="muted">Es el producto de la masa por la velocidad: indica cuán difícil es detener un objeto en movimiento.</p>
+          </div>
+          <div class="kpi">
+            <strong>Gravitación</strong>
+            <p class="muted">La fuerza gravitacional aumenta con las masas y disminuye cuando la distancia entre ellas crece.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:1rem;">
+          <strong>Idea clave:</strong> el impulso cambia la cantidad de movimiento, mientras que la gravitación explica la interacción entre cuerpos a distancia.
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
+        <h2 class="section-title">Explorador interactivo</h2>
+        <div class="momentum-stage">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Comparador impulso-cantidad de movimiento</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <div class="kpi">
+              <strong>Comparador de impulso y gravitación</strong>
+              <p class="muted">Alterna entre impulso y gravitación para observar cómo cambian las magnitudes físicas cuando ajustas masa, velocidad, fuerza, tiempo y distancia.</p>
+            </div>
+
+            <div class="momentum-mode-row">
+              <button class="btn momentum-mode active" data-mode="impulso" type="button">Impulso</button>
+              <button class="btn momentum-mode" data-mode="gravitacion" type="button">Gravitación</button>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span class="mini-note">Masa 1</span>
+                <input class="input" id="mass1" type="range" min="1" max="50" step="1" value="10">
+              </label>
+              <label>
+                <span class="mini-note">Velocidad inicial</span>
+                <input class="input" id="velocity1" type="range" min="0" max="30" step="1" value="8">
+              </label>
+              <label>
+                <span class="mini-note">Velocidad final</span>
+                <input class="input" id="velocity2" type="range" min="0" max="30" step="1" value="14">
+              </label>
+              <label>
+                <span class="mini-note">Fuerza aplicada</span>
+                <input class="input" id="forceValue" type="range" min="0" max="100" step="1" value="20">
+              </label>
+              <label>
+                <span class="mini-note">Tiempo de acción</span>
+                <input class="input" id="timeValue" type="range" min="1" max="20" step="1" value="4">
+              </label>
+              <label>
+                <span class="mini-note">Masa 2 / distancia</span>
+                <input class="input" id="mass2Distance" type="range" min="1" max="50" step="1" value="15">
+              </label>
+            </div>
+
+            <div class="reading-box">
+              <div class="stat"><span>Impulso</span><strong id="impulseOutput">0 N·s</strong></div>
+              <div class="stat"><span>Momento inicial</span><strong id="momentumInitialOutput">0 kg·m/s</strong></div>
+              <div class="stat"><span>Momento final</span><strong id="momentumFinalOutput">0 kg·m/s</strong></div>
+              <div class="stat"><span>F. gravitacional</span><strong id="gravityOutput">0 N</strong></div>
+            </div>
+
+            <div class="formula" id="equationOutput">I = F·t = Δp</div>
+            <p class="callout" id="modeExplanation" style="margin-top:1rem;">
+              En el modo impulso comparamos cómo una fuerza aplicada durante cierto tiempo produce un cambio en la cantidad de movimiento.
+            </p>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+
+          <div>
+            <canvas id="momentumCanvas" height="420"></canvas>
+            <p class="canvas-hint">El esquema cambia según el modo. En impulso se observa el cambio de momento; en gravitación se representa la atracción entre dos masas.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Formulas principales</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Magnitud</th>
+              <th>Expresión</th>
+              <th>Interpretación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cantidad de movimiento</td>
+              <td>p = m·v</td>
+              <td>Depende de la masa y de la velocidad del cuerpo.</td>
+            </tr>
+            <tr>
+              <td>Impulso</td>
+              <td>I = F·t</td>
+              <td>Mide el efecto de una fuerza aplicada durante un tiempo.</td>
+            </tr>
+            <tr>
+              <td>Cambio de momentum</td>
+              <td>I = Δp</td>
+              <td>El impulso equivale al cambio en la cantidad de movimiento.</td>
+            </tr>
+            <tr>
+              <td>Gravitación universal</td>
+              <td>F = G·m1·m2 / r²</td>
+              <td>Explica la atracción entre dos masas separadas por una distancia.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card">
         <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <div class="application-grid">
+          <div class="application-card">
+            <strong>Impulso en contexto</strong>
+            Sirve para analizar frenadas, golpes, choques y cambios bruscos de velocidad.
+          </div>
+          <div class="application-card">
+            <strong>Momentum en contexto</strong>
+            Permite comparar el efecto de una masa grande o de una velocidad alta en colisiones y movimientos.
+          </div>
+          <div class="application-card">
+            <strong>Gravitación en contexto</strong>
+            Explica órbitas, caída de cuerpos, interacción planeta-satélite y atracción entre masas.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+        <table class="table-lite" style="margin-top:1rem;">
+          <thead>
+            <tr>
+              <th>Situación</th>
+              <th>Magnitud destacada</th>
+              <th>Interpretación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Balón golpeado por un pie</td>
+              <td>Impulso</td>
+              <td>La fuerza aplicada durante un corto tiempo cambia el movimiento del balón.</td>
+            </tr>
+            <tr>
+              <td>Choque entre dos carros</td>
+              <td>Cantidad de movimiento</td>
+              <td>La masa y la velocidad influyen en el efecto del impacto.</td>
+            </tr>
+            <tr>
+              <td>La Luna orbitando la Tierra</td>
+              <td>Gravitación universal</td>
+              <td>La atracción gravitacional mantiene el sistema ligado.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +273,182 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo2', topicSlug: '3_impulso_gravitacion.html', theme: 'blue', pageTitle: 'Impulso y gravitación', pageDescription: 'Impulso y gravitación' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Relaciona impulso y cambio de momentum.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Aplica gravitación en contexto.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta una colisión simple.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo2-3_impulso_gravitacion.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'fisica10',
+      periodKey: 'periodo2',
+      topicSlug: '3_impulso_gravitacion.html',
+      theme: 'blue',
+      pageTitle: 'Impulso y gravitación',
+      pageDescription: 'Relaciona impulso, cantidad de movimiento y gravitación universal mediante un comparador interactivo.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Qué relación física es correcta?',
+        options: ['I = F·t', 'p = F/t', 'F = m + v', 'G = p·t'],
+        answer: 0,
+        feedback: 'El impulso se calcula multiplicando la fuerza por el tiempo de acción.'
+      },
+      {
+        prompt: '¿De qué depende la cantidad de movimiento?',
+        options: ['De la masa y la velocidad', 'Solo del tiempo', 'Solo de la altura', 'De la potencia'],
+        answer: 0,
+        feedback: 'La cantidad de movimiento depende del producto entre masa y velocidad.'
+      },
+      {
+        prompt: 'Si la distancia entre dos masas aumenta, la fuerza gravitacional...',
+        options: ['aumenta', 'permanece igual', 'disminuye', 'se vuelve negativa automáticamente'],
+        answer: 2,
+        feedback: 'La fuerza gravitacional disminuye cuando la distancia entre masas crece.'
+      }
+    ], 'fisica10-periodo2-3_impulso_gravitacion.html');
+
+    const modeButtons = Array.from(document.querySelectorAll('[data-mode]'));
+    const mass1 = document.getElementById('mass1');
+    const velocity1 = document.getElementById('velocity1');
+    const velocity2 = document.getElementById('velocity2');
+    const forceValue = document.getElementById('forceValue');
+    const timeValue = document.getElementById('timeValue');
+    const mass2Distance = document.getElementById('mass2Distance');
+    const impulseOutput = document.getElementById('impulseOutput');
+    const momentumInitialOutput = document.getElementById('momentumInitialOutput');
+    const momentumFinalOutput = document.getElementById('momentumFinalOutput');
+    const gravityOutput = document.getElementById('gravityOutput');
+    const equationOutput = document.getElementById('equationOutput');
+    const modeExplanation = document.getElementById('modeExplanation');
+    const canvas = document.getElementById('momentumCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let activeMode = 'impulso';
+    const G = 6.67e-11;
+
+    const modeText = {
+      impulso: 'En el modo impulso comparamos cómo una fuerza aplicada durante cierto tiempo produce un cambio en la cantidad de movimiento.',
+      gravitacion: 'En el modo gravitación observamos cómo la masa y la distancia modifican la fuerza de atracción entre dos cuerpos.'
+    };
+
+    function resizeCanvas() {
+      SimulatorEngine.resizeCanvas(canvas, 420);
+    }
+
+    function render() {
+      const m1 = Number(mass1.value);
+      const v1 = Number(velocity1.value);
+      const v2 = Number(velocity2.value);
+      const f = Number(forceValue.value);
+      const t = Number(timeValue.value);
+      const m2OrDistance = Number(mass2Distance.value);
+
+      const impulse = f * t;
+      const p1 = m1 * v1;
+      const p2 = m1 * v2;
+      const deltaP = p2 - p1;
+      const m2 = m2OrDistance;
+      const r = Math.max(1, m2OrDistance);
+      const gravity = G * m1 * m2 / (r * r);
+
+      impulseOutput.textContent = `${impulse.toFixed(1)} N·s`;
+      momentumInitialOutput.textContent = `${p1.toFixed(1)} kg·m/s`;
+      momentumFinalOutput.textContent = `${p2.toFixed(1)} kg·m/s`;
+      gravityOutput.textContent = `${gravity.toExponential(2)} N`;
+      equationOutput.textContent = activeMode === 'impulso'
+        ? `I = ${impulse.toFixed(1)} N·s | Δp = ${deltaP.toFixed(1)} kg·m/s`
+        : `F = ${gravity.toExponential(2)} N`;
+      modeExplanation.textContent = modeText[activeMode];
+
+      resizeCanvas();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const styles = getComputedStyle(document.documentElement);
+      const text = styles.getPropertyValue('--text');
+      const muted = styles.getPropertyValue('--muted');
+      ctx.fillStyle = text;
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillText('Comparador de impulso y gravitación', 18, 24);
+
+      if (activeMode === 'impulso') {
+        const baseY = 320;
+        const startX = 70;
+        const scale = 4;
+
+        ctx.fillStyle = '#7dd3fc';
+        ctx.fillRect(startX, 220, 70, 45);
+        ctx.strokeStyle = 'rgba(255,255,255,.2)';
+        ctx.strokeRect(startX, 220, 70, 45);
+        ctx.fillStyle = text;
+        ctx.font = '13px Verdana';
+        ctx.fillText(`m = ${m1} kg`, startX, 205);
+
+        ctx.strokeStyle = '#34d399';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(startX + 35, 280);
+        ctx.lineTo(startX + 35 + v1 * scale, 280);
+        ctx.stroke();
+        ctx.fillText(`vi = ${v1}`, startX + 10, 300);
+
+        ctx.strokeStyle = '#c084fc';
+        ctx.beginPath();
+        ctx.moveTo(startX + 35, 340);
+        ctx.lineTo(startX + 35 + v2 * scale, 340);
+        ctx.stroke();
+        ctx.fillText(`vf = ${v2}`, startX + 10, 360);
+
+        ctx.fillStyle = muted;
+        ctx.fillText(`I = ${impulse.toFixed(1)} N·s`, 220, 300);
+        ctx.fillText(`Δp = ${deltaP.toFixed(1)} kg·m/s`, 220, 330);
+      } else {
+        const leftX = 120;
+        const rightX = 320;
+        const centerY = 240;
+        const radius1 = 20 + m1 * 0.6;
+        const radius2 = 20 + m2 * 0.6;
+
+        ctx.fillStyle = '#60a5fa';
+        ctx.beginPath();
+        ctx.arc(leftX, centerY, radius1, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#fbbf24';
+        ctx.beginPath();
+        ctx.arc(rightX, centerY, radius2, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = '#c084fc';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(leftX + radius1, centerY);
+        ctx.lineTo(rightX - radius2, centerY);
+        ctx.stroke();
+
+        ctx.fillStyle = text;
+        ctx.font = '13px Verdana';
+        ctx.fillText(`m1 = ${m1} kg`, leftX - 28, centerY + radius1 + 22);
+        ctx.fillText(`m2 = ${m2} kg`, rightX - 28, centerY + radius2 + 22);
+        ctx.fillText(`r = ${r} m`, 208, centerY - 18);
+        ctx.fillText(`F = ${gravity.toExponential(2)} N`, 170, 340);
+      }
+
+      ctx.fillStyle = muted;
+      ctx.font = '14px Verdana';
+      ctx.fillText(activeMode === 'impulso' ? 'El impulso cambia el movimiento.' : 'La distancia debilita la atracción gravitacional.', 18, 390);
+    }
+
+    modeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeMode = button.dataset.mode;
+        modeButtons.forEach((item) => item.classList.toggle('active', item === button));
+        render();
+      });
+    });
+
+    [mass1, velocity1, velocity2, forceValue, timeValue, mass2Distance].forEach((input) => {
+      input.addEventListener('input', render);
+    });
+
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>

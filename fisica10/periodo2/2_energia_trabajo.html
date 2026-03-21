@@ -8,10 +8,68 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .energy-mode-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin: 1rem 0;
+    }
+
+    .energy-mode.active {
+      border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--text);
+    }
+
+    .energy-stage {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+      align-items: start;
+    }
+
+    .reading-box {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .application-grid {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+
+    .application-card {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .application-card strong {
+      display: block;
+      margin-bottom: .35rem;
+    }
+
+    .canvas-hint {
+      margin-top: .8rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .energy-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +79,175 @@
       <section class="card hero">
         <span class="badge">Física 10° · Período 2</span>
         <h1 id="hero-title">Trabajo y energía</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Dinámica y conservación de la energía</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Relaciona fuerza, desplazamiento y tiempo con la energía cinética, la energía potencial y la energía mecánica. Este tema ayuda a explicar cómo cambian los sistemas físicos.</p>
       </section>
 
       <section class="card">
         <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Dinámica y conservación de la energía</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Trabajo y potencia</span><span class="topic-chip">Energía mecánica</span><span class="topic-chip">Energía cinética</span><span class="topic-chip">Energía potencial</span></div>
-        <ul class="list-clean"><li>Trabajo y potencia</li><li>Energía mecánica</li><li>Energía cinética</li><li>Energía potencial</li></ul>
-        <div class="formula">Interacción propuesta: Monitor de energía mecánica</div>
+        <p>El <strong>trabajo</strong> describe la transferencia de energía cuando una fuerza produce desplazamiento. La <strong>energía</strong> expresa la capacidad de realizar trabajo y puede presentarse en forma cinética, potencial o mecánica.</p>
+        <div>
+          <span class="topic-chip">Trabajo</span>
+          <span class="topic-chip">Potencia</span>
+          <span class="topic-chip">Energía cinética</span>
+          <span class="topic-chip">Energía potencial</span>
+        </div>
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="kpi">
+            <strong>Trabajo</strong>
+            <p class="muted">Se calcula como fuerza por desplazamiento cuando ambas magnitudes están en la misma dirección.</p>
+          </div>
+          <div class="kpi">
+            <strong>Energía cinética</strong>
+            <p class="muted">Depende de la masa y de la velocidad del cuerpo: mientras más rápido se mueve, mayor es.</p>
+          </div>
+          <div class="kpi">
+            <strong>Energía potencial</strong>
+            <p class="muted">Depende de la altura y de la posición del cuerpo en un campo gravitatorio.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:1rem;">
+          <strong>Idea clave:</strong> la energía puede transformarse de una forma a otra, pero en muchos sistemas la energía mecánica total se conserva.
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
+        <h2 class="section-title">Explorador de energía</h2>
+        <div class="energy-stage">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Monitor de energía mecánica</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <div class="kpi">
+              <strong>Panel de trabajo y energía</strong>
+              <p class="muted">Ajusta masa, velocidad, altura, fuerza y tiempo para observar cómo cambian el trabajo, la potencia y las energías del sistema.</p>
+            </div>
+
+            <div class="energy-mode-row">
+              <button class="btn energy-mode active" data-mode="energia" type="button">Energía</button>
+              <button class="btn energy-mode" data-mode="trabajo" type="button">Trabajo</button>
+            </div>
+
+            <div class="controls">
+              <label>
+                <span class="mini-note">Masa</span>
+                <input class="input" id="massValue" type="range" min="1" max="20" step="1" value="5">
+              </label>
+              <label>
+                <span class="mini-note">Velocidad</span>
+                <input class="input" id="velocityValue" type="range" min="0" max="30" step="1" value="10">
+              </label>
+              <label>
+                <span class="mini-note">Altura</span>
+                <input class="input" id="heightValue" type="range" min="0" max="20" step="1" value="8">
+              </label>
+              <label>
+                <span class="mini-note">Fuerza aplicada</span>
+                <input class="input" id="forceValue" type="range" min="0" max="100" step="1" value="25">
+              </label>
+              <label>
+                <span class="mini-note">Desplazamiento</span>
+                <input class="input" id="distanceValue" type="range" min="0" max="20" step="1" value="6">
+              </label>
+              <label>
+                <span class="mini-note">Tiempo</span>
+                <input class="input" id="timeValue" type="range" min="1" max="20" step="1" value="4">
+              </label>
+            </div>
+
+            <div class="reading-box">
+              <div class="stat"><span>Trabajo</span><strong id="workOutput">0 J</strong></div>
+              <div class="stat"><span>Potencia</span><strong id="powerOutput">0 W</strong></div>
+              <div class="stat"><span>E. cinética</span><strong id="kineticOutput">0 J</strong></div>
+              <div class="stat"><span>E. potencial</span><strong id="potentialOutput">0 J</strong></div>
+            </div>
+
+            <div class="formula" id="equationOutput">Em = Ec + Ep</div>
+            <p class="callout" id="modeExplanation" style="margin-top:1rem;">
+              En el modo energía observamos cómo la energía cinética y la potencial se suman para formar la energía mecánica.
+            </p>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+
+          <div>
+            <canvas id="energyCanvas" height="420"></canvas>
+            <p class="canvas-hint">Las barras representan el tamaño relativo de cada magnitud. El bloque muestra la altura del sistema y su velocidad asociada.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Formulas principales</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Magnitud</th>
+              <th>Expresión</th>
+              <th>Interpretación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Trabajo</td>
+              <td>W = F·d</td>
+              <td>Mide la energía transferida por una fuerza durante un desplazamiento.</td>
+            </tr>
+            <tr>
+              <td>Potencia</td>
+              <td>P = W/t</td>
+              <td>Indica qué tan rápido se realiza el trabajo.</td>
+            </tr>
+            <tr>
+              <td>Energía cinética</td>
+              <td>Ec = 1/2·m·v²</td>
+              <td>Depende del movimiento del cuerpo.</td>
+            </tr>
+            <tr>
+              <td>Energía potencial</td>
+              <td>Ep = m·g·h</td>
+              <td>Depende de la altura respecto a una referencia.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card">
         <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <div class="application-grid">
+          <div class="application-card">
+            <strong>Trabajo en contexto</strong>
+            Sirve para analizar cuánto esfuerzo mecánico realiza una persona al mover una caja o elevar una carga.
+          </div>
+          <div class="application-card">
+            <strong>Energía mecánica</strong>
+            Ayuda a estudiar montañas rusas, pelotas lanzadas o cuerpos que cambian de altura y velocidad.
+          </div>
+          <div class="application-card">
+            <strong>Potencia</strong>
+            Permite comparar qué máquina o persona realiza el mismo trabajo en menos tiempo.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+        <table class="table-lite" style="margin-top:1rem;">
+          <thead>
+            <tr>
+              <th>Situación</th>
+              <th>Magnitud destacada</th>
+              <th>Interpretación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Una caja es empujada varios metros</td>
+              <td>Trabajo</td>
+              <td>La fuerza aplicada transfiere energía al sistema.</td>
+            </tr>
+            <tr>
+              <td>Un ciclista baja por una pendiente</td>
+              <td>Energía potencial y cinética</td>
+              <td>La energía potencial disminuye mientras la cinética aumenta.</td>
+            </tr>
+            <tr>
+              <td>Dos motores hacen el mismo trabajo</td>
+              <td>Potencia</td>
+              <td>El motor más potente lo realiza en menos tiempo.</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +273,155 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo2', topicSlug: '2_energia_trabajo.html', theme: 'blue', pageTitle: 'Trabajo y energía', pageDescription: 'Trabajo y energía' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Calcula trabajo simple.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Relaciona energía cinética y velocidad.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Diferencia potencia y trabajo.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo2-2_energia_trabajo.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'fisica10',
+      periodKey: 'periodo2',
+      topicSlug: '2_energia_trabajo.html',
+      theme: 'blue',
+      pageTitle: 'Trabajo y energía',
+      pageDescription: 'Relaciona trabajo, potencia y energías mecánicas mediante un panel interactivo.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Qué expresión representa el trabajo mecánico cuando la fuerza y el desplazamiento van en la misma dirección?',
+        options: ['W = F·d', 'P = m·g', 'Ec = m·h', 'Ep = F/t'],
+        answer: 0,
+        feedback: 'El trabajo se calcula como fuerza por desplazamiento cuando ambas magnitudes están alineadas.'
+      },
+      {
+        prompt: '¿De qué depende principalmente la energía cinética?',
+        options: ['De la masa y la velocidad', 'Solo de la altura', 'Solo del tiempo', 'Del color del objeto'],
+        answer: 0,
+        feedback: 'La energía cinética depende de la masa y del cuadrado de la velocidad.'
+      },
+      {
+        prompt: 'Si un cuerpo aumenta su altura, ¿qué energía cambia directamente?',
+        options: ['Energía potencial', 'Energía térmica', 'Cantidad de movimiento', 'Presión'],
+        answer: 0,
+        feedback: 'La energía potencial gravitatoria depende directamente de la altura.'
+      }
+    ], 'fisica10-periodo2-2_energia_trabajo.html');
+
+    const modeButtons = Array.from(document.querySelectorAll('[data-mode]'));
+    const massValue = document.getElementById('massValue');
+    const velocityValue = document.getElementById('velocityValue');
+    const heightValue = document.getElementById('heightValue');
+    const forceValue = document.getElementById('forceValue');
+    const distanceValue = document.getElementById('distanceValue');
+    const timeValue = document.getElementById('timeValue');
+    const workOutput = document.getElementById('workOutput');
+    const powerOutput = document.getElementById('powerOutput');
+    const kineticOutput = document.getElementById('kineticOutput');
+    const potentialOutput = document.getElementById('potentialOutput');
+    const equationOutput = document.getElementById('equationOutput');
+    const modeExplanation = document.getElementById('modeExplanation');
+    const canvas = document.getElementById('energyCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let activeMode = 'energia';
+    const g = 9.8;
+
+    const modeText = {
+      energia: 'En el modo energía observamos cómo la energía cinética y la potencial se suman para formar la energía mecánica.',
+      trabajo: 'En el modo trabajo se compara cuánta energía se transfiere y con qué rapidez se realiza ese proceso.'
+    };
+
+    function resizeCanvas() {
+      SimulatorEngine.resizeCanvas(canvas, 420);
+    }
+
+    function drawBar(x, y, width, height, color, label, value) {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y - height, width, height);
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+      ctx.font = '13px Verdana';
+      ctx.fillText(label, x, y + 20);
+      ctx.fillText(`${value.toFixed(1)}`, x, y - height - 8);
+    }
+
+    function render() {
+      const m = Number(massValue.value);
+      const v = Number(velocityValue.value);
+      const h = Number(heightValue.value);
+      const f = Number(forceValue.value);
+      const d = Number(distanceValue.value);
+      const t = Number(timeValue.value);
+
+      const work = f * d;
+      const power = t === 0 ? 0 : work / t;
+      const kinetic = 0.5 * m * v * v;
+      const potential = m * g * h;
+      const mechanical = kinetic + potential;
+
+      workOutput.textContent = `${work.toFixed(1)} J`;
+      powerOutput.textContent = `${power.toFixed(1)} W`;
+      kineticOutput.textContent = `${kinetic.toFixed(1)} J`;
+      potentialOutput.textContent = `${potential.toFixed(1)} J`;
+      equationOutput.textContent = activeMode === 'energia'
+        ? `Em = ${mechanical.toFixed(1)} J = Ec + Ep`
+        : `P = ${power.toFixed(1)} W = W / t`;
+      modeExplanation.textContent = modeText[activeMode];
+
+      resizeCanvas();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const styles = getComputedStyle(document.documentElement);
+      const text = styles.getPropertyValue('--text');
+      const muted = styles.getPropertyValue('--muted');
+      ctx.fillStyle = text;
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillText('Monitor de trabajo y energía', 18, 24);
+
+      const floorY = 340;
+      const blockX = 70;
+      const blockY = floorY - 40 - h * 8;
+      ctx.fillStyle = '#7dd3fc';
+      ctx.fillRect(blockX, blockY, 60, 40);
+      ctx.strokeStyle = 'rgba(255,255,255,.2)';
+      ctx.strokeRect(blockX, blockY, 60, 40);
+
+      ctx.strokeStyle = '#86efac';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(blockX + 80, floorY);
+      ctx.lineTo(blockX + 80, blockY);
+      ctx.stroke();
+
+      ctx.fillStyle = text;
+      ctx.font = '13px Verdana';
+      ctx.fillText(`h = ${h} m`, blockX + 90, (floorY + blockY) / 2);
+      ctx.fillText(`v = ${v} m/s`, blockX, blockY - 10);
+
+      const baseX = 230;
+      const maxValue = Math.max(work, power, kinetic, potential, mechanical, 1);
+      const scale = 180 / maxValue;
+
+      drawBar(baseX, floorY, 36, kinetic * scale, '#60a5fa', 'Ec', kinetic);
+      drawBar(baseX + 56, floorY, 36, potential * scale, '#fbbf24', 'Ep', potential);
+      drawBar(baseX + 112, floorY, 36, work * scale, '#34d399', 'W', work);
+      drawBar(baseX + 168, floorY, 36, power * scale, '#c084fc', 'P', power);
+
+      ctx.fillStyle = muted;
+      ctx.font = '14px Verdana';
+      ctx.fillText(`Em = ${mechanical.toFixed(1)} J`, 230, 380);
+    }
+
+    modeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeMode = button.dataset.mode;
+        modeButtons.forEach((item) => item.classList.toggle('active', item === button));
+        render();
+      });
+    });
+
+    [massValue, velocityValue, heightValue, forceValue, distanceValue, timeValue].forEach((input) => {
+      input.addEventListener('input', render);
+    });
+
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>

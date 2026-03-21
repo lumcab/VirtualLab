@@ -8,10 +8,72 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid,
+    .steps-grid,
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .math-display {
+      margin-top: .5rem;
+      font-size: clamp(1.3rem, 1.05rem + .9vw, 2rem);
+      font-weight: 800;
+      color: var(--accent-3);
+      word-break: break-word;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: .9rem;
+    }
+
+    .step-card,
+    .result-box {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent));
+    }
+
+    .step-card h3,
+    .result-box h3 {
+      margin: 0 0 .5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .table-lite {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+
+    .table-lite th,
+    .table-lite td {
+      padding: .9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table-lite thead {
+      background: color-mix(in srgb, var(--panel-strong) 90%, transparent);
+    }
+
+    .table-lite tbody tr:last-child td {
+      border-bottom: 0;
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +83,139 @@
       <section class="card hero">
         <span class="badge">Matemáticas 6° · Período 2</span>
         <h1 id="hero-title">Descomposición en factores primos</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Aprende a escribir un número compuesto como producto de números primos. Esta herramienta permite comprender mejor la divisibilidad, el MCM y el MCD.</p>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Descomposición de números en su factor primo</span></div>
-        <ul class="list-clean"><li>Descomposición de números en su factor primo</li></ul>
-        <div class="formula">Interacción propuesta: Árbol de factores interactivo</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>Descomponer un número en factores primos significa expresarlo como una multiplicación de <strong>números primos</strong>. Un número primo solo tiene dos divisores: el 1 y él mismo.</p>
+        <div class="info-grid">
+          <div class="kpi">
+            <strong>Número primo</strong>
+            <p class="muted">Tiene exactamente dos divisores. Ejemplos: 2, 3, 5, 7 y 11.</p>
+          </div>
+          <div class="kpi">
+            <strong>Número compuesto</strong>
+            <p class="muted">Se puede escribir como producto de otros números naturales. Ejemplo: 12 = 3 x 4.</p>
+          </div>
+          <div class="kpi">
+            <strong>Utilidad</strong>
+            <p class="muted">La factorización prima ayuda a hallar MCM, MCD y a entender mejor la estructura de los números.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Cómo se hace</h2>
+        <div class="steps-grid">
+          <article class="step-card">
+            <h3>Paso 1</h3>
+            <p>Escoge el menor número primo que pueda dividir exactamente al número dado: 2, 3, 5, 7...</p>
+          </article>
+          <article class="step-card">
+            <h3>Paso 2</h3>
+            <p>Divide y repite el proceso con el resultado hasta llegar a 1 o hasta que todos los factores sean primos.</p>
+          </article>
+          <article class="step-card">
+            <h3>Paso 3</h3>
+            <p>Escribe la multiplicación final con todos los factores primos encontrados.</p>
+            <div class="formula">Ejemplo: 24 = 2 x 2 x 2 x 3</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Primos frecuentes</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Número</th>
+              <th>¿Es primo?</th>
+              <th>Razón</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2</td>
+              <td>Sí</td>
+              <td>Solo se divide entre 1 y 2.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>No</td>
+              <td>Se divide entre 1, 2 y 4.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Sí</td>
+              <td>Solo se divide entre 1 y 5.</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>No</td>
+              <td>Se divide entre 1, 3 y 9.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Descomposición interactiva</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Árbol de factores interactivo</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <label>
+              <span class="mini-note">Número para factorizar</span>
+              <input class="input" id="numberInput" type="number" min="2" max="120" value="36">
+            </label>
+            <div class="inline-actions">
+              <button class="btn" id="analyzeBtn">Descomponer</button>
+              <button class="btn" id="randomBtn">Número aleatorio</button>
+            </div>
+            <div class="callout" style="margin-top:1rem;">
+              <strong>Pista:</strong> observa en cada paso qué número primo divide exactamente y cómo el resultado se va reduciendo hasta completar la factorización.
+            </div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="factorCanvas" height="320"></canvas>
+            <p class="muted" style="margin-top:.8rem;">El diagrama muestra la secuencia de divisiones entre números primos hasta llegar al resultado final.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <h3>Factores primos</h3>
+            <div class="math-display" id="factorsOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Expresión multiplicativa</h3>
+            <div class="math-display" id="productOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Cantidad de factores</h3>
+            <div class="math-display" id="countOutput"></div>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="practice-grid">
+          <div class="callout">
+            <strong>Reto 1:</strong> descompón 18 y verifica si todos sus factores finales son primos.
+          </div>
+          <div class="callout">
+            <strong>Reto 2:</strong> compara 20 y 30. ¿Qué factores primos comparten?
+          </div>
+          <div class="callout">
+            <strong>Reto 3:</strong> explica por qué 17 no se puede seguir descomponiendo en otros factores naturales distintos de 1 y 17.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Aplicación en contexto</h2>
+        <p>La descomposición en factores primos es útil porque revela la estructura interna de un número. Por eso se usa como base para encontrar el <strong>MCM</strong> y el <strong>MCD</strong>, y también para simplificar procesos de divisibilidad.</p>
+        <div class="formula">Todo número compuesto puede expresarse como producto de factores primos.</div>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +241,133 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo2', topicSlug: '2_descomposicion_factor_primo.html', theme: 'amber', pageTitle: 'Descomposición en factores primos', pageDescription: 'Descomposición en factores primos' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Identifica un número primo.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Factoriza un número.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Verifica una descomposición.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'matematicas6-periodo2-2_descomposicion_factor_primo.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'matematicas6',
+      periodKey: 'periodo2',
+      topicSlug: '2_descomposicion_factor_primo.html',
+      theme: 'amber',
+      pageTitle: 'Descomposición en factores primos',
+      pageDescription: 'Aprende a factorizar números en sus factores primos con una visualización paso a paso.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Cuál de estos números es primo?',
+        options: ['9', '15', '17', '21'],
+        answer: 2,
+        feedback: '17 solo tiene dos divisores: 1 y 17.'
+      },
+      {
+        prompt: '¿Cuál es la descomposición prima de 12?',
+        options: ['2 x 6', '3 x 4', '2 x 2 x 3', '1 x 12'],
+        answer: 2,
+        feedback: '12 = 2 x 2 x 3, y todos esos factores son primos.'
+      },
+      {
+        prompt: '¿Para qué sirve la descomposición en factores primos?',
+        options: ['Para cambiar decimales en fracciones', 'Para hallar MCM y MCD', 'Para medir ángulos', 'Para dibujar polígonos'],
+        answer: 1,
+        feedback: 'La factorización prima es una herramienta importante para encontrar MCM y MCD.'
+      }
+    ], 'matematicas6-periodo2-2_descomposicion_factor_primo.html');
+
+    const numberInput = document.getElementById('numberInput');
+    const factorsOutput = document.getElementById('factorsOutput');
+    const productOutput = document.getElementById('productOutput');
+    const countOutput = document.getElementById('countOutput');
+    const canvas = document.getElementById('factorCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function sanitize(value) {
+      return Math.max(2, Math.min(120, Number(value) || 2));
+    }
+
+    function factorize(num) {
+      const factors = [];
+      const steps = [];
+      let current = num;
+      let divisor = 2;
+
+      while (current > 1) {
+        if (current % divisor === 0) {
+          factors.push(divisor);
+          steps.push({ current, divisor, result: current / divisor });
+          current /= divisor;
+        } else {
+          divisor += 1;
+        }
+      }
+
+      return { factors, steps };
+    }
+
+    function drawTree(number, steps) {
+      SimulatorEngine.resizeCanvas(canvas, 320);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const styles = getComputedStyle(document.documentElement);
+      const textColor = styles.getPropertyValue('--text');
+      const mutedColor = styles.getPropertyValue('--muted');
+
+      ctx.fillStyle = textColor;
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillText(`Descomposición de ${number}`, 18, 24);
+
+      steps.forEach((step, index) => {
+        const y = 60 + index * 52;
+        ctx.fillStyle = '#7cb27d';
+        ctx.fillRect(18, y, 82, 28);
+        ctx.fillStyle = '#142019';
+        ctx.font = 'bold 14px Verdana';
+        ctx.fillText(String(step.current), 45, y + 19);
+
+        ctx.fillStyle = textColor;
+        ctx.font = '16px Verdana';
+        ctx.fillText('÷', 116, y + 19);
+
+        ctx.fillStyle = '#f0d078';
+        ctx.fillRect(140, y, 82, 28);
+        ctx.fillStyle = '#3b2b04';
+        ctx.font = 'bold 14px Verdana';
+        ctx.fillText(String(step.divisor), 168, y + 19);
+
+        ctx.fillStyle = textColor;
+        ctx.font = '16px Verdana';
+        ctx.fillText('=', 238, y + 19);
+
+        ctx.fillStyle = '#83b6d9';
+        ctx.fillRect(262, y, 82, 28);
+        ctx.fillStyle = '#102235';
+        ctx.font = 'bold 14px Verdana';
+        ctx.fillText(String(step.result), 290, y + 19);
+      });
+
+      ctx.fillStyle = mutedColor;
+      ctx.font = '14px Verdana';
+      ctx.fillText('Cada paso usa un divisor primo hasta completar la factorización.', 18, 304);
+    }
+
+    function render() {
+      const number = sanitize(numberInput.value);
+      const { factors, steps } = factorize(number);
+
+      numberInput.value = number;
+      factorsOutput.textContent = factors.join(', ');
+      productOutput.textContent = factors.join(' x ');
+      countOutput.textContent = `${factors.length} factor(es) primo(s)`;
+
+      drawTree(number, steps);
+    }
+
+    document.getElementById('analyzeBtn').addEventListener('click', render);
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      numberInput.value = Math.floor(Math.random() * 59) + 2;
+      render();
+    });
+    numberInput.addEventListener('input', render);
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>

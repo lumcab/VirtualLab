@@ -8,10 +8,72 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid,
+    .concept-grid,
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .math-display {
+      margin-top: .5rem;
+      font-size: clamp(1.25rem, 1.05rem + .8vw, 1.9rem);
+      font-weight: 800;
+      color: var(--accent-3);
+      word-break: break-word;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: .9rem;
+    }
+
+    .concept-card,
+    .result-box {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent));
+    }
+
+    .concept-card h3,
+    .result-box h3 {
+      margin: 0 0 .5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .table-lite {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+
+    .table-lite th,
+    .table-lite td {
+      padding: .85rem;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table-lite thead {
+      background: color-mix(in srgb, var(--panel-strong) 90%, transparent);
+    }
+
+    .table-lite tbody tr:last-child td {
+      border-bottom: 0;
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,46 +83,170 @@
       <section class="card hero">
         <span class="badge">Matemáticas 6° · Período 2</span>
         <h1 id="hero-title">Tablas y gráficos</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Organiza datos, interpreta frecuencias y transforma la información de una tabla en una representación gráfica clara para comparar categorías.</p>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Otras operaciones con números naturales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Tablas de contingencia</span><span class="topic-chip">Frecuencias relativas</span><span class="topic-chip">Tablas marginales</span><span class="topic-chip">Gráficos de barras para dos variables cualitativas</span></div>
-        <ul class="list-clean"><li>Tablas de contingencia</li><li>Frecuencias relativas</li><li>Tablas marginales</li><li>Gráficos de barras para dos variables cualitativas</li></ul>
-        <div class="formula">Interacción propuesta: Constructor de tablas y barras</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>Las <strong>tablas</strong> permiten ordenar datos y los <strong>gráficos</strong> ayudan a visualizarlos y compararlos. Cuando los datos están bien organizados, es más fácil identificar cantidades, relaciones y tendencias.</p>
+        <div class="info-grid">
+          <div class="kpi">
+            <strong>Frecuencia</strong>
+            <p class="muted">Indica cuántas veces aparece una categoría o respuesta.</p>
+          </div>
+          <div class="kpi">
+            <strong>Frecuencia relativa</strong>
+            <p class="muted">Muestra qué parte del total representa cada categoría.</p>
+          </div>
+          <div class="kpi">
+            <strong>Comparación</strong>
+            <p class="muted">Los gráficos de barras permiten comparar rápidamente qué grupo tiene mayor o menor cantidad.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Conceptos clave</h2>
+        <div class="concept-grid">
+          <article class="concept-card">
+            <h3>Tabla de datos</h3>
+            <p>Organiza información en filas y columnas para hacer lecturas ordenadas y comparaciones.</p>
+          </article>
+          <article class="concept-card">
+            <h3>Tabla marginal</h3>
+            <p>Resume los totales por filas o columnas para ver cantidades globales de cada grupo.</p>
+          </article>
+          <article class="concept-card">
+            <h3>Gráfico de barras</h3>
+            <p>Representa cada categoría con una barra cuya altura o longitud depende de la frecuencia.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Ejemplo guiado</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Categoría</th>
+              <th>Frecuencia</th>
+              <th>Frecuencia relativa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fútbol</td>
+              <td>8</td>
+              <td>8/20 = 0.40</td>
+            </tr>
+            <tr>
+              <td>Baloncesto</td>
+              <td>5</td>
+              <td>5/20 = 0.25</td>
+            </tr>
+            <tr>
+              <td>Natación</td>
+              <td>7</td>
+              <td>7/20 = 0.35</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="formula">Primero se suma el total. Después se divide cada frecuencia entre ese total para hallar la frecuencia relativa.</div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Explorador interactivo</h2>
         <div class="grid columns-2">
           <div>
-            <table class="table-lite">
-              <thead><tr><th>Categoría</th><th>Frecuencia</th></tr></thead>
-              <tbody><tr><td>A</td><td>8</td></tr><tr><td>B</td><td>5</td></tr><tr><td>C</td><td>9</td></tr></tbody>
-            </table>
-            <p class="mini-note">Ejemplo visual de organización de datos para lectura comparativa.</p>
+            <label>
+              <span class="mini-note">Categoría A</span>
+              <input class="input" id="labelA" type="text" value="Fútbol">
+            </label>
+            <label style="margin-top:1rem; display:block;">
+              <span class="mini-note">Frecuencia A</span>
+              <input class="input" id="valueA" type="number" min="0" max="30" value="8">
+            </label>
+
+            <label style="margin-top:1rem; display:block;">
+              <span class="mini-note">Categoría B</span>
+              <input class="input" id="labelB" type="text" value="Baloncesto">
+            </label>
+            <label style="margin-top:1rem; display:block;">
+              <span class="mini-note">Frecuencia B</span>
+              <input class="input" id="valueB" type="number" min="0" max="30" value="5">
+            </label>
+
+            <label style="margin-top:1rem; display:block;">
+              <span class="mini-note">Categoría C</span>
+              <input class="input" id="labelC" type="text" value="Natación">
+            </label>
+            <label style="margin-top:1rem; display:block;">
+              <span class="mini-note">Frecuencia C</span>
+              <input class="input" id="valueC" type="number" min="0" max="30" value="7">
+            </label>
+
+            <div class="inline-actions">
+              <button class="btn" id="analyzeBtn">Actualizar</button>
+              <button class="btn" id="randomBtn">Ejemplo aleatorio</button>
+            </div>
+            <div class="callout" style="margin-top:1rem;">
+              <strong>Pista:</strong> cambia las frecuencias y observa cómo se transforman la tabla, el total y el gráfico de barras.
+            </div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="chartCanvas" height="320"></canvas>
+            <p class="muted" style="margin-top:.8rem;">Cada barra representa una categoría. Cuanto mayor sea la frecuencia, mayor será la barra.</p>
+          </div>
         </div>
-        <script>
-          SimulatorEngine.mountBarChart(document.getElementById('sim-canvas'), [
-            { label: 'A', value: 8 },
-            { label: 'B', value: 5 },
-            { label: 'C', value: 9 }
-          ]);
-        </script>
-        
+
+        <div style="margin-top:1rem;">
+          <table class="table-lite">
+            <thead>
+              <tr>
+                <th>Categoría</th>
+                <th>Frecuencia</th>
+                <th>Frecuencia relativa</th>
+              </tr>
+            </thead>
+            <tbody id="dataTableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="info-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <h3>Total de datos</h3>
+            <div class="math-display" id="totalOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Categoría mayor</h3>
+            <div class="math-display" id="maxOutput"></div>
+          </div>
+          <div class="result-box">
+            <h3>Categoría menor</h3>
+            <div class="math-display" id="minOutput"></div>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="practice-grid">
+          <div class="callout">
+            <strong>Reto 1:</strong> cambia una frecuencia y explica cómo se modifica la frecuencia relativa de las demás categorías.
+          </div>
+          <div class="callout">
+            <strong>Reto 2:</strong> identifica cuál categoría representa menos del 30% del total.
+          </div>
+          <div class="callout">
+            <strong>Reto 3:</strong> construye un ejemplo en el que dos categorías tengan la misma frecuencia.
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Aplicación en contexto</h2>
+        <p>Las tablas y gráficos se usan para organizar encuestas, registrar preferencias, comparar resultados y comunicar información de forma clara. Leer una tabla y pasarla a gráfico ayuda a interpretar mejor los datos.</p>
+        <div class="formula">Ordenar datos permite analizarlos. Graficarlos permite compararlos rápidamente.</div>
       </section>
 
       <section class="card quiz-box">
@@ -86,8 +272,146 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo2', topicSlug: '4_tablas_graficos.html', theme: 'amber', pageTitle: 'Tablas y gráficos', pageDescription: 'Tablas y gráficos' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Interpreta una tabla de contingencia.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Calcula una frecuencia relativa.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Compara dos grupos en un gráfico.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'matematicas6-periodo2-4_tablas_graficos.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'matematicas6',
+      periodKey: 'periodo2',
+      topicSlug: '4_tablas_graficos.html',
+      theme: 'amber',
+      pageTitle: 'Tablas y gráficos',
+      pageDescription: 'Organiza datos en tablas, calcula frecuencias y compáralos con gráficos de barras.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Qué muestra la frecuencia de una categoría?',
+        options: ['La suma de todas las categorías', 'Cuántas veces aparece esa categoría', 'El porcentaje final del gráfico', 'La diferencia entre dos datos'],
+        answer: 1,
+        feedback: 'La frecuencia indica cuántas veces aparece una categoría.'
+      },
+      {
+        prompt: '¿Para qué sirve un gráfico de barras?',
+        options: ['Para ordenar números primos', 'Para factorizar cantidades', 'Para comparar categorías visualmente', 'Para hallar divisores'],
+        answer: 2,
+        feedback: 'El gráfico de barras ayuda a comparar categorías de forma rápida y visual.'
+      },
+      {
+        prompt: 'Si el total es 20 y una categoría tiene frecuencia 5, su frecuencia relativa es...',
+        options: ['0.25', '0.5', '5.20', '4'],
+        answer: 0,
+        feedback: '5 dividido entre 20 es 0.25.'
+      }
+    ], 'matematicas6-periodo2-4_tablas_graficos.html');
+
+    const labelA = document.getElementById('labelA');
+    const labelB = document.getElementById('labelB');
+    const labelC = document.getElementById('labelC');
+    const valueA = document.getElementById('valueA');
+    const valueB = document.getElementById('valueB');
+    const valueC = document.getElementById('valueC');
+    const dataTableBody = document.getElementById('dataTableBody');
+    const totalOutput = document.getElementById('totalOutput');
+    const maxOutput = document.getElementById('maxOutput');
+    const minOutput = document.getElementById('minOutput');
+    const canvas = document.getElementById('chartCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function cleanLabel(value, fallback) {
+      return String(value || '').trim() || fallback;
+    }
+
+    function sanitizeValue(value) {
+      return Math.max(0, Math.min(30, Number(value) || 0));
+    }
+
+    function drawBars(items) {
+      SimulatorEngine.resizeCanvas(canvas, 320);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const styles = getComputedStyle(document.documentElement);
+      const textColor = styles.getPropertyValue('--text');
+      const mutedColor = styles.getPropertyValue('--muted');
+      const colors = ['#7cb27d', '#83b6d9', '#f0d078'];
+      const maxValue = Math.max(...items.map((item) => item.value), 1);
+      const chartHeight = 190;
+      const baseY = 250;
+      const barWidth = 72;
+      const gap = 34;
+      const startX = 38;
+
+      ctx.fillStyle = textColor;
+      ctx.font = 'bold 16px Verdana';
+      ctx.fillText('Comparación de frecuencias', 18, 24);
+
+      items.forEach((item, index) => {
+        const x = startX + index * (barWidth + gap);
+        const height = (item.value / maxValue) * chartHeight;
+        const y = baseY - height;
+
+        ctx.fillStyle = colors[index % colors.length];
+        ctx.fillRect(x, y, barWidth, height);
+        ctx.fillStyle = '#142019';
+        ctx.font = 'bold 14px Verdana';
+        ctx.fillText(String(item.value), x + 24, y - 8);
+
+        ctx.fillStyle = textColor;
+        ctx.font = '13px Verdana';
+        ctx.fillText(item.label.slice(0, 10), x, baseY + 22);
+      });
+
+      ctx.strokeStyle = 'rgba(255,255,255,.2)';
+      ctx.beginPath();
+      ctx.moveTo(24, baseY);
+      ctx.lineTo(canvas.width - 24, baseY);
+      ctx.stroke();
+
+      ctx.fillStyle = mutedColor;
+      ctx.font = '14px Verdana';
+      ctx.fillText('La altura de cada barra representa su frecuencia.', 18, 304);
+    }
+
+    function render() {
+      const items = [
+        { label: cleanLabel(labelA.value, 'Categoría A'), value: sanitizeValue(valueA.value) },
+        { label: cleanLabel(labelB.value, 'Categoría B'), value: sanitizeValue(valueB.value) },
+        { label: cleanLabel(labelC.value, 'Categoría C'), value: sanitizeValue(valueC.value) }
+      ];
+
+      valueA.value = items[0].value;
+      valueB.value = items[1].value;
+      valueC.value = items[2].value;
+
+      const total = items.reduce((sum, item) => sum + item.value, 0);
+      const sorted = [...items].sort((a, b) => b.value - a.value);
+      const maxItem = sorted[0];
+      const minItem = sorted[sorted.length - 1];
+
+      dataTableBody.innerHTML = items.map((item) => {
+        const relative = total === 0 ? 0 : (item.value / total);
+        return `<tr><td>${item.label}</td><td>${item.value}</td><td>${relative.toFixed(2)}</td></tr>`;
+      }).join('');
+
+      totalOutput.textContent = String(total);
+      maxOutput.textContent = `${maxItem.label}: ${maxItem.value}`;
+      minOutput.textContent = `${minItem.label}: ${minItem.value}`;
+
+      drawBars(items);
+    }
+
+    document.getElementById('analyzeBtn').addEventListener('click', render);
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      valueA.value = Math.floor(Math.random() * 16) + 3;
+      valueB.value = Math.floor(Math.random() * 16) + 3;
+      valueC.value = Math.floor(Math.random() * 16) + 3;
+      render();
+    });
+
+    [labelA, labelB, labelC, valueA, valueB, valueC].forEach((input) => {
+      input.addEventListener('input', render);
+    });
+
+    window.addEventListener('resize', render);
+    render();
   </script>
 </body>
 </html>
