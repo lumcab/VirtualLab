@@ -18,16 +18,16 @@ window.Navigation = {
       ['sidebar-mount', 'components/sidebar.html', this.componentFallbacks.sidebar],
       ['footer-mount', 'components/footer.html', this.componentFallbacks.footer]
     ];
-    for (const [id, relPath, fallback] of mounts) {
+    await Promise.all(mounts.map(async ([id, relPath, fallback]) => {
       const mount = document.getElementById(id);
-      if (!mount) continue;
+      if (!mount) return;
       try {
         const response = await fetch(RouteUtils.rel(config.depth, relPath));
         mount.innerHTML = response.ok ? await response.text() : fallback;
       } catch {
         mount.innerHTML = fallback;
       }
-    }
+    }));
     this.renderHeader(config);
     this.renderSidebar(config);
     this.renderFooter(config);

@@ -1,26 +1,26 @@
 :root {
-  --bg: #101716;
-  --bg-soft: #17201e;
-  --panel: rgba(24, 33, 31, 0.78);
-  --panel-strong: rgba(33, 43, 40, 0.94);
-  --text: #f4f1ea;
-  --muted: #c2cabe;
-  --line: rgba(215, 223, 213, 0.12);
-  --line-strong: rgba(215, 223, 213, 0.2);
+  --bg: #1b2233;
+  --bg-soft: #242d43;
+  --panel: rgba(31, 40, 60, 0.8);
+  --panel-strong: rgba(37, 46, 69, 0.94);
+  --text: #f5f3ff;
+  --muted: #d2d9eb;
+  --line: rgba(196, 204, 255, 0.14);
+  --line-strong: rgba(196, 204, 255, 0.22);
   --shadow: 0 24px 60px rgba(0,0,0,0.28);
   --shadow-soft: 0 18px 36px rgba(0,0,0,0.18);
   --radius: 24px;
   --radius-sm: 16px;
-  --accent: #79a68d;
-  --accent-2: #a2c3a2;
-  --accent-3: #d7e7d5;
-  --success: #7cb27d;
-  --warning: #c89a49;
-  --danger: #d46f67;
-  --canvas-text: #f3efe8;
-  --canvas-muted: #d8d2c7;
-  --canvas-bg: #131916;
-  --canvas-bg-2: #1d2421;
+  --accent: #6d5efc;
+  --accent-2: #8aa4ff;
+  --accent-3: #eef2ff;
+  --success: #7c8cff;
+  --warning: #c7a55b;
+  --danger: #de7ba5;
+  --canvas-text: #f5f3ff;
+  --canvas-muted: #d9def0;
+  --canvas-bg: #1b2233;
+  --canvas-bg-2: #27314a;
   --font-display: "Trebuchet MS", "Segoe UI", sans-serif;
   --font-body: "Segoe UI", "Trebuchet MS", sans-serif;
 }
@@ -49,6 +49,7 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--text);
+  background-color: var(--bg);
   background:
     radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 25%),
     radial-gradient(circle at 86% 16%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 20%),

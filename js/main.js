@@ -14,10 +14,18 @@ window.App = {
   },
   mountRevealAnimations() {
     const targets = Array.from(document.querySelectorAll('.hero, .card, .topic-card, .calendar-card'));
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
     targets.forEach((node, index) => {
+      const rect = node.getBoundingClientRect();
+      const isInitiallyVisible = rect.top < viewportHeight * 0.92 && rect.bottom > 0;
       if (!node.hasAttribute('data-reveal')) {
         node.setAttribute('data-reveal', '');
-        node.style.transitionDelay = `${Math.min(index * 45, 280)}ms`;
+        if (isInitiallyVisible) {
+          node.classList.add('is-visible');
+          node.style.transitionDelay = '0ms';
+        } else {
+          node.style.transitionDelay = `${Math.min(index * 45, 280)}ms`;
+        }
       }
     });
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
