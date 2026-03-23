@@ -8,81 +8,84 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid, .concept-grid, .practice-grid, .results-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; }
+    .concept-card, .result-box { padding:1rem; border-radius:18px; border:1px solid var(--line); background:linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent)); }
+    .concept-card h3, .result-box h3 { margin:0 0 .5rem; font-family:var(--font-display); font-size:1.05rem; }
+    .math-display { margin-top:.55rem; font-size:clamp(1.25rem, 1.05rem + .8vw, 1.9rem); font-weight:800; color:var(--accent-3); }
+    .table-lite { width:100%; border-collapse:collapse; overflow:hidden; border-radius:18px; border:1px solid var(--line); }
+    .table-lite th, .table-lite td { padding:.85rem; text-align:left; border-bottom:1px solid var(--line); }
+    .table-lite thead { background:color-mix(in srgb, var(--panel-strong) 90%, transparent); }
+    .inline-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.9rem; }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Geometría 6° · Período 3</span>
-        <h1 id="hero-title">Polígonos</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Plano cartesiano y polígonos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Plano cartesiano y polígonos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Polígonos</span><span class="topic-chip">Clasificación de polígonos</span><span class="topic-chip">Regulares</span><span class="topic-chip">Irregulares</span><span class="topic-chip">Construcción de triángulos</span><span class="topic-chip">Construcción de cuadriláteros</span></div>
-        <ul class="list-clean"><li>Polígonos</li><li>Clasificación de polígonos</li><li>Regulares</li><li>Irregulares</li><li>Construcción de triángulos</li><li>Construcción de cuadriláteros</li></ul>
-        <div class="formula">Interacción propuesta: Constructor de polígonos</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Constructor de polígonos</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
+  <main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+    <section class="card hero"><span class="badge">Geometría 6° · Período 3</span><h1 id="hero-title">Polígonos</h1><p id="hero-subtitle">Reconoce polígonos por su número de lados, diferencia figuras regulares e irregulares y relaciona sus propiedades con triángulos, cuadriláteros y otras formas del plano.</p></section>
+    <section class="card"><h2 class="section-title">Panorama del tema</h2><p>Un <strong>polígono</strong> es una figura plana cerrada formada solo por segmentos rectos. Se clasifica según su número de lados y según si sus lados y ángulos son iguales o no.</p><div class="info-grid"><div class="kpi"><strong>Regular</strong><p class="muted">Todos sus lados y ángulos son iguales.</p></div><div class="kpi"><strong>Irregular</strong><p class="muted">Tiene lados o ángulos de diferente medida.</p></div><div class="kpi"><strong>Clasificación</strong><p class="muted">Triángulo, cuadrilátero, pentágono, hexágono y más.</p></div></div></section>
+    <section class="card"><h2 class="section-title">Conceptos clave</h2><div class="concept-grid"><article class="concept-card"><h3>Número de lados</h3><p>El nombre del polígono cambia según la cantidad de segmentos que lo forman.</p><div class="formula">5 lados = pentágono.</div></article><article class="concept-card"><h3>Diagonales</h3><p>Son segmentos que unen vértices no consecutivos.</p><div class="formula">n(n - 3)/2</div></article><article class="concept-card"><h3>Suma de ángulos interiores</h3><p>Depende de la cantidad de lados del polígono.</p><div class="formula">(n - 2) x 180°</div></article></div></section>
+    <section class="card"><h2 class="section-title">Tabla rápida</h2><table class="table-lite"><thead><tr><th>Lados</th><th>Nombre</th><th>Diagonales</th></tr></thead><tbody><tr><td>3</td><td>Triángulo</td><td>0</td></tr><tr><td>4</td><td>Cuadrilátero</td><td>2</td></tr><tr><td>5</td><td>Pentágono</td><td>5</td></tr><tr><td>6</td><td>Hexágono</td><td>9</td></tr></tbody></table></section>
+    <section class="card"><h2 class="section-title">Constructor de polígonos</h2><div class="grid columns-2"><div><div class="kpi"><strong>Componente interactivo</strong><p class="muted">Selecciona el número de lados y observa la figura regular correspondiente junto con algunas de sus propiedades.</p></div><label style="display:block; margin-top:1rem;"><span class="mini-note">Número de lados</span><input class="input" id="sidesInput" type="range" min="3" max="8" value="5"></label><div class="inline-actions"><button class="btn" id="randomPolygonBtn">Ejemplo aleatorio</button></div><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Nombre</h3><div class="math-display" id="polygonName">Pentágono</div></div><div class="result-box"><h3>Diagonales</h3><div class="math-display" id="diagonalOut">5</div></div><div class="result-box"><h3>Ángulos interiores</h3><div class="math-display" id="angleSumOut">540°</div></div></div></div><div><canvas id="polygonCanvas" height="320"></canvas><p class="muted" id="polygonReading" style="margin-top:.8rem;">La figura mostrada es un polígono regular inscrito en una circunferencia.</p></div></div></section>
+    <section class="card"><h2 class="section-title">Práctica guiada</h2><div class="practice-grid"><div class="callout"><strong>Reto 1:</strong> compara un pentágono y un hexágono. ¿Cuál tiene más diagonales?</div><div class="callout"><strong>Reto 2:</strong> identifica dos polígonos presentes en el salón o en la casa.</div><div class="callout"><strong>Reto 3:</strong> explica por qué un círculo no es un polígono.</div></div></section>
+    <section class="card"><h2 class="section-title">Aplicación en contexto</h2><p>Los polígonos aparecen en mosaicos, señales, arquitectura, pantallas y diseño gráfico. Reconocer sus propiedades ayuda a describir figuras y construir patrones.</p><div class="formula">Si la figura no está cerrada o tiene curvas, no es un polígono.</div></section>
+    <section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+  </section></main><div id="footer-mount"></div>
+  <script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo3', topicSlug: '2_poligonos.html', theme: 'sky', pageTitle: 'Polígonos', pageDescription: 'Polígonos' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Clasifica un polígono.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Diferencia regular e irregular.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Reconoce triángulos y cuadriláteros.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'geometria6-periodo3-2_poligonos.html');
+    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo3', topicSlug: '2_poligonos.html', theme: 'sky', pageTitle: 'Polígonos', pageDescription: 'Clasifica polígonos y explora sus propiedades con un constructor visual.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: '¿Cuál figura es un polígono?', options: ['Un triángulo', 'Un círculo', 'Un óvalo', 'Una curva abierta'], answer: 0, feedback: 'Un polígono está formado por segmentos rectos y es cerrado.' },
+      { prompt: '¿Cuántos lados tiene un hexágono?', options: ['5', '6', '7', '8'], answer: 1, feedback: 'Hexágono significa figura de seis lados.' },
+      { prompt: '¿Qué polígono regular tiene 4 lados iguales?', options: ['Trapecio', 'Rectángulo', 'Cuadrado', 'Pentágono'], answer: 2, feedback: 'El cuadrado es un cuadrilátero regular.' }
+    ], 'geometria6-periodo3-2_poligonos.html');
+
+    const sidesInput = document.getElementById('sidesInput');
+    const polygonCanvas = document.getElementById('polygonCanvas');
+    const polygonName = document.getElementById('polygonName');
+    const diagonalOut = document.getElementById('diagonalOut');
+    const angleSumOut = document.getElementById('angleSumOut');
+    const polygonReading = document.getElementById('polygonReading');
+    const ctx = polygonCanvas.getContext('2d');
+    const names = { 3: 'Triángulo', 4: 'Cuadrilátero', 5: 'Pentágono', 6: 'Hexágono', 7: 'Heptágono', 8: 'Octágono' };
+
+    function renderPolygon() {
+      const styles = getComputedStyle(document.documentElement);
+      const accent = styles.getPropertyValue('--accent').trim() || '#1d7f9d';
+      const sides = Number(sidesInput.value);
+      polygonName.textContent = names[sides];
+      diagonalOut.textContent = String((sides * (sides - 3)) / 2);
+      angleSumOut.textContent = `${(sides - 2) * 180}°`;
+      polygonReading.textContent = `${names[sides]} regular de ${sides} lados.`;
+
+      SimulatorEngine.resizeCanvas(polygonCanvas, 320);
+      const { width, height } = polygonCanvas;
+      const cx = width / 2;
+      const cy = height / 2;
+      const r = 100;
+      ctx.clearRect(0, 0, width, height);
+      ctx.strokeStyle = accent;
+      ctx.fillStyle = accent;
+      ctx.globalAlpha = 0.14;
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      for (let i = 0; i < sides; i += 1) {
+        const angle = -Math.PI / 2 + (i * Math.PI * 2) / sides;
+        const x = cx + r * Math.cos(angle);
+        const y = cy + r * Math.sin(angle);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      ctx.stroke();
+    }
+
+    document.getElementById('randomPolygonBtn').addEventListener('click', () => { sidesInput.value = String(Math.floor(Math.random() * 6) + 3); renderPolygon(); });
+    sidesInput.addEventListener('input', renderPolygon);
+    window.addEventListener('resize', renderPolygon);
+    renderPolygon();
   </script>
 </body>
 </html>

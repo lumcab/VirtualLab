@@ -8,10 +8,21 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid, .concept-grid, .practice-grid, .results-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; }
+    .concept-card, .result-box { padding:1rem; border-radius:18px; border:1px solid var(--line); background:linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent)); }
+    .concept-card h3, .result-box h3 { margin:0 0 .5rem; font-family:var(--font-display); font-size:1.05rem; }
+    .math-display { margin-top:.55rem; font-size:clamp(1.2rem, 1rem + .8vw, 1.85rem); font-weight:800; color:var(--accent-3); word-break:break-word; }
+    .table-lite { width:100%; border-collapse:collapse; overflow:hidden; border-radius:18px; border:1px solid var(--line); }
+    .table-lite th, .table-lite td { padding:.85rem; text-align:left; border-bottom:1px solid var(--line); }
+    .table-lite thead { background:color-mix(in srgb, var(--panel-strong) 90%, transparent); }
+    .table-lite tbody tr:last-child td { border-bottom:0; }
+    .inline-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.9rem; }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,55 +32,77 @@
       <section class="card hero">
         <span class="badge">Matemáticas 6° · Período 4</span>
         <h1 id="hero-title">Probabilidad y conjuntos</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Decimales, razones y probabilidad</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Organiza elementos en conjuntos, identifica unión e intersección y calcula probabilidades sencillas usando el número de casos favorables y el total de casos posibles.</p>
       </section>
-
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Decimales, razones y probabilidad</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Concepto de probabilidad</span><span class="topic-chip">Probabilidad clásica</span><span class="topic-chip">Operaciones entre conjuntos</span><span class="topic-chip">Probabilidad conjuntiva</span><span class="topic-chip">Tabla de frecuencia para datos agrupados</span></div>
-        <ul class="list-clean"><li>Concepto de probabilidad</li><li>Probabilidad clásica</li><li>Operaciones entre conjuntos</li><li>Probabilidad conjuntiva</li><li>Tabla de frecuencia para datos agrupados</li></ul>
-        <div class="formula">Interacción propuesta: Diagrama de Venn dinámico</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>Un <strong>conjunto</strong> es una colección de elementos. La <strong>probabilidad</strong> permite medir qué tan posible es que ocurra un evento. Cuando un evento se describe con conjuntos, podemos analizar mejor qué elementos comparten o no comparten ciertas características.</p>
+        <div class="info-grid">
+          <div class="kpi"><strong>Unión</strong><p class="muted">Incluye los elementos que están en A, en B o en ambos.</p></div>
+          <div class="kpi"><strong>Intersección</strong><p class="muted">Reúne solo los elementos que aparecen simultáneamente en A y en B.</p></div>
+          <div class="kpi"><strong>Probabilidad simple</strong><p class="muted">Se calcula como casos favorables entre casos posibles.</p></div>
+        </div>
       </section>
-
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Conceptos clave</h2>
+        <div class="concept-grid">
+          <article class="concept-card"><h3>Espacio muestral</h3><p>Es el conjunto de todos los resultados posibles de un experimento.</p><div class="formula">En un dado: {1, 2, 3, 4, 5, 6}.</div></article>
+          <article class="concept-card"><h3>Evento</h3><p>Es un subconjunto del espacio muestral. Puede ser simple o compuesto.</p><div class="formula">Sacar un número par en un dado: {2, 4, 6}.</div></article>
+          <article class="concept-card"><h3>Relación entre conjuntos y eventos</h3><p>Los eventos pueden representarse como conjuntos para comparar resultados compartidos.</p><div class="formula">A ∩ B muestra los elementos comunes.</div></article>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="section-title">Tabla rápida</h2>
+        <table class="table-lite">
+          <thead><tr><th>Situación</th><th>Evento</th><th>Casos favorables</th><th>Probabilidad</th></tr></thead>
+          <tbody>
+            <tr><td>Lanzar un dado</td><td>Obtener número par</td><td>3</td><td>3/6 = 1/2</td></tr>
+            <tr><td>Lanzar un dado</td><td>Obtener número mayor que 4</td><td>2</td><td>2/6 = 1/3</td></tr>
+            <tr><td>Sacar una ficha de 10</td><td>Ficha roja si hay 4 rojas</td><td>4</td><td>4/10 = 2/5</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="card">
+        <h2 class="section-title">Diagrama de conjuntos</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Diagrama de Venn dinámico</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <div class="kpi"><strong>Componente interactivo</strong><p class="muted">Escribe dos conjuntos usando números del 1 al 10 y observa su unión, intersección y probabilidad dentro del universo.</p></div>
+            <label style="display:block; margin-top:1rem;"><span class="mini-note">Conjunto A</span><input class="input" id="setAInput" type="text" value="1,2,3,4,5"></label>
+            <label style="display:block; margin-top:1rem;"><span class="mini-note">Conjunto B</span><input class="input" id="setBInput" type="text" value="4,5,6,7"></label>
+            <div class="inline-actions">
+              <button class="btn" id="updateSetsBtn">Actualizar</button>
+              <button class="btn" id="randomSetsBtn">Ejemplo aleatorio</button>
+            </div>
+            <div class="results-grid" style="margin-top:1rem;">
+              <div class="result-box"><h3>Intersección</h3><div class="math-display" id="intersectionOut">{4, 5}</div></div>
+              <div class="result-box"><h3>Unión</h3><div class="math-display" id="unionOut">{1, 2, 3, 4, 5, 6, 7}</div></div>
+              <div class="result-box"><h3>P(A ∩ B)</h3><div class="math-display" id="probabilityOut">2/10</div></div>
+            </div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="vennCanvas" height="320"></canvas>
+            <p class="muted" id="setsReading" style="margin-top:.8rem;">El universo será siempre {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
       </section>
-
       <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="practice-grid">
+          <div class="callout"><strong>Reto 1:</strong> si A = {1,2,3} y B = {3,4,5}, escribe A ∪ B y A ∩ B.</div>
+          <div class="callout"><strong>Reto 2:</strong> en un dado, calcula la probabilidad de obtener un número menor que 3.</div>
+          <div class="callout"><strong>Reto 3:</strong> explica por qué la intersección nunca puede tener más elementos que la unión.</div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
       </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
       <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
+        <h2 class="section-title">Aplicación en contexto</h2>
+        <p>Los conjuntos ayudan a organizar información de encuestas, clasificaciones y deportes. La probabilidad permite estimar resultados posibles en juegos, sorteos y decisiones basadas en datos.</p>
+        <div class="formula">Para calcular una probabilidad simple, primero define con claridad el universo y luego cuenta los casos favorables.</div>
       </section>
+      <section class="card quiz-box"><div id="quiz-root"></div></section>
+      <section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
     </section>
   </main>
   <div id="footer-mount"></div>
-
   <script src="../../js/storage.js"></script>
   <script src="../../js/config.js"></script>
   <script src="../../js/theme-toggle.js"></script>
@@ -81,8 +114,77 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo4', topicSlug: '3_probabilidad_conjuntos.html', theme: 'amber', pageTitle: 'Probabilidad y conjuntos', pageDescription: 'Probabilidad y conjuntos' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Calcula una probabilidad simple.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Reconoce una intersección de conjuntos.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Lee una tabla agrupada.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'matematicas6-periodo4-3_probabilidad_conjuntos.html');
+    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo4', topicSlug: '3_probabilidad_conjuntos.html', theme: 'amber', pageTitle: 'Probabilidad y conjuntos', pageDescription: 'Explora unión, intersección y probabilidad simple con un diagrama dinámico.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: '¿Qué es la intersección de dos conjuntos?', options: ['Los elementos comunes', 'Todos los elementos posibles', 'Los elementos que no están en ninguno', 'La suma de sus cantidades'], answer: 0, feedback: 'La intersección reúne los elementos que aparecen en ambos conjuntos.' },
+      { prompt: 'Si lanzas un dado, la probabilidad de obtener un número par es:', options: ['1/6', '2/6', '3/6', '4/6'], answer: 2, feedback: 'Hay 3 números pares entre 6 resultados posibles.' },
+      { prompt: '¿Qué contiene la unión A ∪ B?', options: ['Solo los comunes', 'Los que están en A o en B o en ambos', 'Solo los que están fuera', 'Solo el conjunto más grande'], answer: 1, feedback: 'La unión agrupa todos los elementos presentes en cualquiera de los dos conjuntos.' }
+    ], 'matematicas6-periodo4-3_probabilidad_conjuntos.html');
+
+    const setAInput = document.getElementById('setAInput');
+    const setBInput = document.getElementById('setBInput');
+    const vennCanvas = document.getElementById('vennCanvas');
+    const intersectionOut = document.getElementById('intersectionOut');
+    const unionOut = document.getElementById('unionOut');
+    const probabilityOut = document.getElementById('probabilityOut');
+    const setsReading = document.getElementById('setsReading');
+    const vennCtx = vennCanvas.getContext('2d');
+    const universe = [1,2,3,4,5,6,7,8,9,10];
+
+    function parseSet(value) {
+      return [...new Set(value.split(',').map(item => Number(item.trim())).filter(item => universe.includes(item)))].sort((a, b) => a - b);
+    }
+
+    function renderSets() {
+      const styles = getComputedStyle(document.documentElement);
+      const accent = styles.getPropertyValue('--accent').trim() || '#1d7f9d';
+      const warning = styles.getPropertyValue('--warning').trim() || '#d8a24c';
+      const setA = parseSet(setAInput.value);
+      const setB = parseSet(setBInput.value);
+      const intersection = setA.filter(item => setB.includes(item));
+      const union = [...new Set([...setA, ...setB])].sort((a, b) => a - b);
+
+      intersectionOut.textContent = `{${intersection.join(', ') || ' '}}`;
+      unionOut.textContent = `{${union.join(', ') || ' '}}`;
+      probabilityOut.textContent = `${intersection.length}/10`;
+      setsReading.textContent = `A tiene ${setA.length} elementos, B tiene ${setB.length} y comparten ${intersection.length}.`;
+
+      SimulatorEngine.resizeCanvas(vennCanvas, 320);
+      const { width, height } = vennCanvas;
+      vennCtx.clearRect(0, 0, width, height);
+      vennCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#e5e7eb';
+      vennCtx.font = 'bold 18px Verdana';
+      vennCtx.fillText('Diagrama de Venn', 18, 28);
+
+      vennCtx.fillStyle = accent;
+      vennCtx.globalAlpha = 0.25;
+      vennCtx.beginPath();
+      vennCtx.arc(width * 0.4, height * 0.56, 78, 0, Math.PI * 2);
+      vennCtx.fill();
+      vennCtx.globalAlpha = 0.25;
+      vennCtx.fillStyle = warning;
+      vennCtx.beginPath();
+      vennCtx.arc(width * 0.62, height * 0.56, 78, 0, Math.PI * 2);
+      vennCtx.fill();
+      vennCtx.globalAlpha = 1;
+
+      vennCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#e5e7eb';
+      vennCtx.font = '16px Verdana';
+      vennCtx.fillText(`A: ${setA.join(', ') || '-'}`, 22, height - 54);
+      vennCtx.fillText(`B: ${setB.join(', ') || '-'}`, 22, height - 30);
+      vennCtx.fillText(`A ∩ B: ${intersection.join(', ') || '-'}`, 22, height - 6);
+    }
+
+    document.getElementById('updateSetsBtn').addEventListener('click', renderSets);
+    document.getElementById('randomSetsBtn').addEventListener('click', () => {
+      const shuffled = [...universe].sort(() => Math.random() - 0.5);
+      setAInput.value = shuffled.slice(0, 5).sort((a, b) => a - b).join(',');
+      setBInput.value = shuffled.slice(3, 8).sort((a, b) => a - b).join(',');
+      renderSets();
+    });
+    [setAInput, setBInput].forEach(node => node.addEventListener('input', renderSets));
+    window.addEventListener('resize', renderSets);
+    renderSets();
   </script>
 </body>
 </html>

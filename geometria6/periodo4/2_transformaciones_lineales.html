@@ -1,88 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transformaciones lineales | Geometría 6°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escalas y semejanza | Geometría 6°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css">
+  <style>.info-grid,.concept-grid,.practice-grid,.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.concept-card,.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.concept-card h3,.result-box h3{margin:0 0 .5rem;font-family:var(--font-display);font-size:1.05rem}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}.inline-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.9rem}</style>
 </head>
 <body>
   <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Geometría 6° · Período 4</span>
-        <h1 id="hero-title">Transformaciones lineales</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Transformaciones lineales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Transformaciones lineales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Semejanza</span><span class="topic-chip">Escala</span><span class="topic-chip">Aplicaciones en maquetas y mapas</span></div>
-        <ul class="list-clean"><li>Semejanza</li><li>Escala</li><li>Aplicaciones en maquetas y mapas</li></ul>
-        <div class="formula">Interacción propuesta: Escalador de figuras</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Escalador de figuras</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
+  <main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+    <section class="card hero"><span class="badge">Geometría 6° · Período 4</span><h1 id="hero-title">Escalas y semejanza</h1><p id="hero-subtitle">Analiza ampliaciones y reducciones de figuras, reconoce factores de escala y compara figuras semejantes que conservan forma pero no necesariamente tamaño.</p></section>
+    <section class="card"><h2 class="section-title">Panorama del tema</h2><p>Una <strong>transformación lineal</strong> de escala modifica el tamaño de una figura usando un mismo factor para todas sus longitudes. Si la figura crece o disminuye conservando forma, se obtiene una figura semejante.</p><div class="info-grid"><div class="kpi"><strong>Ampliación</strong><p class="muted">Ocurre cuando el factor de escala es mayor que 1.</p></div><div class="kpi"><strong>Reducción</strong><p class="muted">Ocurre cuando el factor de escala está entre 0 y 1.</p></div><div class="kpi"><strong>Semejanza</strong><p class="muted">Conserva la forma general y las proporciones.</p></div></div></section>
+    <section class="card"><h2 class="section-title">Conceptos clave</h2><div class="concept-grid"><article class="concept-card"><h3>Factor k</h3><p>Multiplica cada longitud de la figura original.</p><div class="formula">Si k = 2, todos los lados se duplican.</div></article><article class="concept-card"><h3>Proporción constante</h3><p>La razón entre lados correspondientes se mantiene.</p></article><article class="concept-card"><h3>Comparación</h3><p>Dos figuras pueden verse diferentes en tamaño pero ser semejantes.</p></article></div></section>
+    <section class="card"><h2 class="section-title">Escalador de figuras</h2><div class="grid columns-2"><div><div class="kpi"><strong>Componente interactivo</strong><p class="muted">Modifica el factor de escala y observa cómo cambia el tamaño de una figura respecto a la original.</p></div><label style="display:block; margin-top:1rem;"><span class="mini-note">Factor de escala</span><input class="input" id="scaleInput" type="range" min="0.5" max="2.5" step="0.1" value="1.5"></label><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Factor</h3><div class="math-display" id="scaleOut">1.5</div></div><div class="result-box"><h3>Tipo</h3><div class="math-display" id="scaleTypeOut">Ampliación</div></div><div class="result-box"><h3>Lado ejemplo</h3><div class="math-display" id="sideOut">3 → 4.5</div></div></div></div><div><canvas id="scaleCanvas" height="320"></canvas><p class="muted" id="scaleReading" style="margin-top:.8rem;">La figura azul es original y la amarilla muestra la escala aplicada.</p></div></div></section>
+    <section class="card"><h2 class="section-title">Práctica guiada</h2><div class="practice-grid"><div class="callout"><strong>Reto 1:</strong> si un lado mide 8 cm y el factor es 0,5, ¿cuánto medirá después?</div><div class="callout"><strong>Reto 2:</strong> explica por qué una ampliación conserva la forma de la figura.</div><div class="callout"><strong>Reto 3:</strong> compara una reducción con una traslación. ¿Cuál cambia el tamaño?</div></div></section>
+    <section class="card"><h2 class="section-title">Aplicación en contexto</h2><p>Las escalas se usan en planos, mapas, maquetas, fotografías e impresión. Permiten representar objetos grandes o pequeños manteniendo sus proporciones.</p><div class="formula">Cambiar todas las longitudes con el mismo factor conserva la semejanza.</div></section>
+    <section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+  </section></main><div id="footer-mount"></div>
+  <script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo4', topicSlug: '2_transformaciones_lineales.html', theme: 'sky', pageTitle: 'Transformaciones lineales', pageDescription: 'Transformaciones lineales' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Aplica una escala.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Compara figuras semejantes.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta una reducción o ampliación.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'geometria6-periodo4-2_transformaciones_lineales.html');
+    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo4', topicSlug: '2_transformaciones_lineales.html', theme: 'sky', pageTitle: 'Escalas y semejanza', pageDescription: 'Observa ampliaciones y reducciones con un escalador visual de figuras.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: 'Si el factor de escala es 2, la figura:', options: ['Se reduce', 'Se amplía', 'Se refleja', 'Se rota'], answer: 1, feedback: 'Un factor mayor que 1 produce una ampliación.' },
+      { prompt: 'Si el factor es 0,5, la figura:', options: ['Mantiene el mismo tamaño', 'Se amplía', 'Se reduce', 'Desaparece'], answer: 2, feedback: 'Un factor entre 0 y 1 produce una reducción.' },
+      { prompt: '¿Qué conserva una figura semejante?', options: ['La forma', 'Solo el color', 'El área exacta', 'La posición'], answer: 0, feedback: 'La semejanza conserva la forma y las proporciones.' }
+    ], 'geometria6-periodo4-2_transformaciones_lineales.html');
+
+    const scaleInput = document.getElementById('scaleInput');
+    const scaleCanvas = document.getElementById('scaleCanvas');
+    const scaleOut = document.getElementById('scaleOut');
+    const scaleTypeOut = document.getElementById('scaleTypeOut');
+    const sideOut = document.getElementById('sideOut');
+    const scaleReading = document.getElementById('scaleReading');
+    const ctx = scaleCanvas.getContext('2d');
+    const base = [{x:-1,y:-1},{x:1,y:-1},{x:0,y:1.5}];
+
+    function draw(points, color, fill) {
+      const width = scaleCanvas.width, height = scaleCanvas.height, cx = width / 2, cy = height / 2, step = 42;
+      ctx.strokeStyle = color; ctx.fillStyle = fill; ctx.lineWidth = 3; ctx.beginPath();
+      points.forEach((p, i) => { const x = cx + p.x * step, y = cy - p.y * step; if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); });
+      ctx.closePath(); ctx.fill(); ctx.stroke();
+    }
+
+    function renderScale() {
+      const styles = getComputedStyle(document.documentElement);
+      const accent = styles.getPropertyValue('--accent').trim() || '#1d7f9d';
+      const warning = styles.getPropertyValue('--warning').trim() || '#d8a24c';
+      const line = styles.getPropertyValue('--line-strong').trim() || 'rgba(148,163,184,.35)';
+      const k = Number(scaleInput.value);
+      const scaled = base.map(point => ({ x: point.x * k, y: point.y * k }));
+      scaleOut.textContent = k.toFixed(1);
+      scaleTypeOut.textContent = k > 1 ? 'Ampliación' : k < 1 ? 'Reducción' : 'Sin cambio';
+      sideOut.textContent = `3 → ${(3 * k).toFixed(1)}`;
+      scaleReading.textContent = `Se aplicó un factor ${k.toFixed(1)}. La figura resultante es ${scaleTypeOut.textContent.toLowerCase()}.`;
+
+      SimulatorEngine.resizeCanvas(scaleCanvas, 320);
+      const { width, height } = scaleCanvas;
+      ctx.clearRect(0, 0, width, height);
+      ctx.strokeStyle = line;
+      ctx.beginPath(); ctx.moveTo(width / 2, 24); ctx.lineTo(width / 2, height - 24); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(24, height / 2); ctx.lineTo(width - 24, height / 2); ctx.stroke();
+      ctx.globalAlpha = 0.16;
+      draw(base, accent, accent);
+      ctx.globalAlpha = 0.18;
+      draw(scaled, warning, warning);
+      ctx.globalAlpha = 1;
+    }
+
+    scaleInput.addEventListener('input', renderScale);
+    window.addEventListener('resize', renderScale);
+    renderScale();
   </script>
 </body>
 </html>

@@ -1,88 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introducción a las transformaciones | Geometría 6°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transformaciones en el plano | Geometría 6°</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css">
+  <style>.info-grid,.concept-grid,.practice-grid,.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.concept-card,.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.concept-card h3,.result-box h3{margin:0 0 .5rem;font-family:var(--font-display);font-size:1.05rem}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}.inline-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.9rem}</style>
 </head>
 <body>
   <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Geometría 6° · Período 4</span>
-        <h1 id="hero-title">Introducción a las transformaciones</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Transformaciones lineales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Transformaciones lineales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Traslación</span><span class="topic-chip">Rotación</span><span class="topic-chip">Reflexión</span><span class="topic-chip">Ampliación y reducción</span></div>
-        <ul class="list-clean"><li>Traslación</li><li>Rotación</li><li>Reflexión</li><li>Ampliación y reducción</li></ul>
-        <div class="formula">Interacción propuesta: Transformaciones en el plano</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Transformaciones en el plano</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
+  <main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+    <section class="card hero"><span class="badge">Geometría 6° · Período 4</span><h1 id="hero-title">Transformaciones en el plano</h1><p id="hero-subtitle">Observa cómo una figura puede trasladarse, reflejarse o rotarse sin cambiar su forma, y compara su posición inicial con la posición final.</p></section>
+    <section class="card"><h2 class="section-title">Panorama del tema</h2><p>Las <strong>transformaciones geométricas</strong> cambian la posición o la orientación de una figura. Algunas conservan tamaño y forma, como la traslación, la reflexión y la rotación.</p><div class="info-grid"><div class="kpi"><strong>Traslación</strong><p class="muted">Mueve la figura sin girarla ni voltearla.</p></div><div class="kpi"><strong>Reflexión</strong><p class="muted">Produce una imagen en espejo respecto a un eje.</p></div><div class="kpi"><strong>Rotación</strong><p class="muted">Gira la figura alrededor de un punto fijo.</p></div></div></section>
+    <section class="card"><h2 class="section-title">Conceptos clave</h2><div class="concept-grid"><article class="concept-card"><h3>Conservación</h3><p>La figura mantiene su tamaño y su forma.</p></article><article class="concept-card"><h3>Posición final</h3><p>Depende del tipo de transformación aplicada.</p></article><article class="concept-card"><h3>Comparación visual</h3><p>Observar la figura original y la transformada ayuda a comprender la regla.</p></article></div></section>
+    <section class="card"><h2 class="section-title">Explorador de transformaciones</h2><div class="grid columns-2"><div><div class="kpi"><strong>Componente interactivo</strong><p class="muted">Aplica una transformación sencilla a un triángulo y compara la figura original con la transformada.</p></div><label style="display:block; margin-top:1rem;"><span class="mini-note">Transformación</span><select class="select" id="transformSelect"><option value="translate">Traslación</option><option value="reflect">Reflexión en eje y</option><option value="rotate">Rotación 90°</option></select></label><div class="inline-actions"><button class="btn" id="applyTransformBtn">Aplicar</button></div><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Figura original</h3><div class="math-display" id="originalOut">A(1,1)</div></div><div class="result-box"><h3>Figura transformada</h3><div class="math-display" id="transformedOut">A'(3,2)</div></div></div></div><div><canvas id="transformCanvas" height="320"></canvas><p class="muted" id="transformReading" style="margin-top:.8rem;">La figura azul es original y la amarilla es la transformada.</p></div></div></section>
+    <section class="card"><h2 class="section-title">Práctica guiada</h2><div class="practice-grid"><div class="callout"><strong>Reto 1:</strong> describe qué cambia y qué se conserva en una traslación.</div><div class="callout"><strong>Reto 2:</strong> dibuja el reflejo de un punto respecto al eje y.</div><div class="callout"><strong>Reto 3:</strong> rota un segmento 90° y compara su nueva orientación.</div></div></section>
+    <section class="card"><h2 class="section-title">Aplicación en contexto</h2><p>Las transformaciones se usan en diseño, animación, mapas y patrones decorativos. Comprenderlas ayuda a interpretar movimientos y simetrías.</p><div class="formula">Transformar no siempre significa cambiar de tamaño; a veces solo cambia la posición o la orientación.</div></section>
+    <section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+  </section></main><div id="footer-mount"></div>
+  <script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo4', topicSlug: '1_transformaciones_intro.html', theme: 'sky', pageTitle: 'Introducción a las transformaciones', pageDescription: 'Introducción a las transformaciones' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Reconoce una traslación.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Distingue reflexión y rotación.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Predice una transformación.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'geometria6-periodo4-1_transformaciones_intro.html');
+    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo4', topicSlug: '1_transformaciones_intro.html', theme: 'sky', pageTitle: 'Transformaciones en el plano', pageDescription: 'Explora traslaciones, reflexiones y rotaciones con un comparador visual.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: '¿Qué transformación actúa como espejo?', options: ['Traslación', 'Reflexión', 'Rotación', 'Escala'], answer: 1, feedback: 'La reflexión produce una imagen especular.' },
+      { prompt: '¿Cuál conserva tamaño y forma?', options: ['Traslación', 'Las tres', 'Solo la rotación', 'Ninguna'], answer: 1, feedback: 'Traslación, reflexión y rotación conservan tamaño y forma.' },
+      { prompt: '¿Qué ocurre en una rotación?', options: ['La figura se estira', 'La figura gira', 'La figura desaparece', 'La figura cambia de lados'], answer: 1, feedback: 'Rotar es girar una figura alrededor de un punto.' }
+    ], 'geometria6-periodo4-1_transformaciones_intro.html');
+
+    const transformSelect = document.getElementById('transformSelect');
+    const transformCanvas = document.getElementById('transformCanvas');
+    const originalOut = document.getElementById('originalOut');
+    const transformedOut = document.getElementById('transformedOut');
+    const transformReading = document.getElementById('transformReading');
+    const ctx = transformCanvas.getContext('2d');
+    const base = [{x:1,y:1},{x:3,y:1},{x:2,y:3}];
+
+    function transformPoint(p, mode) {
+      if (mode === 'translate') return { x: p.x + 2, y: p.y + 1 };
+      if (mode === 'reflect') return { x: -p.x, y: p.y };
+      return { x: -p.y, y: p.x };
+    }
+
+    function drawShape(points, color, fillColor) {
+      const width = transformCanvas.width, height = transformCanvas.height, midX = width/2, midY = height/2, step = 28;
+      ctx.strokeStyle = color; ctx.fillStyle = fillColor; ctx.lineWidth = 3;
+      ctx.beginPath();
+      points.forEach((p, i) => {
+        const x = midX + p.x * step, y = midY - p.y * step;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.closePath(); ctx.fill(); ctx.stroke();
+    }
+
+    function renderTransform() {
+      const styles = getComputedStyle(document.documentElement);
+      const accent = styles.getPropertyValue('--accent').trim() || '#1d7f9d';
+      const warning = styles.getPropertyValue('--warning').trim() || '#d8a24c';
+      const line = styles.getPropertyValue('--line-strong').trim() || 'rgba(148,163,184,.35)';
+      const mode = transformSelect.value;
+      const transformed = base.map(point => transformPoint(point, mode));
+      originalOut.textContent = `A(${base[0].x},${base[0].y})`;
+      transformedOut.textContent = `A'(${transformed[0].x},${transformed[0].y})`;
+      transformReading.textContent = mode === 'translate' ? 'La figura se movió sin girar.' : mode === 'reflect' ? 'La figura se reflejó respecto al eje y.' : 'La figura giró 90° alrededor del origen.';
+
+      SimulatorEngine.resizeCanvas(transformCanvas, 320);
+      const { width, height } = transformCanvas;
+      const midX = width / 2, midY = height / 2;
+      ctx.clearRect(0, 0, width, height);
+      ctx.strokeStyle = line;
+      for (let i = -5; i <= 5; i += 1) {
+        ctx.beginPath(); ctx.moveTo(midX + i * 28, 24); ctx.lineTo(midX + i * 28, height - 24); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(24, midY + i * 28); ctx.lineTo(width - 24, midY + i * 28); ctx.stroke();
+      }
+      ctx.strokeStyle = line;
+      ctx.beginPath(); ctx.moveTo(24, midY); ctx.lineTo(width - 24, midY); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(midX, 24); ctx.lineTo(midX, height - 24); ctx.stroke();
+      drawShape(base, accent, 'rgba(0,0,0,0)');
+      ctx.globalAlpha = 0.16;
+      drawShape(base, accent, accent);
+      ctx.globalAlpha = 1;
+      drawShape(transformed, warning, 'rgba(0,0,0,0)');
+      ctx.globalAlpha = 0.18;
+      drawShape(transformed, warning, warning);
+      ctx.globalAlpha = 1;
+    }
+
+    document.getElementById('applyTransformBtn').addEventListener('click', renderTransform);
+    transformSelect.addEventListener('change', renderTransform);
+    window.addEventListener('resize', renderTransform);
+    renderTransform();
   </script>
 </body>
 </html>

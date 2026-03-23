@@ -1,88 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electromagnetismo | Física 11°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
-</head>
-<body>
-  <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Física 11° · Período 4</span>
-        <h1 id="hero-title">Electromagnetismo</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Magnetismo y electromagnetismo</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Magnetismo y electromagnetismo</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Magnetismo inducido</span><span class="topic-chip">Inducción electromagnética</span><span class="topic-chip">Ley de Faraday-Lenz</span><span class="topic-chip">Motor eléctrico y generador</span></div>
-        <ul class="list-clean"><li>Magnetismo inducido</li><li>Inducción electromagnética</li><li>Ley de Faraday-Lenz</li><li>Motor eléctrico y generador</li></ul>
-        <div class="formula">Interacción propuesta: Inducción en bobina</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Inducción en bobina</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
-  <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica11', periodKey: 'periodo4', topicSlug: '2_electromagnetismo.html', theme: 'violet', pageTitle: 'Electromagnetismo', pageDescription: 'Electromagnetismo' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Reconoce inducción.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Relaciona flujo y fem inducida.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Explica un motor o generador.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica11-periodo4-2_electromagnetismo.html');
-  </script>
-</body>
-</html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Electromagnetismo | Física 11°</title><link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png"><link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css"><style>.info-grid,.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}</style></head>
+<body><div id="header-mount"></div><main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+<section class="card hero"><span class="badge">Física 11° · Período 4</span><h1 id="hero-title">Electromagnetismo</h1><p id="hero-subtitle">Relaciona el movimiento relativo entre imanes y bobinas con la inducción electromagnética y comprende el funcionamiento básico de generadores y transformadores.</p></section>
+<section class="card"><h2 class="section-title">Panorama del tema</h2><p>El <strong>electromagnetismo</strong> integra fenómenos eléctricos y magnéticos. Cuando cambia el flujo magnético en una espira o bobina, puede inducirse una fem.</p><div class="info-grid"><div class="kpi"><strong>Inducción</strong><p class="muted">Aparece una fem si cambia el flujo magnético.</p></div><div class="kpi"><strong>Bobina</strong><p class="muted">Más espiras pueden aumentar la inducción.</p></div><div class="kpi"><strong>Generador</strong><p class="muted">Convierte energía mecánica en eléctrica.</p></div></div></section>
+<section class="card"><h2 class="section-title">Inducción en bobina</h2><div class="grid columns-2"><div><label style="display:block; margin-top:1rem;"><span class="mini-note">Número de espiras</span><input class="input" id="turnsInput" type="number" min="10" max="200" step="10" value="50"></label><label style="display:block; margin-top:1rem;"><span class="mini-note">Velocidad relativa</span><input class="input" id="speedInput" type="range" min="1" max="10" value="4"></label><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Fem relativa</h3><div class="math-display" id="emfOut">20</div></div><div class="result-box"><h3>Interpretación</h3><div class="math-display" id="inductionOut">Media</div></div></div></div><div><canvas id="emCanvas" height="320"></canvas><p class="muted" id="emReading" style="margin-top:.8rem;">Si cambia más rápido el flujo y hay más espiras, la inducción aumenta.</p></div></div></section>
+<section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+</section></main><div id="footer-mount"></div>
+<script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
+<script>
+App.initPage({ depth:2, subjectKey:'fisica11', periodKey:'periodo4', topicSlug:'2_electromagnetismo.html', theme:'violet', pageTitle:'Electromagnetismo', pageDescription:'Explora la inducción electromagnética en una bobina con un modelo cualitativo.' });
+QuizEngine.mount(document.getElementById('quiz-root'), [
+{ prompt:'¿Qué debe cambiar para inducir una fem?', options:['El flujo magnético', 'Solo el color del cable', 'La masa del imán', 'La gravedad local'], answer:0, feedback:'La inducción aparece cuando cambia el flujo magnético.' },
+{ prompt:'Si hay más espiras en la bobina, la fem inducida suele:', options:['Disminuir', 'Aumentar', 'Desaparecer', 'Invertirse siempre'], answer:1, feedback:'Más espiras suelen aumentar el efecto inducido.' },
+{ prompt:'Un generador transforma energía:', options:['Térmica en química', 'Mecánica en eléctrica', 'Eléctrica en nuclear', 'Magnética en masa'], answer:1, feedback:'Ese es el principio básico del generador.' }
+], 'fisica11-periodo4-2_electromagnetismo.html');
+const turnsInput=document.getElementById('turnsInput'), speedInput=document.getElementById('speedInput'), emfOut=document.getElementById('emfOut'), inductionOut=document.getElementById('inductionOut'), emCanvas=document.getElementById('emCanvas'), emReading=document.getElementById('emReading'), emctx=emCanvas.getContext('2d');
+function renderEM(){ const styles=getComputedStyle(document.documentElement); const accent=styles.getPropertyValue('--accent').trim()||'#1d7f9d'; const warning=styles.getPropertyValue('--warning').trim()||'#d8a24c'; const text=styles.getPropertyValue('--canvas-text').trim()||'#183245'; const turns=Number(turnsInput.value), speed=Number(speedInput.value), emf=(turns/10)*speed; emfOut.textContent=emf.toFixed(1); inductionOut.textContent=emf>80?'Alta':emf>35?'Media':'Baja'; emReading.textContent=`Con ${turns} espiras y velocidad relativa ${speed}, la fem relativa es ${emf.toFixed(1)}.`; SimulatorEngine.resizeCanvas(emCanvas,320); const {width,height}=emCanvas; emctx.clearRect(0,0,width,height); emctx.strokeStyle=warning; emctx.lineWidth=3; for(let i=0;i<6;i+=1){ emctx.strokeRect(width/2-40+i*12,100,10,100); } emctx.fillStyle=warning; emctx.fillRect(60,120,70,60); emctx.fillStyle=accent; emctx.fillRect(60,180,70,60); emctx.fillStyle=text; emctx.font='16px Verdana'; emctx.fillText('Imán', 74, 110); emctx.fillText('Bobina', width/2-20, 86); }
+[turnsInput,speedInput].forEach(node=>node.addEventListener('input',renderEM)); window.addEventListener('resize',renderEM); renderEM();
+</script></body></html>

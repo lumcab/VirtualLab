@@ -53,7 +53,7 @@
         <h2 class="section-title">Conversor decimal · romano · binario</h2>
         <div class="grid columns-2">
           <div>
-            <label><span class="mini-note">Ingresa un número entre 1 y 255</span><input class="input" id="decimalInput" type="number" min="1" max="255" value="49"></label>
+            <label><span class="mini-note">Ingresa un número entre 1 y 255</span><input class="input" id="decimalInput" type="number" min="1" max="255" step="1" inputmode="numeric" value="49"></label>
             <div class="inline-actions">
               <button class="btn" id="convertBtn">Convertir</button>
               <button class="btn" id="randomBtn">Número aleatorio</button>
@@ -121,27 +121,40 @@
 
     function drawBinary(num) {
       SimulatorEngine.resizeCanvas(canvas, 290);
+      const palette = GraphEngine.getThemePalette();
+      const withAlpha = (color, alpha) => {
+        if (color.startsWith('#')) {
+          let hex = color.slice(1);
+          if (hex.length === 3) hex = hex.split('').map(char => char + char).join('');
+          const value = Number.parseInt(hex, 16);
+          const r = (value >> 16) & 255;
+          const g = (value >> 8) & 255;
+          const b = value & 255;
+          return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+        return color;
+      };
       const bits = num.toString(2).padStart(8, '0').split('');
       const values = [128,64,32,16,8,4,2,1];
       ctx.clearRect(0,0,canvas.width,canvas.height);
       ctx.font = '16px Verdana';
-      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+      ctx.fillStyle = palette.text;
       ctx.fillText('Descomposición binaria', 18, 28);
       bits.forEach((bit, i) => {
         const x = 18 + i * ((canvas.width - 36) / 8);
         const on = bit === '1';
-        ctx.fillStyle = on ? '#7cb27d' : 'rgba(120,120,120,.25)';
+        ctx.fillStyle = on ? palette.accent : withAlpha(palette.muted, 0.18);
         ctx.fillRect(x, 60, 42, 78);
-        ctx.strokeStyle = 'rgba(120,120,120,.35)';
+        ctx.strokeStyle = on ? withAlpha(palette.accent, 0.58) : withAlpha(palette.muted, 0.35);
         ctx.strokeRect(x, 60, 42, 78);
-        ctx.fillStyle = on ? '#0f1713' : getComputedStyle(document.documentElement).getPropertyValue('--text');
+        ctx.fillStyle = on ? palette.accent3 : palette.text;
         ctx.font = 'bold 26px Verdana';
         ctx.fillText(bit, x + 13, 108);
-        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+        ctx.fillStyle = palette.text;
         ctx.font = '14px Verdana';
         ctx.fillText(String(values[i]), x + 4, 160);
       });
-      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--muted');
+      ctx.fillStyle = palette.muted;
       ctx.font = '15px Verdana';
       ctx.fillText(`${num} = ${values.filter((_,i)=>bits[i]==='1').join(' + ') || 0}`, 18, 220);
     }

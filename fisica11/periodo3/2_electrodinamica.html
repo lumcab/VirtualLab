@@ -1,88 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electrodinámica | Física 11°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
-</head>
-<body>
-  <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Física 11° · Período 3</span>
-        <h1 id="hero-title">Electrodinámica</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Electricidad</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Electricidad</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Resistencia eléctrica</span><span class="topic-chip">Ley de Ohm</span><span class="topic-chip">Circuitos en serie, paralelo y mixto</span><span class="topic-chip">Energía y potencia eléctrica</span><span class="topic-chip">Leyes de Kirchhoff</span></div>
-        <ul class="list-clean"><li>Resistencia eléctrica</li><li>Ley de Ohm</li><li>Circuitos en serie, paralelo y mixto</li><li>Energía y potencia eléctrica</li><li>Leyes de Kirchhoff</li></ul>
-        <div class="formula">Interacción propuesta: Analizador básico de circuitos</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Analizador básico de circuitos</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
-  <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica11', periodKey: 'periodo3', topicSlug: '2_electrodinamica.html', theme: 'violet', pageTitle: 'Electrodinámica', pageDescription: 'Electrodinámica' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Aplica Ley de Ohm.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Diferencia circuito serie y paralelo.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta potencia eléctrica.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica11-periodo3-2_electrodinamica.html');
-  </script>
-</body>
-</html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Electrodinámica | Física 11°</title><link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png"><link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css"><style>.info-grid,.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}</style></head>
+<body><div id="header-mount"></div><main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+<section class="card hero"><span class="badge">Física 11° · Período 3</span><h1 id="hero-title">Electrodinámica</h1><p id="hero-subtitle">Relaciona corriente, voltaje y resistencia mediante la ley de Ohm, y analiza la potencia eléctrica en circuitos sencillos.</p></section>
+<section class="card"><h2 class="section-title">Panorama del tema</h2><p>La <strong>electrodinámica</strong> estudia las cargas en movimiento. En circuitos simples, el comportamiento eléctrico puede analizarse con la ley de Ohm.</p><div class="info-grid"><div class="kpi"><strong>Voltaje</strong><p class="muted">Impulsa el movimiento de las cargas.</p></div><div class="kpi"><strong>Corriente</strong><p class="muted">Cantidad de carga que pasa por unidad de tiempo.</p></div><div class="kpi"><strong>Resistencia</strong><p class="muted">Oposición al paso de la corriente.</p></div></div></section>
+<section class="card"><h2 class="section-title">Calculadora Ohm</h2><div class="grid columns-2"><div><label style="display:block; margin-top:1rem;"><span class="mini-note">Voltaje (V)</span><input class="input" id="voltageInput" type="number" min="1" max="240" value="12"></label><label style="display:block; margin-top:1rem;"><span class="mini-note">Resistencia (Ω)</span><input class="input" id="resistanceInput" type="number" min="1" max="200" value="6"></label><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Corriente</h3><div class="math-display" id="currentOut">2 A</div></div><div class="result-box"><h3>Potencia</h3><div class="math-display" id="powerOut">24 W</div></div></div></div><div><canvas id="circuitCanvas" height="320"></canvas><p class="muted" id="circuitReading" style="margin-top:.8rem;">La corriente disminuye cuando la resistencia aumenta, si el voltaje se mantiene.</p></div></div></section>
+<section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+</section></main><div id="footer-mount"></div>
+<script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
+<script>
+App.initPage({ depth:2, subjectKey:'fisica11', periodKey:'periodo3', topicSlug:'2_electrodinamica.html', theme:'violet', pageTitle:'Electrodinámica', pageDescription:'Aplica la ley de Ohm y calcula potencia en un circuito sencillo.' });
+QuizEngine.mount(document.getElementById('quiz-root'), [
+{ prompt:'La ley de Ohm se expresa como:', options:['V = I R', 'P = m g', 'F = m a', 'Q = m c ΔT'], answer:0, feedback:'Relaciona voltaje, corriente y resistencia.' },
+{ prompt:'Si la resistencia aumenta y el voltaje es constante, la corriente:', options:['Aumenta', 'Disminuye', 'No cambia', 'Se vuelve negativa'], answer:1, feedback:'I = V/R, así que más resistencia implica menos corriente.' },
+{ prompt:'La potencia eléctrica puede calcularse con:', options:['P = V I', 'P = m c', 'P = h/t', 'P = q/r'], answer:0, feedback:'Es una forma común de calcular potencia en circuitos.' }
+], 'fisica11-periodo3-2_electrodinamica.html');
+const voltageInput=document.getElementById('voltageInput'), resistanceInput=document.getElementById('resistanceInput'), currentOut=document.getElementById('currentOut'), powerOut=document.getElementById('powerOut'), circuitCanvas=document.getElementById('circuitCanvas'), circuitReading=document.getElementById('circuitReading'), cctx=circuitCanvas.getContext('2d');
+function renderCircuit(){ const styles=getComputedStyle(document.documentElement); const accent=styles.getPropertyValue('--accent').trim()||'#1d7f9d'; const warning=styles.getPropertyValue('--warning').trim()||'#d8a24c'; const text=styles.getPropertyValue('--canvas-text').trim()||'#183245'; const line=styles.getPropertyValue('--line-strong').trim()||'#cbd5e1'; const V=Number(voltageInput.value), R=Number(resistanceInput.value), I=V/R, P=V*I; currentOut.textContent=`${I.toFixed(2)} A`; powerOut.textContent=`${P.toFixed(2)} W`; circuitReading.textContent=`Con ${V} V y ${R} Ω, la corriente es ${I.toFixed(2)} A y la potencia es ${P.toFixed(2)} W.`; SimulatorEngine.resizeCanvas(circuitCanvas,320); const {width,height}=circuitCanvas; cctx.clearRect(0,0,width,height); cctx.strokeStyle=line; cctx.lineWidth=3; cctx.strokeRect(60,80,width-120,height-160); cctx.fillStyle=accent; cctx.fillRect(70,height/2-18,50,36); cctx.fillStyle=warning; cctx.fillRect(width-135,height/2-18,70,36); cctx.fillStyle=text; cctx.font='16px Verdana'; cctx.fillText(`${V} V`, 78, height/2+6); cctx.fillText(`${R} Ω`, width-122, height/2+6); cctx.fillText(`I = ${I.toFixed(2)} A`, width/2-30, 60); }
+[voltageInput,resistanceInput].forEach(node=>node.addEventListener('input',renderCircuit)); window.addEventListener('resize',renderCircuit); renderCircuit();
+</script></body></html>

@@ -1,7 +1,22 @@
 window.GraphEngine = {
+  getThemePalette() {
+    const styles = getComputedStyle(document.documentElement);
+    const read = (name, fallback) => styles.getPropertyValue(name).trim() || fallback;
+    return {
+      text: read('--canvas-text', '#183245'),
+      muted: read('--canvas-muted', '#5e788a'),
+      accent: read('--accent', '#1d7f9d'),
+      accent2: read('--accent-2', '#49a9d4'),
+      accent3: read('--accent-3', '#f4fbfd'),
+      success: read('--success', '#3a9777'),
+      warning: read('--warning', '#d8a24c'),
+      line: read('--line-strong', 'rgba(148,163,184,.35)')
+    };
+  },
   drawAxes(ctx, width, height) {
+    const palette = this.getThemePalette();
     ctx.clearRect(0,0,width,height);
-    ctx.strokeStyle = 'rgba(148,163,184,.45)';
+    ctx.strokeStyle = palette.line;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(40, height/2); ctx.lineTo(width - 20, height/2);
@@ -11,13 +26,14 @@ window.GraphEngine = {
   drawVector(canvas, vectorA, vectorB) {
     const ctx = canvas.getContext('2d');
     const { width, height } = canvas;
+    const palette = this.getThemePalette();
     this.drawAxes(ctx, width, height);
     const origin = { x: width/2, y: height/2 };
     const vectors = [
-      { ...vectorA, color: '#22d3ee', label: 'A' },
-      { ...vectorB, color: '#a855f7', label: 'B' }
+      { ...vectorA, color: palette.accent, label: 'A' },
+      { ...vectorB, color: palette.warning, label: 'B' }
     ];
-    const result = { x: vectorA.x + vectorB.x, y: vectorA.y + vectorB.y, color: '#22c55e', label: 'R' };
+    const result = { x: vectorA.x + vectorB.x, y: vectorA.y + vectorB.y, color: palette.success, label: 'R' };
     vectors.push(result);
     vectors.forEach(v => {
       ctx.strokeStyle = v.color; ctx.fillStyle = v.color; ctx.lineWidth = 3;
@@ -35,8 +51,9 @@ window.GraphEngine = {
   drawSine(canvas, amplitude, wavelength, phase = 0) {
     const ctx = canvas.getContext('2d');
     const { width, height } = canvas;
+    const palette = this.getThemePalette();
     this.drawAxes(ctx, width, height);
-    ctx.strokeStyle = '#22d3ee'; ctx.lineWidth = 3; ctx.beginPath();
+    ctx.strokeStyle = palette.accent; ctx.lineWidth = 3; ctx.beginPath();
     for (let x = 0; x < width; x++) {
       const y = height/2 - amplitude * Math.sin((x / wavelength) + phase);
       x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
@@ -46,16 +63,17 @@ window.GraphEngine = {
   drawBars(canvas, values) {
     const ctx = canvas.getContext('2d');
     const { width, height } = canvas;
-    const isLight = document.documentElement.dataset.theme === 'light';
-    const textColor = isLight ? '#243129' : '#f3efe8';
-    const mutedColor = isLight ? '#435247' : '#d8d2c7';
+    const palette = this.getThemePalette();
+    const textColor = palette.text;
+    const mutedColor = palette.muted;
+    const barColors = [palette.accent, palette.accent2, palette.warning, palette.success];
     ctx.clearRect(0,0,width,height);
     const max = Math.max(...values.map(v => v.value), 1);
     const barW = (width - 60) / values.length;
     ctx.font = 'bold 15px Verdana';
     values.forEach((item, i) => {
       const h = (item.value / max) * (height - 60);
-      ctx.fillStyle = ['#22d3ee', '#38bdf8', '#a855f7', '#f59e0b'][i % 4];
+      ctx.fillStyle = barColors[i % barColors.length];
       ctx.fillRect(30 + i * barW, height - h - 30, barW - 16, h);
       ctx.fillStyle = textColor;
       ctx.fillText(item.label, 30 + i * barW, height - 10);

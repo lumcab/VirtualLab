@@ -1,88 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hidrostática | Física 10°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
+  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css">
+  <style>.info-grid,.concept-grid,.practice-grid,.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.concept-card,.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.concept-card h3,.result-box h3{margin:0 0 .5rem;font-family:var(--font-display);font-size:1.05rem}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}.inline-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.9rem}.table-lite{width:100%;border-collapse:collapse;overflow:hidden;border-radius:18px;border:1px solid var(--line)}.table-lite th,.table-lite td{padding:.85rem;text-align:left;border-bottom:1px solid var(--line)}.table-lite thead{background:color-mix(in srgb,var(--panel-strong) 90%,transparent)}</style>
 </head>
 <body>
-  <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Física 10° · Período 3</span>
-        <h1 id="hero-title">Hidrostática</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Mecánica de fluidos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Mecánica de fluidos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Presión y densidad</span><span class="topic-chip">Presión hidrostática</span><span class="topic-chip">Principio de Pascal</span><span class="topic-chip">Principio de Arquímedes</span></div>
-        <ul class="list-clean"><li>Presión y densidad</li><li>Presión hidrostática</li><li>Principio de Pascal</li><li>Principio de Arquímedes</li></ul>
-        <div class="formula">Interacción propuesta: Prensa hidráulica virtual</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Prensa hidráulica virtual</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
+  <div id="header-mount"></div><main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+    <section class="card hero"><span class="badge">Física 10° · Período 3</span><h1 id="hero-title">Hidrostática</h1><p id="hero-subtitle">Estudia la presión en fluidos en reposo, su relación con la profundidad y aplicaciones como la flotación, el principio de Pascal y la prensa hidráulica.</p></section>
+    <section class="card"><h2 class="section-title">Panorama del tema</h2><p>La <strong>hidrostática</strong> analiza fluidos en reposo. En ellos, la presión aumenta con la profundidad y depende también de la densidad del fluido y de la gravedad.</p><div class="info-grid"><div class="kpi"><strong>Presión</strong><p class="muted">Fuerza aplicada por unidad de área.</p></div><div class="kpi"><strong>Densidad</strong><p class="muted">Cantidad de masa por volumen del fluido.</p></div><div class="kpi"><strong>Profundidad</strong><p class="muted">A mayor profundidad, mayor presión hidrostática.</p></div></div></section>
+    <section class="card"><h2 class="section-title">Conceptos clave</h2><div class="concept-grid"><article class="concept-card"><h3>Presión hidrostática</h3><p>Se calcula con p = rho g h.</p></article><article class="concept-card"><h3>Principio de Pascal</h3><p>La presión aplicada a un fluido encerrado se transmite en todas direcciones.</p></article><article class="concept-card"><h3>Flotación</h3><p>Un cuerpo flota si el empuje del fluido compensa su peso.</p></article></div></section>
+    <section class="card"><h2 class="section-title">Explorador de presión</h2><div class="grid columns-2"><div><div class="kpi"><strong>Componente interactivo</strong><p class="muted">Cambia la densidad y la profundidad para observar cómo varía la presión hidrostática.</p></div><label style="display:block; margin-top:1rem;"><span class="mini-note">Densidad (kg/m³)</span><input class="input" id="densityInput" type="number" min="500" max="1400" step="50" value="1000"></label><label style="display:block; margin-top:1rem;"><span class="mini-note">Profundidad (m)</span><input class="input" id="depthInput" type="range" min="0" max="12" step="0.5" value="4"></label><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Presión</h3><div class="math-display" id="pressureOut">39200 Pa</div></div><div class="result-box"><h3>Fluido</h3><div class="math-display" id="fluidOut">Agua</div></div></div></div><div><canvas id="hydroCanvas" height="320"></canvas><p class="muted" id="hydroReading" style="margin-top:.8rem;">La columna de fluido muestra que la presión aumenta con la profundidad.</p></div></div></section>
+    <section class="card"><h2 class="section-title">Aplicación en contexto</h2><p>La hidrostática explica el funcionamiento de submarinos, presas, jeringas, frenos hidráulicos y el diseño de tanques. También ayuda a entender por qué sentimos más presión al sumergirnos.</p><div class="formula">En fluidos en reposo, la presión depende de la profundidad y de la densidad.</div></section>
+    <section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+  </section></main><div id="footer-mount"></div>
+  <script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo3', topicSlug: '1_hidrostatica.html', theme: 'blue', pageTitle: 'Hidrostática', pageDescription: 'Hidrostática' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Calcula presión.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Explica flotación.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Aplica Pascal en un sistema.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo3-1_hidrostatica.html');
+    App.initPage({ depth:2, subjectKey:'fisica10', periodKey:'periodo3', topicSlug:'1_hidrostatica.html', theme:'blue', pageTitle:'Hidrostática', pageDescription:'Explora cómo cambian la presión y la profundidad en fluidos en reposo.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt:'¿Qué sucede con la presión cuando aumenta la profundidad?', options:['Disminuye', 'Permanece igual', 'Aumenta', 'Se vuelve cero'], answer:2, feedback:'A mayor profundidad, mayor columna de fluido sobre el punto.' },
+      { prompt:'¿Qué magnitud aparece en p = rho g h?', options:['Velocidad', 'Temperatura', 'Densidad', 'Carga'], answer:2, feedback:'La densidad del fluido es un factor esencial.' },
+      { prompt:'¿Qué explica el principio de Pascal?', options:['La transmisión de presión en un fluido', 'La refracción de la luz', 'La dilatación térmica', 'La inducción eléctrica'], answer:0, feedback:'La presión se transmite en todas direcciones dentro del fluido encerrado.' }
+    ], 'fisica10-periodo3-1_hidrostatica.html');
+    const densityInput = document.getElementById('densityInput'), depthInput = document.getElementById('depthInput'), pressureOut = document.getElementById('pressureOut'), fluidOut = document.getElementById('fluidOut'), hydroCanvas = document.getElementById('hydroCanvas'), hydroReading = document.getElementById('hydroReading'), ctx = hydroCanvas.getContext('2d');
+    function renderHydro() {
+      const styles = getComputedStyle(document.documentElement);
+      const accent = styles.getPropertyValue('--accent').trim() || '#1d7f9d';
+      const accent2 = styles.getPropertyValue('--accent-2').trim() || '#49a9d4';
+      const text = styles.getPropertyValue('--canvas-text').trim() || '#183245';
+      const rho = Number(densityInput.value), h = Number(depthInput.value), p = rho * 9.8 * h;
+      pressureOut.textContent = `${Math.round(p)} Pa`;
+      fluidOut.textContent = rho >= 1100 ? 'Líquido denso' : rho >= 900 ? 'Agua' : 'Líquido liviano';
+      hydroReading.textContent = `Con densidad ${rho} kg/m³ y profundidad ${h} m, la presión hidrostática es ${Math.round(p)} Pa.`;
+      SimulatorEngine.resizeCanvas(hydroCanvas, 320); const { width, height } = hydroCanvas;
+      ctx.clearRect(0,0,width,height); ctx.fillStyle = accent2; ctx.globalAlpha = 0.18; ctx.fillRect(width*0.25, 40, width*0.5, height-80);
+      const level = 40 + ((12 - h) / 12) * (height - 80);
+      ctx.globalAlpha = 1; ctx.fillStyle = accent; ctx.fillRect(width*0.25, level, width*0.5, height - 40 - level);
+      ctx.fillStyle = text; ctx.font = '16px Verdana'; ctx.fillText(`h = ${h} m`, width*0.25 + 12, level - 10); ctx.fillText(`p = ${Math.round(p)} Pa`, width*0.25 + 12, height - 20);
+    }
+    [densityInput, depthInput].forEach(node => node.addEventListener('input', renderHydro)); window.addEventListener('resize', renderHydro); renderHydro();
   </script>
 </body>
 </html>

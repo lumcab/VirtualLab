@@ -1,88 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hidrodinámica | Física 10°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
-</head>
-<body>
-  <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Física 10° · Período 3</span>
-        <h1 id="hero-title">Hidrodinámica</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Mecánica de fluidos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Mecánica de fluidos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Viscosidad</span><span class="topic-chip">Caudal</span><span class="topic-chip">Flujo laminar</span><span class="topic-chip">Flujo turbulento</span><span class="topic-chip">Ecuación de continuidad</span></div>
-        <ul class="list-clean"><li>Viscosidad</li><li>Caudal</li><li>Flujo laminar</li><li>Flujo turbulento</li><li>Ecuación de continuidad</li></ul>
-        <div class="formula">Interacción propuesta: Tubería de continuidad</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Tubería de continuidad</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
-  <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo3', topicSlug: '2_hidrodinamica.html', theme: 'blue', pageTitle: 'Hidrodinámica', pageDescription: 'Hidrodinámica' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Relaciona área y velocidad.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Distingue flujo laminar y turbulento.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Calcula un caudal.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo3-2_hidrodinamica.html');
-  </script>
-</body>
-</html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hidrodinámica | Física 10°</title><link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png"><link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css"><style>.info-grid,.concept-grid,.results-grid,.practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.concept-card,.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.concept-card h3,.result-box h3{margin:0 0 .5rem;font-family:var(--font-display)}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}</style></head>
+<body><div id="header-mount"></div><main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+<section class="card hero"><span class="badge">Física 10° · Período 3</span><h1 id="hero-title">Hidrodinámica</h1><p id="hero-subtitle">Analiza fluidos en movimiento, relaciona velocidad, área y caudal, y observa cómo cambia el flujo al pasar por secciones estrechas y anchas.</p></section>
+<section class="card"><h2 class="section-title">Panorama del tema</h2><p>La <strong>hidrodinámica</strong> estudia fluidos en movimiento. En una tubería, si el área disminuye, la velocidad del fluido suele aumentar para conservar el caudal.</p><div class="info-grid"><div class="kpi"><strong>Caudal</strong><p class="muted">Volumen de fluido que pasa por unidad de tiempo.</p></div><div class="kpi"><strong>Continuidad</strong><p class="muted">A1v1 = A2v2 en un flujo ideal.</p></div><div class="kpi"><strong>Velocidad</strong><p class="muted">Cambia según el ancho del conducto.</p></div></div></section>
+<section class="card"><h2 class="section-title">Tubería de continuidad</h2><div class="grid columns-2"><div><div class="kpi"><strong>Componente interactivo</strong><p class="muted">Modifica las áreas de dos secciones y observa cómo cambia la velocidad.</p></div><label style="display:block; margin-top:1rem;"><span class="mini-note">Área 1</span><input class="input" id="area1Input" type="number" min="1" max="12" step="0.5" value="8"></label><label style="display:block; margin-top:1rem;"><span class="mini-note">Velocidad 1</span><input class="input" id="speed1Input" type="number" min="1" max="10" step="0.5" value="2"></label><label style="display:block; margin-top:1rem;"><span class="mini-note">Área 2</span><input class="input" id="area2Input" type="number" min="1" max="12" step="0.5" value="4"></label><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Velocidad 2</h3><div class="math-display" id="speed2Out">4 m/s</div></div><div class="result-box"><h3>Caudal</h3><div class="math-display" id="flowOut">16</div></div></div></div><div><canvas id="flowCanvas" height="320"></canvas><p class="muted" id="flowReading" style="margin-top:.8rem;">El flujo se acelera en la zona más angosta.</p></div></div></section>
+<section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+</section></main><div id="footer-mount"></div>
+<script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
+<script>
+App.initPage({ depth:2, subjectKey:'fisica10', periodKey:'periodo3', topicSlug:'2_hidrodinamica.html', theme:'blue', pageTitle:'Hidrodinámica', pageDescription:'Relaciona área, velocidad y caudal con una tubería de continuidad.' });
+QuizEngine.mount(document.getElementById('quiz-root'), [
+{ prompt:'Si el área disminuye, la velocidad en un flujo ideal suele:', options:['Disminuir', 'Aumentar', 'Desaparecer', 'Permanecer igual siempre'], answer:1, feedback:'La continuidad indica que el fluido se acelera en la sección más estrecha.' },
+{ prompt:'¿Qué magnitudes relaciona A1v1 = A2v2?', options:['Presión y tiempo', 'Área y velocidad', 'Masa y peso', 'Voltaje y corriente'], answer:1, feedback:'Es la ecuación de continuidad para flujo ideal.' },
+{ prompt:'¿Qué representa el caudal?', options:['Fuerza por área', 'Cantidad de carga', 'Volumen por tiempo', 'Temperatura por masa'], answer:2, feedback:'El caudal mide cuánto fluido pasa en determinado tiempo.' }
+], 'fisica10-periodo3-2_hidrodinamica.html');
+const area1Input = document.getElementById('area1Input'), speed1Input = document.getElementById('speed1Input'), area2Input = document.getElementById('area2Input'), speed2Out = document.getElementById('speed2Out'), flowOut = document.getElementById('flowOut'), flowCanvas = document.getElementById('flowCanvas'), flowReading = document.getElementById('flowReading'), flowCtx = flowCanvas.getContext('2d');
+function renderFlow(){ const styles=getComputedStyle(document.documentElement); const accent=styles.getPropertyValue('--accent').trim()||'#1d7f9d'; const warning=styles.getPropertyValue('--warning').trim()||'#d8a24c'; const a1=Number(area1Input.value), v1=Number(speed1Input.value), a2=Number(area2Input.value); const q=a1*v1; const v2=q/a2; speed2Out.textContent=`${v2.toFixed(2)} m/s`; flowOut.textContent=q.toFixed(2); flowReading.textContent=`Con el mismo caudal, al pasar de área ${a1} a ${a2}, la velocidad cambia a ${v2.toFixed(2)} m/s.`; SimulatorEngine.resizeCanvas(flowCanvas,320); const {width,height}=flowCanvas; flowCtx.clearRect(0,0,width,height); const top1=90-a1*3, bot1=230+a1*3, top2=90-a2*3, bot2=230+a2*3; flowCtx.fillStyle=accent; flowCtx.globalAlpha=.16; flowCtx.beginPath(); flowCtx.moveTo(20,top1); flowCtx.lineTo(width*0.45,top1); flowCtx.lineTo(width*0.55,top2); flowCtx.lineTo(width-20,top2); flowCtx.lineTo(width-20,bot2); flowCtx.lineTo(width*0.55,bot2); flowCtx.lineTo(width*0.45,bot1); flowCtx.lineTo(20,bot1); flowCtx.closePath(); flowCtx.fill(); flowCtx.globalAlpha=1; flowCtx.strokeStyle=accent; flowCtx.lineWidth=3; flowCtx.stroke(); flowCtx.fillStyle=warning; flowCtx.font='16px Verdana'; flowCtx.fillText(`v1=${v1}`, 40, height/2); flowCtx.fillText(`v2=${v2.toFixed(1)}`, width-120, height/2); }
+[area1Input,speed1Input,area2Input].forEach(node=>node.addEventListener('input',renderFlow)); window.addEventListener('resize',renderFlow); renderFlow();
+</script></body></html>

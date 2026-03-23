@@ -1,88 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Termodinámica | Física 10°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
-</head>
-<body>
-  <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Física 10° · Período 4</span>
-        <h1 id="hero-title">Termodinámica</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Termodinámica y sistemas térmicos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Termodinámica y sistemas térmicos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Calorimetría</span><span class="topic-chip">Capacidad calorífica</span><span class="topic-chip">Calor específico</span><span class="topic-chip">Calor latente</span><span class="topic-chip">Cambios de fase</span><span class="topic-chip">Punto de fusión</span><span class="topic-chip">Punto de ebullición</span><span class="topic-chip">Proceso isotérmico</span></div>
-        <ul class="list-clean"><li>Calorimetría</li><li>Capacidad calorífica</li><li>Calor específico</li><li>Calor latente</li><li>Cambios de fase</li><li>Punto de fusión</li><li>Punto de ebullición</li><li>Proceso isotérmico</li></ul>
-        <div class="formula">Interacción propuesta: Curva de calentamiento</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Curva de calentamiento</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
-  <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo4', topicSlug: '2_termodinamica.html', theme: 'blue', pageTitle: 'Termodinámica', pageDescription: 'Termodinámica' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Reconoce cambio de fase.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Aplica calor específico.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta una curva térmica.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo4-2_termodinamica.html');
-  </script>
-</body>
-</html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Termodinámica | Física 10°</title><link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png"><link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css"><style>.info-grid,.results-grid,.practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}</style></head>
+<body><div id="header-mount"></div><main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+<section class="card hero"><span class="badge">Física 10° · Período 4</span><h1 id="hero-title">Termodinámica</h1><p id="hero-subtitle">Interpreta cambios de estado, equilibrio térmico y transferencia de energía en sistemas que intercambian calor y trabajo con el entorno.</p></section>
+<section class="card"><h2 class="section-title">Panorama del tema</h2><p>La <strong>termodinámica</strong> estudia cómo se relacionan calor, trabajo, temperatura y energía interna en los sistemas físicos.</p><div class="info-grid"><div class="kpi"><strong>Sistema</strong><p class="muted">Parte del universo que se analiza.</p></div><div class="kpi"><strong>Entorno</strong><p class="muted">Todo lo que rodea al sistema.</p></div><div class="kpi"><strong>Equilibrio térmico</strong><p class="muted">Ocurre cuando ya no hay intercambio neto de calor.</p></div></div></section>
+<section class="card"><h2 class="section-title">Curva de calentamiento</h2><div class="grid columns-2"><div><label style="display:block; margin-top:1rem;"><span class="mini-note">Energía suministrada</span><input class="input" id="energyInput" type="range" min="0" max="100" value="35"></label><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Etapa</h3><div class="math-display" id="stageOut">Líquido</div></div><div class="result-box"><h3>Lectura</h3><div class="math-display" id="tempStageOut">Calentamiento</div></div></div></div><div><canvas id="thermoCanvas" height="320"></canvas><p class="muted" id="thermoReading" style="margin-top:.8rem;">La curva muestra tramos de calentamiento y cambios de fase.</p></div></div></section>
+<section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+</section></main><div id="footer-mount"></div>
+<script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
+<script>
+App.initPage({ depth:2, subjectKey:'fisica10', periodKey:'periodo4', topicSlug:'2_termodinamica.html', theme:'blue', pageTitle:'Termodinámica', pageDescription:'Interpreta una curva de calentamiento y las etapas de cambio de estado.' });
+QuizEngine.mount(document.getElementById('quiz-root'), [
+{ prompt:'¿Qué ocurre en una meseta de la curva de calentamiento?', options:['La temperatura cambia rápido', 'No hay intercambio de energía', 'Hay cambio de fase', 'El sistema desaparece'], answer:2, feedback:'Durante el cambio de fase la temperatura puede permanecer constante mientras entra energía.' },
+{ prompt:'¿Qué es el equilibrio térmico?', options:['Cuando todos los cuerpos están a 0 °C', 'Cuando no hay intercambio neto de calor', 'Cuando sube la presión', 'Cuando se vuelve sólido'], answer:1, feedback:'En equilibrio térmico las temperaturas se igualan y cesa el flujo neto de calor.' },
+{ prompt:'La termodinámica estudia principalmente:', options:['Luz y color', 'Calor, trabajo y energía', 'Campos magnéticos', 'Vectores'], answer:1, feedback:'Ese es el núcleo del estudio termodinámico.' }
+], 'fisica10-periodo4-2_termodinamica.html');
+const energyInput=document.getElementById('energyInput'), stageOut=document.getElementById('stageOut'), tempStageOut=document.getElementById('tempStageOut'), thermoCanvas=document.getElementById('thermoCanvas'), thermoReading=document.getElementById('thermoReading'), thctx=thermoCanvas.getContext('2d');
+function renderThermo(){ const styles=getComputedStyle(document.documentElement); const accent=styles.getPropertyValue('--accent').trim()||'#1d7f9d'; const warning=styles.getPropertyValue('--warning').trim()||'#d8a24c'; const e=Number(energyInput.value); let stage='Sólido', state='Calentamiento'; if(e>20&&e<=35){stage='Fusión';state='Cambio de fase';} else if(e>35&&e<=65){stage='Líquido';state='Calentamiento';} else if(e>65&&e<=80){stage='Vaporización';state='Cambio de fase';} else if(e>80){stage='Gas';state='Calentamiento';} stageOut.textContent=stage; tempStageOut.textContent=state; thermoReading.textContent=`Con energía relativa ${e}, el sistema se encuentra en la etapa: ${stage.toLowerCase()}.`; SimulatorEngine.resizeCanvas(thermoCanvas,320); const {width,height}=thermoCanvas; thctx.clearRect(0,0,width,height); thctx.strokeStyle=accent; thctx.lineWidth=3; thctx.beginPath(); thctx.moveTo(40,height-40); thctx.lineTo(110,220); thctx.lineTo(180,220); thctx.lineTo(250,120); thctx.lineTo(310,120); thctx.lineTo(width-40,60); thctx.stroke(); thctx.fillStyle=warning; const px=40+(e/100)*(width-80); let py=height-40-(e/100)*(height-120); if(e>20&&e<=35) py=220; else if(e>35&&e<=65) py=220-((e-35)/30)*100; else if(e>65&&e<=80) py=120; else if(e>80) py=120-((e-80)/20)*60; thctx.beginPath(); thctx.arc(px,py,7,0,Math.PI*2); thctx.fill(); }
+energyInput.addEventListener('input',renderThermo); window.addEventListener('resize',renderThermo); renderThermo();
+</script></body></html>

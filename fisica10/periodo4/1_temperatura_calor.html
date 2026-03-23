@@ -1,88 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Temperatura y calor | Física 10°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
-</head>
-<body>
-  <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Física 10° · Período 4</span>
-        <h1 id="hero-title">Temperatura y calor</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Termodinámica y sistemas térmicos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Termodinámica y sistemas térmicos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Temperatura y calor</span><span class="topic-chip">Escalas de temperatura</span><span class="topic-chip">Equilibrio térmico</span><span class="topic-chip">Transferencia de calor</span></div>
-        <ul class="list-clean"><li>Temperatura y calor</li><li>Escalas de temperatura</li><li>Equilibrio térmico</li><li>Transferencia de calor</li></ul>
-        <div class="formula">Interacción propuesta: Conversor de temperatura y equilibrio</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Conversor de temperatura y equilibrio</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
-  <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica10', periodKey: 'periodo4', topicSlug: '1_temperatura_calor.html', theme: 'blue', pageTitle: 'Temperatura y calor', pageDescription: 'Temperatura y calor' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Diferencia calor y temperatura.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Convierte escalas.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Reconoce un mecanismo de transferencia.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica10-periodo4-1_temperatura_calor.html');
-  </script>
-</body>
-</html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Temperatura y calor | Física 10°</title><link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png"><link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css"><style>.info-grid,.results-grid,.practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}</style></head>
+<body><div id="header-mount"></div><main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+<section class="card hero"><span class="badge">Física 10° · Período 4</span><h1 id="hero-title">Temperatura y calor</h1><p id="hero-subtitle">Distingue temperatura y calor, convierte escalas térmicas y estima energía transferida durante un cambio de temperatura.</p></section>
+<section class="card"><h2 class="section-title">Panorama del tema</h2><p>La <strong>temperatura</strong> mide qué tan caliente o frío está un cuerpo. El <strong>calor</strong> es energía en tránsito entre cuerpos con distinta temperatura.</p><div class="info-grid"><div class="kpi"><strong>Temperatura</strong><p class="muted">Indica el estado térmico.</p></div><div class="kpi"><strong>Calor</strong><p class="muted">Es energía transferida.</p></div><div class="kpi"><strong>Escalas</strong><p class="muted">Celsius, Fahrenheit y Kelvin.</p></div></div></section>
+<section class="card"><h2 class="section-title">Conversor térmico</h2><div class="grid columns-2"><div><label style="display:block; margin-top:1rem;"><span class="mini-note">Temperatura en °C</span><input class="input" id="celsiusInput" type="number" min="-50" max="200" value="25"></label><label style="display:block; margin-top:1rem;"><span class="mini-note">Masa de agua (kg)</span><input class="input" id="massInput" type="number" min="0.1" max="10" step="0.1" value="1"></label><label style="display:block; margin-top:1rem;"><span class="mini-note">Cambio de temperatura ΔT (°C)</span><input class="input" id="deltaInput" type="number" min="-50" max="100" value="10"></label><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Fahrenheit</h3><div class="math-display" id="fahrenheitOut">77 °F</div></div><div class="result-box"><h3>Kelvin</h3><div class="math-display" id="kelvinOut">298.15 K</div></div><div class="result-box"><h3>Calor Q</h3><div class="math-display" id="heatOut">41800 J</div></div></div></div><div><canvas id="tempCanvas" height="320"></canvas><p class="muted" id="tempReading" style="margin-top:.8rem;">Se usa el calor específico del agua para estimar Q = m c ΔT.</p></div></div></section>
+<section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+</section></main><div id="footer-mount"></div>
+<script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
+<script>
+App.initPage({ depth:2, subjectKey:'fisica10', periodKey:'periodo4', topicSlug:'1_temperatura_calor.html', theme:'blue', pageTitle:'Temperatura y calor', pageDescription:'Convierte escalas y estima calor transferido en procesos térmicos simples.' });
+QuizEngine.mount(document.getElementById('quiz-root'), [
+{ prompt:'¿Qué es el calor?', options:['Una medida del estado térmico', 'Energía en tránsito', 'Una escala', 'Un tipo de masa'], answer:1, feedback:'El calor es energía transferida por diferencia de temperatura.' },
+{ prompt:'0 °C equivalen a:', options:['273.15 K', '0 K', '32 K', '100 K'], answer:0, feedback:'Para pasar a Kelvin se suma 273.15.' },
+{ prompt:'¿Qué distingue temperatura y calor?', options:['Son exactamente lo mismo', 'La temperatura mide, el calor transfiere energía', 'Solo cambia el nombre', 'Ninguna'], answer:1, feedback:'La temperatura describe el estado térmico y el calor es transferencia de energía.' }
+], 'fisica10-periodo4-1_temperatura_calor.html');
+const celsiusInput=document.getElementById('celsiusInput'), massInput=document.getElementById('massInput'), deltaInput=document.getElementById('deltaInput'), fahrenheitOut=document.getElementById('fahrenheitOut'), kelvinOut=document.getElementById('kelvinOut'), heatOut=document.getElementById('heatOut'), tempCanvas=document.getElementById('tempCanvas'), tempReading=document.getElementById('tempReading'), tctx=tempCanvas.getContext('2d');
+function renderTemp(){ const styles=getComputedStyle(document.documentElement); const warning=styles.getPropertyValue('--warning').trim()||'#d8a24c'; const line=styles.getPropertyValue('--line-strong').trim()||'rgba(148,163,184,.25)'; const text=styles.getPropertyValue('--canvas-text').trim()||'#183245'; const c=Number(celsiusInput.value), m=Number(massInput.value), dT=Number(deltaInput.value), f=c*9/5+32, k=c+273.15, q=m*4180*dT; fahrenheitOut.textContent=`${f.toFixed(1)} °F`; kelvinOut.textContent=`${k.toFixed(2)} K`; heatOut.textContent=`${q.toFixed(0)} J`; tempReading.textContent=`Para ${m} kg de agua y un cambio de ${dT} °C, el calor estimado es ${q.toFixed(0)} J.`; SimulatorEngine.resizeCanvas(tempCanvas,320); const {width,height}=tempCanvas; tctx.clearRect(0,0,width,height); const level=Math.max(30,Math.min(height-30,height-((c+50)/250)*(height-60)-30)); tctx.fillStyle=line; tctx.fillRect(width/2-20,30,40,height-60); tctx.fillStyle=warning; tctx.fillRect(width/2-20,level,40,height-30-level); tctx.fillStyle=text; tctx.font='16px Verdana'; tctx.fillText(`${c} °C`, width/2+32, level+8); }
+[celsiusInput,massInput,deltaInput].forEach(node=>node.addEventListener('input',renderTemp)); window.addEventListener('resize',renderTemp); renderTemp();
+</script></body></html>

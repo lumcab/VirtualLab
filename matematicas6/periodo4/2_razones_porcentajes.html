@@ -8,10 +8,21 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid, .concept-grid, .practice-grid, .results-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; }
+    .concept-card, .result-box { padding:1rem; border-radius:18px; border:1px solid var(--line); background:linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent)); }
+    .concept-card h3, .result-box h3 { margin:0 0 .5rem; font-family:var(--font-display); font-size:1.05rem; }
+    .math-display { margin-top:.55rem; font-size:clamp(1.35rem, 1.1rem + .8vw, 2rem); font-weight:800; color:var(--accent-3); word-break:break-word; }
+    .table-lite { width:100%; border-collapse:collapse; overflow:hidden; border-radius:18px; border:1px solid var(--line); }
+    .table-lite th, .table-lite td { padding:.85rem; text-align:left; border-bottom:1px solid var(--line); }
+    .table-lite thead { background:color-mix(in srgb, var(--panel-strong) 90%, transparent); }
+    .table-lite tbody tr:last-child td { border-bottom:0; }
+    .inline-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.9rem; }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,55 +32,78 @@
       <section class="card hero">
         <span class="badge">Matemáticas 6° · Período 4</span>
         <h1 id="hero-title">Razones, proporciones y porcentajes</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Decimales, razones y probabilidad</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Compara cantidades mediante razones, reconoce proporciones equivalentes y expresa partes de un total usando porcentajes en contextos de encuestas, compras y repartos.</p>
       </section>
-
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Decimales, razones y probabilidad</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Razones y proporciones</span><span class="topic-chip">Porcentajes</span></div>
-        <ul class="list-clean"><li>Razones y proporciones</li><li>Porcentajes</li></ul>
-        <div class="formula">Interacción propuesta: Visualizador de porcentajes</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>Una <strong>razón</strong> compara dos cantidades. Una <strong>proporción</strong> afirma que dos razones son equivalentes. Un <strong>porcentaje</strong> expresa una cantidad como parte de 100.</p>
+        <div class="info-grid">
+          <div class="kpi"><strong>Razón</strong><p class="muted">Se puede escribir como a:b o a/b. Ejemplo: 3 lápices por cada 5 cuadernos.</p></div>
+          <div class="kpi"><strong>Proporción</strong><p class="muted">Si 2/4 = 3/6, entonces las razones forman una proporción.</p></div>
+          <div class="kpi"><strong>Porcentaje</strong><p class="muted">25% significa 25 de cada 100, es decir, 25/100 o 0,25.</p></div>
+        </div>
       </section>
-
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Conceptos clave</h2>
+        <div class="concept-grid">
+          <article class="concept-card"><h3>Simplificar razones</h3><p>Se divide cada cantidad por el mismo número para encontrar una forma equivalente más sencilla.</p><div class="formula">12:18 = 2:3.</div></article>
+          <article class="concept-card"><h3>Proporcionalidad</h3><p>Si una cantidad aumenta o disminuye manteniendo la misma relación, existe proporcionalidad.</p><div class="formula">1/2 = 2/4 = 4/8.</div></article>
+          <article class="concept-card"><h3>Porcentaje en contexto</h3><p>Sirve para describir descuentos, resultados de encuestas o partes coloreadas de un conjunto.</p><div class="formula">30% de 50 = 15.</div></article>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="section-title">Tabla rápida</h2>
+        <table class="table-lite">
+          <thead><tr><th>Situación</th><th>Razón</th><th>Porcentaje</th><th>Interpretación</th></tr></thead>
+          <tbody>
+            <tr><td>12 niñas de 20 estudiantes</td><td>12:20 = 3:5</td><td>60%</td><td>60 de cada 100 serían niñas</td></tr>
+            <tr><td>15 aciertos de 25</td><td>15:25 = 3:5</td><td>60%</td><td>La misma relación aparece en otro contexto</td></tr>
+            <tr><td>5 camisetas rojas de 20</td><td>5:20 = 1:4</td><td>25%</td><td>Una cuarta parte del total</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="card">
+        <h2 class="section-title">Visualizador de proporciones</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Visualizador de porcentajes</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <div class="kpi"><strong>Componente interactivo</strong><p class="muted">Compara una parte con un total y observa su razón simplificada, su porcentaje y una gráfica de barras.</p></div>
+            <label style="display:block; margin-top:1rem;"><span class="mini-note">Parte</span><input class="input" id="partInput" type="number" min="0" max="100" value="12"></label>
+            <label style="display:block; margin-top:1rem;"><span class="mini-note">Total</span><input class="input" id="totalInput" type="number" min="1" max="100" value="20"></label>
+            <div class="inline-actions">
+              <button class="btn" id="updateRatioBtn">Calcular</button>
+              <button class="btn" id="randomRatioBtn">Ejemplo aleatorio</button>
+            </div>
+            <div class="results-grid" style="margin-top:1rem;">
+              <div class="result-box"><h3>Razón simplificada</h3><div class="math-display" id="ratioOut">3:5</div></div>
+              <div class="result-box"><h3>Porcentaje</h3><div class="math-display" id="percentOut">60%</div></div>
+              <div class="result-box"><h3>Fracción</h3><div class="math-display" id="fractionRatioOut">12/20</div></div>
+            </div>
+            <div class="callout" style="margin-top:1rem;"><strong>Pista:</strong> el porcentaje compara la parte con el total, no con la diferencia.</div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="ratioCanvas" height="320"></canvas>
+            <p class="muted" id="ratioReading" style="margin-top:.8rem;">La gráfica compara la parte seleccionada con el resto del total.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
       </section>
-
       <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="practice-grid">
+          <div class="callout"><strong>Reto 1:</strong> si 8 de 20 estudiantes prefieren leer, ¿qué porcentaje representan?</div>
+          <div class="callout"><strong>Reto 2:</strong> decide si 2/3 y 4/6 forman una proporción.</div>
+          <div class="callout"><strong>Reto 3:</strong> simplifica la razón 18:24 y explica qué significa.</div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
       </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
       <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
+        <h2 class="section-title">Aplicación en contexto</h2>
+        <p>Las razones y porcentajes se usan para comparar resultados de encuestas, describir descuentos, analizar recetas y calcular avances. Entender estas relaciones prepara el paso hacia la probabilidad y el análisis de datos.</p>
+        <div class="formula">Toda comparación necesita saber con claridad cuál es la parte y cuál es el total.</div>
       </section>
+      <section class="card quiz-box"><div id="quiz-root"></div></section>
+      <section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
     </section>
   </main>
   <div id="footer-mount"></div>
-
   <script src="../../js/storage.js"></script>
   <script src="../../js/config.js"></script>
   <script src="../../js/theme-toggle.js"></script>
@@ -81,8 +115,62 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo4', topicSlug: '2_razones_porcentajes.html', theme: 'amber', pageTitle: 'Razones, proporciones y porcentajes', pageDescription: 'Razones, proporciones y porcentajes' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Reconoce una razón.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Resuelve una proporción.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Calcula un porcentaje.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'matematicas6-periodo4-2_razones_porcentajes.html');
+    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo4', topicSlug: '2_razones_porcentajes.html', theme: 'amber', pageTitle: 'Razones, proporciones y porcentajes', pageDescription: 'Compara cantidades y transforma razones en porcentajes con un visualizador dinámico.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: '¿Qué porcentaje representa 25 de cada 100?', options: ['2,5%', '25%', '250%', '5%'], answer: 1, feedback: '25 de cada 100 corresponde exactamente a 25%.' },
+      { prompt: '¿Qué razón es equivalente a 4:6?', options: ['2:3', '3:2', '4:2', '8:3'], answer: 0, feedback: 'Al dividir ambos términos entre 2 se obtiene 2:3.' },
+      { prompt: 'Si 15 de 20 estudiantes aprobaron, el porcentaje es:', options: ['60%', '75%', '80%', '85%'], answer: 1, feedback: '15/20 = 0,75, es decir, 75%.' }
+    ], 'matematicas6-periodo4-2_razones_porcentajes.html');
+
+    const partInput = document.getElementById('partInput');
+    const totalInput = document.getElementById('totalInput');
+    const ratioOut = document.getElementById('ratioOut');
+    const percentOut = document.getElementById('percentOut');
+    const fractionRatioOut = document.getElementById('fractionRatioOut');
+    const ratioCanvas = document.getElementById('ratioCanvas');
+    const ratioReading = document.getElementById('ratioReading');
+
+    function gcd(a, b) {
+      let x = Math.abs(a);
+      let y = Math.abs(b);
+      while (y !== 0) {
+        const temp = y;
+        y = x % y;
+        x = temp;
+      }
+      return x || 1;
+    }
+
+    function renderRatio() {
+      const total = Math.max(1, Number(totalInput.value || 1));
+      const part = Math.min(total, Math.max(0, Number(partInput.value || 0)));
+      partInput.value = String(part);
+      totalInput.value = String(total);
+      const divisor = gcd(part, total);
+      const simplePart = part / divisor;
+      const simpleTotal = total / divisor;
+      const percent = (part / total) * 100;
+
+      ratioOut.textContent = `${simplePart}:${simpleTotal}`;
+      percentOut.textContent = `${percent.toFixed(1)}%`;
+      fractionRatioOut.textContent = `${part}/${total}`;
+      ratioReading.textContent = `La parte representa ${part} de ${total}. Eso equivale a ${percent.toFixed(1)}% del total.`;
+
+      SimulatorEngine.mountBarChart(ratioCanvas, [
+        { label: 'Parte', value: part },
+        { label: 'Resto', value: total - part }
+      ]);
+    }
+
+    document.getElementById('updateRatioBtn').addEventListener('click', renderRatio);
+    document.getElementById('randomRatioBtn').addEventListener('click', () => {
+      const total = Math.floor(Math.random() * 25) + 6;
+      totalInput.value = String(total);
+      partInput.value = String(Math.floor(Math.random() * total));
+      renderRatio();
+    });
+    [partInput, totalInput].forEach(node => node.addEventListener('input', renderRatio));
+    renderRatio();
   </script>
 </body>
 </html>

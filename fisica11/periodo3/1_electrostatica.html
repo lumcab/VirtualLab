@@ -1,88 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electrostática | Física 11°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
-</head>
-<body>
-  <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Física 11° · Período 3</span>
-        <h1 id="hero-title">Electrostática</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Electricidad</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Electricidad</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Carga y materia</span><span class="topic-chip">Ley de Coulomb</span><span class="topic-chip">Campo eléctrico y líneas de fuerza</span><span class="topic-chip">Potencial eléctrico</span><span class="topic-chip">Capacidad eléctrica</span></div>
-        <ul class="list-clean"><li>Carga y materia</li><li>Ley de Coulomb</li><li>Campo eléctrico y líneas de fuerza</li><li>Potencial eléctrico</li><li>Capacidad eléctrica</li></ul>
-        <div class="formula">Interacción propuesta: Campo eléctrico de cargas</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Campo eléctrico de cargas</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
-  <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica11', periodKey: 'periodo3', topicSlug: '1_electrostatica.html', theme: 'violet', pageTitle: 'Electrostática', pageDescription: 'Electrostática' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Distingue carga positiva y negativa.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Reconoce campo eléctrico.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Aplica Coulomb de forma cualitativa.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica11-periodo3-1_electrostatica.html');
-  </script>
-</body>
-</html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Electrostática | Física 11°</title><link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png"><link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css"><style>.info-grid,.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}</style></head>
+<body><div id="header-mount"></div><main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+<section class="card hero"><span class="badge">Física 11° · Período 3</span><h1 id="hero-title">Electrostática</h1><p id="hero-subtitle">Estudia las cargas eléctricas en reposo, las fuerzas de atracción y repulsión, y la idea de campo eléctrico como región donde una carga puede experimentar fuerza.</p></section>
+<section class="card"><h2 class="section-title">Panorama del tema</h2><p>La <strong>electrostática</strong> analiza la interacción entre cargas eléctricas en reposo. Las cargas iguales se repelen y las opuestas se atraen.</p><div class="info-grid"><div class="kpi"><strong>Carga positiva</strong><p class="muted">Se representa con signo +.</p></div><div class="kpi"><strong>Carga negativa</strong><p class="muted">Se representa con signo -.</p></div><div class="kpi"><strong>Campo eléctrico</strong><p class="muted">Describe cómo una carga influye sobre el espacio que la rodea.</p></div></div></section>
+<section class="card"><h2 class="section-title">Interacción entre cargas</h2><div class="grid columns-2"><div><label style="display:block; margin-top:1rem;"><span class="mini-note">Carga A</span><select class="select" id="chargeA"><option value="+">Positiva</option><option value="-">Negativa</option></select></label><label style="display:block; margin-top:1rem;"><span class="mini-note">Carga B</span><select class="select" id="chargeB"><option value="-">Negativa</option><option value="+">Positiva</option></select></label><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Interacción</h3><div class="math-display" id="interactionOut">Atracción</div></div><div class="result-box"><h3>Campo</h3><div class="math-display" id="fieldOut">De + hacia -</div></div></div></div><div><canvas id="electroCanvas" height="320"></canvas><p class="muted" id="electroReading" style="margin-top:.8rem;">Las flechas representan la interacción cualitativa entre las cargas.</p></div></div></section>
+<section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+</section></main><div id="footer-mount"></div>
+<script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
+<script>
+App.initPage({ depth:2, subjectKey:'fisica11', periodKey:'periodo3', topicSlug:'1_electrostatica.html', theme:'violet', pageTitle:'Electrostática', pageDescription:'Observa la atracción y repulsión entre cargas con un comparador visual.' });
+QuizEngine.mount(document.getElementById('quiz-root'), [
+{ prompt:'Dos cargas iguales se:', options:['Atraen', 'Repelen', 'Anulan', 'Fusionan'], answer:1, feedback:'Cargas del mismo signo se repelen.' },
+{ prompt:'Las líneas de campo salen de una carga:', options:['Negativa', 'Positiva', 'Neutra', 'Oscilante'], answer:1, feedback:'Convencionalmente salen de la positiva y llegan a la negativa.' },
+{ prompt:'La electrostática estudia cargas:', options:['En reposo', 'Solo en movimiento', 'Solo magnéticas', 'Atómicas exclusivamente'], answer:0, feedback:'Ese es el enfoque principal de la electrostática.' }
+], 'fisica11-periodo3-1_electrostatica.html');
+const chargeA=document.getElementById('chargeA'), chargeB=document.getElementById('chargeB'), interactionOut=document.getElementById('interactionOut'), fieldOut=document.getElementById('fieldOut'), electroCanvas=document.getElementById('electroCanvas'), electroReading=document.getElementById('electroReading'), ectx=electroCanvas.getContext('2d');
+function renderElectro(){ const styles=getComputedStyle(document.documentElement); const accent=styles.getPropertyValue('--accent').trim()||'#1d7f9d'; const warning=styles.getPropertyValue('--warning').trim()||'#d8a24c'; const text=styles.getPropertyValue('--canvas-text').trim()||'#183245'; const line=styles.getPropertyValue('--line-strong').trim()||'#cbd5e1'; const a=chargeA.value,b=chargeB.value; const attract=a!==b; interactionOut.textContent=attract?'Atracción':'Repulsión'; fieldOut.textContent=attract?'De + hacia -':'Se alejan'; electroReading.textContent=`Una carga ${a==='+'?'positiva':'negativa'} y una ${b==='+'?'positiva':'negativa'} producen ${interactionOut.textContent.toLowerCase()}.`; SimulatorEngine.resizeCanvas(electroCanvas,320); const {width,height}=electroCanvas; const y=height/2; ectx.clearRect(0,0,width,height); const x1=width*0.3,x2=width*0.7; [[accent,a,x1],[warning,b,x2]].forEach(item=>{ectx.fillStyle=item[0]; ectx.beginPath(); ectx.arc(item[2],y,28,0,Math.PI*2); ectx.fill(); ectx.fillStyle=text; ectx.font='bold 24px Verdana'; ectx.fillText(item[1],item[2]-7,y+8);}); ectx.strokeStyle=line; ectx.lineWidth=3; ectx.beginPath(); if(attract){ ectx.moveTo(x1+36,y); ectx.lineTo(x2-36,y); } else { ectx.moveTo(x1-48,y); ectx.lineTo(x1-90,y); ectx.moveTo(x2+48,y); ectx.lineTo(x2+90,y); } ectx.stroke(); }
+[chargeA,chargeB].forEach(node=>node.addEventListener('change',renderElectro)); window.addEventListener('resize',renderElectro); renderElectro();
+</script></body></html>

@@ -37,10 +37,14 @@ window.SimulatorEngine = {
       const angle = 0.5 * Math.sin(t);
       const ox = width / 2, oy = 30;
       const bobX = ox + L * Math.sin(angle), bobY = oy + L * Math.cos(angle);
-      ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 3;
+      const styles = getComputedStyle(document.documentElement);
+      const lineColor = styles.getPropertyValue('--line-strong').trim() || 'rgba(148,163,184,.35)';
+      const accent = styles.getPropertyValue('--accent').trim() || '#1d7f9d';
+      const text = styles.getPropertyValue('--canvas-text').trim() || '#183245';
+      ctx.strokeStyle = lineColor; ctx.lineWidth = 3;
       ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(bobX, bobY); ctx.stroke();
-      ctx.fillStyle = '#22d3ee'; ctx.beginPath(); ctx.arc(bobX, bobY, 18, 0, Math.PI*2); ctx.fill();
-      ctx.fillStyle = '#e2e8f0'; ctx.fillText(`L = ${lengthInput.value} m`, 16, 24);
+      ctx.fillStyle = accent; ctx.beginPath(); ctx.arc(bobX, bobY, 18, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = text; ctx.fillText(`L = ${lengthInput.value} m`, 16, 24);
       output.textContent = `Periodo cualitativo: aumenta cuando la longitud crece.`;
       t += 0.03;
       requestAnimationFrame(draw);
@@ -48,7 +52,12 @@ window.SimulatorEngine = {
     draw();
   },
   mountBarChart(canvas, values) {
-    this.resizeCanvas(canvas, 280);
-    GraphEngine.drawBars(canvas, values);
+    const redraw = () => {
+      this.resizeCanvas(canvas, 280);
+      GraphEngine.drawBars(canvas, values);
+    };
+    redraw();
+    window.addEventListener('resize', redraw);
+    window.addEventListener('themechange', redraw);
   }
 };

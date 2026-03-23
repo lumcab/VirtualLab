@@ -1,88 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Magnetismo | Física 11°</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/layout.css">
-  <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/themes.css">
-</head>
-<body>
-  <div id="header-mount"></div>
-  <main class="container page-shell">
-    <div id="sidebar-mount"></div>
-    <section class="content">
-      <section class="card hero">
-        <span class="badge">Física 11° · Período 4</span>
-        <h1 id="hero-title">Magnetismo</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Magnetismo y electromagnetismo</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Magnetismo y electromagnetismo</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Campo magnético</span><span class="topic-chip">Imanes y corrientes</span><span class="topic-chip">Flujo de campo magnético</span><span class="topic-chip">Fuerza magnética sobre cargas en movimiento</span></div>
-        <ul class="list-clean"><li>Campo magnético</li><li>Imanes y corrientes</li><li>Flujo de campo magnético</li><li>Fuerza magnética sobre cargas en movimiento</li></ul>
-        <div class="formula">Interacción propuesta: Líneas de campo magnético</div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
-        <div class="grid columns-2">
-          <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Líneas de campo magnético</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
-          </div>
-          <canvas id="sim-canvas" height="280"></canvas>
-        </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
-    </section>
-  </main>
-  <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
-  <script>
-    App.initPage({ depth: 2, subjectKey: 'fisica11', periodKey: 'periodo4', topicSlug: '1_magnetismo.html', theme: 'violet', pageTitle: 'Magnetismo', pageDescription: 'Magnetismo' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Reconoce polos magnéticos.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta líneas de campo.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Relaciona corriente y magnetismo.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'fisica11-periodo4-1_magnetismo.html');
-  </script>
-</body>
-</html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Magnetismo | Física 11°</title><link rel="icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png"><link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png"><link rel="stylesheet" href="../../css/global.css"><link rel="stylesheet" href="../../css/layout.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/themes.css"><style>.info-grid,.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}.result-box{padding:1rem;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--panel-strong) 88%,transparent),color-mix(in srgb,var(--panel) 78%,transparent))}.math-display{margin-top:.55rem;font-size:clamp(1.2rem,1rem + .8vw,1.8rem);font-weight:800;color:var(--accent-3)}</style></head>
+<body><div id="header-mount"></div><main class="container page-shell"><div id="sidebar-mount"></div><section class="content">
+<section class="card hero"><span class="badge">Física 11° · Período 4</span><h1 id="hero-title">Magnetismo</h1><p id="hero-subtitle">Reconoce polos magnéticos, interpreta líneas de campo y analiza la interacción de imanes y corrientes en situaciones básicas.</p></section>
+<section class="card"><h2 class="section-title">Panorama del tema</h2><p>El <strong>magnetismo</strong> describe fenómenos asociados a imanes y corrientes eléctricas. Todo imán tiene dos polos: norte y sur.</p><div class="info-grid"><div class="kpi"><strong>Polos iguales</strong><p class="muted">Se repelen.</p></div><div class="kpi"><strong>Polos opuestos</strong><p class="muted">Se atraen.</p></div><div class="kpi"><strong>Campo magnético</strong><p class="muted">Se representa con líneas que van de norte a sur externamente.</p></div></div></section>
+<section class="card"><h2 class="section-title">Interacción de polos</h2><div class="grid columns-2"><div><label style="display:block; margin-top:1rem;"><span class="mini-note">Polo del imán A</span><select class="select" id="poleA"><option value="N">Norte</option><option value="S">Sur</option></select></label><label style="display:block; margin-top:1rem;"><span class="mini-note">Polo del imán B</span><select class="select" id="poleB"><option value="S">Sur</option><option value="N">Norte</option></select></label><div class="results-grid" style="margin-top:1rem;"><div class="result-box"><h3>Interacción</h3><div class="math-display" id="magnetOut">Atracción</div></div><div class="result-box"><h3>Campo</h3><div class="math-display" id="linesOut">Se conectan</div></div></div></div><div><canvas id="magnetCanvas" height="320"></canvas><p class="muted" id="magnetReading" style="margin-top:.8rem;">Las líneas de campo conectan polos opuestos y se separan en polos iguales.</p></div></div></section>
+<section class="card quiz-box"><div id="quiz-root"></div></section><section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
+</section></main><div id="footer-mount"></div>
+<script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
+<script>
+App.initPage({ depth:2, subjectKey:'fisica11', periodKey:'periodo4', topicSlug:'1_magnetismo.html', theme:'violet', pageTitle:'Magnetismo', pageDescription:'Observa la interacción entre polos magnéticos y la idea de líneas de campo.' });
+QuizEngine.mount(document.getElementById('quiz-root'), [
+{ prompt:'Dos polos norte se:', options:['Atraen', 'Repelen', 'Anulan', 'Fusionan'], answer:1, feedback:'Polos iguales se repelen.' },
+{ prompt:'Externamente, las líneas de campo van de:', options:['Sur a norte', 'Norte a sur', 'Centro a borde', 'Arriba a abajo'], answer:1, feedback:'Esa es la convención habitual para representar el campo magnético.' },
+{ prompt:'¿Qué puede producir campo magnético además de un imán?', options:['Una corriente eléctrica', 'Un sonido', 'Una sombra', 'Un espejo'], answer:0, feedback:'Las corrientes eléctricas también generan campos magnéticos.' }
+], 'fisica11-periodo4-1_magnetismo.html');
+const poleA=document.getElementById('poleA'), poleB=document.getElementById('poleB'), magnetOut=document.getElementById('magnetOut'), linesOut=document.getElementById('linesOut'), magnetCanvas=document.getElementById('magnetCanvas'), magnetReading=document.getElementById('magnetReading'), mctx=magnetCanvas.getContext('2d');
+function renderMagnet(){ const styles=getComputedStyle(document.documentElement); const accent=styles.getPropertyValue('--accent').trim()||'#1d7f9d'; const warning=styles.getPropertyValue('--warning').trim()||'#d8a24c'; const text=styles.getPropertyValue('--canvas-text').trim()||'#183245'; const line=styles.getPropertyValue('--line-strong').trim()||'#cbd5e1'; const a=poleA.value,b=poleB.value, attract=a!==b; magnetOut.textContent=attract?'Atracción':'Repulsión'; linesOut.textContent=attract?'Se conectan':'Se separan'; magnetReading.textContent=`Entre ${a} y ${b} hay ${magnetOut.textContent.toLowerCase()}.`; SimulatorEngine.resizeCanvas(magnetCanvas,320); const {width,height}=magnetCanvas; mctx.clearRect(0,0,width,height); mctx.fillStyle=warning; mctx.fillRect(60,120,90,70); mctx.fillStyle=accent; mctx.fillRect(width-150,120,90,70); mctx.fillStyle=text; mctx.font='bold 28px Verdana'; mctx.fillText(a,95,165); mctx.fillText(b,width-118,165); mctx.strokeStyle=line; mctx.lineWidth=3; mctx.beginPath(); if(attract){ mctx.moveTo(150,155); mctx.lineTo(width-150,155); } else { mctx.moveTo(35,155); mctx.lineTo(15,155); mctx.moveTo(width-35,155); mctx.lineTo(width-15,155); } mctx.stroke(); }
+[poleA,poleB].forEach(node=>node.addEventListener('change',renderMagnet)); window.addEventListener('resize',renderMagnet); renderMagnet();
+</script></body></html>

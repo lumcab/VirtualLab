@@ -8,10 +8,73 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid,
+    .concept-grid,
+    .practice-grid,
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .math-display {
+      margin-top: .5rem;
+      font-size: clamp(1.25rem, 1.05rem + .8vw, 1.9rem);
+      font-weight: 800;
+      color: var(--accent-3);
+      word-break: break-word;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: .9rem;
+    }
+
+    .concept-card,
+    .result-box {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent));
+    }
+
+    .concept-card h3,
+    .result-box h3 {
+      margin: 0 0 .5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .table-lite {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+
+    .table-lite th,
+    .table-lite td {
+      padding: .85rem;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table-lite thead {
+      background: color-mix(in srgb, var(--panel-strong) 90%, transparent);
+    }
+
+    .table-lite tbody tr:last-child td {
+      border-bottom: 0;
+    }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,41 +84,172 @@
       <section class="card hero">
         <span class="badge">Matemáticas 6° · Período 3</span>
         <h1 id="hero-title">Estadística y experimentos aleatorios</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Fracciones y decimales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Analiza resultados que pueden cambiar en cada intento, registra frecuencias y compara lo observado con lo que se espera en experimentos como lanzar una moneda o un dado.</p>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Fracciones y decimales</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Frecuencia esperada y observada</span><span class="topic-chip">Experimentos aleatorios sencillos</span></div>
-        <ul class="list-clean"><li>Frecuencia esperada y observada</li><li>Experimentos aleatorios sencillos</li></ul>
-        <div class="formula">Interacción propuesta: Lanzamiento virtual y comparación de frecuencias</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>La <strong>estadística</strong> nos ayuda a organizar resultados y la idea de <strong>azar</strong> nos recuerda que algunos sucesos no pueden predecirse con total seguridad en un solo intento. Por eso, al repetir un experimento, observamos frecuencias y buscamos patrones.</p>
+        <div class="info-grid">
+          <div class="kpi">
+            <strong>Experimento aleatorio</strong>
+            <p class="muted">Es una acción cuyo resultado no se conoce con certeza antes de realizarse, como lanzar un dado.</p>
+          </div>
+          <div class="kpi">
+            <strong>Frecuencia observada</strong>
+            <p class="muted">Cuenta cuántas veces apareció un resultado en los ensayos que sí se realizaron.</p>
+          </div>
+          <div class="kpi">
+            <strong>Frecuencia esperada</strong>
+            <p class="muted">Indica cuántas veces se espera que aparezca un resultado según la probabilidad teórica.</p>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Conceptos clave</h2>
+        <div class="concept-grid">
+          <article class="concept-card">
+            <h3>Resultado posible</h3>
+            <p>Es cada una de las opciones que puede ocurrir. En una moneda: cara o sello. En un dado: 1, 2, 3, 4, 5 o 6.</p>
+          </article>
+          <article class="concept-card">
+            <h3>Más repeticiones, mejor comparación</h3>
+            <p>Cuando repetimos un experimento muchas veces, la frecuencia observada suele acercarse a la esperada.</p>
+          </article>
+          <article class="concept-card">
+            <h3>Comparar no es adivinar</h3>
+            <p>La estadística no garantiza un resultado exacto en cada intento, pero sí permite analizar tendencias del conjunto.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Tabla rápida</h2>
+        <table class="table-lite">
+          <thead>
+            <tr>
+              <th>Experimento</th>
+              <th>Resultados posibles</th>
+              <th>Resultado esperado</th>
+              <th>Si se hace 12 veces</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Moneda</td>
+              <td>Cara o sello</td>
+              <td>Mitad y mitad</td>
+              <td>6 caras y 6 sellos aproximadamente</td>
+            </tr>
+            <tr>
+              <td>Dado</td>
+              <td>1, 2, 3, 4, 5 o 6</td>
+              <td>Todos con la misma oportunidad</td>
+              <td>Alrededor de 2 veces cada uno</td>
+            </tr>
+            <tr>
+              <td>Bolsa con colores</td>
+              <td>Depende de las fichas</td>
+              <td>Más fichas, más probabilidad</td>
+              <td>El color más repetido suele salir más</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="formula">Mientras más se repite el experimento, más sentido tiene comparar la frecuencia observada con la esperada.</div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Simulador de experimentos</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Lanzamiento virtual y comparación de frecuencias</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <div class="kpi">
+              <strong>Componente interactivo</strong>
+              <p class="muted">Elige un experimento, repítelo varias veces y compara los resultados obtenidos con lo que se esperaba.</p>
+            </div>
+
+            <label style="display:block; margin-top:1rem;">
+              <span class="mini-note">Experimento</span>
+              <select class="select" id="experimentSelect">
+                <option value="coin">Moneda</option>
+                <option value="die">Dado</option>
+              </select>
+            </label>
+
+            <label style="display:block; margin-top:1rem;">
+              <span class="mini-note">Número de lanzamientos</span>
+              <select class="select" id="trialsSelect">
+                <option value="6">6 intentos</option>
+                <option value="12" selected>12 intentos</option>
+                <option value="24">24 intentos</option>
+                <option value="60">60 intentos</option>
+              </select>
+            </label>
+
+            <div class="inline-actions">
+              <button class="btn" id="runExperimentBtn">Realizar experimento</button>
+              <button class="btn" id="stepExperimentBtn">Un intento más</button>
+              <button class="btn" id="resetExperimentBtn">Reiniciar</button>
+            </div>
+
+            <div class="callout" style="margin-top:1rem;">
+              <strong>Pista:</strong> observa si al aumentar el número de intentos, los datos se acercan a una distribución más equilibrada.
+            </div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="experimentCanvas" height="320"></canvas>
+            <p class="muted" id="experimentReading" style="margin-top:.8rem;">Aquí verás las barras de frecuencia observada para cada resultado posible.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
+
+        <div style="margin-top:1rem;">
+          <table class="table-lite">
+            <thead>
+              <tr>
+                <th>Resultado</th>
+                <th>Frecuencia observada</th>
+                <th>Frecuencia esperada</th>
+              </tr>
+            </thead>
+            <tbody id="experimentTableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="results-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <h3>Total de ensayos</h3>
+            <div class="math-display" id="totalTrialsOutput">0</div>
+          </div>
+          <div class="result-box">
+            <h3>Resultado más frecuente</h3>
+            <div class="math-display" id="mostFrequentOutput">-</div>
+          </div>
+          <div class="result-box">
+            <h3>Lectura rápida</h3>
+            <div class="math-display" id="differenceOutput">-</div>
+          </div>
+        </div>
       </section>
 
       <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
+        <h2 class="section-title">Práctica guiada</h2>
+        <div class="practice-grid">
+          <div class="callout">
+            <strong>Reto 1:</strong> lanza una moneda 12 veces. ¿La frecuencia observada coincide exactamente con la esperada? Explica.
+          </div>
+          <div class="callout">
+            <strong>Reto 2:</strong> en 24 lanzamientos de un dado, ¿cuántas veces esperarías ver el número 3?
+          </div>
+          <div class="callout">
+            <strong>Reto 3:</strong> compara un experimento corto de 6 intentos con uno de 60 intentos. ¿Cuál se acerca más a lo esperado?
+          </div>
         </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Aplicación en contexto</h2>
+        <p>Este tipo de análisis aparece cuando registramos aciertos en juegos, encuestas rápidas, sorteos o mediciones repetidas. La estadística permite interpretar resultados reales y distinguir entre una casualidad aislada y una tendencia más estable.</p>
+        <div class="formula">Un solo resultado no basta para concluir; una colección de resultados sí empieza a mostrar patrones.</div>
       </section>
 
       <section class="card quiz-box">
@@ -81,8 +275,148 @@
   <script src="../../js/simulator-engine.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'matematicas6', periodKey: 'periodo3', topicSlug: '2_estadistica_aleatoria.html', theme: 'amber', pageTitle: 'Estadística y experimentos aleatorios', pageDescription: 'Estadística y experimentos aleatorios' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Diferencia entre experimento y resultado.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Compara frecuencia observada y esperada.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Interpreta resultados simples.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'matematicas6-periodo3-2_estadistica_aleatoria.html');
+    App.initPage({
+      depth: 2,
+      subjectKey: 'matematicas6',
+      periodKey: 'periodo3',
+      topicSlug: '2_estadistica_aleatoria.html',
+      theme: 'amber',
+      pageTitle: 'Estadística y experimentos aleatorios',
+      pageDescription: 'Compara frecuencia observada y esperada mediante simulaciones sencillas con moneda y dado.'
+    });
+
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      {
+        prompt: '¿Qué es un experimento aleatorio?',
+        options: ['Uno cuyo resultado no puede saberse con certeza antes de realizarlo', 'Uno que siempre da el mismo resultado', 'Una tabla de datos', 'Un cálculo exacto de fracciones'],
+        answer: 0,
+        feedback: 'En un experimento aleatorio conocemos los posibles resultados, pero no cuál saldrá en cada intento.'
+      },
+      {
+        prompt: 'Si lanzas una moneda 10 veces, la frecuencia esperada de caras es aproximadamente:',
+        options: ['2', '5', '8', '10'],
+        answer: 1,
+        feedback: 'Como cara y sello tienen la misma oportunidad, se espera cerca de la mitad: 5 caras.'
+      },
+      {
+        prompt: '¿Qué ocurre normalmente cuando aumentan los ensayos?',
+        options: ['La frecuencia observada suele acercarse a la esperada', 'Siempre sale el mismo resultado', 'Desaparecen los datos', 'La probabilidad deja de existir'],
+        answer: 0,
+        feedback: 'Con más repeticiones, las diferencias casuales suelen equilibrarse mejor.'
+      }
+    ], 'matematicas6-periodo3-2_estadistica_aleatoria.html');
+
+    const experimentSelect = document.getElementById('experimentSelect');
+    const trialsSelect = document.getElementById('trialsSelect');
+    const experimentCanvas = document.getElementById('experimentCanvas');
+    const experimentReading = document.getElementById('experimentReading');
+    const experimentTableBody = document.getElementById('experimentTableBody');
+    const totalTrialsOutput = document.getElementById('totalTrialsOutput');
+    const mostFrequentOutput = document.getElementById('mostFrequentOutput');
+    const differenceOutput = document.getElementById('differenceOutput');
+
+    const experiments = {
+      coin: {
+        label: 'Moneda',
+        outcomes: ['Cara', 'Sello'],
+        run() {
+          return Math.random() < 0.5 ? 'Cara' : 'Sello';
+        }
+      },
+      die: {
+        label: 'Dado',
+        outcomes: ['1', '2', '3', '4', '5', '6'],
+        run() {
+          return String(Math.floor(Math.random() * 6) + 1);
+        }
+      }
+    };
+
+    let state = null;
+
+    function createEmptyCounts(outcomes) {
+      return outcomes.reduce((acc, outcome) => {
+        acc[outcome] = 0;
+        return acc;
+      }, {});
+    }
+
+    function resetState() {
+      const experiment = experiments[experimentSelect.value];
+      state = {
+        type: experimentSelect.value,
+        targetTrials: Number(trialsSelect.value),
+        counts: createEmptyCounts(experiment.outcomes),
+        history: []
+      };
+      renderExperiment();
+    }
+
+    function runSingleTrial() {
+      const experiment = experiments[state.type];
+      const result = experiment.run();
+      state.counts[result] += 1;
+      state.history.push(result);
+    }
+
+    function runExperiment(fullRun) {
+      if (!state) resetState();
+      if (fullRun) {
+        resetState();
+        for (let i = 0; i < state.targetTrials; i += 1) runSingleTrial();
+      } else {
+        if (state.history.length >= state.targetTrials) return;
+        runSingleTrial();
+      }
+      renderExperiment();
+    }
+
+    function renderExperiment() {
+      const experiment = experiments[state.type];
+      const totalTrials = state.history.length;
+      const expected = totalTrials / experiment.outcomes.length;
+      const rows = experiment.outcomes.map(outcome => {
+        const observed = state.counts[outcome];
+        return `
+          <tr>
+            <td>${outcome}</td>
+            <td>${observed}</td>
+            <td>${expected.toFixed(1)}</td>
+          </tr>
+        `;
+      }).join('');
+
+      experimentTableBody.innerHTML = rows;
+      totalTrialsOutput.textContent = String(totalTrials);
+
+      const mostFrequent = experiment.outcomes.reduce((best, outcome) => {
+        if (!best || state.counts[outcome] > state.counts[best]) return outcome;
+        return best;
+      }, '');
+      mostFrequentOutput.textContent = totalTrials === 0 ? '-' : mostFrequent;
+
+      const maxDifference = experiment.outcomes.reduce((max, outcome) => {
+        return Math.max(max, Math.abs(state.counts[outcome] - expected));
+      }, 0);
+      differenceOutput.textContent = totalTrials === 0 ? '-' : maxDifference.toFixed(1);
+
+      experimentReading.textContent = totalTrials === 0
+        ? `Selecciona ${experiment.label.toLowerCase()} y realiza un experimento para observar frecuencias.`
+        : `Se realizaron ${totalTrials} ensayos con ${experiment.label.toLowerCase()}. La diferencia máxima entre lo observado y lo esperado es ${maxDifference.toFixed(1)}.`;
+
+      SimulatorEngine.mountBarChart(experimentCanvas, experiment.outcomes.map(outcome => ({
+        label: outcome,
+        value: state.counts[outcome]
+      })));
+    }
+
+    experimentSelect.addEventListener('change', resetState);
+    trialsSelect.addEventListener('change', resetState);
+    document.getElementById('runExperimentBtn').addEventListener('click', () => runExperiment(true));
+    document.getElementById('stepExperimentBtn').addEventListener('click', () => runExperiment(false));
+    document.getElementById('resetExperimentBtn').addEventListener('click', resetState);
+
+    resetState();
   </script>
 </body>
 </html>

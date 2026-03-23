@@ -8,10 +8,21 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/themes.css">
+  <style>
+    .info-grid, .concept-grid, .practice-grid, .results-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; }
+    .concept-card, .result-box { padding:1rem; border-radius:18px; border:1px solid var(--line); background:linear-gradient(145deg, color-mix(in srgb, var(--panel-strong) 88%, transparent), color-mix(in srgb, var(--panel) 78%, transparent)); }
+    .concept-card h3, .result-box h3 { margin:0 0 .5rem; font-family:var(--font-display); font-size:1.05rem; }
+    .math-display { margin-top:.55rem; font-size:clamp(1.25rem, 1.05rem + .8vw, 1.9rem); font-weight:800; color:var(--accent-3); }
+    .table-lite { width:100%; border-collapse:collapse; overflow:hidden; border-radius:18px; border:1px solid var(--line); }
+    .table-lite th, .table-lite td { padding:.85rem; text-align:left; border-bottom:1px solid var(--line); }
+    .table-lite thead { background:color-mix(in srgb, var(--panel-strong) 90%, transparent); }
+    .table-lite tbody tr:last-child td { border-bottom:0; }
+    .inline-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.9rem; }
+  </style>
 </head>
 <body>
   <div id="header-mount"></div>
@@ -21,68 +32,132 @@
       <section class="card hero">
         <span class="badge">Geometría 6° · Período 3</span>
         <h1 id="hero-title">Plano cartesiano</h1>
-        <p id="hero-subtitle">Este tema pertenece a la unidad <strong>Plano cartesiano y polígonos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
+        <p id="hero-subtitle">Ubica puntos mediante pares ordenados, identifica cuadrantes y describe desplazamientos horizontales y verticales dentro del plano cartesiano.</p>
       </section>
-
       <section class="card">
-        <h2 class="section-title">Teoría esencial</h2>
-        <p>Este tema pertenece a la unidad <strong>Plano cartesiano y polígonos</strong> y se desarrolla respetando las rutas y contenidos del plan académico institucional.</p>
-        <div><span class="topic-chip">Plano cartesiano</span><span class="topic-chip">Ubicación de puntos</span><span class="topic-chip">Trayectorias</span></div>
-        <ul class="list-clean"><li>Plano cartesiano</li><li>Ubicación de puntos</li><li>Trayectorias</li></ul>
-        <div class="formula">Interacción propuesta: Plano cartesiano interactivo</div>
+        <h2 class="section-title">Panorama del tema</h2>
+        <p>El <strong>plano cartesiano</strong> está formado por dos ejes perpendiculares: el eje <strong>x</strong> horizontal y el eje <strong>y</strong> vertical. Un punto se localiza con un par ordenado <strong>(x, y)</strong>.</p>
+        <div class="info-grid">
+          <div class="kpi"><strong>Eje x</strong><p class="muted">Indica el desplazamiento horizontal: derecha positiva, izquierda negativa.</p></div>
+          <div class="kpi"><strong>Eje y</strong><p class="muted">Indica el desplazamiento vertical: arriba positivo, abajo negativo.</p></div>
+          <div class="kpi"><strong>Pares ordenados</strong><p class="muted">Siempre se escribe primero la coordenada x y después la coordenada y.</p></div>
+        </div>
       </section>
-
       <section class="card">
-        <h2 class="section-title">Interacción</h2>
-        
+        <h2 class="section-title">Conceptos clave</h2>
+        <div class="concept-grid">
+          <article class="concept-card"><h3>Origen</h3><p>Es el punto donde se cruzan ambos ejes.</p><div class="formula">(0, 0)</div></article>
+          <article class="concept-card"><h3>Cuadrantes</h3><p>Dividen el plano en cuatro regiones según el signo de las coordenadas.</p><div class="formula">I: (+,+), II: (-,+), III: (-,-), IV: (+,-)</div></article>
+          <article class="concept-card"><h3>Trayectorias</h3><p>Una secuencia de puntos permite describir caminos, desplazamientos y figuras.</p><div class="formula">De (1,2) a (4,2) hay 3 unidades a la derecha.</div></article>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="section-title">Ejemplo guiado</h2>
+        <table class="table-lite">
+          <thead><tr><th>Punto</th><th>Lectura</th><th>Ubicación</th></tr></thead>
+          <tbody>
+            <tr><td>(3, 2)</td><td>3 a la derecha y 2 arriba</td><td>Cuadrante I</td></tr>
+            <tr><td>(-2, 4)</td><td>2 a la izquierda y 4 arriba</td><td>Cuadrante II</td></tr>
+            <tr><td>(0, -3)</td><td>Sobre el eje y</td><td>No pertenece a un cuadrante</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="card">
+        <h2 class="section-title">Plano interactivo</h2>
         <div class="grid columns-2">
           <div>
-            <div class="kpi"><strong>Componente interactivo sugerido</strong><p class="muted">Plano cartesiano interactivo</p></div>
-            <p class="callout">El motor compartido permite evolucionar este bloque a simulaciones más especializadas sin romper la navegación ni el estilo global.</p>
+            <div class="kpi"><strong>Componente interactivo</strong><p class="muted">Escribe coordenadas, ubica el punto y observa en qué cuadrante o eje se encuentra.</p></div>
+            <label style="display:block; margin-top:1rem;"><span class="mini-note">Coordenada x</span><input class="input" id="xInput" type="number" min="-5" max="5" value="2"></label>
+            <label style="display:block; margin-top:1rem;"><span class="mini-note">Coordenada y</span><input class="input" id="yInput" type="number" min="-5" max="5" value="3"></label>
+            <div class="inline-actions">
+              <button class="btn" id="plotBtn">Ubicar punto</button>
+              <button class="btn" id="randomPointBtn">Punto aleatorio</button>
+            </div>
+            <div class="results-grid" style="margin-top:1rem;">
+              <div class="result-box"><h3>Par ordenado</h3><div class="math-display" id="pointOut">(2, 3)</div></div>
+              <div class="result-box"><h3>Ubicación</h3><div class="math-display" id="quadrantOut">Cuadrante I</div></div>
+              <div class="result-box"><h3>Lectura</h3><div class="math-display" id="movementOut">2 derecha, 3 arriba</div></div>
+            </div>
           </div>
-          <canvas id="sim-canvas" height="280"></canvas>
+          <div>
+            <canvas id="planeCanvas" height="320"></canvas>
+            <p class="muted" id="planeReading" style="margin-top:.8rem;">El punto se dibuja sobre el plano con ejes graduados de -5 a 5.</p>
+          </div>
         </div>
-        <script>
-          const c = document.getElementById('sim-canvas');
-          SimulatorEngine.resizeCanvas(c, 280);
-          GraphEngine.drawSine(c, 36, 90, 0);
-        </script>
-        
       </section>
-
-      <section class="card">
-        <h2 class="section-title">Aplicación pedagógica</h2>
-        <div class="callout">
-          <strong>Conexión con el aula:</strong> diseño pensado para explicación guiada, exploración individual y cierre con retroalimentación inmediata.
-        </div>
-        <p class="muted">Este bloque conserva la lógica visual y funcional observada en las plantillas de referencia: cabecera clara, paneles oscuros, controles directos y énfasis en una sola interacción por pantalla.</p>
-      </section>
-
-      <section class="card quiz-box">
-        <div id="quiz-root"></div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Navegación pedagógica</h2>
-        <div class="nav-pedagogic" id="pedagogic-nav"></div>
-      </section>
+      <section class="card"><h2 class="section-title">Práctica guiada</h2><div class="practice-grid"><div class="callout"><strong>Reto 1:</strong> ubica el punto (-4, 1) y describe su movimiento desde el origen.</div><div class="callout"><strong>Reto 2:</strong> identifica un punto sobre el eje x y explica por qué no está en un cuadrante.</div><div class="callout"><strong>Reto 3:</strong> dibuja una trayectoria que pase por (0,0), (2,2) y (4,2).</div></div></section>
+      <section class="card"><h2 class="section-title">Aplicación en contexto</h2><p>El plano cartesiano se usa para mapas, videojuegos, rutas, robótica y gráficos. Saber ubicar puntos ayuda a representar posiciones y cambios de forma precisa.</p><div class="formula">Un punto bien leído siempre sigue el orden (x, y).</div></section>
+      <section class="card quiz-box"><div id="quiz-root"></div></section>
+      <section class="card"><h2 class="section-title">Navegación pedagógica</h2><div class="nav-pedagogic" id="pedagogic-nav"></div></section>
     </section>
   </main>
   <div id="footer-mount"></div>
-
-  <script src="../../js/storage.js"></script>
-  <script src="../../js/config.js"></script>
-  <script src="../../js/theme-toggle.js"></script>
-  <script src="../../js/site-map.js"></script>
-  <script src="../../js/router.js"></script>
-  <script src="../../js/navigation.js"></script>
-  <script src="../../js/quiz-engine.js"></script>
-  <script src="../../js/graph-engine.js"></script>
-  <script src="../../js/simulator-engine.js"></script>
-  <script src="../../js/main.js"></script>
+  <script src="../../js/storage.js"></script><script src="../../js/config.js"></script><script src="../../js/theme-toggle.js"></script><script src="../../js/site-map.js"></script><script src="../../js/router.js"></script><script src="../../js/navigation.js"></script><script src="../../js/quiz-engine.js"></script><script src="../../js/graph-engine.js"></script><script src="../../js/simulator-engine.js"></script><script src="../../js/main.js"></script>
   <script>
-    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo3', topicSlug: '1_plano_cartesiano.html', theme: 'sky', pageTitle: 'Plano cartesiano', pageDescription: 'Plano cartesiano' });
-    QuizEngine.mount(document.getElementById('quiz-root'), [{"prompt": "Ubica coordenadas.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Lee un punto en el plano.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}, {"prompt": "Describe una trayectoria simple.", "options": ["Opción A: afirmación correcta según la teoría.", "Opción B: idea parcialmente correcta.", "Opción C: confusión común del tema.", "Opción D: respuesta que no corresponde."], "answer": 0, "feedback": "Revisa la teoría y el ejemplo interactivo para reforzar este concepto."}], 'geometria6-periodo3-1_plano_cartesiano.html');
+    App.initPage({ depth: 2, subjectKey: 'geometria6', periodKey: 'periodo3', topicSlug: '1_plano_cartesiano.html', theme: 'sky', pageTitle: 'Plano cartesiano', pageDescription: 'Ubica puntos y reconoce cuadrantes con un plano cartesiano interactivo.' });
+    QuizEngine.mount(document.getElementById('quiz-root'), [
+      { prompt: '¿Cómo se escribe correctamente un par ordenado?', options: ['(y, x)', '(x, y)', 'x : y', 'x - y'], answer: 1, feedback: 'Siempre se escribe primero la coordenada horizontal y luego la vertical.' },
+      { prompt: '¿En qué cuadrante está (-2, 5)?', options: ['I', 'II', 'III', 'IV'], answer: 1, feedback: 'x es negativa y y positiva, por eso está en el cuadrante II.' },
+      { prompt: '¿Qué punto está sobre el eje x?', options: ['(3, 0)', '(0, 2)', '(-1, 4)', '(2, 3)'], answer: 0, feedback: 'Los puntos del eje x tienen coordenada y igual a 0.' }
+    ], 'geometria6-periodo3-1_plano_cartesiano.html');
+
+    const xInput = document.getElementById('xInput');
+    const yInput = document.getElementById('yInput');
+    const planeCanvas = document.getElementById('planeCanvas');
+    const pointOut = document.getElementById('pointOut');
+    const quadrantOut = document.getElementById('quadrantOut');
+    const movementOut = document.getElementById('movementOut');
+    const planeReading = document.getElementById('planeReading');
+    const ctx = planeCanvas.getContext('2d');
+
+    function quadrant(x, y) {
+      if (x === 0 && y === 0) return 'Origen';
+      if (x === 0) return 'Eje y';
+      if (y === 0) return 'Eje x';
+      if (x > 0 && y > 0) return 'Cuadrante I';
+      if (x < 0 && y > 0) return 'Cuadrante II';
+      if (x < 0 && y < 0) return 'Cuadrante III';
+      return 'Cuadrante IV';
+    }
+
+    function renderPoint() {
+      const styles = getComputedStyle(document.documentElement);
+      const accent = styles.getPropertyValue('--accent').trim() || '#1d7f9d';
+      const line = styles.getPropertyValue('--line-strong').trim() || 'rgba(148,163,184,.35)';
+      const x = Number(xInput.value || 0);
+      const y = Number(yInput.value || 0);
+      pointOut.textContent = `(${x}, ${y})`;
+      quadrantOut.textContent = quadrant(x, y);
+      movementOut.textContent = `${Math.abs(x)} ${x >= 0 ? 'derecha' : 'izquierda'}, ${Math.abs(y)} ${y >= 0 ? 'arriba' : 'abajo'}`;
+      planeReading.textContent = `El punto (${x}, ${y}) se ubica en ${quadrant(x, y)}.`;
+
+      SimulatorEngine.resizeCanvas(planeCanvas, 320);
+      const { width, height } = planeCanvas;
+      const midX = width / 2;
+      const midY = height / 2;
+      const step = 24;
+      ctx.clearRect(0, 0, width, height);
+      ctx.strokeStyle = line;
+      for (let i = -5; i <= 5; i += 1) {
+        ctx.beginPath(); ctx.moveTo(midX + i * step, 24); ctx.lineTo(midX + i * step, height - 24); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(24, midY + i * step); ctx.lineTo(width - 24, midY + i * step); ctx.stroke();
+      }
+      ctx.strokeStyle = line;
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(24, midY); ctx.lineTo(width - 24, midY); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(midX, 24); ctx.lineTo(midX, height - 24); ctx.stroke();
+      ctx.fillStyle = accent;
+      ctx.beginPath(); ctx.arc(midX + x * step, midY - y * step, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#e5e7eb';
+      ctx.font = '16px Verdana';
+      ctx.fillText(`(${x}, ${y})`, midX + x * step + 10, midY - y * step - 8);
+    }
+
+    document.getElementById('plotBtn').addEventListener('click', renderPoint);
+    document.getElementById('randomPointBtn').addEventListener('click', () => { xInput.value = String(Math.floor(Math.random() * 11) - 5); yInput.value = String(Math.floor(Math.random() * 11) - 5); renderPoint(); });
+    [xInput, yInput].forEach(node => node.addEventListener('input', renderPoint));
+    window.addEventListener('resize', renderPoint);
+    renderPoint();
   </script>
 </body>
 </html>
