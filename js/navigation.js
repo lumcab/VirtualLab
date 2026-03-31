@@ -64,10 +64,20 @@ window.Navigation = {
     if (!target || !config.subjectKey) return;
     const subject = SITE_MAP[config.subjectKey];
     let html = `<div class="badge">${subject.icon} ${subject.title}</div><h3>${config.pageTitle || subject.title}</h3><p class="mini-note">${subject.description}</p>`;
+    if (config.periodKey && subject.periods[config.periodKey]) {
+      const currentPeriod = subject.periods[config.periodKey];
+      html += `<div class="mobile-topic-shortcut"><p class="mini-note">Temas de ${currentPeriod.title}</p><div class="topic-list">`;
+      for (const topic of currentPeriod.topics) {
+        const activeTopic = topic.slug === config.topicSlug ? 'active' : '';
+        html += `<a class="${activeTopic}" href="${RouteUtils.rel(config.depth, `${config.subjectKey}/${config.periodKey}/${topic.slug}`)}">${topic.title}</a>`;
+      }
+      html += '</div></div>';
+    }
     html += '<div class="period-list">';
     for (const [periodKey, period] of Object.entries(subject.periods)) {
       const activePeriod = periodKey === config.periodKey ? 'active' : '';
-      html += `<div style="margin-top:.8rem;"><a class="${activePeriod}" href="${RouteUtils.rel(config.depth, `${config.subjectKey}/${periodKey}/index.html`)}"><strong>${period.title}</strong></a><div class="topic-list">`;
+      const periodClassName = periodKey === config.periodKey ? 'period-group current-period' : 'period-group';
+      html += `<div class="${periodClassName}" style="margin-top:.8rem;"><a class="${activePeriod}" href="${RouteUtils.rel(config.depth, `${config.subjectKey}/${periodKey}/index.html`)}"><strong>${period.title}</strong></a><div class="topic-list">`;
       for (const topic of period.topics) {
         const activeTopic = topic.slug === config.topicSlug ? 'active' : '';
         html += `<a class="${activeTopic}" href="${RouteUtils.rel(config.depth, `${config.subjectKey}/${periodKey}/${topic.slug}`)}">${topic.title}</a>`;

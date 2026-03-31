@@ -149,6 +149,10 @@
   border-top: 1px solid var(--line);
 }
 
+.mobile-topic-shortcut {
+  display: none;
+}
+
 .sidebar .topic-list {
   margin-top: .4rem;
 }
@@ -179,6 +183,15 @@
   .sidebar { position: static; }
   .site-header .row { min-height: auto; }
   .main-nav { width: 100%; }
+
+  .mobile-topic-shortcut {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  body[data-period] .sidebar .period-list {
+    display: none;
+  }
 }
 
 @media (max-width: 760px) {
